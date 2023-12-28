@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "EconoMe"
 include(":app")
 include(":sources:core:di-core")
+include(":sources:core:navigation")

@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/sources" />
             <option value="$PROJECT_DIR$/sources/core" />
             <option value="$PROJECT_DIR$/sources/core/di-core" />
+            <option value="$PROJECT_DIR$/sources/core/navigation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
