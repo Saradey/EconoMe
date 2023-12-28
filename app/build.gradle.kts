@@ -7,18 +7,15 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome"
-    compileSdk = 34
-
+    compileSdk = extra["compileSdk"] as Int
     defaultConfig {
         applicationId = "evgenii.goncharov.econome"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
+        minSdk = extra["minSdk"] as Int
+        targetSdk = extra["targetSdk"] as Int
+        versionCode = extra["versionCode"] as Int
+        versionName = extra["versionName"] as String
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -38,8 +35,8 @@ android {
 }
 
 dependencies {
-
     // core
+    implementation(":sources:core:di-core")
     implementation(libs.core.ktx)
 
     // ui

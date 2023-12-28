@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "EconoMe"
 include(":app")
- 
+include(":sources:core:di-core")
