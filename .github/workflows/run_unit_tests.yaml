@@ -1,9 +1,9 @@
-name: Run Detekt
+name: Run unit tests
 
 on: push
 
 jobs:
-  detekt:
+  run_unit_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,5 +12,5 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Run Detekt
-        run: ./gradlew detekt
+      - name: Run unit tests
+        run: ./gradlew test
