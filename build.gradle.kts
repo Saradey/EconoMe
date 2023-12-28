@@ -5,6 +5,12 @@ allprojects {
     extra["minSdk"] = 24
     extra["versionCode"] = 1
     extra["versionName"] = "0.0.1"
+
+    plugins.withId("io.gitlab.arturbosch.detekt") {
+        configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {
+            source = files("src/main/kotlin")
+        }
+    }
 }
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
