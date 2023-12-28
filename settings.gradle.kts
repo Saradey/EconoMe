@@ -17,3 +17,4 @@ rootProject.name = "EconoMe"
 include(":app")
 include(":sources:core:di-core")
 include(":sources:core:navigation")
+include(":sources:resources:theme")

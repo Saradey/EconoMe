@@ -37,12 +37,16 @@ android {
 dependencies {
     // core
     implementation(":sources:core:di-core")
+    implementation(":sources:core:navigation")
     implementation(libs.core.ktx)
 
     // ui
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+
+    // resources
+    implementation(":sources:resources:theme")
 
     // tests
     testImplementation(libs.junit)

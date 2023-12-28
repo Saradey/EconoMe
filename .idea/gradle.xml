@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/sources/core" />
             <option value="$PROJECT_DIR$/sources/core/di-core" />
             <option value="$PROJECT_DIR$/sources/core/navigation" />
+            <option value="$PROJECT_DIR$/sources/resources" />
+            <option value="$PROJECT_DIR$/sources/resources/theme" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
