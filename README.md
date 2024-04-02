@@ -5,11 +5,6 @@ different stores for statistical purposes. I developed this application for myse
 financial outgoings. It's not intended as a commercial business solution but rather to demonstrate
 my Android platform development skills.
 
-I organized the architecture of this project in such a way: one screen (Fragment) is one gradle
-module. Based on logic, each screen will act as a separate feature. I understand this may seem like
-over-engineering, but this division is necessary for my small project to demonstrate the ability to
-organize a multi-module architecture.
-
 Regarding the architecture:
 
 - mvvm/Coroutine Flow
