@@ -11,7 +11,7 @@ Regarding the architecture:
 - di/dagger dependencies
 - gradle multimodal project (split feature: api/impl)
 - single activity
-- multibackstack fragments navigation
+- multi backstack fragments navigation
 - cicerone (navigation)
 
 Here is the technology stack used:
@@ -19,6 +19,7 @@ Here is the technology stack used:
 - jetpack compose with fragments - ui (with costume theme)
 - coroutines - async
 - Room - database
+- viewBinding in fragments
 
 Implementations:
 
