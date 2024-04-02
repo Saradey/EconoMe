@@ -10,13 +10,30 @@ module. Based on logic, each screen will act as a separate feature. I understand
 over-engineering, but this division is necessary for my small project to demonstrate the ability to
 organize a multi-module architecture.
 
-Regarding the architecture, here's the tech stack used:
+Regarding the architecture:
 
-- mvvm
+- mvvm/Coroutine Flow
 - di/dagger dependencies
-- gradle multimodal project
+- gradle multimodal project (split feature: api/impl)
 - single activity
+- multibackstack fragments navigation
+- cicerone (navigation)
 
 Here is the technology stack used:
 
-- jetpack compose with fragments
+- jetpack compose with fragments - ui (with costume theme)
+- coroutines - async
+- Room - database
+
+Implementations:
+
+- deeplink
+- notification
+- WorkManager
+- service
+- unit tests/ui tests/integration tests
+- widget on desktop launcher
+- Ci github actions
+    - detekt check
+    - lint check
+    - run unit tests
