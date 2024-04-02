@@ -38,3 +38,4 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 # quality
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt-version" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }

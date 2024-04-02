@@ -10,6 +10,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/sources" />
+            <option value="$PROJECT_DIR$/sources/core" />
+            <option value="$PROJECT_DIR$/sources/core/di-core" />
+            <option value="$PROJECT_DIR$/sources/core/navigation" />
+            <option value="$PROJECT_DIR$/sources/resources" />
+            <option value="$PROJECT_DIR$/sources/resources/theme" />
+            <option value="$PROJECT_DIR$/sources/resources/ui-kit" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
