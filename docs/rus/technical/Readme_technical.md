@@ -2,3 +2,4 @@
 
 - [Список измнений по версиям](versions.md)
 - [Список экранов](./screens/screens_list.md)
+- [Карта навигации](navigations_map.md)
