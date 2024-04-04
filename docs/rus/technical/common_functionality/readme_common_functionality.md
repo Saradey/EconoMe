@@ -2,3 +2,4 @@
 
 - [Описание реализации сущности User](user.md)
 - [Описание сущности кошелька](wallet.md)
+- [Описание splash screen](splash_screen.md)
