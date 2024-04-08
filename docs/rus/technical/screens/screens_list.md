@@ -17,3 +17,4 @@
 - [14. Диалоговое окно по добавлению шаблона денежного счета](screen_14_add_money_account_template.md)
 - [15. Экран выбора пользователя](screen_15_select_user.md)
 - [16. Экран всех кошельков](screen_16_all_wallets.md)
+- [17. Экран аналитики финансов](screen_17_financial%20analytics.md)
