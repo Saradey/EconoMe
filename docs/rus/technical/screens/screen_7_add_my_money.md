@@ -9,4 +9,6 @@
 
 (четвертая вкладка [экрана bottom navigation](screen_1_bottom_navigation_container.md)) (Открывается с нижнем меню)
 
+## Функционал
+
 ## Навигация (куда)
