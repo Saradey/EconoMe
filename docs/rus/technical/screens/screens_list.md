@@ -15,3 +15,4 @@
 - [12. Диалоговок окно по добавлению категории](screen_11_all_categories.md)
 - [13. Экран всех расходов](screen_13_all_spendings.md)
 - [14. Диалоговое окно по добавлению шаблона денежного счета](screen_14_add_money_account_template.md)
+- [15. Экран выбора пользователя](screen_15_select_user.md)
