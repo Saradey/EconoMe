@@ -13,3 +13,4 @@
 - [10. Диалоговое окно по установки дневного лимита на расходы](screen_10_add_spending_limit.md)
 - [11. Экран всех категорий](screen_11_all_categories.md)
 - [12. Диалоговок окно по добавлению категории](screen_11_all_categories.md)
+- [13. Экран всех расходов](screen_13_all_spendings.md)
