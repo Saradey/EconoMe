@@ -6,7 +6,7 @@ financial outgoings. It's not intended as a commercial business solution but rat
 my Android platform development skills.
 
 I implement certain functionalities in a quite specific way, and I can
-explain [here](docs/description_solutions_rus.md) why a particular
+explain [here (rus)](docs/description_solutions_rus.md) why a particular
 solution was implemented by me in such a manner. Thank you for your interest in my project.
 
 Regarding the architecture:
