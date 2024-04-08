@@ -19,4 +19,4 @@
 
 ## Навигация (куда)
 
-- [17. Экран аналитики финансов](screen_17_financial%20analytics.md)
+- [17. Экран аналитики финансов](screen_17_financial_analytics.md)
