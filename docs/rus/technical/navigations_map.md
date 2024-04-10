@@ -16,3 +16,10 @@
     - [10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
 
 
+- [3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md)
+    - Отсутсвует
+
+- [4. Экран создания кошелька расходов](screen_4_create_wallet.md)
+    - [1. Экран с нижнем bottomNavigation меню](screen_1_bottom_navigation_container.md)
+    - Отсутствует (2й кейс)
+
