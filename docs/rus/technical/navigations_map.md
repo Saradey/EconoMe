@@ -29,3 +29,10 @@
 - [6. Экран всех расходов с пангинацией](screens/screen_6_all_spendings_list.md)
     - [5. Экран информации по расходу](screens/screen_5_spending_info.md)
 
+- [7. Экран добавления информации о моих денежных средствах](screens/screen_7_add_my_money.md)
+    - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
+    - [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
+
+- [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
+    - Отсутсвует
+
