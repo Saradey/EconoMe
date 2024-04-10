@@ -68,3 +68,5 @@
 - [16. Экран всех кошельков](screens/screen_16_all_wallets.md)
     - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
 
+- [17. Экран аналитики финансов](screens/screen_17_financial_analytics.md)
+    - Отсутствует
