@@ -51,3 +51,10 @@
 
 - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
     - Отсутсвует
+
+- [13. Экран всех расходов](screens/screen_13_all_spendings.md)
+    - [17. Экран аналитики финансов](screens/screen_17_financial_analytics.md)
+
+- [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
+    - Отсутствует
+
