@@ -18,3 +18,5 @@
 - [15. Экран выбора пользователя](screen_15_select_user.md)
 - [16. Экран всех кошельков](screen_16_all_wallets.md)
 - [17. Экран аналитики финансов](screen_17_financial_analytics.md)
+- [18. Список магазинов для анализа затрат](screen_18_list_cost_analytics_shops.md)
+- [19. Экран добавления стоимости товара](screen_19_add_cost_product.md)
