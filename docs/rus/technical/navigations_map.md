@@ -10,3 +10,9 @@
     - [7. Экран добавления информации о моих денежных средствах](screens/screen_7_add_my_money.md)
     - [9. Экран настроек](screens/screen_9_settings.md)
 
+- [2. Главный экран](screens/screen_2_main.md)
+    - [3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md)
+    - [5. Экран информации по расходу](screens/screen_5_spending_info.md)
+    - [10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
+
+
