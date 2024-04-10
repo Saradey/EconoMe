@@ -26,7 +26,6 @@
 
 - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
     - [1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
-    - Отсутствует (2й кейс)
 
 - [5. Экран информации по расходу](screens/screen_5_spending_info.md)
     - Отсутсвует
@@ -66,4 +65,6 @@
 - [15. Экран выбора пользователя](screens/screen_15_select_user.md)
     - [1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
 
-- 
+- [16. Экран всех кошельков](screens/screen_16_all_wallets.md)
+    - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
+
