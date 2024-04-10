@@ -36,3 +36,13 @@
 - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
     - Отсутсвует
 
+- [9. Экран настроек](screens/screen_9_settings.md)
+    - [0. Экран создания аккаунта](screens/screen_0_create_account.md)
+    - [15. Экран выбора пользователя](screens/screen_15_select_user.md)
+    - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
+    - [16. Экран всех кошельков](screens/screen_16_all_wallets.md)
+    - [11. Экран всех категорий](screens/screen_11_all_categories.md)
+
+- [10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
+    - Отсутсвует
+
