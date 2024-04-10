@@ -63,3 +63,7 @@
 - [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
     - Отсутствует
 
+- [15. Экран выбора пользователя](screens/screen_15_select_user.md)
+    - [1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
+
+- 
