@@ -23,3 +23,4 @@
 - [20. Экран добавления магазина](screen_20_add_shop.md)
 - [21. Экран добавления категории товаров](screen_21_add_product_category.md)
 - [22. Экран добавления подкатегории товаров](screen_22_add_product_subcategory.md)
+- [23. Экран аналитики стоимости товаров](screen_23_analytics_product_costs.md)
