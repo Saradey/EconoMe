@@ -80,8 +80,12 @@
   нижнего меню)
     - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
 
-- [18. Список магазинов для анализа затрат](screens/screen_18_list_cost_analytics_shops.md) (без
-  нижнего меню и с)
+- [18. Список магазинов для анализа затрат](screens/screen_18_list_cost_analytics_shops.md) (с
+  нижнем меню и без)
     - [19. Экран добавления стоимости товара](screens/screen_19_add_cost_product.md)
     - [20. Экран добавления магазина](screens/screen_20_add_shop.md)
+
+- [19. Экран добавления стоимости товара](screens/screen_19_add_cost_product.md) (с нижнем меню и
+  без)
+    - Отсутсвует
 
