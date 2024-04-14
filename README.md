@@ -5,6 +5,10 @@ different stores for statistical purposes. I developed this application for myse
 financial outgoings. It's not intended as a commercial business solution but rather to demonstrate
 my Android platform development skills.
 
+I implement certain functionalities in a quite specific way, and I can
+explain [here (rus)](docs/description_solutions_rus.md) why a particular
+solution was implemented by me in such a manner. Thank you for your interest in my project.
+
 Regarding the architecture:
 
 - mvvm/Coroutine Flow

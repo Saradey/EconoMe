@@ -3,3 +3,5 @@
 - [Описание реализации сущности User](user.md)
 - [Описание сущности кошелька](wallet.md)
 - [Описание splash screen](splash_screen.md)
+- [Описание моделей в проекте](project_models.md)
+- [Описание общих фичей и технических реализаций](common_functionality.md)
