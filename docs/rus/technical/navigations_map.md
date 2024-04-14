@@ -84,6 +84,7 @@
   нижнем меню и без)
     - [19. Экран добавления стоимости товара](screens/screen_19_add_cost_product.md)
     - [20. Экран добавления магазина](screens/screen_20_add_shop.md)
+    - [23. Экран аналитики стоимости товаров](screens/screen_23_analytics_product_costs.md)
 
 - [19. Экран добавления стоимости товара](screens/screen_19_add_cost_product.md) (с нижнем меню и
   без)
@@ -102,3 +103,5 @@
   меню)
     - Отсутсвует
 
+- [23. Экран аналитики стоимости товаров](screens/screen_23_analytics_product_costs.md)
+    - Отсутсвует (с нижнем меню и без)
