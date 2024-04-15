@@ -43,6 +43,7 @@ dependencies {
     // core modules
     implementation(project(":sources:core:di-core"))
     implementation(project(":sources:core:navigation"))
+    implementation(project(":sources:resources:ui-kit"))
 
     // tests
     testImplementation(libs.junit)
