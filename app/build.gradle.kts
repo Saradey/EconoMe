@@ -39,6 +39,18 @@ dependencies {
     implementation(libs.core.ktx)
 
     // features
+    implementation(project(":sources:features:main-navigation-impl"))
+    implementation(project(":sources:features:main-impl"))
+    implementation(project(":sources:features:spending-impl"))
+    implementation(project(":sources:features:bank-accounts-impl"))
+    implementation(project(":sources:features:user-impl"))
+    implementation(project(":sources:features:wallet-impl"))
+    implementation(project(":sources:features:settings-impl"))
+    implementation(project(":sources:features:common-categories-impl"))
+    implementation(project(":sources:features:finance-analysis-impl"))
+    implementation(project(":sources:features:product-cost-analysis-impl"))
+    implementation(project(":sources:features:product-categories-impl"))
+    implementation(project(":sources:features:all-spending-impl"))
 
     // core modules
     implementation(project(":sources:engine:di-core"))
