@@ -51,6 +51,8 @@ android {
 
 dependencies {
 
+    implementation(project(":sources:resources:ui-kit"))
+
     implementation(libs.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
