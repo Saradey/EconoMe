@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome"
-    compileSdk = (extra["compileSdk"] as String).toInt()
+    compileSdk = extra["compileSdk"].toString().toInt()
     defaultConfig {
         applicationId = "evgenii.goncharov.econome"
-        minSdk = (extra["minSdk"] as String).toInt()
-        targetSdk = (extra["targetSdk"] as String).toInt()
-        versionCode = (extra["versionCode"] as String).toInt()
+        minSdk = extra["minSdk"].toString().toInt()
+        targetSdk = extra["targetSdk"].toString().toInt()
+        versionCode = extra["versionCode"].toString().toInt()
         versionName = extra["versionName"] as String
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
