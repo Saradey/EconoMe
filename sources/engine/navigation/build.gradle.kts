@@ -6,9 +6,9 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome.navigation"
-    compileSdk = (extra["compileSdk"] as String).toInt()
+    compileSdk = extra["compileSdk"].toString().toInt()
     defaultConfig {
-        minSdk = (extra["minSdk"] as String).toInt()
+        minSdk = extra["minSdk"].toString().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
