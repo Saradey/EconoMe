@@ -3,8 +3,7 @@ allprojects {
     extra["targetSdk"] = 34
     extra["compileSdk"] = 34
     extra["minSdk"] = 24
-    extra["versionCode"] = 1
-    extra["versionName"] = "0.0.1"
+    extra["composeVersion"] = "1.5.11"
 
     plugins.withId("io.gitlab.arturbosch.detekt") {
         configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {

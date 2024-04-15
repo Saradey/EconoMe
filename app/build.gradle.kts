@@ -12,7 +12,7 @@ android {
         applicationId = "evgenii.goncharov.econome"
         minSdk = extra["minSdk"] as Int
         targetSdk = extra["targetSdk"] as Int
-        versionCode = extra["versionCode"] as Int
+        versionCode = (extra["versionCode"] as String).toInt()
         versionName = extra["versionName"] as String
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
