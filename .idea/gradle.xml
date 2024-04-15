@@ -17,10 +17,14 @@
             <option value="$PROJECT_DIR$/sources/features" />
             <option value="$PROJECT_DIR$/sources/features/bank-accounts-api" />
             <option value="$PROJECT_DIR$/sources/features/bank-accounts-impl" />
+            <option value="$PROJECT_DIR$/sources/features/common-categories-api" />
+            <option value="$PROJECT_DIR$/sources/features/common-categories-impl" />
             <option value="$PROJECT_DIR$/sources/features/main-api" />
             <option value="$PROJECT_DIR$/sources/features/main-impl" />
             <option value="$PROJECT_DIR$/sources/features/main-navigation-api" />
             <option value="$PROJECT_DIR$/sources/features/main-navigation-impl" />
+            <option value="$PROJECT_DIR$/sources/features/settings-api" />
+            <option value="$PROJECT_DIR$/sources/features/settings-impl" />
             <option value="$PROJECT_DIR$/sources/features/spending-api" />
             <option value="$PROJECT_DIR$/sources/features/spending-impl" />
             <option value="$PROJECT_DIR$/sources/features/user-api" />
