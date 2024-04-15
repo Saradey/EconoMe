@@ -5,15 +5,13 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.brain.android.uikit_sandbox"
-    compileSdk = 34
-
+    compileSdk = extra["compileSdk"].toString().toInt()
     defaultConfig {
         applicationId = "evgenii.goncharov.brain.android.uikit_sandbox"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
+        minSdk = extra["minSdk"].toString().toInt()
+        targetSdk = extra["targetSdk"].toString().toInt()
+        versionCode = extra["versionCode"].toString().toInt()
+        versionName = extra["versionName"] as String
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -34,7 +32,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = extra["kotlinTarget"] as String
     }
     buildFeatures {
         compose = true
