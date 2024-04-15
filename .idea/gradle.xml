@@ -25,6 +25,8 @@
             <option value="$PROJECT_DIR$/sources/features/main-impl" />
             <option value="$PROJECT_DIR$/sources/features/main-navigation-api" />
             <option value="$PROJECT_DIR$/sources/features/main-navigation-impl" />
+            <option value="$PROJECT_DIR$/sources/features/product-categories-api" />
+            <option value="$PROJECT_DIR$/sources/features/product-categories-impl" />
             <option value="$PROJECT_DIR$/sources/features/product-cost-analysis-api" />
             <option value="$PROJECT_DIR$/sources/features/product-cost-analysis-impl" />
             <option value="$PROJECT_DIR$/sources/features/settings-api" />
