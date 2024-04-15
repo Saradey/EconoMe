@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome
+package evgenii.goncharov.econome.uikit_sandbox
 
 import org.junit.Test
 

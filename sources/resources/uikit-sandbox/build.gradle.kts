@@ -4,19 +4,22 @@ plugins {
 }
 
 android {
-    namespace = "evgenii.goncharov.econome"
+    namespace = "evgenii.goncharov.econome.uikit_sandbox"
     compileSdk = extra["compileSdk"].toString().toInt()
+
     defaultConfig {
-        applicationId = "evgenii.goncharov.econome"
+        applicationId = "evgenii.goncharov.econome.uikit_sandbox"
         minSdk = extra["minSdk"].toString().toInt()
         targetSdk = extra["targetSdk"].toString().toInt()
         versionCode = extra["versionCode"].toString().toInt()
         versionName = extra["versionName"] as String
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
+
     buildTypes {
         release {
             isMinifyEnabled = false

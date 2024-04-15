@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.ui.theme
+package evgenii.goncharov.econome.uikit_sandbox.ui.theme
 
 import android.app.Activity
 import android.os.Build
