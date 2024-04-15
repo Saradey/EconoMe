@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$/sources/features/main-navigation-impl" />
             <option value="$PROJECT_DIR$/sources/features/spending-api" />
             <option value="$PROJECT_DIR$/sources/features/spending-impl" />
+            <option value="$PROJECT_DIR$/sources/features/user-api" />
+            <option value="$PROJECT_DIR$/sources/features/user-impl" />
             <option value="$PROJECT_DIR$/sources/resources" />
             <option value="$PROJECT_DIR$/sources/resources/ui-kit" />
             <option value="$PROJECT_DIR$/sources/resources/uikit-sandbox" />
