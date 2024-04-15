@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/sources/engine/di-core" />
             <option value="$PROJECT_DIR$/sources/engine/navigation" />
             <option value="$PROJECT_DIR$/sources/features" />
+            <option value="$PROJECT_DIR$/sources/features/all-spending-api" />
+            <option value="$PROJECT_DIR$/sources/features/all-spending-impl" />
             <option value="$PROJECT_DIR$/sources/features/bank-accounts-api" />
             <option value="$PROJECT_DIR$/sources/features/bank-accounts-impl" />
             <option value="$PROJECT_DIR$/sources/features/common-categories-api" />
