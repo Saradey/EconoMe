@@ -6,9 +6,9 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome.ui_kit"
-    compileSdk = extra["compileSdk"] as Int
+    compileSdk = (extra["compileSdk"] as String).toInt()
     defaultConfig {
-        minSdk = extra["minSdk"] as Int
+        minSdk = (extra["minSdk"] as String).toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
