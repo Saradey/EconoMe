@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    api(project(":sources:features:spending-api"))
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)

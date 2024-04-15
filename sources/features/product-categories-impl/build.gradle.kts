@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    api(project(":sources:features:product-categories-api"))
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)
