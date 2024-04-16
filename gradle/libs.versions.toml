@@ -3,6 +3,19 @@
 agp = "8.3.2"
 kotlin = "1.9.23"
 core-ktx = "1.12.0"
+lifecycle-runtime-ktx = "2.7.0"
+
+# ui
+activity-compose = "1.8.2"
+compose-bom = "2024.04.00"
+
+# di
+#https://github.com/google/dagger
+dagger-version = "2.51.1"
+
+# navigation
+#https://github.com/terrakok/Cicerone
+cicerone-version = "7.1"
 
 # tests
 junit = "4.13.2"
@@ -11,16 +24,18 @@ espresso-core = "3.5.1"
 
 # quality
 detekt-version = "1.23.4"
-lifecycle-runtime-ktx = "2.7.0"
-activity-compose = "1.8.2"
-compose-bom = "2024.04.00"
-appcompat = "1.6.1"
-material = "1.11.0"
 
 [libraries]
 # core
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+
+# di
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger-version" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger-version" }
+
+# navigation
+cicerone = { module = "com.github.terrakok:cicerone", version.ref = "cicerone-version" }
 
 # ui
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
@@ -37,8 +52,6 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 # core
