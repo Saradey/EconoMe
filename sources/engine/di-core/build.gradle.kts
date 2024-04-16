@@ -6,4 +6,6 @@ android {
 
 dependencies {
 
+    implementation(libs.cicerone)
+    implementation(libs.dagger)
 }
