@@ -1,11 +1,6 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-allprojects {
-    extra["targetSdk"] = 34
-    extra["compileSdk"] = 34
-    extra["minSdk"] = 24
-    extra["versionCode"] = 1
-    extra["versionName"] = "0.0.1"
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+allprojects {
     plugins.withId("io.gitlab.arturbosch.detekt") {
         configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {
             source = files("src/main/kotlin")
@@ -13,7 +8,35 @@ allprojects {
     }
 }
 
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+subprojects {
+    if (displayName.contains("app").not() &&
+        displayName.contains("uikit-sandbox").not() &&
+        file("src").exists()
+    ) {
+        with(pluginManager) {
+            apply("com.android.library")
+            apply("org.jetbrains.kotlin.android")
+        }
+    }
+    plugins.withId("com.android.library") {
+        configure<com.android.build.gradle.LibraryExtension> {
+            compileSdk = extra["compileSdk"].toString().toInt()
+            defaultConfig {
+                minSdk = extra["minSdk"].toString().toInt()
+            }
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_1_8
+                targetCompatibility = JavaVersion.VERSION_1_8
+            }
+        }
+        tasks.withType<KotlinCompile>().configureEach {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+}
+
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false

@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -7,12 +6,12 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome"
-    compileSdk = extra["compileSdk"] as Int
+    compileSdk = extra["compileSdk"].toString().toInt()
     defaultConfig {
         applicationId = "evgenii.goncharov.econome"
-        minSdk = extra["minSdk"] as Int
-        targetSdk = extra["targetSdk"] as Int
-        versionCode = extra["versionCode"] as Int
+        minSdk = extra["minSdk"].toString().toInt()
+        targetSdk = extra["targetSdk"].toString().toInt()
+        versionCode = extra["versionCode"].toString().toInt()
         versionName = extra["versionName"] as String
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,23 +29,32 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = extra["kotlinTarget"] as String
     }
 }
 
 dependencies {
     // core
-    implementation(project(":sources:core:di-core"))
-    implementation(project(":sources:core:navigation"))
     implementation(libs.core.ktx)
 
-    // ui
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.constraintlayout)
+    // features
+    implementation(project(":sources:features:main-navigation-impl"))
+    implementation(project(":sources:features:main-impl"))
+    implementation(project(":sources:features:spending-impl"))
+    implementation(project(":sources:features:bank-accounts-impl"))
+    implementation(project(":sources:features:user-impl"))
+    implementation(project(":sources:features:wallet-impl"))
+    implementation(project(":sources:features:settings-impl"))
+    implementation(project(":sources:features:common-categories-impl"))
+    implementation(project(":sources:features:finance-analysis-impl"))
+    implementation(project(":sources:features:product-cost-analysis-impl"))
+    implementation(project(":sources:features:product-categories-impl"))
+    implementation(project(":sources:features:all-spending-impl"))
 
-    // resources
-    implementation(project(":sources:resources:theme"))
+    // core modules
+    implementation(project(":sources:engine:di-core"))
+    implementation(project(":sources:engine:navigation"))
+    implementation(project(":sources:resources:ui-kit"))
 
     // tests
     testImplementation(libs.junit)

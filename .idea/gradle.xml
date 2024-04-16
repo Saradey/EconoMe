@@ -11,12 +11,37 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/sources" />
-            <option value="$PROJECT_DIR$/sources/core" />
-            <option value="$PROJECT_DIR$/sources/core/di-core" />
-            <option value="$PROJECT_DIR$/sources/core/navigation" />
+            <option value="$PROJECT_DIR$/sources/engine" />
+            <option value="$PROJECT_DIR$/sources/engine/di-core" />
+            <option value="$PROJECT_DIR$/sources/engine/navigation" />
+            <option value="$PROJECT_DIR$/sources/features" />
+            <option value="$PROJECT_DIR$/sources/features/all-spending-api" />
+            <option value="$PROJECT_DIR$/sources/features/all-spending-impl" />
+            <option value="$PROJECT_DIR$/sources/features/bank-accounts-api" />
+            <option value="$PROJECT_DIR$/sources/features/bank-accounts-impl" />
+            <option value="$PROJECT_DIR$/sources/features/common-categories-api" />
+            <option value="$PROJECT_DIR$/sources/features/common-categories-impl" />
+            <option value="$PROJECT_DIR$/sources/features/finance-analysis-api" />
+            <option value="$PROJECT_DIR$/sources/features/finance-analysis-impl" />
+            <option value="$PROJECT_DIR$/sources/features/main-api" />
+            <option value="$PROJECT_DIR$/sources/features/main-impl" />
+            <option value="$PROJECT_DIR$/sources/features/main-navigation-api" />
+            <option value="$PROJECT_DIR$/sources/features/main-navigation-impl" />
+            <option value="$PROJECT_DIR$/sources/features/product-categories-api" />
+            <option value="$PROJECT_DIR$/sources/features/product-categories-impl" />
+            <option value="$PROJECT_DIR$/sources/features/product-cost-analysis-api" />
+            <option value="$PROJECT_DIR$/sources/features/product-cost-analysis-impl" />
+            <option value="$PROJECT_DIR$/sources/features/settings-api" />
+            <option value="$PROJECT_DIR$/sources/features/settings-impl" />
+            <option value="$PROJECT_DIR$/sources/features/spending-api" />
+            <option value="$PROJECT_DIR$/sources/features/spending-impl" />
+            <option value="$PROJECT_DIR$/sources/features/user-api" />
+            <option value="$PROJECT_DIR$/sources/features/user-impl" />
+            <option value="$PROJECT_DIR$/sources/features/wallet-api" />
+            <option value="$PROJECT_DIR$/sources/features/wallet-impl" />
             <option value="$PROJECT_DIR$/sources/resources" />
-            <option value="$PROJECT_DIR$/sources/resources/theme" />
             <option value="$PROJECT_DIR$/sources/resources/ui-kit" />
+            <option value="$PROJECT_DIR$/sources/resources/uikit-sandbox" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
