@@ -2,6 +2,12 @@ plugins {}
 
 android {
     namespace = "evgenii.goncharov.econome.di_core"
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = extra["composeVersion"] as String
+    }
 }
 
 dependencies {
