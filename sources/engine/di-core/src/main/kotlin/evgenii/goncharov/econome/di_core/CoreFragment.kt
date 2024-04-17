@@ -1,4 +1,21 @@
 package evgenii.goncharov.econome.di_core
 
-public abstract class CoreFragment {
+import android.os.Bundle
+import android.view.View
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.ComposeView
+import androidx.fragment.app.Fragment
+
+public abstract class CoreFragment : Fragment(R.layout.fragment_core) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val container = view.findViewById<ComposeView>(R.id.cv_container)
+        container.setContent {
+            InitContent()
+        }
+    }
+
+    @Composable
+    public abstract fun InitContent()
 }
