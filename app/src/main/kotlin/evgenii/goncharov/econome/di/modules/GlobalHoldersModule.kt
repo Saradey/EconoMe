@@ -4,8 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
+import evgenii.goncharov.econome.di.holder.LaunchersHolder
 import evgenii.goncharov.econome.di.stub.StubGlobalApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
+import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
 import javax.inject.Singleton
 
@@ -20,4 +22,9 @@ object GlobalHoldersModule {
                 return object : StubGlobalApi {}
             }
         }
+
+    @[Provides Singleton]
+    @[IntoMap ClassKey(LaunchersApi::class)]
+    fun provideLaunchersHolder(featureContainer: FeatureContainerManager): BaseHolder<*> =
+        LaunchersHolder(featureContainer)
 }
