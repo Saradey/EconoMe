@@ -5,6 +5,8 @@ import android.view.View
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
+import evgenii.goncharov.econome.di_core.engine.DI
 
 public abstract class CoreFragment : Fragment(R.layout.fragment_core) {
 
@@ -18,4 +20,7 @@ public abstract class CoreFragment : Fragment(R.layout.fragment_core) {
 
     @Composable
     public abstract fun InitContent()
+
+    protected fun getFeatureApi(key: Class<out ReleasableApi>): ReleasableApi =
+        DI.getFeatureApi(key)
 }
