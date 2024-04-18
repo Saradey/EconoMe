@@ -4,7 +4,7 @@ import evgenii.goncharov.econome.di.DaggerLaunchersComponent
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
-import evgenii.goncharov.econome.navigation.CoreNavigationApi
+import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 
 class LaunchersHolder(
     container: FeatureContainerManager

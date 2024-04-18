@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.navigation
+package evgenii.goncharov.econome.navigation.api
 
 import com.github.terrakok.cicerone.NavigatorHolder
 import javax.inject.Named
