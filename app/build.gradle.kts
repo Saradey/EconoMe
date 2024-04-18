@@ -61,6 +61,7 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:resources:ui-kit"))
+    implementation(project(":sources:core:common"))
 
     // tests
     testImplementation(libs.junit)
