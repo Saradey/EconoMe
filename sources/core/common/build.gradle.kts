@@ -6,4 +6,6 @@ android {
 
 dependencies {
 
+    implementation(libs.dagger)
+    implementation(libs.lifecycle.viewmodel)
 }

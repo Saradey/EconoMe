@@ -6,11 +6,12 @@ core-ktx = "1.13.0"
 lifecycle-runtime-ktx = "2.7.0"
 fragment-version = "1.6.2"
 activity-version = "1.9.0"
-app-compat-version = "1.6.1"
+viewmodel-version = "2.7.0"
 
 # ui
 activity-compose = "1.9.0"
 compose-bom = "2024.04.00"
+app-compat-version = "1.6.1"
 
 # di
 dagger-version = "2.51.1"
@@ -31,8 +32,8 @@ detekt-version = "1.23.4"
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-version" }
-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-version"}
-app-compat = { module = "androidx.appcompat:appcompat", version.ref = "app-compat-version" }
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-version" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "viewmodel-version" }
 
 # di
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger-version" }
@@ -49,6 +50,7 @@ androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+app-compat = { module = "androidx.appcompat:appcompat", version.ref = "app-compat-version" }
 
 # tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }

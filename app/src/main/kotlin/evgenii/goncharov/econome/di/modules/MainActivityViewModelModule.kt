@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import evgenii.goncharov.econome.common.MultiViewModelFactory
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 
 @Module
