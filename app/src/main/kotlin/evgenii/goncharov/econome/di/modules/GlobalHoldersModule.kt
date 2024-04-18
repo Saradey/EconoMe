@@ -15,15 +15,6 @@ import javax.inject.Singleton
 object GlobalHoldersModule {
 
     @[Provides Singleton]
-    @[IntoMap ClassKey(StubGlobalApi::class)]
-    fun provideNavigationHolder(featureContainer: FeatureContainerManager): BaseHolder<*> =
-        object : BaseHolder<StubGlobalApi>(featureContainer) {
-            override fun buildComponent(): StubGlobalApi {
-                return object : StubGlobalApi {}
-            }
-        }
-
-    @[Provides Singleton]
     @[IntoMap ClassKey(LaunchersApi::class)]
     fun provideLaunchersHolder(featureContainer: FeatureContainerManager): BaseHolder<*> =
         LaunchersHolder(featureContainer)
