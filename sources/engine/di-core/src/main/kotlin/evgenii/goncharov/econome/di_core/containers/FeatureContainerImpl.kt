@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.di_core.containers
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
+import evgenii.goncharov.econome.di_core.holders.BaseHolder
+import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.di_core.initializer.FeatureHolderInitializer
 import evgenii.goncharov.econome.di_core.initializer.GlobalHolderInitializer
 
@@ -18,6 +20,7 @@ internal class FeatureContainerImpl(
         return getFeatureHolder(key).getComponent()
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun <GC> getGlobalComponent(key: Class<GC>): GC {
         return globalHolder[key]?.getComponent() as GC
             ?: throw IllegalStateException(String.format(FAILED_GET_GLOBAL_HOLDER, key))

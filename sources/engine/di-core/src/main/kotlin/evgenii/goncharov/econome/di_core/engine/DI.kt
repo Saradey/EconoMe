@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.di_core.engine
 
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
+import evgenii.goncharov.econome.di_core.containers.FeatureContainerImpl
 import evgenii.goncharov.econome.di_core.containers.NotInitializedFeatureContainer
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
