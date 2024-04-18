@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.detekt)
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,6 +37,8 @@ android {
 dependencies {
     // core
     implementation(libs.core.ktx)
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
     // features
     implementation(project(":sources:features:main-navigation-impl"))
