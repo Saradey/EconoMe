@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.di.contracts.MainActivityApi
+import evgenii.goncharov.econome.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
