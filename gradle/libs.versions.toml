@@ -6,17 +6,16 @@ core-ktx = "1.13.0"
 lifecycle-runtime-ktx = "2.7.0"
 fragment-version = "1.6.2"
 activity-version = "1.9.0"
+app-compat-version = "1.6.1"
 
 # ui
 activity-compose = "1.9.0"
 compose-bom = "2024.04.00"
 
 # di
-#https://github.com/google/dagger
 dagger-version = "2.51.1"
 
 # navigation
-#https://github.com/terrakok/Cicerone
 cicerone-version = "7.1"
 
 # tests
@@ -33,6 +32,7 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-version" }
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-version"}
+app-compat = { module = "androidx.appcompat:appcompat", version.ref = "app-compat-version" }
 
 # di
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger-version" }

@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.cicerone)
+    implementation(libs.app.compat)
     implementation(libs.activity.ktx)
 
     // features
