@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.cicerone)
+    implementation(libs.activity.ktx)
 
     // features
     implementation(project(":sources:features:main-navigation-impl"))

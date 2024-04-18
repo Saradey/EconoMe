@@ -2,12 +2,13 @@
 # core
 agp = "8.3.2"
 kotlin = "1.9.23"
-core-ktx = "1.12.0"
+core-ktx = "1.13.0"
 lifecycle-runtime-ktx = "2.7.0"
 fragment-version = "1.6.2"
+activity-version = "1.9.0"
 
 # ui
-activity-compose = "1.8.2"
+activity-compose = "1.9.0"
 compose-bom = "2024.04.00"
 
 # di
@@ -31,6 +32,7 @@ detekt-version = "1.23.4"
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-version" }
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-version"}
 
 # di
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger-version" }
