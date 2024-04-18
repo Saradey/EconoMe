@@ -18,5 +18,5 @@ internal interface MainActivityViewModelModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(MainActivityViewModel::class)]
-    fun provideMainActivityViewModel(): ViewModel
+    fun provideMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
 }

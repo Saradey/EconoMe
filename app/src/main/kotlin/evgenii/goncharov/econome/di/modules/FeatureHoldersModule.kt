@@ -15,15 +15,6 @@ import javax.inject.Singleton
 object FeatureHoldersModule {
 
     @[Singleton Provides]
-    @[IntoMap ClassKey(ReleasableApi::class)]
-    fun provideMainActivityHolder(featureContainer: FeatureContainer): FeatureHolder<*> =
-        object : FeatureHolder<ReleasableApi>(featureContainer) {
-            override fun buildComponent(): ReleasableApi {
-                return object : ReleasableApi {}
-            }
-        }
-
-    @[Singleton Provides]
     @[IntoMap ClassKey(MainActivityApi::class)]
     fun provideMainActivityHolder(featureContainer: FeatureContainer): FeatureHolder<*> =
         MainActivityHolder(featureContainer)
