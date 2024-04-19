@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.fragment.ktx)
 
     // features
+    implementation(project(":sources:engine:main-activity"))
     implementation(project(":sources:features:main-navigation-impl"))
     implementation(project(":sources:features:main-impl"))
     implementation(project(":sources:features:spending-impl"))

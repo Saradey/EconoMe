@@ -1,13 +1,13 @@
-package evgenii.goncharov.econome.navigation
+package evgenii.goncharov.econome.main_activity.navigation
 
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
 import com.github.terrakok.cicerone.Command
 import evgenii.goncharov.econome.navigation.base.BaseNavigator
-import evgenii.goncharov.econome.R
+import evgenii.goncharov.econome.main_activity.R
 
-class MainNavigator(
+internal class MainNavigator(
     activity: FragmentActivity
 ) : BaseNavigator() {
 

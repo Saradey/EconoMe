@@ -1,13 +1,13 @@
-package evgenii.goncharov.econome
+package evgenii.goncharov.econome.main_activity
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import evgenii.goncharov.econome.di.contracts.MainActivityApi
-import evgenii.goncharov.econome.di.contracts.MainActivityInternal
 import evgenii.goncharov.econome.di_core.CoreActivity
-import evgenii.goncharov.econome.navigation.MainNavigator
+import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
+import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityInternal
+import evgenii.goncharov.econome.main_activity.navigation.MainNavigator
 
-class MainActivity : CoreActivity() {
+internal class MainActivity : CoreActivity() {
 
     private val dependency: MainActivityInternal by lazy {
         getFeatureApi(MainActivityApi::class.java) as MainActivityInternal
