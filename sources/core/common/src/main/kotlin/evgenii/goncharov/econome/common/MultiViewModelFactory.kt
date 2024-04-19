@@ -2,8 +2,8 @@ package evgenii.goncharov.econome.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import dagger.internal.Provider
 import javax.inject.Inject
+import javax.inject.Provider
 
 public class MultiViewModelFactory @Inject constructor(
     private val viewModelFactories: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>,
