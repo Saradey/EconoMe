@@ -21,7 +21,16 @@ class MainActivity : CoreActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel
+    }
+
+    override fun onResume() {
+        super.onResume()
+        globalNavigatorHolder.setNavigator(mainNavigator)
+    }
+
+    override fun onPause() {
+        globalNavigatorHolder.removeNavigator()
+        super.onPause()
     }
 
     override fun releaseDependency() {
