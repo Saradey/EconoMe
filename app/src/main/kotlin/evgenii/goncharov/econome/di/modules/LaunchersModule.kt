@@ -8,7 +8,7 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import javax.inject.Singleton
 
 @Module
-object LauncherModule {
+object LaunchersModule {
 
     @Provides
     @[Singleton IntoMap ClassKey(BaseLauncher::class)]

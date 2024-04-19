@@ -1,7 +1,7 @@
 package evgenii.goncharov.econome.di
 
 import dagger.Component
-import evgenii.goncharov.econome.di.modules.LauncherModule
+import evgenii.goncharov.econome.di.modules.LaunchersModule
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 import javax.inject.Singleton
@@ -9,6 +9,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     dependencies = [CoreNavigationApi::class],
-    modules = [LauncherModule::class]
+    modules = [LaunchersModule::class]
 )
 interface LaunchersComponent : LaunchersApi
