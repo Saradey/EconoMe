@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.di
+package evgenii.goncharov.econome.di.components
 
 import android.content.Context
 import dagger.BindsInstance
