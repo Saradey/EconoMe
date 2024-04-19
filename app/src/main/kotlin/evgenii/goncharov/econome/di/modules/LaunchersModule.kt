@@ -1,18 +1,17 @@
 package evgenii.goncharov.econome.di.modules
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
+import evgenii.goncharov.econome.user_api.UserLauncher
+import evgenii.goncharov.econome.user_impl.navigation.UserLauncherImpl
 import javax.inject.Singleton
 
 @Module
-object LaunchersModule {
+interface LaunchersModule {
 
-    @Provides
-    @[Singleton IntoMap ClassKey(BaseLauncher::class)]
-    fun provideBalanceHistoryLauncher(): BaseLauncher {
-        return object : BaseLauncher {}
-    }
+    @[Binds Singleton IntoMap ClassKey(UserLauncher::class)]
+    fun bindUserLauncher(userLauncher: UserLauncherImpl): BaseLauncher
 }
