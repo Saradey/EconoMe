@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import evgenii.goncharov.econome.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.di.contracts.MainActivityInternal
 import evgenii.goncharov.econome.di_core.CoreActivity
+import evgenii.goncharov.econome.navigation.MainNavigator
 
 class MainActivity : CoreActivity() {
 
@@ -12,6 +13,7 @@ class MainActivity : CoreActivity() {
         getFeatureApi(MainActivityApi::class.java) as MainActivityInternal
     }
     private val globalNavigatorHolder = dependency.provideGlobalNavigatorHolder()
+    private val mainNavigator: MainNavigator = MainNavigator(this)
     private val viewModel: MainActivityViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
