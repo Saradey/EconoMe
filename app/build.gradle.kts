@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.cicerone)
     implementation(libs.app.compat)
     implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
 
     // features
     implementation(project(":sources:features:main-navigation-impl"))

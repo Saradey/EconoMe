@@ -11,5 +11,6 @@ dependencies {
 
     implementation(libs.cicerone)
     implementation(libs.dagger)
+    implementation(libs.fragment.ktx)
     kapt(libs.dagger.compiler)
 }
