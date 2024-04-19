@@ -11,12 +11,12 @@ import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 
 @Module
-internal interface MainActivityViewModelModule {
-
-    @[Binds FeatureScope]
-    fun provideMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
+internal interface MainActivityBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(MainActivityViewModel::class)]
     fun provideMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
+
+    @[Binds FeatureScope]
+    fun provideMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
 }
