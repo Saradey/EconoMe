@@ -5,4 +5,8 @@ import javax.inject.Inject
 
 class MainActivityViewModel @Inject constructor() : ViewModel() {
 
+
+    fun appStart() {
+
+    }
 }

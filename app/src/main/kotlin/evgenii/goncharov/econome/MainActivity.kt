@@ -21,6 +21,7 @@ class MainActivity : CoreActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        savedInstanceState ?: viewModel.appStart()
     }
 
     override fun onResume() {
