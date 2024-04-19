@@ -1,7 +1,7 @@
 package evgenii.goncharov.econome.initializer
 
 import android.content.Context
-import evgenii.goncharov.econome.di.DaggerGlobalHoldersComponent
+import evgenii.goncharov.econome.di.components.DaggerGlobalHoldersComponent
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
 import evgenii.goncharov.econome.di_core.initializer.GlobalHolderInitializer
