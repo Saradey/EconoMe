@@ -4,4 +4,5 @@ import evgenii.goncharov.econome.di_core.CoreFeatureContainerFragment
 
 internal class UserFeatureContainerFragment : CoreFeatureContainerFragment() {
 
+
 }
