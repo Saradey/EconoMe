@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.detekt)
+    id("kotlin-kapt")
 }
 
 android {
@@ -31,13 +32,30 @@ android {
     kotlinOptions {
         jvmTarget = extra["kotlinTarget"] as String
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = extra["composeVersion"] as String
+    }
 }
 
 dependencies {
     // core
     implementation(libs.core.ktx)
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+    implementation(libs.cicerone)
+    implementation(libs.app.compat)
+    implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.material3)
 
     // features
+    implementation(project(":sources:engine:main-activity"))
     implementation(project(":sources:features:main-navigation-impl"))
     implementation(project(":sources:features:main-impl"))
     implementation(project(":sources:features:spending-impl"))
@@ -55,6 +73,7 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:resources:ui-kit"))
+    implementation(project(":sources:core:common"))
 
     // tests
     testImplementation(libs.junit)
