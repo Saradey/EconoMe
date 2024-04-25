@@ -13,4 +13,8 @@ public class UserLauncherImpl @Inject constructor(
     override fun launchUserCreator() {
         globalRouter.navigateTo(UserScreens.startUserCreator())
     }
+
+    override fun launchUserChoosing() {
+        globalRouter.navigateTo(UserScreens.startUserChoosing())
+    }
 }
