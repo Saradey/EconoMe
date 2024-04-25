@@ -20,4 +20,5 @@ dependencies {
     implementation(project(":sources:core:common"))
 
     implementation(project(":sources:features:user-api"))
+    implementation(project(":sources:features:main-navigation-api"))
 }
