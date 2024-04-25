@@ -32,6 +32,12 @@ android {
     kotlinOptions {
         jvmTarget = extra["kotlinTarget"] as String
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = extra["composeVersion"] as String
+    }
 }
 
 dependencies {
@@ -43,6 +49,10 @@ dependencies {
     implementation(libs.app.compat)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.material3)
 
     // features
     implementation(project(":sources:engine:main-activity"))
