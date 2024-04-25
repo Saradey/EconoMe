@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigatio
 import evgenii.goncharov.econome.main_navigation_impl.ui.MainNavigationScreen
 import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigationViewModel
 
+/**
+ * 1. Screen
+ */
 internal class MainNavigationFragment : CoreFragment() {
 
     private val dependency: MainNavigationInternal by lazy {
