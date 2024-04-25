@@ -14,9 +14,9 @@ import evgenii.goncharov.econome.user_impl.view.models.UserCreatorViewModel
 internal interface UserViewModelBindsModule {
 
     @[Binds FeatureScope]
-    fun provideMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
+    fun bindMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(UserCreatorViewModel::class)]
-    fun provideMainActivityViewModel(viewModel: UserCreatorViewModel): ViewModel
+    fun bindMainActivityViewModel(viewModel: UserCreatorViewModel): ViewModel
 }
