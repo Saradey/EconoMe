@@ -8,9 +8,9 @@ import javax.inject.Named
 
 public class MainNavigationLauncherImpl @Inject constructor(
     @Named(GLOBAL_ROUTER) private val globalRouter: Router
-): MainNavigationLauncher {
+) : MainNavigationLauncher {
 
     override fun launchMainNavigation() {
-
+        globalRouter.navigateTo(NavigationScreens.startMainNavigation())
     }
 }
