@@ -4,7 +4,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import evgenii.goncharov.econome.user_impl.fragments.UserChoosingFragment
 import evgenii.goncharov.econome.user_impl.fragments.UserCreatorFragment
 
-internal object UserScreens {
+internal object NavigationUserScreens {
 
     fun startUserCreator() = FragmentScreen {
         UserCreatorFragment.newInstance()
