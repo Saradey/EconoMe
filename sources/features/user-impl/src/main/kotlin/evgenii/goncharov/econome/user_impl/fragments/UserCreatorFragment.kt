@@ -1,16 +1,11 @@
 package evgenii.goncharov.econome.user_impl.fragments
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.contracts.UserCreatorInternal
+import evgenii.goncharov.econome.user_impl.ui.UserCreatorScreen
 import evgenii.goncharov.econome.user_impl.view.models.UserCreatorViewModel
 
 /**
@@ -28,16 +23,7 @@ internal class UserCreatorFragment : CoreFragment() {
     @Composable
     override fun InitContent() {
         viewModel
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text(
-                text = "UserCreatorFragment Создание пользователя",
-                color = Color.White,
-                fontSize = 20.sp
-            )
-        }
+        UserCreatorScreen()
     }
 
     override fun releaseDependencies() {
