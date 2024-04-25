@@ -15,8 +15,8 @@ internal interface MainActivityBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(MainActivityViewModel::class)]
-    fun provideMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
+    fun bindMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
 
     @[Binds FeatureScope]
-    fun provideMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
+    fun bindMultiViewModelFactory(factory: MultiViewModelFactory): ViewModelProvider.Factory
 }
