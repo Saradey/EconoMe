@@ -5,8 +5,9 @@ import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
+import javax.inject.Inject
 
-class LaunchersHolder(
+class LaunchersHolder @Inject constructor(
     container: FeatureContainerManager
 ) : BaseHolder<LaunchersApi>(container) {
 
