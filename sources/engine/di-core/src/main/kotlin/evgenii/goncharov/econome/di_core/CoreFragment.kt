@@ -23,4 +23,10 @@ public abstract class CoreFragment : Fragment(R.layout.fragment_core) {
 
     protected fun getFeatureApi(key: Class<out ReleasableApi>): ReleasableApi =
         DI.getFeatureApi(key)
+
+    protected abstract fun releaseDependencies()
+
+    protected fun releaseFeatureApi(key: Class<out ReleasableApi>) {
+        DI.releaseFeatureApi(key)
+    }
 }
