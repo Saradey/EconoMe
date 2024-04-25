@@ -11,6 +11,8 @@ dependencies {
     implementation((project(":sources:engine:di-core")))
     implementation(project(":sources:engine:navigation"))
 
+    implementation(libs.app.compat)
     implementation(libs.cicerone)
     implementation(libs.dagger)
+    implementation(libs.fragment.ktx)
 }
