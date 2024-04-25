@@ -4,5 +4,5 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface UserLauncher: BaseLauncher {
 
-    public fun launch()
+    public fun launchUserCreator()
 }

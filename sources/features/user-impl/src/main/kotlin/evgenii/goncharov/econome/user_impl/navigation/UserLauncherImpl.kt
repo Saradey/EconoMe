@@ -10,5 +10,7 @@ public class UserLauncherImpl @Inject constructor(
     @Named(GLOBAL_ROUTER) private val globalRouter: Router
 ) : UserLauncher {
 
-    override fun launch() {}
+    override fun launchUserCreator() {
+        globalRouter.navigateTo(UserScreens.startUserCreator())
+    }
 }
