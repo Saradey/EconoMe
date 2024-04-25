@@ -7,7 +7,9 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
+import evgenii.goncharov.econome.user_api.di.UserChoosingApi
 import evgenii.goncharov.econome.user_api.di.UserCreatorApi
+import evgenii.goncharov.econome.user_impl.di.holder.UserChoosingHolder
 import evgenii.goncharov.econome.user_impl.di.holder.UserCreatorHolder
 import javax.inject.Singleton
 
@@ -19,4 +21,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(UserCreatorApi::class)]
     fun bindUserCreatorHolder(mainActivityHolder: UserCreatorHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(UserChoosingApi::class)]
+    fun bindUserChoosingHolder(mainActivityHolder: UserChoosingHolder): FeatureHolder<*>
 }

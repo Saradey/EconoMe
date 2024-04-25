@@ -10,6 +10,7 @@ internal class MainActivityViewModel @Inject constructor(
 
 
     fun appStart() {
-        userLauncher.launchUserCreator()
+//        userLauncher.launchUserCreator()
+        userLauncher.launchUserChoosing()
     }
 }
