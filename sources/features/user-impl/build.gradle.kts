@@ -1,4 +1,5 @@
 plugins {
+    id("kotlin-kapt")
 }
 
 android {
@@ -24,5 +25,6 @@ dependencies {
     implementation(libs.app.compat)
     implementation(libs.cicerone)
     implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
     implementation(libs.fragment.ktx)
 }
