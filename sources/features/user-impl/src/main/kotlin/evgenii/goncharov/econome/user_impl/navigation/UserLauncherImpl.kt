@@ -2,7 +2,7 @@ package evgenii.goncharov.econome.user_impl.navigation
 
 import com.github.terrakok.cicerone.Router
 import evgenii.goncharov.econome.navigation.utils.GLOBAL_ROUTER
-import evgenii.goncharov.econome.user_api.UserLauncher
+import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import javax.inject.Inject
 import javax.inject.Named
 

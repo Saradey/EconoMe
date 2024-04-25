@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.user_api
+package evgenii.goncharov.econome.user_api.navigation
 
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 

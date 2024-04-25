@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
-import evgenii.goncharov.econome.user_api.UserLauncher
+import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import evgenii.goncharov.econome.user_impl.navigation.UserLauncherImpl
 import javax.inject.Singleton
 

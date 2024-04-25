@@ -5,7 +5,7 @@ import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.main_activity.di.DaggerMainActivityComponent
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
-import evgenii.goncharov.econome.user_api.UserLauncher
+import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import javax.inject.Inject
 
 public class MainActivityHolder @Inject constructor(container: FeatureContainer) :
