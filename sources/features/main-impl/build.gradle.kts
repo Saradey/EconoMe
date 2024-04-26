@@ -16,6 +16,7 @@ dependencies {
     api(project(":sources:features:main-api"))
 
     implementation((project(":sources:engine:di-core")))
+    implementation(project(":sources:core:common"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
