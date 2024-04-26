@@ -4,4 +4,6 @@ import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import javax.inject.Inject
 
 public class MainLauncherImpl @Inject constructor() : MainLauncher {
+
+    override fun launchMain() {}
 }
