@@ -20,6 +20,8 @@ dependencies {
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
 
+    implementation(project(":sources:features:main-api"))
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
