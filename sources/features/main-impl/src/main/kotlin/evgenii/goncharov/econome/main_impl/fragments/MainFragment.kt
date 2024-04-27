@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.main_impl.di.contracts.MainInternal
 import evgenii.goncharov.econome.main_impl.ui.MainScreen
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 
+/**
+ * 2.
+ */
 internal class MainFragment : CoreFragment() {
 
     private val dependency: MainInternal by lazy {

@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.all_spending_impl.ui.AllSpendingScreen
 import evgenii.goncharov.econome.all_spending_impl.view.models.AllSpendingViewModel
 import evgenii.goncharov.econome.di_core.CoreFragment
 
+/**
+ * 6.
+ */
 internal class AllSpendingFragment : CoreFragment() {
 
     private val dependency: AllSpendingInternal by lazy {
