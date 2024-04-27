@@ -22,6 +22,7 @@ dependencies {
 
     implementation(project(":sources:features:main-api"))
     implementation(project(":sources:features:all-spending-api"))
+    implementation(project(":sources:features:finance-analysis-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
