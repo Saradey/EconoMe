@@ -4,6 +4,13 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome.all_spending_impl"
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = extra["composeVersion"] as String
+    }
 }
 
 dependencies {
