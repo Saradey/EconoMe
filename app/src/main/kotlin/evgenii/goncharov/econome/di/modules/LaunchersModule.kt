@@ -4,6 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
+import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
+import evgenii.goncharov.econome.all_spending_impl.navigation.AllSpendingLauncherImpl
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.navigation.MainLauncherImpl
@@ -24,4 +26,7 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(MainLauncher::class)]
     fun bindMainLauncher(mainLauncher: MainLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(AllSpendingLauncher::class)]
+    fun bindAllSpendingLauncher(mainLauncher: AllSpendingLauncherImpl): BaseLauncher
 }
