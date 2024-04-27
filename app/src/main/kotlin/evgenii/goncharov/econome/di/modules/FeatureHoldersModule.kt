@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.all_spending_api.di.AllSpendingApi
+import evgenii.goncharov.econome.all_spending_impl.di.holders.AllSpendingHolder
+import evgenii.goncharov.econome.bank_accounts_api.di.BankAccountsApi
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
@@ -25,23 +27,26 @@ import javax.inject.Singleton
 interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(MainActivityApi::class)]
-    fun bindMainActivityHolder(mainActivityHolder: MainActivityHolder): FeatureHolder<*>
+    fun bindMainActivityHolder(holder: MainActivityHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(UserCreatorApi::class)]
-    fun bindUserCreatorHolder(mainActivityHolder: UserCreatorHolder): FeatureHolder<*>
+    fun bindUserCreatorHolder(holder: UserCreatorHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(UserChoosingApi::class)]
-    fun bindUserChoosingHolder(mainActivityHolder: UserChoosingHolder): FeatureHolder<*>
+    fun bindUserChoosingHolder(holder: UserChoosingHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(MainNavigationApi::class)]
-    fun bindMainNavigationHolder(mainActivityHolder: MainNavigationHolder): FeatureHolder<*>
+    fun bindMainNavigationHolder(holder: MainNavigationHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(MainApi::class)]
-    fun bindMainHolder(mainHolder: MainHolder): FeatureHolder<*>
+    fun bindMainHolder(holder: MainHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(AllSpendingApi::class)]
-    fun bindAllSpendingHolder(mainHolder: BankAccountsHolder): FeatureHolder<*>
+    fun bindAllSpendingHolder(holder: AllSpendingHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsAllSpendingApi::class)]
-    fun bindFinanceAnalyticsAllSpendingHolder(mainHolder: FinanceAnalyticsAllSpendingHolder): FeatureHolder<*>
+    fun bindFinanceAnalyticsAllSpendingHolder(holder: FinanceAnalyticsAllSpendingHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(BankAccountsApi::class)]
+    fun bindBankAccountsHolder(holder: BankAccountsHolder): FeatureHolder<*>
 }
