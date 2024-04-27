@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.main_navigation_impl.di.components
 
 import dagger.BindsInstance
 import dagger.Component
+import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
@@ -17,7 +18,8 @@ internal interface MainNavigationComponent : MainNavigationInternal {
     interface Factory {
 
         fun create(
-            @BindsInstance mainLauncher: MainLauncher
+            @BindsInstance mainLauncher: MainLauncher,
+            @BindsInstance allSpendingLauncher: AllSpendingLauncher
         ): MainNavigationComponent
     }
 }

@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":sources:core:common"))
 
     implementation(project(":sources:features:main-api"))
+    implementation(project(":sources:features:all-spending-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
