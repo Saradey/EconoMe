@@ -9,6 +9,8 @@ import evgenii.goncharov.econome.all_spending_impl.di.holders.AllSpendingHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
+import evgenii.goncharov.econome.finance_analysis_api.di.FinanceAnalyticsAllSpendingApi
+import evgenii.goncharov.econome.finance_analysis_impl.di.holders.FinanceAnalyticsAllSpendingHolder
 import evgenii.goncharov.econome.main_api.di.MainApi
 import evgenii.goncharov.econome.main_impl.di.holders.MainHolder
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
@@ -39,4 +41,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(AllSpendingApi::class)]
     fun bindAllSpendingHolder(mainHolder: AllSpendingHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsAllSpendingApi::class)]
+    fun bindFinanceAnalyticsAllSpendingHolder(mainHolder: FinanceAnalyticsAllSpendingHolder): FeatureHolder<*>
 }
