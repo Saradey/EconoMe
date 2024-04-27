@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.bank_accounts_impl
+package evgenii.goncharov.econome.bank_accounts_impl.navigation
 
 import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import javax.inject.Inject

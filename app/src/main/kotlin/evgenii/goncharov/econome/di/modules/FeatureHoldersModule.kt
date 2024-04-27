@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.all_spending_api.di.AllSpendingApi
-import evgenii.goncharov.econome.all_spending_impl.di.holders.AllSpendingHolder
+import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
@@ -40,7 +40,7 @@ interface FeatureHoldersModule {
     fun bindMainHolder(mainHolder: MainHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(AllSpendingApi::class)]
-    fun bindAllSpendingHolder(mainHolder: AllSpendingHolder): FeatureHolder<*>
+    fun bindAllSpendingHolder(mainHolder: BankAccountsHolder): FeatureHolder<*>
 
     @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsAllSpendingApi::class)]
     fun bindFinanceAnalyticsAllSpendingHolder(mainHolder: FinanceAnalyticsAllSpendingHolder): FeatureHolder<*>
