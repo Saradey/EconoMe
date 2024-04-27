@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.main_navigation_impl.di.holder
 
 import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
+import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
@@ -18,7 +19,8 @@ public class MainNavigationHolder @Inject constructor(container: FeatureContaine
             allSpendingLauncher = getFeatureLauncher(AllSpendingLauncher::class.java),
             financeAnalyticsAllSpendingLauncher = getFeatureLauncher(
                 FinanceAnalyticsAllSpendingLauncher::class.java
-            )
+            ),
+            bankAccountsLauncher = getFeatureLauncher(BankAccountsLauncher::class.java)
         )
     }
 }

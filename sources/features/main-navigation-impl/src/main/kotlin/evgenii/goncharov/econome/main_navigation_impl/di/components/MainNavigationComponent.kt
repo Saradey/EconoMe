@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.main_navigation_impl.di.components
 import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
+import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
@@ -21,7 +22,8 @@ internal interface MainNavigationComponent : MainNavigationInternal {
         fun create(
             @BindsInstance mainLauncher: MainLauncher,
             @BindsInstance allSpendingLauncher: AllSpendingLauncher,
-            @BindsInstance financeAnalyticsAllSpendingLauncher: FinanceAnalyticsAllSpendingLauncher
+            @BindsInstance financeAnalyticsAllSpendingLauncher: FinanceAnalyticsAllSpendingLauncher,
+            @BindsInstance bankAccountsLauncher: BankAccountsLauncher
         ): MainNavigationComponent
     }
 }
