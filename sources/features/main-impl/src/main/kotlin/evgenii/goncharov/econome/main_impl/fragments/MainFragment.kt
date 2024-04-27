@@ -26,4 +26,9 @@ internal class MainFragment : CoreFragment() {
     override fun releaseDependencies() {
         releaseFeatureApi(MainApi::class.java)
     }
+
+    companion object {
+
+        fun newInstance() = MainFragment()
+    }
 }
