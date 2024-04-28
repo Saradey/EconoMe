@@ -17,6 +17,8 @@ import evgenii.goncharov.econome.main_api.di.MainApi
 import evgenii.goncharov.econome.main_impl.di.holders.MainHolder
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.holder.MainNavigationHolder
+import evgenii.goncharov.econome.settings_api.di.SettingsApi
+import evgenii.goncharov.econome.settings_impl.di.holder.SettingsHolder
 import evgenii.goncharov.econome.user_api.di.UserChoosingApi
 import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.holder.UserChoosingHolder
@@ -49,4 +51,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(BankAccountsApi::class)]
     fun bindBankAccountsHolder(holder: BankAccountsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(SettingsApi::class)]
+    fun bindSettingsHolder(holder: SettingsHolder): FeatureHolder<*>
 }
