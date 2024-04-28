@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.settings_impl.di.contracts
 
-internal interface SettingsInternal {
-}
+import evgenii.goncharov.econome.settings_api.di.SettingsApi
+
+internal interface SettingsInternal : SettingsApi
