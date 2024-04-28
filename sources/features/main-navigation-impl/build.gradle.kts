@@ -24,6 +24,7 @@ dependencies {
     implementation(project(":sources:features:all-spending-api"))
     implementation(project(":sources:features:finance-analysis-api"))
     implementation(project(":sources:features:bank-accounts-api"))
+    implementation(project(":sources:features:settings-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
