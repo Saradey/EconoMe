@@ -24,8 +24,8 @@ internal class MainActivity : CoreActivity() {
         savedInstanceState ?: viewModel.appStart()
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
         globalNavigatorHolder.setNavigator(mainNavigator)
     }
 

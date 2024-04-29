@@ -9,6 +9,7 @@ import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
+import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator
 import evgenii.goncharov.econome.main_navigation_impl.ui.MainNavigationScreen
 import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigationViewModel
 
@@ -24,6 +25,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         dependency.provideViewModelFactory()
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
+    private val bottomMenuNavigator = BottomMenuNavigator()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val container = view.findViewById<ComposeView>(R.id.cv_container)
