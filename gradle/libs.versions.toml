@@ -52,7 +52,6 @@ androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-app-compat = { module = "androidx.appcompat:appcompat", version.ref = "app-compat-version" }
 
 # tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }
