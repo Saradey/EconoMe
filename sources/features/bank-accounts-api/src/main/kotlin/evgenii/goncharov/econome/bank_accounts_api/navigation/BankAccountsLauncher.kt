@@ -4,5 +4,5 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface BankAccountsLauncher : BaseLauncher {
 
-    public fun launchBankAccounts()
+    public fun deepLaunchBankAccounts()
 }

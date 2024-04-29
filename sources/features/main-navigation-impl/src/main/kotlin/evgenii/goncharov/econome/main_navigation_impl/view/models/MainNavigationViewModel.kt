@@ -48,7 +48,7 @@ internal class MainNavigationViewModel @Inject constructor(
             NavigationTabs.Main -> mainLauncher.deepLaunchMain()
             NavigationTabs.AllSpending -> allSpendingLauncher.deepLaunchAllSpending()
             NavigationTabs.AllSpendingAnalysis -> analyticsAllSpendingLauncher.deepLaunchAllSpendingAnalytics()
-            NavigationTabs.AccountState -> bankAccountsLauncher.launchBankAccounts()
+            NavigationTabs.AccountState -> bankAccountsLauncher.deepLaunchBankAccounts()
         }
     }
 
