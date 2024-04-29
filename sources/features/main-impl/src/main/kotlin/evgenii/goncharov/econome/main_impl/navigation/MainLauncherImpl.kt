@@ -10,7 +10,7 @@ public class MainLauncherImpl @Inject constructor(
     @Named(DEEP_ROUTER) private val deepRouter: Router
 ) : MainLauncher {
 
-    override fun launchMain() {
+    override fun deepLaunchMain() {
         deepRouter.navigateTo(MainNavigationScreens.startMain())
     }
 }

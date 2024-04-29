@@ -45,7 +45,7 @@ internal class MainNavigationViewModel @Inject constructor(
 
     private fun navigationToSelectedTab(tab: NavigationTabs) {
         when (tab) {
-            NavigationTabs.Main -> mainLauncher.launchMain()
+            NavigationTabs.Main -> mainLauncher.deepLaunchMain()
             NavigationTabs.AllSpending -> allSpendingLauncher.launchAllSpending()
             NavigationTabs.AllSpendingAnalysis -> analyticsAllSpendingLauncher.launchAllSpendingAnalytics()
             NavigationTabs.AccountState -> bankAccountsLauncher.launchBankAccounts()
@@ -53,6 +53,6 @@ internal class MainNavigationViewModel @Inject constructor(
     }
 
     fun initMain() {
-        mainLauncher.launchMain()
+        mainLauncher.deepLaunchMain()
     }
 }
