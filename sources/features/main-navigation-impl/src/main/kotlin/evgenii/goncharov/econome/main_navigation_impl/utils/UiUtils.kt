@@ -7,23 +7,23 @@ import evgenii.goncharov.econome.ui_kit.UiKitString
 internal fun createBottomNavigationItems(): List<MainBottomNavItem> {
     return listOf(
         MainBottomNavItem(
-            name = "main",
+            tab = NavigationTabs.Main,
             title = R.string.item_1_main,
             icon = UiKitString.icon_stub,
             isSelected = true
         ),
         MainBottomNavItem(
-            name = "all_spending",
+            tab = NavigationTabs.AllSpending,
             title = R.string.item_2_all_spending,
             icon = UiKitString.icon_stub
         ),
         MainBottomNavItem(
-            name = "all_spending_analysis",
+            tab = NavigationTabs.AllSpendingAnalysis,
             title = R.string.item_3_all_spending_analysis,
             icon = UiKitString.icon_stub
         ),
         MainBottomNavItem(
-            name = "account_state",
+            tab = NavigationTabs.AccountState,
             title = R.string.item_4_account_state,
             icon = UiKitString.icon_stub
         )
