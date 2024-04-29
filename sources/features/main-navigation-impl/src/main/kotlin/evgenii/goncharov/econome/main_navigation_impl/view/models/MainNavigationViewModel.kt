@@ -8,6 +8,7 @@ import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLaunch
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
+import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
 import evgenii.goncharov.econome.main_navigation_impl.utils.createBottomNavigationItems
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 import javax.inject.Inject
@@ -27,4 +28,7 @@ internal class MainNavigationViewModel @Inject constructor(
     )
     val uiState: State<MainNavigationState> = _uiState
 
+    fun selectedTab(tab: NavigationTabs) {
+
+    }
 }

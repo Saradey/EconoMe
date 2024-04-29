@@ -10,10 +10,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
+import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
 
 @Composable
 internal fun MainNavigationScreen(
-    state: State<MainNavigationState>
+    state: State<MainNavigationState>,
+    tabClickListener: (NavigationTabs) -> Unit
 ) {
     val uiState by state
     NavigationBar {
@@ -30,7 +32,7 @@ internal fun MainNavigationScreen(
                 },
                 selected = item.isSelected,
                 alwaysShowLabel = true,
-                onClick = { },
+                onClick = { tabClickListener(item.tab) },
             )
         }
     }
