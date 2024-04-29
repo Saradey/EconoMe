@@ -9,7 +9,8 @@ internal fun createBottomNavigationItems(): List<MainBottomNavItem> {
         MainBottomNavItem(
             name = "main",
             title = R.string.item_1_main,
-            icon = UiKitString.icon_stub
+            icon = UiKitString.icon_stub,
+            isSelected = true
         ),
         MainBottomNavItem(
             name = "all_spending",
