@@ -29,6 +29,16 @@ internal class MainNavigationViewModel @Inject constructor(
     val uiState: State<MainNavigationState> = _uiState
 
     fun selectedTab(tab: NavigationTabs) {
+        updateBottomMenuState(tab)
+    }
 
+    private fun updateBottomMenuState(tab: NavigationTabs) {
+        _uiState.value = _uiState.value.copy(
+            mainMenuItems = _uiState.value.mainMenuItems.map { oldItem ->
+                oldItem.copy(
+                    isSelected = oldItem.tab == tab
+                )
+            }
+        )
     }
 }
