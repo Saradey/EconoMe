@@ -5,4 +5,6 @@ import javax.inject.Inject
 
 public class FinanceAnalyticsAllSpendingLauncherImpl @Inject constructor() :
     FinanceAnalyticsAllSpendingLauncher {
+
+    override fun launchAllSpendingAnalytics() {}
 }

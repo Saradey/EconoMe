@@ -4,4 +4,6 @@ import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLaunch
 import javax.inject.Inject
 
 public class BankAccountsLauncherImpl @Inject constructor() : BankAccountsLauncher {
+
+    override fun launchBankAccounts() {}
 }
