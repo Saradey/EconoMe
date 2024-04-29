@@ -4,5 +4,5 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface AllSpendingLauncher : BaseLauncher {
 
-    public fun launchAllSpending()
+    public fun deepLaunchAllSpending()
 }

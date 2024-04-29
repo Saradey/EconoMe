@@ -16,6 +16,7 @@ dependencies {
     api(project(":sources:features:all-spending-api"))
 
     implementation((project(":sources:engine:di-core")))
+    implementation((project(":sources:engine:navigation")))
     implementation(project(":sources:core:common"))
 
     implementation(platform(libs.androidx.compose.bom))
