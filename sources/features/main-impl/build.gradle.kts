@@ -17,6 +17,7 @@ dependencies {
 
     implementation((project(":sources:engine:di-core")))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:engine:navigation"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
