@@ -13,5 +13,6 @@
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/cv_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_bottom_navigation" />
+        android:layout_height="@dimen/height_bottom_navigation"
+        android:layout_gravity="bottom" />
 </FrameLayout>

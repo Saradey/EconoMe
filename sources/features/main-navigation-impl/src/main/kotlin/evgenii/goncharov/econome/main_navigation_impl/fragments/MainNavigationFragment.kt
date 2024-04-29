@@ -1,6 +1,9 @@
 package evgenii.goncharov.econome.main_navigation_impl.fragments
 
+import android.os.Bundle
+import android.view.View
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
@@ -19,6 +22,13 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     }
     private val viewModel: MainNavigationViewModel by viewModels {
         dependency.provideViewModelFactory()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val container = view.findViewById<ComposeView>(R.id.cv_container)
+        container.setContent {
+            InitContent()
+        }
     }
 
     @Composable
