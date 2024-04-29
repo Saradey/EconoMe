@@ -16,7 +16,7 @@ import javax.inject.Inject
 internal class MainNavigationViewModel @Inject constructor(
     private val mainLauncher: MainLauncher,
     private val allSpendingLauncher: AllSpendingLauncher,
-    private val financeAnalyticsAllSpendingLauncher: FinanceAnalyticsAllSpendingLauncher,
+    private val analyticsAllSpendingLauncher: FinanceAnalyticsAllSpendingLauncher,
     private val bankAccountsLauncher: BankAccountsLauncher,
     private val settingsLauncher: SettingsLauncher
 ) : ViewModel() {
@@ -30,6 +30,7 @@ internal class MainNavigationViewModel @Inject constructor(
 
     fun selectedTab(tab: NavigationTabs) {
         updateBottomMenuState(tab)
+        navigationToSelectedTab(tab)
     }
 
     private fun updateBottomMenuState(tab: NavigationTabs) {
@@ -40,5 +41,14 @@ internal class MainNavigationViewModel @Inject constructor(
                 )
             }
         )
+    }
+
+    private fun navigationToSelectedTab(tab: NavigationTabs) {
+        when (tab) {
+            NavigationTabs.Main -> mainLauncher.launchMain()
+            NavigationTabs.AllSpending -> allSpendingLauncher.launchAllSpending()
+            NavigationTabs.AllSpendingAnalysis -> analyticsAllSpendingLauncher.launchAllSpendingAnalytics()
+            NavigationTabs.AccountState -> bankAccountsLauncher.launchBankAccounts()
+        }
     }
 }
