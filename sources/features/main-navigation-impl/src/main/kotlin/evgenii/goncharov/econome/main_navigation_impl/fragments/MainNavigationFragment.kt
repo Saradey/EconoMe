@@ -34,7 +34,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     @Composable
     override fun InitContent() {
         viewModel
-        MainNavigationScreen()
+        MainNavigationScreen(viewModel.uiState)
     }
 
     override fun releaseDependencies() {
