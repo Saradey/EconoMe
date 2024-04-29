@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-    // core
     implementation(libs.core.ktx)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
@@ -49,6 +48,7 @@ dependencies {
     implementation(libs.app.compat)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
+    implementation(libs.fragment)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)

@@ -33,6 +33,7 @@ material = "1.11.0"
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-version" }
+fragment = { module = "androidx.fragment:fragment", version.ref = "fragment-version" }
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-version" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "viewmodel-version" }
 
