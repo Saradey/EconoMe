@@ -23,6 +23,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     private val viewModel: MainNavigationViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val container = view.findViewById<ComposeView>(R.id.cv_container)
