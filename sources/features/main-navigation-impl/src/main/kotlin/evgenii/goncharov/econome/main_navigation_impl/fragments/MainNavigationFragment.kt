@@ -29,6 +29,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         container.setContent {
             InitContent()
         }
+        savedInstanceState ?: viewModel.initMain()
     }
 
     @Composable

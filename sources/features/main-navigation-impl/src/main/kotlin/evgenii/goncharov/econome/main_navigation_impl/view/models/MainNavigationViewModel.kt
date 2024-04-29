@@ -51,4 +51,8 @@ internal class MainNavigationViewModel @Inject constructor(
             NavigationTabs.AccountState -> bankAccountsLauncher.launchBankAccounts()
         }
     }
+
+    fun initMain() {
+        mainLauncher.launchMain()
+    }
 }
