@@ -37,10 +37,10 @@ internal object CoreNavigationModule {
 
     @[CoreScope Provides]
     @Named(DEEP_ROUTER)
-    fun provideDeepRouter(@Named(DEEP_ROUTER) cicerone: Cicerone<Router>): Router = cicerone.router
+    fun provideDeepRouter(@Named(DEEP_CICERONE) cicerone: Cicerone<Router>): Router = cicerone.router
 
     @[CoreScope Provides]
     @Named(DEEP_HOLDER)
-    fun provideDeepHolder(@Named(DEEP_ROUTER) cicerone: Cicerone<Router>): NavigatorHolder =
+    fun provideDeepHolder(@Named(DEEP_CICERONE) cicerone: Cicerone<Router>): NavigatorHolder =
         cicerone.getNavigatorHolder()
 }
