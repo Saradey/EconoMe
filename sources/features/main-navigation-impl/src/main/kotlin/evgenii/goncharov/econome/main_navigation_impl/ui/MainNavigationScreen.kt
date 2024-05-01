@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -17,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
 import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
+import evgenii.goncharov.econome.ui_kit.UiKitString
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,7 +34,12 @@ internal fun MainNavigationScreen(
             modifier = Modifier.align(Alignment.TopCenter),
             title = {},
             actions = {
-                
+                IconButton(onClick = { /* do something */ }) {
+                    Icon(
+                        painter = painterResource(id = UiKitString.icon_stub),
+                        contentDescription = null
+                    )
+                }
             }
         )
         NavigationBar(
