@@ -28,9 +28,10 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         BottomMenuNavigator(this)
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
-    private val onBackPressedCallback = dependency.provideMainNavigation()
+    private val onBackPressed = dependency.provideMainNavigation()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
         val container = view.findViewById<ComposeView>(R.id.cv_container)
         container.setContent {
             InitContent()
