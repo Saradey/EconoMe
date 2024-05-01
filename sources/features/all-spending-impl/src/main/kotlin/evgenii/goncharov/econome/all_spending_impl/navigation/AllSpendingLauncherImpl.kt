@@ -11,6 +11,6 @@ public class AllSpendingLauncherImpl @Inject constructor(
 ): AllSpendingLauncher {
 
     override fun deepLaunchAllSpending() {
-        deepRouter.navigateTo(AllSpendingNavigationScreens.startAllSpending())
+        deepRouter.navigateTo(AllSpendingNavigationScreens.startDeepAllSpending())
     }
 }
