@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.main_navigation_impl.navigation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import com.github.terrakok.cicerone.Back
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Forward
@@ -33,14 +34,58 @@ internal class BottomMenuNavigator(
 
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
-        val featureContainerFragment = fragmentScreen.createFragment(ff)
         val backStackName = fragmentScreen.screenKey
+        when {
+            localBackStack.any { info -> info.backStackName == backStackName } -> restoreBackStack(
+                backStackName
+            )
 
-//        commitFragmentTransaction(
-//            fragment = featureContainerFragment,
-//            fragmentScreen = fragmentScreen,
-//            backStackName = fragmentScreen.screenKey
-//        )
+            selectedBackStack.backStackName != backStackName -> addedNewBackStack(
+                fragmentScreen,
+                backStackName
+            )
+
+            else -> commitFragmentToCurrentStack(
+                fragmentScreen
+            )
+        }
+    }
+
+    private fun commitFragmentToCurrentStack(
+        fragmentScreen: FragmentScreen,
+    ) {
+        val fragment = fragmentScreen.createFragment(ff)
+        fm.commit {
+            setReorderingAllowed(true)
+            replace(containerId, fragment, fragmentScreen.screenKey)
+            addToBackStack(selectedBackStack.backStackName)
+        }
+        selectedBackStack.screensKey.push(fragmentScreen.screenKey)
+    }
+
+    private fun restoreBackStack(backStackName: String) {
+        fm.saveBackStack(selectedBackStack.backStackName)
+        val info = localBackStack.find { info -> info.backStackName == backStackName }
+        info?.let { _info -> selectedBackStack = _info }
+        fm.restoreBackStack(info?.backStackName ?: throw IllegalArgumentException())
+        localBackStack.remove(info)
+        localBackStack.push(info)
+    }
+
+    private fun addedNewBackStack(fragmentScreen: FragmentScreen, backStackName: String) {
+        if (selectedBackStack.backStackName.isNotEmpty()) {
+            fm.saveBackStack(selectedBackStack.backStackName)
+        }
+        val fragment = fragmentScreen.createFragment(ff)
+        fm.commit {
+            setReorderingAllowed(true)
+            replace(containerId, fragment, fragmentScreen.screenKey)
+            addToBackStack(backStackName)
+        }
+        val backStackScreens = Stack<String>()
+        backStackScreens.add(fragmentScreen.screenKey)
+        selectedBackStack = BackStackInfo(backStackName, backStackScreens)
+        localBackStack.push(selectedBackStack)
     }
 
     private fun back() {
