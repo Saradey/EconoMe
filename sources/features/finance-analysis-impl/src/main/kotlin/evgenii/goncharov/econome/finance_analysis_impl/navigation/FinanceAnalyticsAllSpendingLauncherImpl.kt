@@ -12,7 +12,7 @@ public class FinanceAnalyticsAllSpendingLauncherImpl @Inject constructor(
 
     override fun deepLaunchAllSpendingAnalytics() {
         deepRouter.navigateTo(
-            FinanceAnalyticsAllSpendingNavigationScreens.startFinanceAnalyticsAllSpending()
+            FinanceAnalyticsAllSpendingNavigationScreens.startDeepFinanceAnalyticsAllSpending()
         )
     }
 }
