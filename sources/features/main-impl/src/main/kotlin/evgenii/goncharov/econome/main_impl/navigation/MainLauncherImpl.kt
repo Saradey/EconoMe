@@ -11,6 +11,6 @@ public class MainLauncherImpl @Inject constructor(
 ) : MainLauncher {
 
     override fun deepLaunchMain() {
-        deepRouter.navigateTo(MainNavigationScreens.startMain())
+        deepRouter.navigateTo(MainNavigationScreens.startDeepMain())
     }
 }
