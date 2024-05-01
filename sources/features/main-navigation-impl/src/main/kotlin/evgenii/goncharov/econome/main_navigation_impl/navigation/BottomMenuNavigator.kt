@@ -40,11 +40,7 @@ internal class BottomMenuNavigator(
         when {
             checkEverywhere(name) -> commitFragmentToCurrentStack(fragmentScreen = fragmentScreen)
             checkLocalBackStack(name) -> restoreBackStack(name)
-
-            selectedBackStack.backStackName != name -> addedNewBackStack(
-                fragmentScreen,
-                name
-            )
+            checkIsNewBackStack(name) -> addedNewBackStack(fragmentScreen, name)
         }
     }
 
@@ -55,6 +51,10 @@ internal class BottomMenuNavigator(
     private fun checkLocalBackStack(backStackName: String): Boolean {
         return localBackStack.any { info -> info.backStackName == backStackName } &&
                 selectedBackStack.backStackName != backStackName
+    }
+
+    private fun checkIsNewBackStack(backStackName: String): Boolean {
+        return selectedBackStack.backStackName != backStackName
     }
 
     private fun commitFragmentToCurrentStack(
