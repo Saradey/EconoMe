@@ -43,6 +43,16 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         )
     }
 
+    override fun onPause() {
+        deepNavigatorHolder.removeNavigator()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        deepNavigatorHolder.setNavigator(bottomMenuNavigator)
+    }
+
     override fun releaseDependencies() {
         releaseFeatureApi(MainNavigationApi::class.java)
     }
