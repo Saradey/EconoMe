@@ -25,7 +25,9 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         dependency.provideViewModelFactory()
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
-    private val bottomMenuNavigator = BottomMenuNavigator(this)
+    private val bottomMenuNavigator by lazy {
+        BottomMenuNavigator(this)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val container = view.findViewById<ComposeView>(R.id.cv_container)
