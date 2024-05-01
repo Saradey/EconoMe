@@ -12,6 +12,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.models.BackStackInfo
 import evgenii.goncharov.econome.navigation.base.BaseNavigator
+import evgenii.goncharov.econome.navigation.navigation.BACKSTACK_NAME_EVERYWHERE
 import java.util.Stack
 
 internal class BottomMenuNavigator(
@@ -36,6 +37,10 @@ internal class BottomMenuNavigator(
         val fragmentScreen = command.screen as FragmentScreen
         val backStackName = fragmentScreen.screenKey
         when {
+            backStackName == BACKSTACK_NAME_EVERYWHERE -> commitFragmentToCurrentStack(
+                fragmentScreen = fragmentScreen
+            )
+
             localBackStack.any { info -> info.backStackName == backStackName } -> restoreBackStack(
                 backStackName
             )
@@ -43,10 +48,6 @@ internal class BottomMenuNavigator(
             selectedBackStack.backStackName != backStackName -> addedNewBackStack(
                 fragmentScreen,
                 backStackName
-            )
-
-            else -> commitFragmentToCurrentStack(
-                fragmentScreen
             )
         }
     }
