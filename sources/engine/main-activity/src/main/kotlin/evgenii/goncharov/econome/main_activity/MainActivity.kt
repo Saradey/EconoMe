@@ -17,11 +17,12 @@ internal class MainActivity : CoreActivity() {
     }
     private val globalNavigatorHolder = dependency.provideGlobalNavigatorHolder()
     private val mainNavigator = MainNavigator(this)
-    private val onBackPressedCallback = dependency.provideOnBackPressedCallback()
+    private val onBackPressed = dependency.provideOnBackPressedCallback()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        onBackPressedDispatcher.addCallback(this, onBackPressed)
         savedInstanceState ?: viewModel.appStart()
     }
 
