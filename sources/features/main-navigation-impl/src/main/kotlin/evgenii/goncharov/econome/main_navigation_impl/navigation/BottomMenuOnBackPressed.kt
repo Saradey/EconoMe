@@ -11,6 +11,6 @@ internal class BottomMenuOnBackPressed @Inject constructor(
 ) : OnBackPressedCallback(true) {
 
     override fun handleOnBackPressed() {
-        deepRouter.backTo(null)
+        deepRouter.exit()
     }
 }

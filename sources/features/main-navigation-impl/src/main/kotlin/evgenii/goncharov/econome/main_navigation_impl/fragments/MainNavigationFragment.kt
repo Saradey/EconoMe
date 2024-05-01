@@ -25,7 +25,10 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         dependency.provideViewModelFactory()
     }
     private val bottomMenuNavigator by lazy {
-        BottomMenuNavigator(this)
+        BottomMenuNavigator(
+            this,
+            dependency.provideGlobalRouter()
+        )
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
