@@ -24,7 +24,8 @@ import evgenii.goncharov.econome.ui_kit.UiKitString
 @Composable
 internal fun MainNavigationScreen(
     state: State<MainNavigationState>,
-    tabClickListener: (NavigationTabs) -> Unit
+    tabBottomMenuListener: (NavigationTabs) -> Unit,
+    selectedSettingsListener: () -> Unit
 ) {
     val uiState by state
     Box(
@@ -34,7 +35,7 @@ internal fun MainNavigationScreen(
             modifier = Modifier.align(Alignment.TopCenter),
             title = {},
             actions = {
-                IconButton(onClick = { /* do something */ }) {
+                IconButton(onClick = selectedSettingsListener) {
                     Icon(
                         painter = painterResource(id = UiKitString.icon_stub),
                         contentDescription = null
@@ -42,6 +43,7 @@ internal fun MainNavigationScreen(
                 }
             }
         )
+
         NavigationBar(
             modifier = Modifier.align(Alignment.BottomCenter)
         ) {
@@ -58,7 +60,7 @@ internal fun MainNavigationScreen(
                     },
                     selected = item.isSelected,
                     alwaysShowLabel = true,
-                    onClick = { tabClickListener(item.tab) },
+                    onClick = { tabBottomMenuListener(item.tab) },
                 )
             }
         }

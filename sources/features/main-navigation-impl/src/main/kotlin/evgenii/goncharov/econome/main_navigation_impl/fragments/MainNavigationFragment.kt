@@ -44,8 +44,9 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
 
     @Composable
     override fun InitContent() = MainNavigationScreen(
-        viewModel.uiState,
-        viewModel::selectedTab
+        state = viewModel.uiState,
+        tabBottomMenuListener = viewModel::selectedTab,
+        selectedSettingsListener = viewModel::goToSettings
     )
 
     override fun onPause() {

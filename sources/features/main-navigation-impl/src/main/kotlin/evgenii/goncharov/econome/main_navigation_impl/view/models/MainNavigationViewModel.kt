@@ -22,9 +22,7 @@ internal class MainNavigationViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState = mutableStateOf(
-        MainNavigationState.Content(
-            createBottomNavigationItems()
-        )
+        MainNavigationState.Content(createBottomNavigationItems())
     )
     val uiState: State<MainNavigationState> = _uiState
 
@@ -59,5 +57,9 @@ internal class MainNavigationViewModel @Inject constructor(
 
     fun initMain() {
         mainLauncher.deepLaunchMain()
+    }
+
+    fun goToSettings() {
+
     }
 }
