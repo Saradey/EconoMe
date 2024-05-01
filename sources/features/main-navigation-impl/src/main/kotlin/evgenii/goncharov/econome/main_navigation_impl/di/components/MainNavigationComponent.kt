@@ -8,6 +8,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
+import evgenii.goncharov.econome.main_navigation_impl.di.modules.MainNavigationBindsModule
 import evgenii.goncharov.econome.main_navigation_impl.di.modules.MainNavigationViewModelBindsModule
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
@@ -18,7 +19,8 @@ import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
         MainNavigationViewModelBindsModule::class,
     ],
     dependencies = [
-        CoreNavigationApi::class
+        CoreNavigationApi::class,
+        MainNavigationBindsModule::class
     ]
 )
 internal interface MainNavigationComponent : MainNavigationInternal {
