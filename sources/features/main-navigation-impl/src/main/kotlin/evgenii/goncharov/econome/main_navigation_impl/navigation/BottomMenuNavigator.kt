@@ -54,7 +54,8 @@ internal class BottomMenuNavigator(
     }
 
     private fun checkIsNewBackStack(backStackName: String): Boolean {
-        return selectedBackStack.backStackName != backStackName
+        return selectedBackStack.backStackName != backStackName &&
+                backStackName != BACKSTACK_NAME_EVERYWHERE
     }
 
     private fun commitFragmentToCurrentStack(
