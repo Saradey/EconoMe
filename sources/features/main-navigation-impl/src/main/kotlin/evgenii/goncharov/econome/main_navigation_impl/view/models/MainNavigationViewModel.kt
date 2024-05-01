@@ -35,6 +35,14 @@ internal class MainNavigationViewModel @Inject constructor(
         updateBottomMenuState(tab)
     }
 
+    fun initMain() {
+        mainLauncher.deepLaunchMain()
+    }
+
+    fun goToSettings() {
+        settingsLauncher.launchSettings()
+    }
+
     private fun updateBottomMenuState(tab: NavigationTabs) {
         _uiState.value = _uiState.value.copy(
             mainMenuItems = _uiState.value.mainMenuItems.map { oldItem ->
@@ -53,13 +61,5 @@ internal class MainNavigationViewModel @Inject constructor(
             NavigationTabs.AccountState -> bankAccountsLauncher.deepLaunchBankAccounts()
             NavigationTabs.TabNothing -> Unit
         }
-    }
-
-    fun initMain() {
-        mainLauncher.deepLaunchMain()
-    }
-
-    fun goToSettings() {
-        settingsLauncher.launchSettings()
     }
 }
