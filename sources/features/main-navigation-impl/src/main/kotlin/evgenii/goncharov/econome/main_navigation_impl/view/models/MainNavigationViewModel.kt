@@ -60,6 +60,6 @@ internal class MainNavigationViewModel @Inject constructor(
     }
 
     fun goToSettings() {
-
+        settingsLauncher.launchSettings()
     }
 }
