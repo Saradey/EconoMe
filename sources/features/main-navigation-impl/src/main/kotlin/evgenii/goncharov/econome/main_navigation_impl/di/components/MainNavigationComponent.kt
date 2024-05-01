@@ -17,10 +17,10 @@ import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 @Component(
     modules = [
         MainNavigationViewModelBindsModule::class,
+        MainNavigationBindsModule::class
     ],
     dependencies = [
         CoreNavigationApi::class,
-        MainNavigationBindsModule::class
     ]
 )
 internal interface MainNavigationComponent : MainNavigationInternal {
