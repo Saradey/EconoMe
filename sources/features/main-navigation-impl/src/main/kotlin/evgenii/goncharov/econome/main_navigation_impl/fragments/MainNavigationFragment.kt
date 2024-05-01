@@ -40,12 +40,10 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     }
 
     @Composable
-    override fun InitContent() {
-        MainNavigationScreen(
-            viewModel.uiState,
-            viewModel::selectedTab
-        )
-    }
+    override fun InitContent() = MainNavigationScreen(
+        viewModel.uiState,
+        viewModel::selectedTab
+    )
 
     override fun onPause() {
         deepNavigatorHolder.removeNavigator()
