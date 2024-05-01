@@ -33,6 +33,10 @@ internal class MainNavigationViewModel @Inject constructor(
         navigationToSelectedTab(tab)
     }
 
+    fun selectedTabOnlyUi(tab: NavigationTabs) {
+        updateBottomMenuState(tab)
+    }
+
     private fun updateBottomMenuState(tab: NavigationTabs) {
         _uiState.value = _uiState.value.copy(
             mainMenuItems = _uiState.value.mainMenuItems.map { oldItem ->

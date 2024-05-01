@@ -12,6 +12,7 @@ import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigatio
 import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator
 import evgenii.goncharov.econome.main_navigation_impl.navigation.SelectedTabListener
 import evgenii.goncharov.econome.main_navigation_impl.ui.MainNavigationScreen
+import evgenii.goncharov.econome.main_navigation_impl.utils.toNavigationTabs
 import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigationViewModel
 
 /**
@@ -58,7 +59,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     }
 
     override fun selectTab(tabName: String) {
-
+        viewModel.selectedTabOnlyUi(tabName.toNavigationTabs())
     }
 
     override fun releaseDependencies() {
