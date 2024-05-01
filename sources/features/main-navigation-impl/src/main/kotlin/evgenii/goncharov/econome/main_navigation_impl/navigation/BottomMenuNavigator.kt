@@ -36,21 +36,23 @@ internal class BottomMenuNavigator(
 
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
-        val backStackName = fragmentScreen.screenKey
+        val name = fragmentScreen.screenKey
         when {
-            backStackName == BACKSTACK_NAME_EVERYWHERE -> commitFragmentToCurrentStack(
-                fragmentScreen = fragmentScreen
+            checkEverywhere(name) -> commitFragmentToCurrentStack(fragmentScreen = fragmentScreen)
+
+            localBackStack.any { info -> info.backStackName == name } -> restoreBackStack(
+                name
             )
 
-            localBackStack.any { info -> info.backStackName == backStackName } -> restoreBackStack(
-                backStackName
-            )
-
-            selectedBackStack.backStackName != backStackName -> addedNewBackStack(
+            selectedBackStack.backStackName != name -> addedNewBackStack(
                 fragmentScreen,
-                backStackName
+                name
             )
         }
+    }
+
+    private fun checkEverywhere(backStackName: String): Boolean {
+        return backStackName == BACKSTACK_NAME_EVERYWHERE
     }
 
     private fun commitFragmentToCurrentStack(

@@ -2,10 +2,12 @@ package evgenii.goncharov.econome.main_navigation_impl.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -16,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
 import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainNavigationScreen(
     state: State<MainNavigationState>,
@@ -25,6 +28,13 @@ internal fun MainNavigationScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
+        TopAppBar(
+            modifier = Modifier.align(Alignment.TopCenter),
+            title = {},
+            actions = {
+                
+            }
+        )
         NavigationBar(
             modifier = Modifier.align(Alignment.BottomCenter)
         ) {
