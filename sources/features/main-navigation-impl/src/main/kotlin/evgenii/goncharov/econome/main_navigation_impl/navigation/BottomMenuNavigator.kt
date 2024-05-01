@@ -17,7 +17,8 @@ import java.util.Stack
 
 internal class BottomMenuNavigator(
     fragmentContainer: Fragment,
-    private val globalRouter: Router
+    private val globalRouter: Router,
+    private val selectedTabListener: SelectedTabListener
 ) : BaseNavigator() {
 
     override val fm: FragmentManager = fragmentContainer.childFragmentManager
@@ -108,6 +109,7 @@ internal class BottomMenuNavigator(
         val popBackStack = localBackStack.pop()
         fm.popBackStack(popBackStack.backStackName, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         selectedBackStack = localBackStack.peek()
+        selectedTabListener.selectTab(selectedBackStack.backStackName)
         fm.restoreBackStack(selectedBackStack.backStackName)
     }
 

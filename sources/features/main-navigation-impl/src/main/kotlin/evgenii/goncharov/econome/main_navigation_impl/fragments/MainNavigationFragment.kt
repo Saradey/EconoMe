@@ -10,13 +10,15 @@ import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
 import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator
+import evgenii.goncharov.econome.main_navigation_impl.navigation.SelectedTabListener
 import evgenii.goncharov.econome.main_navigation_impl.ui.MainNavigationScreen
 import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigationViewModel
 
 /**
  * 1. Screen
  */
-internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navigation) {
+internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navigation),
+    SelectedTabListener {
 
     private val dependency: MainNavigationInternal by lazy {
         getFeatureApi(MainNavigationApi::class.java) as MainNavigationInternal
@@ -25,7 +27,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
         dependency.provideViewModelFactory()
     }
     private val bottomMenuNavigator by lazy {
-        BottomMenuNavigator(this, dependency.provideGlobalRouter())
+        BottomMenuNavigator(this, dependency.provideGlobalRouter(), this)
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
@@ -53,6 +55,10 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     override fun onResume() {
         super.onResume()
         deepNavigatorHolder.setNavigator(bottomMenuNavigator)
+    }
+
+    override fun selectTab(tabName: String) {
+
     }
 
     override fun releaseDependencies() {
