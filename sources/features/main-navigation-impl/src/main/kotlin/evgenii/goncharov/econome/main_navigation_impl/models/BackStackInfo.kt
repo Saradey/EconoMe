@@ -6,5 +6,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 internal data class BackStackInfo(
-    val backStackName: String, val screensKey: Stack<String>
+    val backStackName: String,
+    val screensKey: Stack<String>
 ) : Parcelable

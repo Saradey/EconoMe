@@ -53,7 +53,8 @@ internal class BottomMenuNavigator(
     }
 
     private fun checkLocalBackStack(backStackName: String): Boolean {
-        return localBackStack.any { info -> info.backStackName == backStackName }
+        return localBackStack.any { info -> info.backStackName == backStackName } &&
+                selectedBackStack.backStackName != backStackName
     }
 
     private fun commitFragmentToCurrentStack(
