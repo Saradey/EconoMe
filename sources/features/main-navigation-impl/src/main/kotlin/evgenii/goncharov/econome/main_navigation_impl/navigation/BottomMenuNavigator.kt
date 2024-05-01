@@ -34,11 +34,13 @@ internal class BottomMenuNavigator(
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
         val featureContainerFragment = fragmentScreen.createFragment(ff)
-        commitFragmentTransaction(
-            fragment = featureContainerFragment,
-            fragmentScreen = fragmentScreen,
-            backStackName = fragmentScreen.screenKey
-        )
+        val backStackName = fragmentScreen.screenKey
+
+//        commitFragmentTransaction(
+//            fragment = featureContainerFragment,
+//            fragmentScreen = fragmentScreen,
+//            backStackName = fragmentScreen.screenKey
+//        )
     }
 
     private fun back() {
