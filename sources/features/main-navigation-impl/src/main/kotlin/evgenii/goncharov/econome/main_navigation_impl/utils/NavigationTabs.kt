@@ -9,4 +9,6 @@ internal sealed class NavigationTabs {
     data object AllSpendingAnalysis : NavigationTabs()
 
     data object AccountState : NavigationTabs()
+
+    data object TabNothing : NavigationTabs()
 }
