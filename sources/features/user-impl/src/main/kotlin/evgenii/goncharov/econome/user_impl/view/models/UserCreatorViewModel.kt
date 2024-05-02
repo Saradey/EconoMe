@@ -4,4 +4,8 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 internal class UserCreatorViewModel @Inject constructor() : ViewModel() {
+
+    fun goToWalletCreator() {
+
+    }
 }

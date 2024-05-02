@@ -23,7 +23,7 @@ internal class UserCreatorFragment : CoreFragment() {
     @Composable
     override fun InitContent() {
         viewModel
-        UserCreatorScreen()
+        UserCreatorScreen(viewModel::goToWalletCreator)
     }
 
     override fun releaseDependencies() {
