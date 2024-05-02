@@ -21,10 +21,7 @@ internal class FinanceAnalyticsAllSpendingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        FinanceAnalyticsAllSpendingScreen()
-    }
+    override fun InitContent() = FinanceAnalyticsAllSpendingScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(FinanceAnalyticsAllSpendingApi::class.java)

@@ -21,10 +21,7 @@ internal class SettingsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        SettingsScreen()
-    }
+    override fun InitContent() = SettingsScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(SettingsApi::class.java)

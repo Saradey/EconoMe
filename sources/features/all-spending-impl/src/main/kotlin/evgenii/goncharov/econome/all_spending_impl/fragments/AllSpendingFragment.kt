@@ -21,10 +21,7 @@ internal class AllSpendingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        AllSpendingScreen()
-    }
+    override fun InitContent() = AllSpendingScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(AllSpendingApi::class.java)

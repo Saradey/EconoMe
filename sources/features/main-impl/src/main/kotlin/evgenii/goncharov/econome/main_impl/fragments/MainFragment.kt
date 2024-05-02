@@ -21,10 +21,7 @@ internal class MainFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        MainScreen()
-    }
+    override fun InitContent() = MainScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(MainApi::class.java)
