@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.settings_impl.di.contracts.SettingsInternal
 import evgenii.goncharov.econome.settings_impl.ui.SettingsScreen
 import evgenii.goncharov.econome.settings_impl.view.models.SettingsViewModel
 
+/**
+ * 9. Screen
+ */
 internal class SettingsFragment : CoreFragment() {
 
     private val dependency: SettingsInternal by lazy {

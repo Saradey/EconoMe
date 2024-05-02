@@ -9,7 +9,7 @@ import evgenii.goncharov.econome.main_impl.ui.MainScreen
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 
 /**
- * 2.
+ * 2. Screen
  */
 internal class MainFragment : CoreFragment() {
 
