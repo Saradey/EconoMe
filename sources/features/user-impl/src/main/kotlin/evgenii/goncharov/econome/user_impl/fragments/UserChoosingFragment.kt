@@ -21,10 +21,7 @@ internal class UserChoosingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        UserChoosingScreen()
-    }
+    override fun InitContent() = UserChoosingScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(UserChoosingApi::class.java)
