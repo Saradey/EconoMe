@@ -1,5 +1,6 @@
 plugins {
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -16,9 +17,10 @@ android {
 dependencies {
     api(project(":sources:features:main-navigation-api"))
 
-    implementation((project(":sources:engine:di-core")))
+    implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:resources:ui-kit"))
 
     implementation(project(":sources:features:main-api"))
     implementation(project(":sources:features:all-spending-api"))
@@ -30,7 +32,6 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.material3)
-    implementation(libs.app.compat)
     implementation(libs.cicerone)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
