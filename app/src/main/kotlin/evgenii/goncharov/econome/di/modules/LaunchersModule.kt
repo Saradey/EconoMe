@@ -19,6 +19,8 @@ import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 import evgenii.goncharov.econome.settings_impl.navigation.SettingsLauncherImpl
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import evgenii.goncharov.econome.user_impl.navigation.UserLauncherImpl
+import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
+import evgenii.goncharov.econome.wallet_impl.navigation.WalletLauncherImpl
 import javax.inject.Singleton
 
 @Module
@@ -44,4 +46,7 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(SettingsLauncher::class)]
     fun bindSettingsLauncher(mainLauncher: SettingsLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(WalletLauncher::class)]
+    fun bindWalletLauncher(mainLauncher: WalletLauncherImpl): BaseLauncher
 }
