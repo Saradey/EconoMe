@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletCreatorInternal
 import evgenii.goncharov.econome.wallet_impl.ui.WalletCreatorScreen
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 
+/**
+ * 4. Screen
+ */
 internal class WalletCreatorFragment : CoreFragment() {
 
     private val dependency: WalletCreatorInternal by lazy {
