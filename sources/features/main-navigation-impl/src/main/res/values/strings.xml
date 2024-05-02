@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_1_main">Главная</string>
+    <string name="item_2_all_spending">Все</string>
+    <string name="item_3_all_spending_analysis">Аналитика</string>
+    <string name="item_4_account_state">Счета</string>
+</resources>

@@ -11,9 +11,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.cicerone)
-    implementation(libs.app.compat)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
+    implementation(libs.fragment)
 
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))

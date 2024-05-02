@@ -4,5 +4,5 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface MainLauncher : BaseLauncher {
 
-    public fun launchMain()
+    public fun deepLaunchMain()
 }
