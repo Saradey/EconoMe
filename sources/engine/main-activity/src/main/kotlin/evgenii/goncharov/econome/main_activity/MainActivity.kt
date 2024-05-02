@@ -12,20 +12,22 @@ internal class MainActivity : CoreActivity() {
     private val dependency: MainActivityInternal by lazy {
         getFeatureApi(MainActivityApi::class.java) as MainActivityInternal
     }
-    private val globalNavigatorHolder = dependency.provideGlobalNavigatorHolder()
-    private val mainNavigator: MainNavigator = MainNavigator(this)
     private val viewModel: MainActivityViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    private val globalNavigatorHolder = dependency.provideGlobalNavigatorHolder()
+    private val mainNavigator = MainNavigator(this)
+    private val onBackPressed = dependency.provideOnBackPressedCallback()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        onBackPressedDispatcher.addCallback(this, onBackPressed)
         savedInstanceState ?: viewModel.appStart()
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
         globalNavigatorHolder.setNavigator(mainNavigator)
     }
 

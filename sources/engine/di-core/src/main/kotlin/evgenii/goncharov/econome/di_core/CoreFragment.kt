@@ -21,6 +21,11 @@ public abstract class CoreFragment : Fragment {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        releaseDependencies()
+    }
+
     @Composable
     public abstract fun InitContent()
 
