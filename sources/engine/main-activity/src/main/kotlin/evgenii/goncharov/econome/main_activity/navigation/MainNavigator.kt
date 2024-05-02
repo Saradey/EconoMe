@@ -3,7 +3,6 @@ package evgenii.goncharov.econome.main_activity.navigation
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
-import com.github.terrakok.cicerone.Back
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Forward
 import com.github.terrakok.cicerone.Replace
@@ -12,7 +11,7 @@ import evgenii.goncharov.econome.navigation.base.BaseNavigator
 import evgenii.goncharov.econome.main_activity.R
 
 internal class MainNavigator(
-    private val activity: FragmentActivity
+    activity: FragmentActivity
 ) : BaseNavigator() {
 
     override val fm: FragmentManager = activity.supportFragmentManager
@@ -23,7 +22,6 @@ internal class MainNavigator(
         when (command) {
             is Forward -> forward(command)
             is Replace -> replace(command)
-            is Back -> back()
         }
     }
 
@@ -46,18 +44,5 @@ internal class MainNavigator(
             fragmentScreen = fragmentScreen,
             backStackName = fragmentScreen.screenKey
         )
-    }
-
-    private fun back() {
-        if (fm.backStackEntryCount > FIRST_INDEX_FRAGMENT_TO_BACKSTACK) {
-            fm.popBackStack()
-        } else {
-            activity.finish()
-        }
-    }
-
-    private companion object {
-
-        const val FIRST_INDEX_FRAGMENT_TO_BACKSTACK = 1
     }
 }

@@ -1,10 +1,10 @@
 package evgenii.goncharov.econome.di_core
 
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
 
-public abstract class CoreActivity : FragmentActivity() {
+public abstract class CoreActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()

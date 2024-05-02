@@ -8,7 +8,6 @@ import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalytic
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.components.DaggerMainNavigationComponent
-import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 import javax.inject.Inject
 
@@ -23,8 +22,7 @@ public class MainNavigationHolder @Inject constructor(container: FeatureContaine
                 FinanceAnalyticsAllSpendingLauncher::class.java
             ),
             bankAccountsLauncher = getFeatureLauncher(BankAccountsLauncher::class.java),
-            settingsLauncher = getFeatureLauncher(SettingsLauncher::class.java),
-            coreNavigationApi = getGlobalComponent(CoreNavigationApi::class.java)
+            settingsLauncher = getFeatureLauncher(SettingsLauncher::class.java)
         )
     }
 }
