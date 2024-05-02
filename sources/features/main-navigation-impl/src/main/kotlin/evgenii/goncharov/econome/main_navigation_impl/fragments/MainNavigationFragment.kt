@@ -33,13 +33,17 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        savedInstanceState ?: viewModel.initMain()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
         val container = view.findViewById<ComposeView>(R.id.cv_container)
         container.setContent {
             InitContent()
         }
-        savedInstanceState ?: viewModel.initMain()
     }
 
     @Composable
