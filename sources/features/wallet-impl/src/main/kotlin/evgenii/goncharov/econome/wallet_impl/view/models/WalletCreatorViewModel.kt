@@ -8,4 +8,7 @@ internal class WalletCreatorViewModel @Inject constructor(
     private val mainNavigationLauncher: MainNavigationLauncher
 ) : ViewModel() {
 
+    fun goToMainBottomNavigation() {
+        mainNavigationLauncher.launchReplaceNavigation()
+    }
 }

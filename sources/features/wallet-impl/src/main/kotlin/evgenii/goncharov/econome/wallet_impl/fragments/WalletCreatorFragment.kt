@@ -21,7 +21,7 @@ internal class WalletCreatorFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = WalletCreatorScreen()
+    override fun InitContent() = WalletCreatorScreen(viewModel::goToMainBottomNavigation)
 
     override fun releaseDependencies() {
         releaseFeatureApi(WalletCreatorApi::class.java)
