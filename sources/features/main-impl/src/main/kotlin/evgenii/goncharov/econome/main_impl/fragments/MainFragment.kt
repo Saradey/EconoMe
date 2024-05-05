@@ -21,7 +21,13 @@ internal class MainFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = MainScreen()
+    override fun InitContent() = MainScreen(
+        goToDialogAddSpendingListener = viewModel::goToDialogAddSpending,
+        goToSpendingInfoListener = viewModel::goToSpendingInfo,
+        goToAddSpendingLimitListener = viewModel::goToAddSpendingLimit,
+        goToListShopsListener = viewModel::goToListShops,
+        goToAddCostGoodsListener = viewModel::goToAddCostGoods
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(MainApi::class.java)
