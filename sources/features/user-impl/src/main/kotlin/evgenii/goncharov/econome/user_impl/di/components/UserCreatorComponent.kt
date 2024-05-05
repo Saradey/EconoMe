@@ -4,12 +4,12 @@ import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.user_impl.di.contracts.UserCreatorInternal
-import evgenii.goncharov.econome.user_impl.di.modules.UserCreatorViewModelBindsModule
+import evgenii.goncharov.econome.user_impl.di.modules.UserViewModelBindsModule
 import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
 
 @FeatureScope
 @Component(
-    modules = [UserCreatorViewModelBindsModule::class]
+    modules = [UserViewModelBindsModule::class]
 )
 internal interface UserCreatorComponent : UserCreatorInternal {
 
