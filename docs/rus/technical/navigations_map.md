@@ -68,7 +68,7 @@
     - [22. Экран добавления подкатегории товаров](screens/screen_22_add_product_subcategory.md)
 
 - [15. Экран выбора пользователя](screens/screen_15_select_user.md) (без нижнего меню)
-    - [1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
+    - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
 
 - [11. Экран всех категорий](screens/screen_11_all_categories.md) (без нижнего меню)
     - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
