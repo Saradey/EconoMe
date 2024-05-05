@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":sources:core:common"))
 
     api(project(":sources:features:wallet-api"))
+    api(project(":sources:features:main-navigation-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
