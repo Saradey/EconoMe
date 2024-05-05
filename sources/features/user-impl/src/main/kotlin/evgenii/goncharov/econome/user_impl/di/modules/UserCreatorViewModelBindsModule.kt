@@ -11,13 +11,9 @@ import evgenii.goncharov.econome.user_impl.view.models.UserChoosingViewModel
 import evgenii.goncharov.econome.user_impl.view.models.UserCreatorViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface UserViewModelBindsModule {
+internal interface UserCreatorViewModelBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(UserCreatorViewModel::class)]
     fun bindUserCreatorViewModel(viewModel: UserCreatorViewModel): ViewModel
-
-    @[Binds FeatureScope]
-    @[IntoMap ViewModelKey(UserChoosingViewModel::class)]
-    fun bindUserChoosingViewModel(viewModel: UserChoosingViewModel): ViewModel
 }
