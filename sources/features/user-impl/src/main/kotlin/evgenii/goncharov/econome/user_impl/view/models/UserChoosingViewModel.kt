@@ -9,6 +9,6 @@ internal class UserChoosingViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun goToMainBottomNavigationMenu() {
-        mainNavigationLauncher.launchMainNavigation()
+        mainNavigationLauncher.launchReplaceNavigation()
     }
 }

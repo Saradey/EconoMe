@@ -13,4 +13,8 @@ public class MainNavigationLauncherImpl @Inject constructor(
     override fun launchMainNavigation() {
         globalRouter.navigateTo(NavigationScreens.startMainNavigation())
     }
+
+    override fun launchReplaceNavigation() {
+        globalRouter.replaceScreen(NavigationScreens.startMainNavigation())
+    }
 }
