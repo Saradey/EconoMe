@@ -9,6 +9,6 @@ internal class UserCreatorViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun goToWalletCreator() {
-        walletLauncher.launchWalletCreator()
+        walletLauncher.launchReplaceWalletCreator()
     }
 }

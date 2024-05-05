@@ -1,9 +1,9 @@
 # Карта навигации по экранам:
 
 - При старте приложения:
-    - [0. Экран создания аккаунта](screens/screen_0_create_account.md) или
-    - [1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md) или
-    - [15. Экран выбора пользователя](screens/screen_15_select_user.md)
+    - +[0. Экран создания аккаунта](screens/screen_0_create_account.md) или
+    - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md) или
+    - +[15. Экран выбора пользователя](screens/screen_15_select_user.md)
 
 - [0. Экран создания аккаунта](screens/screen_0_create_account.md) (без нижнего меню)
     - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)

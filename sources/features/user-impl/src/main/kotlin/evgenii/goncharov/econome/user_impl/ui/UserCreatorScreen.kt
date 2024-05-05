@@ -18,7 +18,7 @@ internal fun UserCreatorScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "UserCreatorFragment Создание пользователя",
+            text = "0. UserCreatorFragment Создание пользователя",
             color = Color.White,
             fontSize = 20.sp
         )

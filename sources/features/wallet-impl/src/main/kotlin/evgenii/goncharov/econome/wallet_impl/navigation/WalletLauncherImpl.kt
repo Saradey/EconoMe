@@ -10,7 +10,7 @@ public class WalletLauncherImpl @Inject constructor(
     @Named(GLOBAL_ROUTER) private val globalRouter: Router
 ) : WalletLauncher {
 
-    override fun launchWalletCreator() {
-        globalRouter.navigateTo(NavigationWalletScreens.startWalletCreator())
+    override fun launchReplaceWalletCreator() {
+        globalRouter.replaceScreen(NavigationWalletScreens.startWalletCreator())
     }
 }
