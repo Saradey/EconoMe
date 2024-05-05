@@ -16,8 +16,6 @@ internal interface UserChoosingComponent : UserChoosingInternal {
     @Component.Factory
     interface Factory {
 
-        fun create(
-            @BindsInstance walletLauncher: WalletLauncher
-        ): UserChoosingComponent
+        fun create(): UserChoosingComponent
     }
 }

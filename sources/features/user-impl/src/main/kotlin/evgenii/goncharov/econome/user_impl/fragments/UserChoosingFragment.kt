@@ -21,7 +21,7 @@ internal class UserChoosingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = UserChoosingScreen()
+    override fun InitContent() = UserChoosingScreen(viewModel::goToMainBottomNavigationMenu)
 
     override fun releaseDependencies() {
         releaseFeatureApi(UserChoosingApi::class.java)
