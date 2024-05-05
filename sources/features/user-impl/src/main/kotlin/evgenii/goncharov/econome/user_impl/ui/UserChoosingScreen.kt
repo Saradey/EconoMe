@@ -18,7 +18,7 @@ internal fun UserChoosingScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "UserChoosingFragment экран выбора пользователя",
+            text = "15. UserChoosingFragment экран выбора пользователя",
             color = Color.White,
             fontSize = 20.sp
         )

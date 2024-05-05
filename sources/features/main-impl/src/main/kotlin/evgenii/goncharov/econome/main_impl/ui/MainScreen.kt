@@ -15,7 +15,7 @@ internal fun MainScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "MainFragment главный экран",
+            text = "2. MainFragment главный экран",
             color = Color.White,
             fontSize = 20.sp
         )

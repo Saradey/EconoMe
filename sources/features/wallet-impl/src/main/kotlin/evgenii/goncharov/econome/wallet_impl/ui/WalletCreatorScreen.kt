@@ -15,7 +15,7 @@ internal fun WalletCreatorScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "WalletCreatorFragment Экран создания кошелька расходов",
+            text = "4. WalletCreatorFragment Экран создания кошелька расходов",
             color = Color.White,
             fontSize = 20.sp
         )

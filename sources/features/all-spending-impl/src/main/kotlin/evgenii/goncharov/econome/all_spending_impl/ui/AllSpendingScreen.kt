@@ -15,7 +15,7 @@ internal fun AllSpendingScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "AllSpendingFragment экран всех расходов",
+            text = "6. AllSpendingFragment экран всех расходов",
             color = Color.White,
             fontSize = 20.sp
         )

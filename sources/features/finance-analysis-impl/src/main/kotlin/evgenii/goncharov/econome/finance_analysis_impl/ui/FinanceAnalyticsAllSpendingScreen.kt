@@ -15,7 +15,7 @@ internal fun FinanceAnalyticsAllSpendingScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "FinanceAnalyticsAllSpendingFragment экран всех расходов аналитика",
+            text = "13. FinanceAnalyticsAllSpendingFragment экран всех расходов аналитика",
             color = Color.White,
             fontSize = 20.sp
         )
