@@ -37,8 +37,9 @@ internal class BottomMenuNavigator(
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
         val name = fragmentScreen.screenKey
+        val fragment = fragmentScreen.createFragment(ff)
         when {
-            checkEverywhere(name) -> commitFragmentToCurrentStack(fragmentScreen = fragmentScreen)
+            checkEverywhere(name) -> commitFragmentToCurrentStack(fragment, name)
             checkLocalBackStack(name) -> restoreBackStack(name)
             checkIsNewBackStack(name) -> addedNewBackStack(fragmentScreen, name)
         }
@@ -59,15 +60,15 @@ internal class BottomMenuNavigator(
     }
 
     private fun commitFragmentToCurrentStack(
-        fragmentScreen: FragmentScreen,
+        fragment: Fragment,
+        screenKey: String
     ) {
-        val fragment = fragmentScreen.createFragment(ff)
         fm.commit {
             setReorderingAllowed(true)
-            replace(containerId, fragment, fragmentScreen.screenKey)
+            replace(containerId, fragment, screenKey)
             addToBackStack(selectedBackStack.backStackName)
         }
-        selectedBackStack.screensKey.push(fragmentScreen.screenKey)
+        selectedBackStack.screensKey.push(screenKey)
     }
 
     private fun restoreBackStack(backStackName: String) {
