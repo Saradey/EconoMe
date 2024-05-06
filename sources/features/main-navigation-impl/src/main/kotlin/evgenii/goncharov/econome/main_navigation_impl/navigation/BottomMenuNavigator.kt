@@ -95,7 +95,7 @@ internal class BottomMenuNavigator(
             addToBackStack(backStackName)
         }
         val backStackScreens = Stack<String>()
-        backStackScreens.add(backStackName)
+        backStackScreens.push(fragment.toString())
         selectedBackStack = BackStackInfo(backStackName, backStackScreens)
         localBackStack.push(selectedBackStack)
     }
