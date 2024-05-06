@@ -5,4 +5,7 @@ import javax.inject.Inject
 
 public class SpendingLauncherImpl @Inject constructor() : SpendingLauncher {
 
+    override fun launchAddSpending() {
+
+    }
 }
