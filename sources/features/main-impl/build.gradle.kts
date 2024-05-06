@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":sources:engine:navigation"))
 
     api(project(":sources:features:spending-api"))
+    api(project(":sources:features:product-cost-analysis-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

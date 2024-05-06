@@ -23,7 +23,7 @@
     - +[3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md)
     - +[5. Экран информации по расходу](screens/screen_5_spending_info.md)
     - +[10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
-    - [18. Список магазинов для анализа затрат](screens/screen_18_list_cost_analytics_shops.md)
+    - +[18. Список магазинов для анализа затрат](screens/screen_18_list_cost_analytics_shops.md)
     - [19. Экран добавления стоимости товара](screens/screen_19_add_cost_product.md)
 
 - [3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md) (с нижнем меню)
