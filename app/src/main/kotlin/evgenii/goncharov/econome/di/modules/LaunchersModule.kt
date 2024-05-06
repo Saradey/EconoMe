@@ -53,5 +53,5 @@ interface LaunchersModule {
     fun bindWalletLauncher(mainLauncher: WalletLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(SpendingLauncher::class)]
-    fun bindSpendingLauncher(mainLauncher: SpendingLauncherImpl): BaseLauncher
+    fun bindSpendingLauncher(spendingLauncher: SpendingLauncherImpl): BaseLauncher
 }
