@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.di.modules
 
+import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -13,5 +14,5 @@ internal interface SpendingLimitViewModelBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(SpendingLimitViewModel::class)]
-    fun bindSpendingLimitViewModel(viewModel: SpendingLimitViewModel)
+    fun bindSpendingLimitViewModel(viewModel: SpendingLimitViewModel): ViewModel
 }
