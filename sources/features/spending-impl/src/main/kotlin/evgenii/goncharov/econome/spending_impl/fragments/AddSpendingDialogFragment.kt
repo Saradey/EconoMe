@@ -2,7 +2,7 @@ package evgenii.goncharov.econome.spending_impl.fragments
 
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
-import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.CoreDialogFragment
 import evgenii.goncharov.econome.spending_api.di.AddSpendingApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.AddSpendingInternal
 import evgenii.goncharov.econome.spending_impl.ui.AddSpendingScreen
@@ -11,7 +11,7 @@ import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 /**
  * 3. Screen
  */
-internal class AddSpendingFragment : CoreFragment() {
+internal class AddSpendingDialogFragment : CoreDialogFragment() {
 
     private val dependency: AddSpendingInternal by lazy {
         getFeatureApi(AddSpendingApi::class.java) as AddSpendingInternal
@@ -29,6 +29,6 @@ internal class AddSpendingFragment : CoreFragment() {
 
     companion object {
 
-        fun newInstance() = AddSpendingFragment()
+        fun newInstance() = AddSpendingDialogFragment()
     }
 }
