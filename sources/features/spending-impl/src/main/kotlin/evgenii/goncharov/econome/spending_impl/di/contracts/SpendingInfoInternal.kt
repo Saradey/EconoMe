@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.spending_impl.di.contracts
 
-internal interface SpendingInfoInternal {
-}
+import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
+
+internal interface SpendingInfoInternal : SpendingInfoApi
