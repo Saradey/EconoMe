@@ -17,6 +17,8 @@ import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLaunch
 import evgenii.goncharov.econome.main_navigation_impl.navigation.MainNavigationLauncherImpl
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 import evgenii.goncharov.econome.settings_impl.navigation.SettingsLauncherImpl
+import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
+import evgenii.goncharov.econome.spending_impl.navigation.SpendingLauncherImpl
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import evgenii.goncharov.econome.user_impl.navigation.UserLauncherImpl
 import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
@@ -49,4 +51,7 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(WalletLauncher::class)]
     fun bindWalletLauncher(mainLauncher: WalletLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(SpendingLauncher::class)]
+    fun bindSpendingLauncher(mainLauncher: SpendingLauncherImpl): BaseLauncher
 }
