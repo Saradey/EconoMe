@@ -19,6 +19,8 @@ import evgenii.goncharov.econome.main_impl.di.holders.MainHolder
 import evgenii.goncharov.econome.main_impl.di.holders.SpendingLimitHolder
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.holder.MainNavigationHolder
+import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
+import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.ListShopsHolder
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
 import evgenii.goncharov.econome.settings_impl.di.holder.SettingsHolder
 import evgenii.goncharov.econome.spending_api.di.AddSpendingApi
@@ -74,4 +76,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(SpendingLimitApi::class)]
     fun bindSpendingLimitHolder(holder: SpendingLimitHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(ListShopsApi::class)]
+    fun bindListShopsHolder(holder: ListShopsHolder): FeatureHolder<*>
 }
