@@ -13,4 +13,8 @@ public class SpendingLauncherImpl @Inject constructor(
     override fun launchAddSpending() {
         deepRouter.navigateTo(SpendingNavigationScreens.startAddSpending())
     }
+
+    override fun launchDeepSpendingInfo() {
+        deepRouter.navigateTo(SpendingNavigationScreens.startSpendingInfo())
+    }
 }
