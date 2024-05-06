@@ -70,7 +70,7 @@ internal class BottomMenuNavigator(
     ) {
         fm.commit {
             setReorderingAllowed(true)
-            replace(containerId, fragment, screenKey)
+            replace(containerId, fragment)
             addToBackStack(selectedBackStack.backStackName)
         }
         selectedBackStack.screensKey.push(screenKey)
