@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_navigation_impl.navigation
 
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
@@ -38,6 +39,7 @@ internal class BottomMenuNavigator(
         val fragmentScreen = command.screen as FragmentScreen
         val name = fragmentScreen.screenKey
         val fragment = fragmentScreen.createFragment(ff)
+        if (fragment is DialogFragment) showDialogFragment(fragment, name)
         when {
             checkEverywhere(name) -> commitFragmentToCurrentStack(fragment, name)
             checkLocalBackStack(name) -> restoreBackStack(name)
@@ -119,6 +121,10 @@ internal class BottomMenuNavigator(
         selectedBackStack = localBackStack.peek()
         selectedTabListener.selectTab(selectedBackStack.backStackName)
         fm.restoreBackStack(selectedBackStack.backStackName)
+    }
+
+    private fun showDialogFragment(dialogDialogFragment: DialogFragment, name: String) {
+        dialogDialogFragment.show(fm, name)
     }
 
     private companion object {
