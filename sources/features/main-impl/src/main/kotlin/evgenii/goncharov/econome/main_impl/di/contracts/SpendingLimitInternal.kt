@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.main_impl.di.contracts
 
-internal interface SpendingLimitInternal {
-}
+import evgenii.goncharov.econome.main_api.di.SpendingLimitApi
+
+internal interface SpendingLimitInternal : SpendingLimitApi
