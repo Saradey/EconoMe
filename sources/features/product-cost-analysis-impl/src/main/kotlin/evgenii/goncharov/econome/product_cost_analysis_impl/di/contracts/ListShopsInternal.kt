@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.product_cost_analysis_impl.di.contracts
 
-internal interface ListShopsInternal {
-}
+import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
+
+internal interface ListShopsInternal : ListShopsApi
