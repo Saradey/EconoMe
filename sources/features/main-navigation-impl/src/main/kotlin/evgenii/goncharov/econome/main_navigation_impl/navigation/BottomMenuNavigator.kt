@@ -39,7 +39,10 @@ internal class BottomMenuNavigator(
         val fragmentScreen = command.screen as FragmentScreen
         val name = fragmentScreen.screenKey
         val fragment = fragmentScreen.createFragment(ff)
-        if (fragment is DialogFragment) showDialogFragment(fragment, name)
+        if (fragment is DialogFragment) {
+            showDialogFragment(fragment, name)
+            return
+        }
         when {
             checkEverywhere(name) -> commitFragmentToCurrentStack(fragment, name)
             checkLocalBackStack(name) -> restoreBackStack(name)
