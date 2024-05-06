@@ -44,7 +44,7 @@ internal class BottomMenuNavigator(
             return
         }
         when {
-            checkEverywhere(name) -> commitFragmentToCurrentStack(fragment, name)
+            checkEverywhere(name) -> commitFragmentToCurrentStack(fragment)
             checkLocalBackStack(name) -> restoreBackStack(name)
             checkIsNewBackStack(name) -> addedNewBackStack(name, fragment)
         }
@@ -64,16 +64,13 @@ internal class BottomMenuNavigator(
                 backStackName != BACKSTACK_NAME_EVERYWHERE
     }
 
-    private fun commitFragmentToCurrentStack(
-        fragment: Fragment,
-        screenKey: String
-    ) {
+    private fun commitFragmentToCurrentStack(fragment: Fragment) {
         fm.commit {
             setReorderingAllowed(true)
             replace(containerId, fragment)
             addToBackStack(selectedBackStack.backStackName)
         }
-        selectedBackStack.screensKey.push(screenKey)
+        selectedBackStack.screensKey.push(fragment.toString())
     }
 
     private fun restoreBackStack(backStackName: String) {
@@ -94,7 +91,7 @@ internal class BottomMenuNavigator(
         }
         fm.commit {
             setReorderingAllowed(true)
-            replace(containerId, fragment, backStackName)
+            replace(containerId, fragment)
             addToBackStack(backStackName)
         }
         val backStackScreens = Stack<String>()
