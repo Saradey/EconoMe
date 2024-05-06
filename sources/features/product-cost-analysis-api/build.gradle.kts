@@ -5,5 +5,5 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":sources:engine:di-core"))
 }
