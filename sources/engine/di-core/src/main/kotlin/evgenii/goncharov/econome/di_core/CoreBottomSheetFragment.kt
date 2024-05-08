@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
-import androidx.fragment.app.DialogFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
 
-public abstract class CoreBottomSheetFragment : DialogFragment(R.layout.fragment_core) {
+public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment(R.layout.fragment_core) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val container = view.findViewById<ComposeView>(R.id.cv_container)
