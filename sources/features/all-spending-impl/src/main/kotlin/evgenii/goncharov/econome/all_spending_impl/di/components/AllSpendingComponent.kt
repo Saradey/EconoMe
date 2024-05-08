@@ -3,14 +3,14 @@ package evgenii.goncharov.econome.all_spending_impl.di.components
 import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.all_spending_impl.di.contracts.AllSpendingInternal
-import evgenii.goncharov.econome.all_spending_impl.di.modules.AllSpendingBindsModule
+import evgenii.goncharov.econome.all_spending_impl.di.modules.AllSpendingBindModule
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
 
 @FeatureScope
 @Component(
     modules = [
-        AllSpendingBindsModule::class
+        AllSpendingBindModule::class
     ]
 )
 internal interface AllSpendingComponent : AllSpendingInternal {
