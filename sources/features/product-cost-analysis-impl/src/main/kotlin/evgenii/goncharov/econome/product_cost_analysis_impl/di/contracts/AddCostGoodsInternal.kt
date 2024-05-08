@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.product_cost_analysis_impl.di.contracts
 
-internal interface AddCostGoodsInternal {
-}
+import evgenii.goncharov.econome.product_cost_analysis_api.di.AddCostGoodsApi
+
+internal interface AddCostGoodsInternal : AddCostGoodsApi
