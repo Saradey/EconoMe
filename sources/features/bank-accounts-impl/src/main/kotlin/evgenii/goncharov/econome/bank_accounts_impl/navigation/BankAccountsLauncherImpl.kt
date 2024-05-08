@@ -13,4 +13,8 @@ public class BankAccountsLauncherImpl @Inject constructor(
     override fun deepLaunchBankAccounts() {
         deepRouter.navigateTo(BankAccountsNavigationScreens.startDeepBankAccounts())
     }
+
+    override fun launchAddStateAccount() {
+        deepRouter.navigateTo(BankAccountsNavigationScreens.startAddStateAccount())
+    }
 }
