@@ -29,6 +29,6 @@ internal class MainViewModel @Inject constructor(
     }
 
     fun goToAddCostGoods() {
-
+        productCostAnalysisLauncher.launchDeepAddCostGoods()
     }
 }
