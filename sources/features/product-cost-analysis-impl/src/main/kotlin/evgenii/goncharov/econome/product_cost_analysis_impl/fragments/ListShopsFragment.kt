@@ -9,7 +9,7 @@ import evgenii.goncharov.econome.product_cost_analysis_impl.ui.ListShopsScreen
 import evgenii.goncharov.econome.product_cost_analysis_impl.view.models.ListShopsViewModel
 
 /**
- * 18.
+ * 18. Screen
  */
 internal class ListShopsFragment : CoreFragment() {
 
