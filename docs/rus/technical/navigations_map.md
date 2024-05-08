@@ -49,7 +49,7 @@
 - [7. Экран добавления информации о моих денежных средствах](screens/screen_7_add_my_money.md) (с
   нижнем меню)
     - +[8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
-    - [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
+    - +[14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
 
 - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md) (
   над нижнем меню)

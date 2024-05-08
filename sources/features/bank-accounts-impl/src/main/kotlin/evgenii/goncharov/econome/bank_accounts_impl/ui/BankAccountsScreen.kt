@@ -11,7 +11,8 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 internal fun BankAccountsScreen(
-    goToAddStateAccount: () -> Unit
+    goToAddStateAccount: () -> Unit,
+    goToAddPatternAccount: () -> Unit,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -26,6 +27,11 @@ internal fun BankAccountsScreen(
             onClick = goToAddStateAccount,
         ) {
             Text("Go to 8. Диалоговое окно по добавлению информации о денежном состоянии")
+        }
+        Button(
+            onClick = goToAddPatternAccount,
+        ) {
+            Text("Go to 14. Диалоговое окно по добавлению шаблона денежного счета")
         }
     }
 }

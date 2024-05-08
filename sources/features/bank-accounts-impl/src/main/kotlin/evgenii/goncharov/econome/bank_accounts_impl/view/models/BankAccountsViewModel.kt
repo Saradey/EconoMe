@@ -11,4 +11,8 @@ internal class BankAccountsViewModel @Inject constructor(
     fun navigateToAddStateAccount() {
         bankAccountsLauncher.launchAddStateAccount()
     }
+
+    fun navigateToAddPatternAccount() {
+        bankAccountsLauncher.launchAddPatternAccount()
+    }
 }
