@@ -10,7 +10,7 @@ import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface BankAccountsBindsModule {
+internal interface BankAccountsBindModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(BankAccountsViewModel::class)]
