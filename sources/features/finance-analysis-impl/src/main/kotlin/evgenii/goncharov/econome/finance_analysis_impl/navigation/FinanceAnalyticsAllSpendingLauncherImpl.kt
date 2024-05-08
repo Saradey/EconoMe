@@ -15,4 +15,10 @@ public class FinanceAnalyticsAllSpendingLauncherImpl @Inject constructor(
             FinanceAnalyticsAllSpendingNavigationScreens.startDeepFinanceAnalyticsAllSpending()
         )
     }
+
+    override fun deepLaunchFinanceAnalytics() {
+        deepRouter.navigateTo(
+            FinanceAnalyticsAllSpendingNavigationScreens.startDeepFinanceAnalytics()
+        )
+    }
 }
