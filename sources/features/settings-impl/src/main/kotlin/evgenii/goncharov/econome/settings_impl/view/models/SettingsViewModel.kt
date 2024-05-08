@@ -10,4 +10,19 @@ internal class SettingsViewModel @Inject constructor(
     private val walletLauncher: WalletLauncher
 ) : ViewModel() {
 
+    fun navigateUserCreator() {
+        userLauncher.launchUserCreator()
+    }
+
+    fun navigateUserChoosing() {
+        userLauncher.launchUserChoosing()
+    }
+
+    fun navigateWalletCreator() {
+        walletLauncher.launchWalletCreator()
+    }
+
+    fun navigateAllWallet() {
+        walletLauncher.launchAllWallet()
+    }
 }
