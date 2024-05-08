@@ -60,9 +60,9 @@
     - Отсутствует
 
 - [9. Экран настроек](screens/screen_9_settings.md) (без нижнего меню)
-    - [0. Экран создания аккаунта](screens/screen_0_create_account.md)
-    - [15. Экран выбора пользователя](screens/screen_15_select_user.md)
-    - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
+    - +[0. Экран создания аккаунта](screens/screen_0_create_account.md)
+    - +[15. Экран выбора пользователя](screens/screen_15_select_user.md)
+    - +[4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
     - [16. Экран всех кошельков](screens/screen_16_all_wallets.md)
     - [11. Экран всех категорий](screens/screen_11_all_categories.md)
     - [21. Экран добавления категории товаров](screens/screen_21_add_product_category.md)

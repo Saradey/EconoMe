@@ -21,7 +21,12 @@ internal class SettingsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = SettingsScreen()
+    override fun InitContent() = SettingsScreen(
+        goToUserCreator = viewModel::navigateUserCreator,
+        goToUserChoosing = viewModel::navigateUserChoosing,
+        goToWalletCreator = viewModel::navigateWalletCreator,
+        goToAllWallet = viewModel::navigateAllWallet
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(SettingsApi::class.java)
