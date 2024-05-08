@@ -37,7 +37,7 @@
     - Отсутсвует
 
 - [6. Экран всех расходов с пангинацией](screens/screen_6_all_spendings_list.md) (с нижнем меню)
-    - [5. Экран информации по расходу](screens/screen_5_spending_info.md)
+    - +[5. Экран информации по расходу](screens/screen_5_spending_info.md)
 
 - [13. Экран всех расходов](screens/screen_13_all_spendings.md) (с нижнем меню)
     - [17. Экран аналитики финансов](screens/screen_17_financial_analytics.md)

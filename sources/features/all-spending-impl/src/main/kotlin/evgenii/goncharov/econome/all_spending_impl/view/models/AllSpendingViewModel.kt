@@ -8,4 +8,7 @@ internal class AllSpendingViewModel @Inject constructor(
     private val spendingLauncher: SpendingLauncher
 ) : ViewModel() {
 
+    fun goToSpendingInfo() {
+        spendingLauncher.launchDeepSpendingInfo()
+    }
 }
