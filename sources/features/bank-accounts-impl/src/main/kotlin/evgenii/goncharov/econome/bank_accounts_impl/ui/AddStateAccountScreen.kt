@@ -16,7 +16,7 @@ internal fun AddStateAccountScreen() {
     ) {
         Text(
             text = "8. AddStateAccountBottomSheetFragment Диалоговое окно по добавлению информации о денежном состоянии",
-            color = Color.White,
+            color = Color.Black,
             fontSize = 20.sp
         )
     }
