@@ -5,11 +5,11 @@ import dagger.Component
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.user_impl.di.contracts.UserChoosingInternal
-import evgenii.goncharov.econome.user_impl.di.modules.UserChoosingViewModelBindsModule
+import evgenii.goncharov.econome.user_impl.di.modules.UserChoosingBindModule
 
 @FeatureScope
 @Component(
-    modules = [UserChoosingViewModelBindsModule::class]
+    modules = [UserChoosingBindModule::class]
 )
 internal interface UserChoosingComponent : UserChoosingInternal {
 

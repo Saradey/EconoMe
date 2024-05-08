@@ -10,7 +10,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.settings_impl.view.models.SettingsViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface SettingsViewModelBindsModule {
+internal interface SettingsBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(SettingsViewModel::class)]

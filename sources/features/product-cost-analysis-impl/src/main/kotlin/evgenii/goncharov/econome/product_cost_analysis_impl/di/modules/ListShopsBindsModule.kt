@@ -10,7 +10,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.product_cost_analysis_impl.view.models.ListShopsViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface ListShopsViewModelBindsModule {
+internal interface ListShopsBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(ListShopsViewModel::class)]
