@@ -2,7 +2,8 @@
 
 - При старте приложения:
     - +[0. Экран создания аккаунта](screens/screen_0_create_account.md) или
-    - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md) или
+    - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
+      или
     - +[15. Экран выбора пользователя](screens/screen_15_select_user.md)
 
 - [0. Экран создания аккаунта](screens/screen_0_create_account.md) (без нижнего меню)
@@ -100,8 +101,7 @@
     - Отсутсвует
 
 - [22. Экран добавления подкатегории товаров](screens/screen_22_add_product_subcategory.md) (без
-  нижнего
-  меню)
+  нижнего меню)
     - Отсутсвует
 
 - [23. Экран аналитики стоимости товаров](screens/screen_23_analytics_product_costs.md)
