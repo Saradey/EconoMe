@@ -15,7 +15,7 @@ internal fun BankAccountsScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "BankAccountsFragment экран о состоянии счетов",
+            text = "7. BankAccountsFragment экран о состоянии счетов",
             color = Color.White,
             fontSize = 20.sp
         )

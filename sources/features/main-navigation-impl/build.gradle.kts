@@ -5,7 +5,6 @@ plugins {
 
 android {
     namespace = "evgenii.goncharov.econome.main_navigation_impl"
-
     buildFeatures {
         compose = true
     }

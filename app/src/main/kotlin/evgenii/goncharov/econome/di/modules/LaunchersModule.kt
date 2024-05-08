@@ -15,33 +15,48 @@ import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.navigation.MainLauncherImpl
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.main_navigation_impl.navigation.MainNavigationLauncherImpl
+import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
+import evgenii.goncharov.econome.product_cost_analysis_impl.navigation.ProductCostAnalysisLauncherImpl
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
 import evgenii.goncharov.econome.settings_impl.navigation.SettingsLauncherImpl
+import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
+import evgenii.goncharov.econome.spending_impl.navigation.SpendingLauncherImpl
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
 import evgenii.goncharov.econome.user_impl.navigation.UserLauncherImpl
+import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
+import evgenii.goncharov.econome.wallet_impl.navigation.WalletLauncherImpl
 import javax.inject.Singleton
 
 @Module
 interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(UserLauncher::class)]
-    fun bindUserLauncher(userLauncher: UserLauncherImpl): BaseLauncher
+    fun bindUserLauncher(launcher: UserLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(MainNavigationLauncher::class)]
-    fun bindMainNavigationLauncher(userLauncher: MainNavigationLauncherImpl): BaseLauncher
+    fun bindMainNavigationLauncher(launcher: MainNavigationLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(MainLauncher::class)]
-    fun bindMainLauncher(mainLauncher: MainLauncherImpl): BaseLauncher
+    fun bindMainLauncher(launcher: MainLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(AllSpendingLauncher::class)]
-    fun bindAllSpendingLauncher(mainLauncher: AllSpendingLauncherImpl): BaseLauncher
+    fun bindAllSpendingLauncher(launcher: AllSpendingLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsAllSpendingLauncher::class)]
-    fun bindFinanceAnalyticsAllSpendingLauncher(mainLauncher: FinanceAnalyticsAllSpendingLauncherImpl): BaseLauncher
+    fun bindFinanceAnalyticsAllSpendingLauncher(launcher: FinanceAnalyticsAllSpendingLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(BankAccountsLauncher::class)]
-    fun bindBankAccountsLauncher(mainLauncher: BankAccountsLauncherImpl): BaseLauncher
+    fun bindBankAccountsLauncher(launcher: BankAccountsLauncherImpl): BaseLauncher
 
     @[Binds Singleton IntoMap ClassKey(SettingsLauncher::class)]
-    fun bindSettingsLauncher(mainLauncher: SettingsLauncherImpl): BaseLauncher
+    fun bindSettingsLauncher(launcher: SettingsLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(WalletLauncher::class)]
+    fun bindWalletLauncher(launcher: WalletLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(SpendingLauncher::class)]
+    fun bindSpendingLauncher(launcher: SpendingLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(ProductCostAnalysisLauncher::class)]
+    fun bindProductCostAnalysisLauncher(launcher: ProductCostAnalysisLauncherImpl): BaseLauncher
 }

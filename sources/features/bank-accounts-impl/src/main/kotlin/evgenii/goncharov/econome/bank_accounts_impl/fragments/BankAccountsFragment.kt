@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.bank_accounts_impl.ui.BankAccountsScreen
 import evgenii.goncharov.econome.bank_accounts_impl.view.models.BankAccountsViewModel
 import evgenii.goncharov.econome.di_core.CoreFragment
 
+/**
+ * 7. Screen
+ */
 internal class BankAccountsFragment : CoreFragment() {
 
     private val dependency: BankAccountsInternal by lazy {
@@ -18,10 +21,7 @@ internal class BankAccountsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        BankAccountsScreen()
-    }
+    override fun InitContent() = BankAccountsScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(BankAccountsApi::class.java)

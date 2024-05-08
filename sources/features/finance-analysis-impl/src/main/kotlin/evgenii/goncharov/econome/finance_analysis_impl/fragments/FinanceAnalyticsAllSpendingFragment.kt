@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.finance_analysis_impl.di.contracts.FinanceAnaly
 import evgenii.goncharov.econome.finance_analysis_impl.ui.FinanceAnalyticsAllSpendingScreen
 import evgenii.goncharov.econome.finance_analysis_impl.view.models.FinanceAnalyticsAllSpendingViewModel
 
+/**
+ * 13. Screen
+ */
 internal class FinanceAnalyticsAllSpendingFragment : CoreFragment() {
 
     private val dependency: FinanceAnalyticsAllSpendingInternal by lazy {
@@ -18,10 +21,9 @@ internal class FinanceAnalyticsAllSpendingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        FinanceAnalyticsAllSpendingScreen()
-    }
+    override fun InitContent() = FinanceAnalyticsAllSpendingScreen(
+        goToFinanceAnalytics = viewModel::navigateToFinanceAnalytics
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(FinanceAnalyticsAllSpendingApi::class.java)

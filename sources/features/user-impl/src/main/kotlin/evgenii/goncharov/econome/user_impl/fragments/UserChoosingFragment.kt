@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.user_impl.di.contracts.UserChoosingInternal
 import evgenii.goncharov.econome.user_impl.ui.UserChoosingScreen
 import evgenii.goncharov.econome.user_impl.view.models.UserChoosingViewModel
 
+/**
+ * 15. Screen
+ */
 internal class UserChoosingFragment : CoreFragment() {
 
     private val dependency: UserChoosingInternal by lazy {
@@ -18,10 +21,7 @@ internal class UserChoosingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        UserChoosingScreen()
-    }
+    override fun InitContent() = UserChoosingScreen(viewModel::goToMainBottomNavigationMenu)
 
     override fun releaseDependencies() {
         releaseFeatureApi(UserChoosingApi::class.java)
