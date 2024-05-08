@@ -10,7 +10,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.finance_analysis_impl.view.models.FinanceAnalyticsAllSpendingViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface FinanceAnalyticsAllSpendingViewModelBindsModule {
+internal interface FinanceAnalyticsAllSpendingBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(FinanceAnalyticsAllSpendingViewModel::class)]

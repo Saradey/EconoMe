@@ -23,7 +23,6 @@ Here is the technology stack used:
 - jetpack compose with fragments - ui (with costume theme)
 - coroutines - async
 - Room - database
-- viewBinding in fragments
 
 Implementations:
 

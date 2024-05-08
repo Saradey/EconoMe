@@ -10,7 +10,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_impl.view.models.SpendingLimitViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface SpendingLimitViewModelBindsModule {
+internal interface SpendingLimitBindsModule {
 
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(SpendingLimitViewModel::class)]
