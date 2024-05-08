@@ -6,7 +6,9 @@ import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.all_spending_api.di.AllSpendingApi
 import evgenii.goncharov.econome.all_spending_impl.di.holders.AllSpendingHolder
+import evgenii.goncharov.econome.bank_accounts_api.di.AddStateAccountApi
 import evgenii.goncharov.econome.bank_accounts_api.di.BankAccountsApi
+import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddStateAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
@@ -89,4 +91,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsApi::class)]
     fun bindFinanceAnalyticsHolder(holder: FinanceAnalyticsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddStateAccountApi::class)]
+    fun bindAddStateAccountHolder(holder: AddStateAccountHolder): FeatureHolder<*>
 }
