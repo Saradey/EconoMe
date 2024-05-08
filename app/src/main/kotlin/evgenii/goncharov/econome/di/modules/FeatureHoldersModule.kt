@@ -12,17 +12,31 @@ import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.finance_analysis_api.di.FinanceAnalyticsAllSpendingApi
+import evgenii.goncharov.econome.finance_analysis_api.di.FinanceAnalyticsApi
 import evgenii.goncharov.econome.finance_analysis_impl.di.holders.FinanceAnalyticsAllSpendingHolder
+import evgenii.goncharov.econome.finance_analysis_impl.di.holders.FinanceAnalyticsHolder
 import evgenii.goncharov.econome.main_api.di.MainApi
+import evgenii.goncharov.econome.main_api.di.SpendingLimitApi
 import evgenii.goncharov.econome.main_impl.di.holders.MainHolder
+import evgenii.goncharov.econome.main_impl.di.holders.SpendingLimitHolder
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.holder.MainNavigationHolder
+import evgenii.goncharov.econome.product_cost_analysis_api.di.AddCostGoodsApi
+import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
+import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.AddCostGoodsHolder
+import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.ListShopsHolder
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
 import evgenii.goncharov.econome.settings_impl.di.holder.SettingsHolder
+import evgenii.goncharov.econome.spending_api.di.AddSpendingApi
+import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
+import evgenii.goncharov.econome.spending_impl.di.holders.AddSpendingHolder
+import evgenii.goncharov.econome.spending_impl.di.holders.SpendingInfoHolder
 import evgenii.goncharov.econome.user_api.di.UserChoosingApi
 import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.holder.UserChoosingHolder
 import evgenii.goncharov.econome.user_impl.di.holder.UserCreatorHolder
+import evgenii.goncharov.econome.wallet_api.di.WalletCreatorApi
+import evgenii.goncharov.econome.wallet_impl.di.holder.WalletCreatorHolder
 import javax.inject.Singleton
 
 @Module
@@ -54,4 +68,25 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(SettingsApi::class)]
     fun bindSettingsHolder(holder: SettingsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(WalletCreatorApi::class)]
+    fun bindWalletCreatorHolder(holder: WalletCreatorHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddSpendingApi::class)]
+    fun bindAddSpendingHolder(holder: AddSpendingHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(SpendingInfoApi::class)]
+    fun bindSpendingInfoHolder(holder: SpendingInfoHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(SpendingLimitApi::class)]
+    fun bindSpendingLimitHolder(holder: SpendingLimitHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(ListShopsApi::class)]
+    fun bindListShopsHolder(holder: ListShopsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddCostGoodsApi::class)]
+    fun bindAddCostGoodsHolder(holder: AddCostGoodsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsApi::class)]
+    fun bindFinanceAnalyticsHolder(holder: FinanceAnalyticsHolder): FeatureHolder<*>
 }

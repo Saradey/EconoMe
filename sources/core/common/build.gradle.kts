@@ -7,6 +7,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":sources:engine:di-core"))
 
     implementation(libs.dagger)
     implementation(libs.lifecycle.viewmodel)

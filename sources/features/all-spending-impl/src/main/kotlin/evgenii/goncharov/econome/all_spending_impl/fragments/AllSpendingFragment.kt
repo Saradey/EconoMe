@@ -9,7 +9,7 @@ import evgenii.goncharov.econome.all_spending_impl.view.models.AllSpendingViewMo
 import evgenii.goncharov.econome.di_core.CoreFragment
 
 /**
- * 6.
+ * 6. Screen
  */
 internal class AllSpendingFragment : CoreFragment() {
 
@@ -21,10 +21,7 @@ internal class AllSpendingFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        AllSpendingScreen()
-    }
+    override fun InitContent() = AllSpendingScreen(goToSpendingInfo = viewModel::goToSpendingInfo)
 
     override fun releaseDependencies() {
         releaseFeatureApi(AllSpendingApi::class.java)

@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.settings_impl.di.contracts.SettingsInternal
 import evgenii.goncharov.econome.settings_impl.ui.SettingsScreen
 import evgenii.goncharov.econome.settings_impl.view.models.SettingsViewModel
 
+/**
+ * 9. Screen
+ */
 internal class SettingsFragment : CoreFragment() {
 
     private val dependency: SettingsInternal by lazy {
@@ -18,10 +21,7 @@ internal class SettingsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() {
-        viewModel
-        SettingsScreen()
-    }
+    override fun InitContent() = SettingsScreen()
 
     override fun releaseDependencies() {
         releaseFeatureApi(SettingsApi::class.java)

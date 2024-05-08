@@ -15,7 +15,7 @@ internal fun SettingsScreen() {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "SettingsFragment экран настроек",
+            text = "9. SettingsFragment экран настроек",
             color = Color.White,
             fontSize = 20.sp
         )

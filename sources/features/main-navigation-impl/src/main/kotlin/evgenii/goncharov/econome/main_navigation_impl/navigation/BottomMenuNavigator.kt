@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_navigation_impl.navigation
 
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
@@ -37,10 +38,15 @@ internal class BottomMenuNavigator(
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
         val name = fragmentScreen.screenKey
+        val fragment = fragmentScreen.createFragment(ff)
+        if (fragment is DialogFragment) {
+            showDialogFragment(fragment, name)
+            return
+        }
         when {
-            checkEverywhere(name) -> commitFragmentToCurrentStack(fragmentScreen = fragmentScreen)
+            checkEverywhere(name) -> commitFragmentToCurrentStack(fragment)
             checkLocalBackStack(name) -> restoreBackStack(name)
-            checkIsNewBackStack(name) -> addedNewBackStack(fragmentScreen, name)
+            checkIsNewBackStack(name) -> addedNewBackStack(name, fragment)
         }
     }
 
@@ -58,16 +64,13 @@ internal class BottomMenuNavigator(
                 backStackName != BACKSTACK_NAME_EVERYWHERE
     }
 
-    private fun commitFragmentToCurrentStack(
-        fragmentScreen: FragmentScreen,
-    ) {
-        val fragment = fragmentScreen.createFragment(ff)
+    private fun commitFragmentToCurrentStack(fragment: Fragment) {
         fm.commit {
             setReorderingAllowed(true)
-            replace(containerId, fragment, fragmentScreen.screenKey)
+            replace(containerId, fragment)
             addToBackStack(selectedBackStack.backStackName)
         }
-        selectedBackStack.screensKey.push(fragmentScreen.screenKey)
+        selectedBackStack.screensKey.push(fragment.toString())
     }
 
     private fun restoreBackStack(backStackName: String) {
@@ -79,18 +82,20 @@ internal class BottomMenuNavigator(
         localBackStack.push(info)
     }
 
-    private fun addedNewBackStack(fragmentScreen: FragmentScreen, backStackName: String) {
+    private fun addedNewBackStack(
+        backStackName: String,
+        fragment: Fragment
+    ) {
         if (selectedBackStack.backStackName.isNotEmpty()) {
             fm.saveBackStack(selectedBackStack.backStackName)
         }
-        val fragment = fragmentScreen.createFragment(ff)
         fm.commit {
             setReorderingAllowed(true)
-            replace(containerId, fragment, fragmentScreen.screenKey)
+            replace(containerId, fragment)
             addToBackStack(backStackName)
         }
         val backStackScreens = Stack<String>()
-        backStackScreens.add(fragmentScreen.screenKey)
+        backStackScreens.push(fragment.toString())
         selectedBackStack = BackStackInfo(backStackName, backStackScreens)
         localBackStack.push(selectedBackStack)
     }
@@ -116,6 +121,10 @@ internal class BottomMenuNavigator(
         selectedBackStack = localBackStack.peek()
         selectedTabListener.selectTab(selectedBackStack.backStackName)
         fm.restoreBackStack(selectedBackStack.backStackName)
+    }
+
+    private fun showDialogFragment(dialogDialogFragment: DialogFragment, name: String) {
+        dialogDialogFragment.show(fm, name)
     }
 
     private companion object {

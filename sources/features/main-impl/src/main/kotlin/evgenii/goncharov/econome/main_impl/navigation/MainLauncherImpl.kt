@@ -13,4 +13,8 @@ public class MainLauncherImpl @Inject constructor(
     override fun deepLaunchMain() {
         deepRouter.navigateTo(MainNavigationScreens.startDeepMain())
     }
+
+    override fun launchSpendingLimit() {
+        deepRouter.navigateTo(MainNavigationScreens.startSpendingLimitDialog())
+    }
 }
