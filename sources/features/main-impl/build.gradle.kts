@@ -19,8 +19,8 @@ dependencies {
     implementation(project(":sources:core:common"))
     implementation(project(":sources:engine:navigation"))
 
-    api(project(":sources:features:spending-api"))
-    api(project(":sources:features:product-cost-analysis-api"))
+    implementation(project(":sources:features:spending-api"))
+    implementation(project(":sources:features:product-cost-analysis-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
