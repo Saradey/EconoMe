@@ -9,7 +9,7 @@ import javax.inject.Inject
 public class ListShopsHolder @Inject constructor(container: FeatureContainer) :
     FeatureHolder<ListShopsApi>(container) {
 
-    override fun buildComponent():  ListShopsApi {
+    override fun buildComponent(): ListShopsApi {
         return DaggerListShopsComponent.factory().create()
     }
 }
