@@ -15,7 +15,9 @@ internal fun SettingsScreen(
     goToUserChoosing: () -> Unit,
     goToWalletCreator: () -> Unit,
     goToAllWallet: () -> Unit,
-    goToAllCategories: () -> Unit
+    goToAllCategories: () -> Unit,
+    goToAddProduct: () -> Unit,
+    goToAddSubProduct: () -> Unit,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

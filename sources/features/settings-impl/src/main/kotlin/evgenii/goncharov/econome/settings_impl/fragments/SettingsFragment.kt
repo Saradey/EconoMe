@@ -26,7 +26,9 @@ internal class SettingsFragment : CoreFragment() {
         goToUserChoosing = viewModel::navigateUserChoosing,
         goToWalletCreator = viewModel::navigateWalletCreator,
         goToAllWallet = viewModel::navigateAllWallet,
-        goToAllCategories = viewModel::navigateAllCategories
+        goToAllCategories = viewModel::navigateAllCategories,
+        goToAddProduct = viewModel::navigateAddProduct,
+        goToAddSubProduct = viewModel::navigateAddSubProduct
     )
 
     override fun releaseDependencies() {
