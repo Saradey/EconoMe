@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_activity.navigation
 
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
@@ -30,6 +31,10 @@ internal class MainNavigator(
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
         val fragment = fragmentScreen.createFragment(ff)
+        if (fragment is DialogFragment) {
+            fragment.show(fm, null)
+            return
+        }
         commitFragmentTransaction(
             fragment = fragment,
             fragmentScreen = fragmentScreen,
