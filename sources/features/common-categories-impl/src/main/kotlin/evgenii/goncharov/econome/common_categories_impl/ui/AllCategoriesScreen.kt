@@ -16,7 +16,7 @@ internal fun AllCategoriesScreen() {
     ) {
         Text(
             text = "11. AllCategoriesFragment Экран всех категорий",
-            color = Color.Black,
+            color = Color.White,
             fontSize = 20.sp
         )
     }
