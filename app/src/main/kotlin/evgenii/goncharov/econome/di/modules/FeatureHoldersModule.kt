@@ -12,6 +12,8 @@ import evgenii.goncharov.econome.bank_accounts_api.di.BankAccountsApi
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddPatternAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddStateAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
+import evgenii.goncharov.econome.common_categories_api.di.AllCategoriesApi
+import evgenii.goncharov.econome.common_categories_impl.di.holders.AllCategoriesHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
@@ -104,4 +106,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(WalletsListApi::class)]
     fun bindWalletsListHolder(holder: WalletsListHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AllCategoriesApi::class)]
+    fun bindAllCategoriesHolder(holder: AllCategoriesHolder): FeatureHolder<*>
 }

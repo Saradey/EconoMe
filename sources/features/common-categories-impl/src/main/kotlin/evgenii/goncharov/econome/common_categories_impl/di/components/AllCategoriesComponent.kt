@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.common_categories_impl.di.components
 
 import dagger.Component
+import evgenii.goncharov.econome.common_categories_impl.di.contracts.AllCategoriesInternal
 import evgenii.goncharov.econome.common_categories_impl.di.modules.AllCategoriesBindModule
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 
@@ -10,7 +11,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
         AllCategoriesBindModule::class
     ]
 )
-internal interface AllCategoriesComponent {
+internal interface AllCategoriesComponent : AllCategoriesInternal {
 
     @Component.Factory
     interface Factory {

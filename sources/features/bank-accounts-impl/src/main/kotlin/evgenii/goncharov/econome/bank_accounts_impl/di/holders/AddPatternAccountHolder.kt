@@ -6,7 +6,7 @@ import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import javax.inject.Inject
 
-public class AddPatternAccountHolder  @Inject constructor(container: FeatureContainer) :
+public class AddPatternAccountHolder @Inject constructor(container: FeatureContainer) :
     FeatureHolder<AddPatternAccountApi>(container) {
 
     override fun buildComponent(): AddPatternAccountApi {
