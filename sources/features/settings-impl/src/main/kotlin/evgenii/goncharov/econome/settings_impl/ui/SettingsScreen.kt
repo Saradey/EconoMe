@@ -53,5 +53,15 @@ internal fun SettingsScreen(
         ) {
             Text("Go to 11. Экран всех категорий")
         }
+        Button(
+            onClick = goToAddProduct,
+        ) {
+            Text("Go to 21. Экран добавления категории товаров")
+        }
+        Button(
+            onClick = goToAddSubProduct,
+        ) {
+            Text("Go to 22. Экран добавления подкатегории товаров")
+        }
     }
 }
