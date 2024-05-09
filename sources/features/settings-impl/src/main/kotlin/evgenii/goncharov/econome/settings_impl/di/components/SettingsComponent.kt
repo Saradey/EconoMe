@@ -4,6 +4,7 @@ import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.common_categories_api.navigation.CommonCategoriesLauncher
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.product_categories_api.navigation.ProductCategoriesLauncher
 import evgenii.goncharov.econome.settings_impl.di.contracts.SettingsInternal
 import evgenii.goncharov.econome.settings_impl.di.modules.SettingsBindsModule
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
@@ -21,7 +22,8 @@ internal interface SettingsComponent : SettingsInternal {
         fun create(
             @BindsInstance userLauncher: UserLauncher,
             @BindsInstance walletLauncher: WalletLauncher,
-            @BindsInstance commonCategoriesLauncher: CommonCategoriesLauncher
+            @BindsInstance commonCategoriesLauncher: CommonCategoriesLauncher,
+            @BindsInstance productCategoriesLauncher: ProductCategoriesLauncher
         ): SettingsComponent
     }
 }

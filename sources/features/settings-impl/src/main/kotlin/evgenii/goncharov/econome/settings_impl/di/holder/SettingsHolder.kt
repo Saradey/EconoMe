@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.settings_impl.di.holder
 import evgenii.goncharov.econome.common_categories_api.navigation.CommonCategoriesLauncher
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
+import evgenii.goncharov.econome.product_categories_api.navigation.ProductCategoriesLauncher
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
 import evgenii.goncharov.econome.settings_impl.di.components.DaggerSettingsComponent
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
@@ -16,7 +17,8 @@ public class SettingsHolder @Inject constructor(container: FeatureContainer) :
         return DaggerSettingsComponent.factory().create(
             userLauncher = getFeatureLauncher(UserLauncher::class.java),
             walletLauncher = getFeatureLauncher(WalletLauncher::class.java),
-            commonCategoriesLauncher = getFeatureLauncher(CommonCategoriesLauncher::class.java)
+            commonCategoriesLauncher = getFeatureLauncher(CommonCategoriesLauncher::class.java),
+            productCategoriesLauncher = getFeatureLauncher(ProductCategoriesLauncher::class.java)
         )
     }
 }
