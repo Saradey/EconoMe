@@ -40,7 +40,9 @@ import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.holder.UserChoosingHolder
 import evgenii.goncharov.econome.user_impl.di.holder.UserCreatorHolder
 import evgenii.goncharov.econome.wallet_api.di.WalletCreatorApi
+import evgenii.goncharov.econome.wallet_api.di.WalletsListApi
 import evgenii.goncharov.econome.wallet_impl.di.holder.WalletCreatorHolder
+import evgenii.goncharov.econome.wallet_impl.di.holder.WalletsListHolder
 import javax.inject.Singleton
 
 @Module
@@ -99,4 +101,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(AddPatternAccountApi::class)]
     fun bindAddPatternAccountHolder(holder: AddPatternAccountHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(WalletsListApi::class)]
+    fun bindWalletsListHolder(holder: WalletsListHolder): FeatureHolder<*>
 }
