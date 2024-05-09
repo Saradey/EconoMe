@@ -8,6 +8,8 @@ import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
 import evgenii.goncharov.econome.all_spending_impl.navigation.AllSpendingLauncherImpl
 import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import evgenii.goncharov.econome.bank_accounts_impl.navigation.BankAccountsLauncherImpl
+import evgenii.goncharov.econome.common_categories_api.navigation.CommonCategoriesLauncher
+import evgenii.goncharov.econome.common_categories_impl.navigation.CommonCategoriesLauncherImpl
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.finance_analysis_impl.navigation.FinanceAnalyticsAllSpendingLauncherImpl
@@ -15,6 +17,8 @@ import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.navigation.MainLauncherImpl
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.main_navigation_impl.navigation.MainNavigationLauncherImpl
+import evgenii.goncharov.econome.product_categories_api.navigation.ProductCategoriesLauncher
+import evgenii.goncharov.econome.product_categories_impl.navigation.ProductCategoriesLauncherImpl
 import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
 import evgenii.goncharov.econome.product_cost_analysis_impl.navigation.ProductCostAnalysisLauncherImpl
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
@@ -59,4 +63,10 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(ProductCostAnalysisLauncher::class)]
     fun bindProductCostAnalysisLauncher(launcher: ProductCostAnalysisLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(CommonCategoriesLauncher::class)]
+    fun bindCommonCategoriesLauncher(launcher: CommonCategoriesLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(ProductCategoriesLauncher::class)]
+    fun bindProductCategoriesLauncher(launcher: ProductCategoriesLauncherImpl): BaseLauncher
 }

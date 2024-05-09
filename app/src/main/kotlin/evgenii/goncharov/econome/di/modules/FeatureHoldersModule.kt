@@ -6,8 +6,16 @@ import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.all_spending_api.di.AllSpendingApi
 import evgenii.goncharov.econome.all_spending_impl.di.holders.AllSpendingHolder
+import evgenii.goncharov.econome.bank_accounts_api.di.AddPatternAccountApi
+import evgenii.goncharov.econome.bank_accounts_api.di.AddStateAccountApi
 import evgenii.goncharov.econome.bank_accounts_api.di.BankAccountsApi
+import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddPatternAccountHolder
+import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddStateAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
+import evgenii.goncharov.econome.common_categories_api.di.AddCategoriesApi
+import evgenii.goncharov.econome.common_categories_api.di.AllCategoriesApi
+import evgenii.goncharov.econome.common_categories_impl.di.holders.AddCategoriesHolder
+import evgenii.goncharov.econome.common_categories_impl.di.holders.AllCategoriesHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
@@ -21,6 +29,10 @@ import evgenii.goncharov.econome.main_impl.di.holders.MainHolder
 import evgenii.goncharov.econome.main_impl.di.holders.SpendingLimitHolder
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.holder.MainNavigationHolder
+import evgenii.goncharov.econome.product_categories_api.di.AddProductApi
+import evgenii.goncharov.econome.product_categories_api.di.AddSubProductApi
+import evgenii.goncharov.econome.product_categories_impl.di.holders.AddProductHolder
+import evgenii.goncharov.econome.product_categories_impl.di.holders.AddSubProductHolder
 import evgenii.goncharov.econome.product_cost_analysis_api.di.AddCostGoodsApi
 import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
 import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.AddCostGoodsHolder
@@ -36,7 +48,9 @@ import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.holder.UserChoosingHolder
 import evgenii.goncharov.econome.user_impl.di.holder.UserCreatorHolder
 import evgenii.goncharov.econome.wallet_api.di.WalletCreatorApi
+import evgenii.goncharov.econome.wallet_api.di.WalletsListApi
 import evgenii.goncharov.econome.wallet_impl.di.holder.WalletCreatorHolder
+import evgenii.goncharov.econome.wallet_impl.di.holder.WalletsListHolder
 import javax.inject.Singleton
 
 @Module
@@ -89,4 +103,25 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(FinanceAnalyticsApi::class)]
     fun bindFinanceAnalyticsHolder(holder: FinanceAnalyticsHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddStateAccountApi::class)]
+    fun bindAddStateAccountHolder(holder: AddStateAccountHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddPatternAccountApi::class)]
+    fun bindAddPatternAccountHolder(holder: AddPatternAccountHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(WalletsListApi::class)]
+    fun bindWalletsListHolder(holder: WalletsListHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AllCategoriesApi::class)]
+    fun bindAllCategoriesHolder(holder: AllCategoriesHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddProductApi::class)]
+    fun bindAddProductHolder(holder: AddProductHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddSubProductApi::class)]
+    fun bindAddSubProductHolder(holder: AddSubProductHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddCategoriesApi::class)]
+    fun bindAddCategoriesHolder(holder: AddCategoriesHolder): FeatureHolder<*>
 }

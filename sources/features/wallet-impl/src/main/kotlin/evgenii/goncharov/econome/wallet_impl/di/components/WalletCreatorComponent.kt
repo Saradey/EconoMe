@@ -5,11 +5,11 @@ import dagger.Component
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletCreatorInternal
-import evgenii.goncharov.econome.wallet_impl.di.modules.WalletViewModelBindsModule
+import evgenii.goncharov.econome.wallet_impl.di.modules.WalletBindModule
 
 @FeatureScope
 @Component(
-    modules = [WalletViewModelBindsModule::class]
+    modules = [WalletBindModule::class]
 )
 internal interface WalletCreatorComponent : WalletCreatorInternal {
 

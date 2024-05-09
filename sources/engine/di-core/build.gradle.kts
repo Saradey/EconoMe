@@ -20,4 +20,5 @@ dependencies {
     implementation(libs.fragment.ktx)
     implementation(libs.fragment)
     implementation(libs.activity.ktx)
+    implementation(libs.material)
 }

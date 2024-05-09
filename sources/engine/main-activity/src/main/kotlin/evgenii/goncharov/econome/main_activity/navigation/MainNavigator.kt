@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_activity.navigation
 
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.FragmentManager
@@ -29,9 +30,13 @@ internal class MainNavigator(
 
     private fun forward(command: Forward) {
         val fragmentScreen = command.screen as FragmentScreen
-        val featureContainerFragment = fragmentScreen.createFragment(ff)
+        val fragment = fragmentScreen.createFragment(ff)
+        if (fragment is DialogFragment) {
+            fragment.show(fm, null)
+            return
+        }
         commitFragmentTransaction(
-            fragment = featureContainerFragment,
+            fragment = fragment,
             fragmentScreen = fragmentScreen,
             backStackName = fragmentScreen.screenKey
         )
@@ -40,9 +45,9 @@ internal class MainNavigator(
     private fun replace(command: Replace) {
         fm.popBackStack()
         val fragmentScreen = command.screen as FragmentScreen
-        val featureContainerFragment = fragmentScreen.createFragment(ff)
+        val fragment = fragmentScreen.createFragment(ff)
         commitFragmentTransaction(
-            fragment = featureContainerFragment,
+            fragment = fragment,
             fragmentScreen = fragmentScreen,
             backStackName = fragmentScreen.screenKey
         )
