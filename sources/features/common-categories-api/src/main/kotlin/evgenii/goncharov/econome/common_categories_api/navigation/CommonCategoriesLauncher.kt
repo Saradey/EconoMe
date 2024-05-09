@@ -4,4 +4,5 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface CommonCategoriesLauncher : BaseLauncher {
 
+    public fun launchAllCategories()
 }
