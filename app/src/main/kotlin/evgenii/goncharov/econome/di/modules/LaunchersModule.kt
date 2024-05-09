@@ -8,6 +8,8 @@ import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
 import evgenii.goncharov.econome.all_spending_impl.navigation.AllSpendingLauncherImpl
 import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import evgenii.goncharov.econome.bank_accounts_impl.navigation.BankAccountsLauncherImpl
+import evgenii.goncharov.econome.common_categories_api.navigation.CommonCategoriesLauncher
+import evgenii.goncharov.econome.common_categories_impl.navigation.CommonCategoriesLauncherImpl
 import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.finance_analysis_impl.navigation.FinanceAnalyticsAllSpendingLauncherImpl
@@ -59,4 +61,7 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(ProductCostAnalysisLauncher::class)]
     fun bindProductCostAnalysisLauncher(launcher: ProductCostAnalysisLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(CommonCategoriesLauncher::class)]
+    fun bindCommonCategoriesLauncher(launcher: CommonCategoriesLauncherImpl): BaseLauncher
 }
