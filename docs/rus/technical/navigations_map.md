@@ -48,8 +48,8 @@
 
 - [7. Экран добавления информации о моих денежных средствах](screens/screen_7_add_my_money.md) (с
   нижнем меню)
-    - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
-    - [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
+    - +[8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
+    - +[14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
 
 - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md) (
   над нижнем меню)
@@ -60,19 +60,19 @@
     - Отсутствует
 
 - [9. Экран настроек](screens/screen_9_settings.md) (без нижнего меню)
-    - [0. Экран создания аккаунта](screens/screen_0_create_account.md)
-    - [15. Экран выбора пользователя](screens/screen_15_select_user.md)
-    - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
-    - [16. Экран всех кошельков](screens/screen_16_all_wallets.md)
-    - [11. Экран всех категорий](screens/screen_11_all_categories.md)
-    - [21. Экран добавления категории товаров](screens/screen_21_add_product_category.md)
-    - [22. Экран добавления подкатегории товаров](screens/screen_22_add_product_subcategory.md)
+    - +[0. Экран создания аккаунта](screens/screen_0_create_account.md)
+    - +[15. Экран выбора пользователя](screens/screen_15_select_user.md)
+    - +[4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
+    - +[16. Экран всех кошельков](screens/screen_16_all_wallets.md)
+    - +[11. Экран всех категорий](screens/screen_11_all_categories.md)
+    - +[21. Экран добавления категории товаров](screens/screen_21_add_product_category.md)
+    - +[22. Экран добавления подкатегории товаров](screens/screen_22_add_product_subcategory.md)
 
 - [15. Экран выбора пользователя](screens/screen_15_select_user.md) (без нижнего меню)
     - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
 
 - [11. Экран всех категорий](screens/screen_11_all_categories.md) (без нижнего меню)
-    - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
+    - +[12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
 
 - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md) (без
   нижнего меню)

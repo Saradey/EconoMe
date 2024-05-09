@@ -13,4 +13,12 @@ public class WalletLauncherImpl @Inject constructor(
     override fun launchReplaceWalletCreator() {
         globalRouter.replaceScreen(NavigationWalletScreens.startWalletCreator())
     }
+
+    override fun launchWalletCreator() {
+        globalRouter.navigateTo(NavigationWalletScreens.startWalletCreator())
+    }
+
+    override fun launchAllWallet() {
+        globalRouter.navigateTo(NavigationWalletScreens.startWalletsList())
+    }
 }

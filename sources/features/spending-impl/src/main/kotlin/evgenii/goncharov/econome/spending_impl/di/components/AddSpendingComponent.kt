@@ -3,11 +3,11 @@ package evgenii.goncharov.econome.spending_impl.di.components
 import dagger.Component
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.spending_impl.di.contracts.AddSpendingInternal
-import evgenii.goncharov.econome.spending_impl.di.modules.AddSpendingViewModelBindModule
+import evgenii.goncharov.econome.spending_impl.di.modules.AddSpendingBindModule
 
 @FeatureScope
 @Component(
-    modules = [AddSpendingViewModelBindModule::class]
+    modules = [AddSpendingBindModule::class]
 )
 internal interface AddSpendingComponent : AddSpendingInternal {
 

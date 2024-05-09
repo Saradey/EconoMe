@@ -21,7 +21,10 @@ internal class BankAccountsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = BankAccountsScreen()
+    override fun InitContent() = BankAccountsScreen(
+        goToAddStateAccount = viewModel::navigateToAddStateAccount,
+        goToAddPatternAccount = viewModel::navigateToAddPatternAccount
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(BankAccountsApi::class.java)
