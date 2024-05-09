@@ -7,12 +7,12 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
-import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
+import evgenii.goncharov.econome.main_impl.view.models.SpendingLimitViewModel
 
 @Module(includes = [MultiViewModelModule::class])
-internal interface MainBindsModule {
+internal interface SpendingLimitBindModule {
 
     @[Binds FeatureScope]
-    @[IntoMap ViewModelKey(MainViewModel::class)]
-    fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+    @[IntoMap ViewModelKey(SpendingLimitViewModel::class)]
+    fun bindSpendingLimitViewModel(viewModel: SpendingLimitViewModel): ViewModel
 }
