@@ -1,4 +1,5 @@
 package evgenii.goncharov.econome.common_categories_api.di
 
-public interface AllCategoriesApi {
-}
+import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
+
+public interface AllCategoriesApi : ReleasableApi
