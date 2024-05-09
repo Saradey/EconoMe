@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.settings_impl.di.holder
 
+import evgenii.goncharov.econome.common_categories_api.navigation.CommonCategoriesLauncher
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
@@ -14,7 +15,8 @@ public class SettingsHolder @Inject constructor(container: FeatureContainer) :
     override fun buildComponent(): SettingsApi {
         return DaggerSettingsComponent.factory().create(
             userLauncher = getFeatureLauncher(UserLauncher::class.java),
-            walletLauncher = getFeatureLauncher(WalletLauncher::class.java)
+            walletLauncher = getFeatureLauncher(WalletLauncher::class.java),
+            commonCategoriesLauncher = getFeatureLauncher(CommonCategoriesLauncher::class.java)
         )
     }
 }
