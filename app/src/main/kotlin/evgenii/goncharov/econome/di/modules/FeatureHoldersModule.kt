@@ -12,7 +12,9 @@ import evgenii.goncharov.econome.bank_accounts_api.di.BankAccountsApi
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddPatternAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.AddStateAccountHolder
 import evgenii.goncharov.econome.bank_accounts_impl.di.holders.BankAccountsHolder
+import evgenii.goncharov.econome.common_categories_api.di.AddCategoriesApi
 import evgenii.goncharov.econome.common_categories_api.di.AllCategoriesApi
+import evgenii.goncharov.econome.common_categories_impl.di.holders.AddCategoriesHolder
 import evgenii.goncharov.econome.common_categories_impl.di.holders.AllCategoriesHolder
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.holder.MainActivityHolder
@@ -119,4 +121,7 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(AddSubProductApi::class)]
     fun bindAddSubProductHolder(holder: AddSubProductHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddCategoriesApi::class)]
+    fun bindAddCategoriesHolder(holder: AddCategoriesHolder): FeatureHolder<*>
 }
