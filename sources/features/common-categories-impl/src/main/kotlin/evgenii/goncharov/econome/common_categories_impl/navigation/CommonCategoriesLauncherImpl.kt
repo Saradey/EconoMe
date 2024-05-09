@@ -13,4 +13,8 @@ public class CommonCategoriesLauncherImpl @Inject constructor(
     override fun launchAllCategories() {
         globalRouter.navigateTo(CommonCategoriesNavigationScreen.startAllCategories())
     }
+
+    override fun launchAddCategories() {
+        globalRouter.navigateTo(CommonCategoriesNavigationScreen.startAddCategories())
+    }
 }
