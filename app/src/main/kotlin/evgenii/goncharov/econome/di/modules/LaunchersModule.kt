@@ -17,6 +17,8 @@ import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.navigation.MainLauncherImpl
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.main_navigation_impl.navigation.MainNavigationLauncherImpl
+import evgenii.goncharov.econome.product_categories_api.navigation.ProductCategoriesLauncher
+import evgenii.goncharov.econome.product_categories_impl.navigation.ProductCategoriesLauncherImpl
 import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
 import evgenii.goncharov.econome.product_cost_analysis_impl.navigation.ProductCostAnalysisLauncherImpl
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
@@ -64,4 +66,7 @@ interface LaunchersModule {
 
     @[Binds Singleton IntoMap ClassKey(CommonCategoriesLauncher::class)]
     fun bindCommonCategoriesLauncher(launcher: CommonCategoriesLauncherImpl): BaseLauncher
+
+    @[Binds Singleton IntoMap ClassKey(ProductCategoriesLauncher::class)]
+    fun bindProductCategoriesLauncher(launcher: ProductCategoriesLauncherImpl): BaseLauncher
 }
