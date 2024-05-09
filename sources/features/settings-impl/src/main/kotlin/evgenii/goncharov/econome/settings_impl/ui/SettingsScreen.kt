@@ -14,7 +14,8 @@ internal fun SettingsScreen(
     goToUserCreator: () -> Unit,
     goToUserChoosing: () -> Unit,
     goToWalletCreator: () -> Unit,
-    goToAllWallet: () -> Unit
+    goToAllWallet: () -> Unit,
+    goToAllCategories: () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -44,6 +45,11 @@ internal fun SettingsScreen(
             onClick = goToAllWallet,
         ) {
             Text("Go to 16. Экран всех кошельков")
+        }
+        Button(
+            onClick = goToAllCategories,
+        ) {
+            Text("Go to 11. Экран всех категорий")
         }
     }
 }
