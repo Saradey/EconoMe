@@ -21,7 +21,11 @@ internal class ListShopsFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = ListShopsScreen()
+    override fun InitContent() = ListShopsScreen(
+        goToAddCostGoods = viewModel::navigateAddCostGoods,
+        goToAddShop = viewModel::navigateAddShop,
+        goToAnalysisGoodsCost = viewModel::navigateAnalysisGoodsCost
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(ListShopsApi::class.java)

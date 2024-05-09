@@ -4,4 +4,16 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 internal class ListShopsViewModel @Inject constructor() : ViewModel() {
+
+    fun navigateAddCostGoods() {
+
+    }
+
+    fun navigateAddShop() {
+
+    }
+
+    fun navigateAnalysisGoodsCost() {
+
+    }
 }
