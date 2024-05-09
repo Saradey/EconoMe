@@ -72,7 +72,7 @@
     - +[1. Экран с нижнем bottomNavigation меню](screens/screen_1_bottom_navigation_container.md)
 
 - [11. Экран всех категорий](screens/screen_11_all_categories.md) (без нижнего меню)
-    - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
+    - +[12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
 
 - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md) (без
   нижнего меню)

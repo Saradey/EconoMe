@@ -21,7 +21,7 @@ internal class AllCategoriesFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = AllCategoriesScreen()
+    override fun InitContent() = AllCategoriesScreen(viewModel::navigateAddCategories)
 
     override fun releaseDependencies() {
         releaseFeatureApi(AllCategoriesApi::class.java)

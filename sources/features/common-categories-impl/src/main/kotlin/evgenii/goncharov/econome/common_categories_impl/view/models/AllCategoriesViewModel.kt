@@ -8,4 +8,7 @@ internal class AllCategoriesViewModel @Inject constructor(
     private val commonCategoriesLauncher: CommonCategoriesLauncher
 ) : ViewModel() {
 
+    fun navigateAddCategories() {
+        commonCategoriesLauncher.launchAddCategories()
+    }
 }
