@@ -19,6 +19,6 @@ public class WalletLauncherImpl @Inject constructor(
     }
 
     override fun launchAllWallet() {
-
+        globalRouter.navigateTo(NavigationWalletScreens.startWalletsList())
     }
 }
