@@ -80,7 +80,7 @@
 
 - [16. Экран всех кошельков](screens/screen_16_all_wallets.md) (без
   нижнего меню)
-    - [4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
+    - +[4. Экран создания кошелька расходов](screens/screen_4_create_wallet.md)
 
 - [18. Список магазинов для анализа затрат](screens/screen_18_list_cost_analytics_shops.md) (с
   нижнем меню и без)
