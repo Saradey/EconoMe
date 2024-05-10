@@ -12,6 +12,8 @@ import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_activity.navigation.MainOnBackPressed
 import evgenii.goncharov.econome.main_activity.repositories.MainActivityRepository
 import evgenii.goncharov.econome.main_activity.repositories.impl.MainActivityRepositoryImpl
+import evgenii.goncharov.econome.main_activity.use.cases.CheckUserUseCase
+import evgenii.goncharov.econome.main_activity.use.cases.impl.CheckUserUseCaseImpl
 
 @Module(includes = [MultiViewModelModule::class])
 internal interface MainActivityBindsModule {
@@ -23,6 +25,10 @@ internal interface MainActivityBindsModule {
     @Binds
     @FeatureScope
     fun bindMainOnBackPressed(back: MainOnBackPressed): OnBackPressedCallback
+
+    @Binds
+    @FeatureScope
+    fun bindCheckUserUseCase(repository: CheckUserUseCaseImpl): CheckUserUseCase
 
     @Binds
     @FeatureScope
