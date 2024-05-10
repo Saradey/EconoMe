@@ -9,4 +9,4 @@ import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
 @Component(
     modules = [CoreDatabaseProvideModule::class]
 )
-public interface CoreDatabaseComponent : CoreDatabaseApi
+internal interface CoreDatabaseComponent : CoreDatabaseApi
