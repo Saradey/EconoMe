@@ -29,6 +29,7 @@ detekt-version = "1.23.4"
 
 # database
 room-version = "2.6.1"
+annotation-jvm = "1.7.1"
 
 [libraries]
 # core
@@ -66,6 +67,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 # database
 room = { module = "androidx.room:room-runtime", version.ref = "room-version" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-version" }
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotation-jvm" }
 
 [plugins]
 # core
