@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.product_cost_analysis_impl.di.contracts.Analysi
 import evgenii.goncharov.econome.product_cost_analysis_impl.ui.AnalysisGoodsCostScreen
 import evgenii.goncharov.econome.product_cost_analysis_impl.view.models.AnalysisGoodsCostViewModel
 
+/**
+ * 23. Screen
+ */
 internal class AnalysisGoodsCostFragment : CoreFragment() {
 
     private val dependency: AnalysisGoodsCostInternal by lazy {
