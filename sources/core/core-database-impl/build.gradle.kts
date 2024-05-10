@@ -5,4 +5,5 @@ android {
 }
 
 dependencies {
+    api(project(":sources:core:core-database-api"))
 }
