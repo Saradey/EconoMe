@@ -5,16 +5,16 @@
 
 2. Фича Main (main)
     - +[2. Главный экран](screens/screen_2_main.md)
-    - [10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
+    - +[10. Диалоговое окно по установки дневного лимита на расходы](screens/screen_10_add_spending_limit.md)
 
 3. Фича расходов (spending)
-    - [3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md)
+    - +[3. Диалоговое окно добавления расхода](screens/screen_3_add_spending.md)
     - +[5. Экран информации по расходу](screens/screen_5_spending_info.md)
 
 4. Фича состояния счетов (bank-accounts)
     - +[7. Экран добавления информации о моих денежных средствах](screens/screen_7_add_my_money.md)
-    - [8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
-    - [14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
+    - +[8. Диалоговое окно по добавлению информации о денежном состоянии](screens/screen_8_add_my_money_dialog.md)
+    - +[14. Диалоговое окно по добавлению шаблона денежного счета](screens/screen_14_add_money_account_template.md)
 
 5. Фича пользователя (user)
     - +[0. Экран создания аккаунта](screens/screen_0_create_account.md)
@@ -29,7 +29,7 @@
 
 8. Фича категорий (common-categories)
     - +[11. Экран всех категорий](screens/screen_11_all_categories.md)
-    - [12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
+    - +[12. Диалоговок окно по добавлению категории](screens/screen_12_add_category_dialogue.md)
 
 9. Фича аналитики финансов (finance-analysis)
     - +[13. Экран всех расходов](screens/screen_13_all_spendings.md)

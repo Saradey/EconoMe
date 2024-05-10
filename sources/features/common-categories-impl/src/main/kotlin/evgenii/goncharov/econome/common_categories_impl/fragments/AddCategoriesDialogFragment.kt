@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.common_categories_impl.ui.AddCategoriesScreen
 import evgenii.goncharov.econome.common_categories_impl.view.models.AddCategoriesViewModel
 import evgenii.goncharov.econome.di_core.CoreDialogFragment
 
+/**
+ * 12. Screen
+ */
 internal class AddCategoriesDialogFragment : CoreDialogFragment() {
 
     private val dependency: AddCategoriesInternal by lazy {
