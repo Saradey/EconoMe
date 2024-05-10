@@ -10,6 +10,7 @@ dependencies {
     api(project(":sources:core:core-database-api"))
 
     api(project(":sources:engine:di-core"))
+    implementation(project(":sources:core:common-provider"))
 
     implementation(libs.room)
     kapt(libs.room.compiler)
