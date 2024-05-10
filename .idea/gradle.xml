@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/sources" />
             <option value="$PROJECT_DIR$/sources/core" />
             <option value="$PROJECT_DIR$/sources/core/common" />
+            <option value="$PROJECT_DIR$/sources/core/common-provider" />
             <option value="$PROJECT_DIR$/sources/core/core-database-api" />
             <option value="$PROJECT_DIR$/sources/core/core-database-impl" />
             <option value="$PROJECT_DIR$/sources/engine" />
