@@ -6,7 +6,7 @@ import evgenii.goncharov.econome.product_categories_api.di.AddSubProductApi
 import evgenii.goncharov.econome.product_categories_impl.di.components.DaggerAddSubProductComponent
 import javax.inject.Inject
 
-public class AddSubProductHolder  @Inject constructor(container: FeatureContainer) :
+public class AddSubProductHolder @Inject constructor(container: FeatureContainer) :
     FeatureHolder<AddSubProductApi>(container) {
 
     override fun buildComponent(): AddSubProductApi {
