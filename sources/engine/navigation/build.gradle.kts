@@ -10,7 +10,7 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
 
     implementation(libs.cicerone)
-    implementation(libs.dagger)
     implementation(libs.fragment.ktx)
+    implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 }

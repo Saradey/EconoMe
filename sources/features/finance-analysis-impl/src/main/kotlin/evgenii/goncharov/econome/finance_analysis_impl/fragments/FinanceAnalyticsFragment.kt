@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.finance_analysis_impl.di.contracts.FinanceAnaly
 import evgenii.goncharov.econome.finance_analysis_impl.ui.FinanceAnalyticsScreen
 import evgenii.goncharov.econome.finance_analysis_impl.view.models.FinanceAnalyticsViewModel
 
+/**
+ * 17. Screen
+ */
 internal class FinanceAnalyticsFragment : CoreFragment() {
 
     private val dependency: FinanceAnalyticsInternal by lazy {
