@@ -74,6 +74,7 @@ dependencies {
     implementation(project(":sources:resources:ui-kit"))
     implementation(project(":sources:core:common"))
     implementation(project(":sources:core:core-database-impl"))
+    implementation(project(":sources:core:common-provider"))
 
     // tests
     testImplementation(libs.junit)
