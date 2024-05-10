@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.product_cost_analysis_impl.di.contracts.AddShop
 import evgenii.goncharov.econome.product_cost_analysis_impl.ui.AddShopScreen
 import evgenii.goncharov.econome.product_cost_analysis_impl.view.models.AddShopViewModel
 
+/**
+ * 20. Screen
+ */
 internal class AddShopFragment : CoreFragment() {
 
     private val dependency: AddShopInternal by lazy {
