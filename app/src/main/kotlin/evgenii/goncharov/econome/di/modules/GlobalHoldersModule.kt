@@ -6,6 +6,8 @@ import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common_provider.CommonProviderApi
 import evgenii.goncharov.econome.common_provider.CommonProviderHolder
+import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.core_database_impl.di.holder.CoreDatabaseHolder
 import evgenii.goncharov.econome.di.holder.LaunchersHolder
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
@@ -24,4 +26,7 @@ interface GlobalHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(CommonProviderApi::class)]
     fun bindCommonProviderHolder(holder: CommonProviderHolder): BaseHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(CoreDatabaseApi::class)]
+    fun bindCoreDatabaseHolder(holder: CoreDatabaseHolder): BaseHolder<*>
 }
