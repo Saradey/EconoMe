@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletsListInternal
 import evgenii.goncharov.econome.wallet_impl.ui.WalletsListScreen
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletsListViewModel
 
+/**
+ * 16. Screen
+ */
 internal class WalletsListFragment : CoreFragment() {
 
     private val dependency: WalletsListInternal by lazy {
@@ -18,7 +21,7 @@ internal class WalletsListFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = WalletsListScreen()
+    override fun InitContent() = WalletsListScreen(viewModel::navigateWalletCreator)
 
     override fun releaseDependencies() {
         releaseFeatureApi(WalletsListApi::class.java)

@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:core:core-database-api"))
 
     implementation(project(":sources:features:user-api"))
     implementation(project(":sources:features:main-navigation-api"))

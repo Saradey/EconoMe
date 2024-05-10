@@ -34,8 +34,12 @@ import evgenii.goncharov.econome.product_categories_api.di.AddSubProductApi
 import evgenii.goncharov.econome.product_categories_impl.di.holders.AddProductHolder
 import evgenii.goncharov.econome.product_categories_impl.di.holders.AddSubProductHolder
 import evgenii.goncharov.econome.product_cost_analysis_api.di.AddCostGoodsApi
+import evgenii.goncharov.econome.product_cost_analysis_api.di.AddShopApi
+import evgenii.goncharov.econome.product_cost_analysis_api.di.AnalysisGoodsCostApi
 import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
 import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.AddCostGoodsHolder
+import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.AddShopHolder
+import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.AnalysisGoodsCostHolder
 import evgenii.goncharov.econome.product_cost_analysis_impl.di.holders.ListShopsHolder
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
 import evgenii.goncharov.econome.settings_impl.di.holder.SettingsHolder
@@ -124,4 +128,10 @@ interface FeatureHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(AddCategoriesApi::class)]
     fun bindAddCategoriesHolder(holder: AddCategoriesHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AddShopApi::class)]
+    fun bindAddShopHolder(holder: AddShopHolder): FeatureHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(AnalysisGoodsCostApi::class)]
+    fun bindAnalysisGoodsCostHolder(holder: AnalysisGoodsCostHolder): FeatureHolder<*>
 }

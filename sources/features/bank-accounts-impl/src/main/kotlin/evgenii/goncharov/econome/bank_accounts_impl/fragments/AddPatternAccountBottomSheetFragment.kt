@@ -8,6 +8,9 @@ import evgenii.goncharov.econome.bank_accounts_impl.ui.AddPatternAccountScreen
 import evgenii.goncharov.econome.bank_accounts_impl.view.models.AddPatternAccountViewModel
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
 
+/**
+ * 14. Screen
+ */
 internal class AddPatternAccountBottomSheetFragment : CoreBottomSheetFragment(){
 
     private val dependency: AddPatternAccountInternal by lazy {
