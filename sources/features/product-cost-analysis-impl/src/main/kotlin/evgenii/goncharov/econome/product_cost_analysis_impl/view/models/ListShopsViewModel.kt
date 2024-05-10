@@ -17,6 +17,6 @@ internal class ListShopsViewModel @Inject constructor(
     }
 
     fun navigateAnalysisGoodsCost() {
-
+        productCostAnalysisLauncher.launchAnalysisGoodsCost()
     }
 }
