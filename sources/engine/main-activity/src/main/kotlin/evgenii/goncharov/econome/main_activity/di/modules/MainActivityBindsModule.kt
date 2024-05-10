@@ -20,7 +20,8 @@ internal interface MainActivityBindsModule {
     @[IntoMap ViewModelKey(MainActivityViewModel::class)]
     fun bindMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
 
-    @[Binds FeatureScope]
+    @Binds
+    @FeatureScope
     fun bindMainOnBackPressed(back: MainOnBackPressed): OnBackPressedCallback
 
     @Binds
