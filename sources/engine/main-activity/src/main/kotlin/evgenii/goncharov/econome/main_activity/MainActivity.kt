@@ -6,6 +6,7 @@ import evgenii.goncharov.econome.di_core.CoreActivity
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityInternal
 import evgenii.goncharov.econome.main_activity.navigation.MainNavigator
+import evgenii.goncharov.econome.main_activity.view.model.MainActivityViewModel
 
 internal class MainActivity : CoreActivity() {
 

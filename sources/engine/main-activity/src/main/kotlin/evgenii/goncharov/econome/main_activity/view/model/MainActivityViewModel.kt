@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.main_activity
+package evgenii.goncharov.econome.main_activity.view.model
 
 import androidx.lifecycle.ViewModel
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
@@ -13,7 +13,7 @@ internal class MainActivityViewModel @Inject constructor(
 
     fun appStart() {
 //        userLauncher.launchUserCreator()
-        mainNavigationLauncher.launchMainNavigation()
+//        mainNavigationLauncher.launchMainNavigation()
 //        userLauncher.launchUserChoosing()
     }
 }
