@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_activity.di.holder
 
+import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.main_activity.di.DaggerMainActivityComponent
@@ -14,6 +15,7 @@ public class MainActivityHolder @Inject constructor(container: FeatureContainer)
 
     override fun buildComponent(): MainActivityApi {
         return DaggerMainActivityComponent.factory().create(
+            coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
             coreNavigationApi = getGlobalComponent(CoreNavigationApi::class.java),
             userLauncher = getFeatureLauncher(UserLauncher::class.java),
             mainNavigationLauncher = getFeatureLauncher(MainNavigationLauncher::class.java),
