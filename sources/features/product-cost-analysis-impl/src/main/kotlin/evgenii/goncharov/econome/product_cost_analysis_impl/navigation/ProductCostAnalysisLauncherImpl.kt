@@ -17,4 +17,8 @@ public class ProductCostAnalysisLauncherImpl @Inject constructor(
     override fun launchDeepAddCostGoods() {
         deepRouter.navigateTo(ProductCostAnalysisNavigationScreens.startDeepAddCostGoods())
     }
+
+    override fun launchDeepAddShop() {
+        deepRouter.navigateTo(ProductCostAnalysisNavigationScreens.startDeepAddShop())
+    }
 }

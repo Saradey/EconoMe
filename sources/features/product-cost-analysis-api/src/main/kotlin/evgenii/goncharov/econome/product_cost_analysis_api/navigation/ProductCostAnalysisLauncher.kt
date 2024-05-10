@@ -7,4 +7,6 @@ public interface ProductCostAnalysisLauncher : BaseLauncher {
     public fun launchDeepListShops()
 
     public fun launchDeepAddCostGoods()
+
+    public fun launchDeepAddShop()
 }

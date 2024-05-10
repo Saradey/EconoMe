@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentFactory
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import evgenii.goncharov.econome.navigation.navigation.BACKSTACK_NAME_EVERYWHERE
 import evgenii.goncharov.econome.product_cost_analysis_impl.fragments.AddCostGoodsFragment
+import evgenii.goncharov.econome.product_cost_analysis_impl.fragments.AddShopFragment
 import evgenii.goncharov.econome.product_cost_analysis_impl.fragments.ListShopsFragment
 
 internal object ProductCostAnalysisNavigationScreens {
@@ -20,6 +21,13 @@ internal object ProductCostAnalysisNavigationScreens {
         override val screenKey: String = BACKSTACK_NAME_EVERYWHERE
         override fun createFragment(factory: FragmentFactory): Fragment {
             return AddCostGoodsFragment.newInstance()
+        }
+    }
+
+    fun startDeepAddShop() = object : FragmentScreen {
+        override val screenKey: String = BACKSTACK_NAME_EVERYWHERE
+        override fun createFragment(factory: FragmentFactory): Fragment {
+            return AddShopFragment.newInstance()
         }
     }
 }
