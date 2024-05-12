@@ -5,7 +5,10 @@ import javax.inject.Inject
 
 internal class UserValidateNameUseCaseImpl @Inject constructor() : UserValidateNameUseCase {
 
-    override fun invoke(userName: String?) : Boolean {
-        return userName.isNullOrEmpty().not()
+    override fun invoke(userName: String?): Boolean {
+        return userName.isNullOrEmpty().not() &&
+                userName?.isNotBlank() == true
     }
+
+
 }

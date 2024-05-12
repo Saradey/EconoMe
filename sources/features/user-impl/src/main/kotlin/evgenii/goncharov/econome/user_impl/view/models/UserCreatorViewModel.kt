@@ -25,6 +25,11 @@ internal class UserCreatorViewModel @Inject constructor(
 
     fun inputUserName(userName: String) {
         val oldUserName = (_uiState.value as? UserCreatorUiState.Content)?.userNameInputText
+        if (userValidateNameUseCase(userName)) {
+
+        }
+
+
         if (userValidateNameUseCase(userName) || userValidateNameUseCase(oldUserName)) {
 
         }
