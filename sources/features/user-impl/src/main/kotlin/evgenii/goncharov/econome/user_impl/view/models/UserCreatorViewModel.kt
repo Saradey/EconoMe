@@ -5,6 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
+import evgenii.goncharov.econome.user_impl.R
 import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 import evgenii.goncharov.econome.user_impl.models.UserStatusModel
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
@@ -29,14 +30,14 @@ internal class UserCreatorViewModel @Inject constructor(
             is UserStatusModel.IncorrectInput -> {
                 _uiState.value = createErrorInputUserName(
                     userNameInputText,
-                    "Ошибка: разрешены символы [a-zA-z]"
+                    resourceManager.getString(R.string.error_message_symbol)
                 )
             }
 
             is UserStatusModel.EmptyInput -> {
                 _uiState.value = createErrorInputUserName(
                     userNameInputText,
-                    "Ошибка: пустая строка"
+                    resourceManager.getString(R.string.error_message_empty)
                 )
             }
 
@@ -52,7 +53,7 @@ internal class UserCreatorViewModel @Inject constructor(
             is UserStatusModel.IncorrectInput -> {
                 _uiState.value = createErrorInputUserName(
                     userName,
-                    "Ошибка: разрешены символы [a-zA-z]"
+                    resourceManager.getString(R.string.error_message_symbol)
                 )
             }
 
