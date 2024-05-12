@@ -5,6 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
+import evgenii.goncharov.econome.user_impl.models.UserStatusModel
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
 import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
 import javax.inject.Inject
@@ -24,14 +25,26 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     fun inputUserName(userName: String) {
+        when (userValidateNameUseCase(userName)) {
+            is UserStatusModel.IncorrectInput -> {
+                _uiState.value = createErrorInputUserName(userName, "Ошибка: разрешены [a-zA-z]")
+            }
 
-        _uiState.value = _uiState.value.updateStateInputUserName(userName)
+            is UserStatusModel.Success -> {
+                _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
+            }
+
+            else -> Unit
+        }
     }
 
-    private fun UserCreatorUiState.updateStateInputUserName(newUserName: String): UserCreatorUiState {
-        return when (this) {
-            is UserCreatorUiState.Content -> copy(userNameInputText = newUserName)
-            is UserCreatorUiState.ErrorInputUserName -> copy(userNameInputText = newUserName)
-        }
+    private fun createErrorInputUserName(
+        inputText: String,
+        errorMessage: String
+    ): UserCreatorUiState.ErrorInputUserName {
+        return UserCreatorUiState.ErrorInputUserName(
+            userNameInputText = inputText,
+            errorMessage = errorMessage
+        )
     }
 }
