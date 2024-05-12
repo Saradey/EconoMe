@@ -9,8 +9,8 @@ internal class UserValidateNameUseCaseImpl @Inject constructor() : UserValidateN
     override fun invoke(userName: String): UserStatusModel {
         return when {
             userName.isEmpty() || userName.isBlank() -> UserStatusModel.EmptyInput
-            PATTERN_CORRECT_NAME.matches(userName) -> UserStatusModel.IncorrectInput
-            else -> UserStatusModel.Success
+            PATTERN_CORRECT_NAME.matches(userName) -> UserStatusModel.Success
+            else -> UserStatusModel.IncorrectInput
         }
     }
 

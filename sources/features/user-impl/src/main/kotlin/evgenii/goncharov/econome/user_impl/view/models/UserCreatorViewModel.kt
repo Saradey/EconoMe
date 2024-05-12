@@ -25,17 +25,14 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     fun inputUserName(userName: String) {
-        when (userValidateNameUseCase(userName)) {
+        val validate = userValidateNameUseCase(userName)
+        when (validate) {
             is UserStatusModel.IncorrectInput -> {
                 _uiState.value = createErrorInputUserName(userName, "Ошибка: разрешены [a-zA-z]")
             }
 
-            is UserStatusModel.Success -> {
+            is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
                 _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
-            }
-
-            is UserStatusModel.EmptyInput -> {
-                _uiState.value = createErrorInputUserName(userName, "Ошибка: пустая строка")
             }
         }
     }
@@ -50,3 +47,6 @@ internal class UserCreatorViewModel @Inject constructor(
         )
     }
 }
+//             -> {
+//                _uiState.value = createErrorInputUserName(userName, "Ошибка: пустая строка")
+//            }
