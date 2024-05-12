@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.common_provider
+package evgenii.goncharov.econome.common_provider.di
 
 import android.content.Context
 import dagger.BindsInstance
