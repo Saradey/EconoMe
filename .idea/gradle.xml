@@ -16,8 +16,6 @@
             <option value="$PROJECT_DIR$/sources/core/common-provider" />
             <option value="$PROJECT_DIR$/sources/core/core-database-api" />
             <option value="$PROJECT_DIR$/sources/core/core-database-impl" />
-            <option value="$PROJECT_DIR$/sources/core/core-dependencies-api" />
-            <option value="$PROJECT_DIR$/sources/core/core-dependencies-impl" />
             <option value="$PROJECT_DIR$/sources/engine" />
             <option value="$PROJECT_DIR$/sources/engine/di-core" />
             <option value="$PROJECT_DIR$/sources/engine/main-activity" />

@@ -8,7 +8,7 @@ import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
 
 @CoreScope
 @Component(
-    dependencies = [CommonProviderBindModule::class]
+    modules = [CommonProviderBindModule::class]
 )
 internal interface CommonProviderComponent : CommonProviderApi {
 

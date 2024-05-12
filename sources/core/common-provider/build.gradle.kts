@@ -9,8 +9,6 @@ android {
 dependencies {
     implementation(project(":sources:engine:di-core"))
 
-    implementation(project(":sources:core:core-dependencies-impl"))
-
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 }

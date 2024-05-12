@@ -18,6 +18,7 @@ dependencies {
     implementation((project(":sources:engine:di-core")))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:core:common-provider"))
 
     implementation(project(":sources:features:wallet-api"))
     implementation(project(":sources:features:main-navigation-api"))
