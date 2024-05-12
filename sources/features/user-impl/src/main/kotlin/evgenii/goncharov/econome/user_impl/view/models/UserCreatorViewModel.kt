@@ -22,17 +22,36 @@ internal class UserCreatorViewModel @Inject constructor(
 
     fun goToWalletCreator() {
         val userNameInputText = getUserInputText()
+        val validate = userValidateNameUseCase(userNameInputText)
+        when (validate) {
+            is UserStatusModel.IncorrectInput -> {
+                _uiState.value = createErrorInputUserName(
+                    userNameInputText,
+                    "Ошибка: разрешены символы [a-zA-z]"
+                )
+            }
 
+            is UserStatusModel.EmptyInput -> {
+                _uiState.value = createErrorInputUserName(
+                    userNameInputText,
+                    "Ошибка: пустая строка"
+                )
+            }
 
-        walletLauncher.launchReplaceWalletCreator()
-
+            is UserStatusModel.Success -> {
+                walletLauncher.launchReplaceWalletCreator()
+            }
+        }
     }
 
     fun inputUserName(userName: String) {
         val validate = userValidateNameUseCase(userName)
         when (validate) {
             is UserStatusModel.IncorrectInput -> {
-                _uiState.value = createErrorInputUserName(userName, "Ошибка: разрешены [a-zA-z]")
+                _uiState.value = createErrorInputUserName(
+                    userName,
+                    "Ошибка: разрешены символы [a-zA-z]"
+                )
             }
 
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
@@ -58,6 +77,3 @@ internal class UserCreatorViewModel @Inject constructor(
         }
     }
 }
-//             -> {
-//                _uiState.value = createErrorInputUserName(userName, "Ошибка: пустая строка")
-//            }
