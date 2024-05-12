@@ -21,7 +21,11 @@ internal class UserCreatorFragment : CoreFragment() {
     }
 
     @Composable
-    override fun InitContent() = UserCreatorScreen(viewModel::goToWalletCreator)
+    override fun InitContent() = UserCreatorScreen(
+        state = ,
+        goToWalletCreatorListener = viewModel::goToWalletCreator,
+        input = viewModel::inputUserName
+    )
 
     override fun releaseDependencies() {
         releaseFeatureApi(UserCreatorApi::class.java)
