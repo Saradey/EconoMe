@@ -16,14 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
+import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationUiState
 import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
 import evgenii.goncharov.econome.ui_kit.UiKitString
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainNavigationScreen(
-    state: State<MainNavigationState>,
+    state: State<MainNavigationUiState>,
     tabBottomMenuListener: (NavigationTabs) -> Unit,
     selectedSettingsListener: () -> Unit
 ) {
@@ -47,7 +47,7 @@ internal fun MainNavigationScreen(
         NavigationBar(
             modifier = Modifier.align(Alignment.BottomCenter)
         ) {
-            (uiState as MainNavigationState.Content).mainMenuItems.forEach { item ->
+            (uiState as MainNavigationUiState.Content).mainMenuItems.forEach { item ->
                 NavigationBarItem(
                     label = {
                         Text(text = stringResource(item.title))
