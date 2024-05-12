@@ -7,6 +7,7 @@ internal sealed class UserCreatorUiState {
     ) : UserCreatorUiState()
 
     data class ErrorInputUserName(
+        val userNameInputText: String,
         val errorMessage: String
     ) : UserCreatorUiState()
 }

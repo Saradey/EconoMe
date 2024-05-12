@@ -32,7 +32,11 @@ internal fun UserCreatorScreen(
         )
         when (uiState) {
             is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText, input)
-            is UserCreatorUiState.ErrorInputUserName -> InputTextError(uiState.errorMessage, input)
+            is UserCreatorUiState.ErrorInputUserName -> InputTextError(
+                uiState.userNameInputText,
+                uiState.errorMessage,
+                input
+            )
         }
         Button(
             onClick = goToWalletCreatorListener,
@@ -57,11 +61,12 @@ private fun InputTextContent(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun InputTextError(
+    userNameInputText: String,
     errorMessage: String,
     inputUserNameListener: (String) -> Unit
 ) {
     OutlinedTextField(
-        value = "",
+        value = userNameInputText,
         onValueChange = inputUserNameListener,
         label = { Text(errorMessage) },
         colors = TextFieldDefaults.outlinedTextFieldColors(

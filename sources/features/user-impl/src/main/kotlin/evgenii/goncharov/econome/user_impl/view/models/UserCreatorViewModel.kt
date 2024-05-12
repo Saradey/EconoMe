@@ -24,14 +24,14 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     fun inputUserName(userName: String) {
-        val oldUserName = (_uiState.value as? UserCreatorUiState.Content)?.userNameInputText
-        if (userValidateNameUseCase(userName)) {
 
-        }
+        _uiState.value = _uiState.value.updateStateInputUserName(userName)
+    }
 
-
-        if (userValidateNameUseCase(userName) || userValidateNameUseCase(oldUserName)) {
-
+    private fun UserCreatorUiState.updateStateInputUserName(newUserName: String): UserCreatorUiState {
+        return when (this) {
+            is UserCreatorUiState.Content -> copy(userNameInputText = newUserName)
+            is UserCreatorUiState.ErrorInputUserName -> copy(userNameInputText = newUserName)
         }
     }
 }
