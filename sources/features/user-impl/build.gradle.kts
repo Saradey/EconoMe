@@ -31,6 +31,4 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.fragment.ktx)
-    implementation(platform(libs.firebase.auth.bom))
-    implementation(libs.firebase.auth)
 }

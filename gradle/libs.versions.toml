@@ -7,7 +7,6 @@ lifecycle-runtime-ktx = "2.7.0"
 fragment-version = "1.6.2"
 activity-version = "1.9.0"
 viewmodel-version = "2.7.0"
-gms = "4.4.1"
 
 # ui
 activity-compose = "1.9.0"
@@ -75,14 +74,12 @@ androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jv
 
 # firebase
 firebase-auth-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom-version" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
 
 [plugins]
 # core
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-gms = { id = "com.google.gms.google-services", version.ref = "gms" }
 
 # quality
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt-version" }
