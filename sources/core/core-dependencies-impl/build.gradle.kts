@@ -5,5 +5,7 @@ android {
 }
 
 dependencies {
+    api(project(":sources:core:core-dependencies-api"))
 
+    implementation(libs.dagger)
 }
