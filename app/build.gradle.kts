@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.material3)
+    implementation(platform(libs.firebase.auth.bom))
+    implementation(libs.firebase.auth)
 
     // features
     implementation(project(":sources:engine:main-activity"))
