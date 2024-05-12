@@ -46,6 +46,7 @@ internal fun UserCreatorScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun InputTextContent(
     userNameInputText: String,
@@ -54,7 +55,15 @@ private fun InputTextContent(
     OutlinedTextField(
         value = userNameInputText,
         onValueChange = inputUserNameListener,
-        label = { Text("Введите имя пользователя") }
+        label = { Text("Введите имя пользователя") },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.White,
+            unfocusedBorderColor = Color.White,
+            focusedTextColor = Color.White,
+            unfocusedTextColor = Color.White,
+            focusedLabelColor = Color.White,
+            unfocusedLabelColor = Color.White
+        )
     )
 }
 
@@ -72,7 +81,11 @@ private fun InputTextError(
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Color.Red,
             unfocusedBorderColor = Color.Red,
-            errorBorderColor = Color.Red
+            errorBorderColor = Color.Red,
+            focusedTextColor = Color.White,
+            unfocusedTextColor = Color.White,
+            focusedLabelColor = Color.Red,
+            unfocusedLabelColor = Color.Red
         )
     )
 }
