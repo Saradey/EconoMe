@@ -4,6 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 import evgenii.goncharov.econome.user_impl.models.UserStatusModel
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 internal class UserCreatorViewModel @Inject constructor(
     private val walletLauncher: WalletLauncher,
-    private val userValidateNameUseCase: UserValidateNameUseCase
+    private val userValidateNameUseCase: UserValidateNameUseCase,
+    private val resourceManager: ResourceManager
 ) : ViewModel() {
 
     private val _uiState: MutableState<UserCreatorUiState> = mutableStateOf(

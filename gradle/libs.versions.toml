@@ -34,7 +34,6 @@ annotation-jvm = "1.7.1"
 # firbase
 
 firebase-bom-version = "33.0.0"
-appcompat = "1.6.1"
 
 [libraries]
 # core
@@ -77,7 +76,6 @@ androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jv
 # firebase
 firebase-auth-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom-version" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 # core
