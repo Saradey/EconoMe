@@ -17,7 +17,8 @@ import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 @Composable
 internal fun UserCreatorScreen(
     state: State<UserCreatorUiState>,
-    goToWalletCreatorListener: () -> Unit
+    goToWalletCreatorListener: () -> Unit,
+    input: (String) -> Unit
 ) {
     val uiState = state.value
     Column(
@@ -30,8 +31,8 @@ internal fun UserCreatorScreen(
             fontSize = 20.sp
         )
         when (uiState) {
-            is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText)
-            is UserCreatorUiState.ErrorInputUserName -> InputTextError(uiState.errorMessage)
+            is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText, input)
+            is UserCreatorUiState.ErrorInputUserName -> InputTextError(uiState.errorMessage, input)
         }
         Button(
             onClick = goToWalletCreatorListener,
@@ -42,24 +43,26 @@ internal fun UserCreatorScreen(
 }
 
 @Composable
-private fun InputTextContent(userNameInputText: String) {
+private fun InputTextContent(
+    userNameInputText: String,
+    inputUserNameListener: (String) -> Unit
+) {
     OutlinedTextField(
         value = userNameInputText,
-        onValueChange = { newText ->
-
-        },
+        onValueChange = inputUserNameListener,
         label = { Text("Введите имя пользователя") }
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun InputTextError(errorMessage: String) {
+private fun InputTextError(
+    errorMessage: String,
+    inputUserNameListener: (String) -> Unit
+) {
     OutlinedTextField(
         value = "",
-        onValueChange = { newText ->
-
-        },
+        onValueChange = inputUserNameListener,
         label = { Text(errorMessage) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Color.Red,
