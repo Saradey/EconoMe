@@ -6,9 +6,16 @@ import javax.inject.Inject
 
 internal class UserValidateNameUseCaseImpl @Inject constructor() : UserValidateNameUseCase {
 
-    override fun invoke(userName: String?): UserStatusModel {
-        return UserStatusModel.Success
-//        return userName.isNullOrEmpty().not() &&
-//                userName?.isNotBlank() == true
+    override fun invoke(userName: String): UserStatusModel {
+        return when {
+            userName.isEmpty() || userName.isBlank() -> UserStatusModel.EmptyInput
+            PATTERN_CORRECT_NAME.matches(userName) -> UserStatusModel.IncorrectInput
+            else -> UserStatusModel.Success
+        }
+    }
+
+    private companion object {
+
+        val PATTERN_CORRECT_NAME = "^[a-zA-Z ]+$".toRegex()
     }
 }

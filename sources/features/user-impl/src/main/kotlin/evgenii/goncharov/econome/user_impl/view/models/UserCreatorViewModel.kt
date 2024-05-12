@@ -34,7 +34,9 @@ internal class UserCreatorViewModel @Inject constructor(
                 _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
             }
 
-            else -> Unit
+            is UserStatusModel.EmptyInput -> {
+                _uiState.value = createErrorInputUserName(userName, "Ошибка: пустая строка")
+            }
         }
     }
 
