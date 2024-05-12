@@ -11,7 +11,7 @@ internal class CheckUserUseCaseImpl @Inject constructor(
     private val mainActivityRepository: MainActivityRepository
 ) : CheckUserUseCase {
 
-    override suspend fun checkUser(): CheckUserModel = withContext(Dispatchers.IO) {
+    override suspend fun invoke(): CheckUserModel = withContext(Dispatchers.IO) {
         val users = mainActivityRepository.getAllUsers()
         when {
             users.isEmpty() -> CheckUserModel.UserNotCreated
