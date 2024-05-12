@@ -73,7 +73,7 @@ internal class UserCreatorViewModel @Inject constructor(
     private fun getUserInputText(): String {
         return when (val state: UserCreatorUiState = _uiState.value) {
             is UserCreatorUiState.Content -> state.userNameInputText
-            is UserCreatorUiState.ErrorInputUserName -> state.errorMessage
+            is UserCreatorUiState.ErrorInputUserName -> state.userNameInputText
         }
     }
 }
