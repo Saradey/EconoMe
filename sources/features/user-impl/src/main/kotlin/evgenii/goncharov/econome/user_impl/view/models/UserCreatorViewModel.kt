@@ -21,7 +21,11 @@ internal class UserCreatorViewModel @Inject constructor(
     val uiState: State<UserCreatorUiState> = _uiState
 
     fun goToWalletCreator() {
+        val userNameInputText = getUserInputText()
+
+
         walletLauncher.launchReplaceWalletCreator()
+
     }
 
     fun inputUserName(userName: String) {
@@ -45,6 +49,13 @@ internal class UserCreatorViewModel @Inject constructor(
             userNameInputText = inputText,
             errorMessage = errorMessage
         )
+    }
+
+    private fun getUserInputText(): String {
+        return when (val state: UserCreatorUiState = _uiState.value) {
+            is UserCreatorUiState.Content -> state.userNameInputText
+            is UserCreatorUiState.ErrorInputUserName -> state.errorMessage
+        }
     }
 }
 //             -> {
