@@ -22,7 +22,7 @@ internal class UserCreatorFragment : CoreFragment() {
 
     @Composable
     override fun InitContent() = UserCreatorScreen(
-        state = ,
+        state = viewModel.uiState,
         goToWalletCreatorListener = viewModel::goToWalletCreator,
         input = viewModel::inputUserName
     )
