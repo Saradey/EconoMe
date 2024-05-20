@@ -17,7 +17,7 @@ internal class MainActivityViewModel @Inject constructor(
 
     fun appStart() {
         viewModelScope.launch {
-            when (checkUserUseCase.checkUser()) {
+            when (checkUserUseCase()) {
                 CheckUserModel.UserCreated -> mainNavigationLauncher.launchMainNavigation()
                 CheckUserModel.UserNotCreated -> userLauncher.launchUserCreator()
                 CheckUserModel.ManyUsersCreated -> userLauncher.launchUserChoosing()

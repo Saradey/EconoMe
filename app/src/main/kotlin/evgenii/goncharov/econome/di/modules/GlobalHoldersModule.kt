@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
-import evgenii.goncharov.econome.common_provider.CommonProviderApi
-import evgenii.goncharov.econome.common_provider.CommonProviderHolder
+import evgenii.goncharov.econome.common_provider.di.CommonProviderApi
+import evgenii.goncharov.econome.common_provider.di.CommonProviderHolder
 import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
 import evgenii.goncharov.econome.core_database_impl.di.holder.CoreDatabaseHolder
 import evgenii.goncharov.econome.di.holder.LaunchersHolder

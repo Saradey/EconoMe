@@ -7,7 +7,7 @@ import evgenii.goncharov.econome.all_spending_api.navigation.AllSpendingLauncher
 import evgenii.goncharov.econome.bank_accounts_api.navigation.BankAccountsLauncher
 import evgenii.goncharov.econome.finance_analysis_api.navigation.FinanceAnalyticsAllSpendingLauncher
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
-import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationState
+import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationUiState
 import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
 import evgenii.goncharov.econome.main_navigation_impl.utils.createBottomNavigationItems
 import evgenii.goncharov.econome.settings_api.navigation.SettingsLauncher
@@ -22,9 +22,9 @@ internal class MainNavigationViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState = mutableStateOf(
-        MainNavigationState.Content(createBottomNavigationItems())
+        MainNavigationUiState.Content(createBottomNavigationItems())
     )
-    val uiState: State<MainNavigationState> = _uiState
+    val uiState: State<MainNavigationUiState> = _uiState
 
     fun selectedTab(tab: NavigationTabs) {
         updateBottomMenuState(tab)

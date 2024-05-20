@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.common_provider
+package evgenii.goncharov.econome.common_provider.di
 
 import android.content.Context
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
