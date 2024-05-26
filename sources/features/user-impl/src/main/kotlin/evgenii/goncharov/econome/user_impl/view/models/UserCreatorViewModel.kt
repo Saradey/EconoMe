@@ -44,7 +44,7 @@ internal class UserCreatorViewModel @Inject constructor(
             }
 
             is UserStatusModel.Success -> {
-                walletLauncher.launchReplaceWalletCreator()
+                authManager.authUser()
             }
         }
     }

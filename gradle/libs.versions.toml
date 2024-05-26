@@ -32,7 +32,7 @@ room-version = "2.6.1"
 annotation-jvm = "1.7.1"
 
 # playservices
-play_services-auth = "20.6.0"
+play_services-auth = "21.2.0"
 
 [libraries]
 # core
