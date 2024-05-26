@@ -19,15 +19,20 @@ internal class AuthManagerImpl @Inject constructor(
     override fun authUser() {
         oneTapSignInClient.beginSignIn(createAuthRequest())
             .addOnSuccessListener { task ->
-
+                println(task)
             }
             .addOnFailureListener { exception ->
-
+                println(exception)
             }
     }
 
     private fun createAuthRequest(): BeginSignInRequest {
         val request = BeginSignInRequest.builder()
+            .setPasswordRequestOptions(
+                BeginSignInRequest.PasswordRequestOptions.builder()
+                    .setSupported(true)
+                    .build()
+            )
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
                     .setSupported(true)
@@ -35,6 +40,7 @@ internal class AuthManagerImpl @Inject constructor(
                     .setFilterByAuthorizedAccounts(false)
                     .build()
             )
+            .setAutoSelectEnabled(true)
             .build()
         return request
     }
