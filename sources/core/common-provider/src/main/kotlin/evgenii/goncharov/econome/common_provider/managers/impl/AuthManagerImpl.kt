@@ -31,7 +31,7 @@ internal class AuthManagerImpl @Inject constructor(
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
                     .setSupported(true)
-                    .setServerClientId(resourceManager.getString(R.string.server_client_id)) // Замените на ваш client ID
+                    .setServerClientId(resourceManager.getString(R.string.server_client_id))
                     .setFilterByAuthorizedAccounts(false)
                     .build()
             )
