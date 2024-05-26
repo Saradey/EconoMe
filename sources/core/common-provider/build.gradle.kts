@@ -12,5 +12,4 @@ dependencies {
     implementation(libs.dagger)
     implementation(libs.androidx.annotation.jvm)
     kapt(libs.dagger.compiler)
-    implementation(platform(libs.firebase.auth.bom))
 }
