@@ -29,6 +29,6 @@ internal class WalletCreatorFragment : CoreFragment() {
 
     companion object {
 
-        fun newInstance() = WalletCreatorFragment()
+        fun newInstance(userUuid: String) = WalletCreatorFragment()
     }
 }

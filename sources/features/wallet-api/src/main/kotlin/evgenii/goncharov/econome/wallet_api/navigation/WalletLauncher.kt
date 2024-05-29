@@ -4,7 +4,7 @@ import evgenii.goncharov.econome.di_core.contracts.BaseLauncher
 
 public interface WalletLauncher : BaseLauncher {
 
-    public fun launchReplaceWalletCreator()
+    public fun launchReplaceWalletCreator(userUuid: String)
 
     public fun launchWalletCreator()
 

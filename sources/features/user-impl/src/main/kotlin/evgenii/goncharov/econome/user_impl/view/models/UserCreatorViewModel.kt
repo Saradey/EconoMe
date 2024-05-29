@@ -86,7 +86,7 @@ internal class UserCreatorViewModel @Inject constructor(
         val userInputName = _uiState.value.userNameInputText
         viewModelScope.launch {
             saveUser(userId, userInputName)
-            walletLauncher.launchReplaceWalletCreator()
+            walletLauncher.launchReplaceWalletCreator(userId)
         }
     }
 
@@ -95,7 +95,7 @@ internal class UserCreatorViewModel @Inject constructor(
             val userInputName = _uiState.value.userNameInputText
             val userUuid = UUID.randomUUID().toString()
             saveUser(userUuid, userInputName)
-            walletLauncher.launchReplaceWalletCreator()
+            walletLauncher.launchReplaceWalletCreator(userUuid)
         }
     }
 

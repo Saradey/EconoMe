@@ -6,8 +6,8 @@ import evgenii.goncharov.econome.wallet_impl.fragments.WalletsListFragment
 
 internal object NavigationWalletScreens {
 
-    fun startWalletCreator() = FragmentScreen {
-        WalletCreatorFragment.newInstance()
+    fun startWalletCreator(userUuid: String) = FragmentScreen {
+        WalletCreatorFragment.newInstance(userUuid)
     }
 
     fun startWalletsList() = FragmentScreen {
