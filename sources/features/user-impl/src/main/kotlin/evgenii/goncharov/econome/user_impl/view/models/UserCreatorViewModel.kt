@@ -100,7 +100,8 @@ internal class UserCreatorViewModel @Inject constructor(
     fun userCreated() {
         val userInputName = _uiState.value.userNameInputText
         viewModelScope.launch {
-            saveUser("", userInputName)
+            saveUser("test", userInputName)
+            walletLauncher.launchReplaceWalletCreator()
         }
     }
 
