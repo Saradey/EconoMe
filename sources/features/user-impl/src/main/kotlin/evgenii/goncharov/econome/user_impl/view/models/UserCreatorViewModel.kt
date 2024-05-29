@@ -72,9 +72,12 @@ internal class UserCreatorViewModel @Inject constructor(
     fun createAccountWithUuid() {
         viewModelScope.launch {
             val userInputName = _uiState.value.userNameInputText
-            val userUuid = UUID.randomUUID().toString()
-            saveUser(userUuid, userInputName)
-            walletLauncher.launchReplaceWalletCreator(userUuid)
+            val validate = userValidateNameUseCase(userInputName)
+            when (validate) {
+                is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userInputName)
+                is UserStatusModel.EmptyInput -> makeErrorEmptyState(userInputName)
+                is UserStatusModel.Success -> generateUuid(userInputName)
+            }
         }
     }
 
@@ -113,5 +116,11 @@ internal class UserCreatorViewModel @Inject constructor(
             userNameInputText,
             resourceManager.getString(R.string.error_message_empty)
         )
+    }
+
+    private suspend fun generateUuid(userInputName: String) {
+        val userUuid = UUID.randomUUID().toString()
+        saveUser(userUuid, userInputName)
+        walletLauncher.launchReplaceWalletCreator(userUuid)
     }
 }
