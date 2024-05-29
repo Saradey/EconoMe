@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.common.ui.SystemEvent
 import evgenii.goncharov.econome.common_provider.managers.AuthManager
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
-import evgenii.goncharov.econome.core_database_api.dto.UserDto
 import evgenii.goncharov.econome.user_impl.R
 import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 import evgenii.goncharov.econome.user_impl.models.UserStatusModel
@@ -119,11 +118,6 @@ internal class UserCreatorViewModel @Inject constructor(
         userId: String,
         userInputName: String
     ) = withContext(Dispatchers.IO) {
-        userDataStore.saveNewUser(
-            UserDto(
-                uuid = userId,
-                userName = userInputName
-            )
-        )
+        userCreatorRepository.saveNewUser(userId, userInputName)
     }
 }
