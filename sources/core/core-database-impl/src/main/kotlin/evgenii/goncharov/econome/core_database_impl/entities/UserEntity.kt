@@ -8,5 +8,5 @@ import evgenii.goncharov.econome.core_database_impl.common.USERS_TABLE
 @Entity(tableName = USERS_TABLE)
 internal data class UserEntity(
     @ColumnInfo("uuid") @PrimaryKey val uuid: String,
-    @ColumnInfo("userName")  val userName: String
+    @ColumnInfo("user_name")  val userName: String
 )
