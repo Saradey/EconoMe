@@ -14,6 +14,8 @@ import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 import evgenii.goncharov.econome.user_impl.models.UserStatusModel
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
 import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 internal class UserCreatorViewModel @Inject constructor(
@@ -27,10 +29,10 @@ internal class UserCreatorViewModel @Inject constructor(
         UserCreatorUiState.Content(userNameInputText = "")
     )
     val uiState: State<UserCreatorUiState> = _uiState
-    private val _systemEvent: MutableState<SystemEvent> = mutableStateOf(
+    private val _systemEvent: MutableStateFlow<SystemEvent> = MutableStateFlow(
         SystemEvent.InitialState
     )
-    val systemEvent: State<SystemEvent> = _systemEvent
+    val systemEvent: StateFlow<SystemEvent> = _systemEvent
 
     fun goToWalletCreator(resultLauncher: ActivityResultLauncher<IntentSenderRequest>) {
         val userNameInputText = _uiState.value.userNameInputText
