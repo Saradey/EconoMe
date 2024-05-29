@@ -41,7 +41,7 @@ internal fun UserCreatorScreen(
         Button(
             onClick = goToWalletCreatorListener,
         ) {
-            Text("Go to 4. Экран создания кошелька расходов Привязать свой аккаунт к gmail")
+            Text("Создать аккаунт с google")
         }
     }
 }
