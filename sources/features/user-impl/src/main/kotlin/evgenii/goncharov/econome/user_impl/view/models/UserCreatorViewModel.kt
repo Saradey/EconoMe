@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.UUID
 import javax.inject.Inject
 
 internal class UserCreatorViewModel @Inject constructor(
@@ -85,6 +86,15 @@ internal class UserCreatorViewModel @Inject constructor(
         val userInputName = _uiState.value.userNameInputText
         viewModelScope.launch {
             saveUser(userId, userInputName)
+            walletLauncher.launchReplaceWalletCreator()
+        }
+    }
+
+    fun createAccountWithUuid() {
+        viewModelScope.launch {
+            val userInputName = _uiState.value.userNameInputText
+            val userUuid = UUID.randomUUID().toString()
+            saveUser(userUuid, userInputName)
             walletLauncher.launchReplaceWalletCreator()
         }
     }
