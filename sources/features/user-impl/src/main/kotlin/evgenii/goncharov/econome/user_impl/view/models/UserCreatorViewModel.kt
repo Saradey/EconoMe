@@ -1,5 +1,7 @@
 package evgenii.goncharov.econome.user_impl.view.models
 
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -25,7 +27,7 @@ internal class UserCreatorViewModel @Inject constructor(
     )
     val uiState: State<UserCreatorUiState> = _uiState
 
-    fun goToWalletCreator() {
+    fun goToWalletCreator(resultLauncher: ActivityResultLauncher<IntentSenderRequest>) {
         val userNameInputText = getUserInputText()
         val validate = userValidateNameUseCase(userNameInputText)
         when (validate) {
@@ -44,7 +46,7 @@ internal class UserCreatorViewModel @Inject constructor(
             }
 
             is UserStatusModel.Success -> {
-                authManager.authUser()
+                authManager.authUser(resultLauncher)
             }
         }
     }

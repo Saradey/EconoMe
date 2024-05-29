@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.user_impl.fragments
 
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
@@ -19,11 +20,16 @@ internal class UserCreatorFragment : CoreFragment() {
     private val viewModel: UserCreatorViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    private val oneTapResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartIntentSenderForResult()
+    ) { result ->
+        println(result)
+    }
 
     @Composable
     override fun InitContent() = UserCreatorScreen(
         state = viewModel.uiState,
-        goToWalletCreatorListener = viewModel::goToWalletCreator,
+        goToWalletCreatorListener = { viewModel.goToWalletCreator(oneTapResultLauncher) },
         input = viewModel::inputUserName
     )
 

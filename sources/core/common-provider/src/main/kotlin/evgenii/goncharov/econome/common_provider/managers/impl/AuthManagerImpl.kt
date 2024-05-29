@@ -1,6 +1,8 @@
 package evgenii.goncharov.econome.common_provider.managers.impl
 
 import android.content.Context
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -16,13 +18,14 @@ internal class AuthManagerImpl @Inject constructor(
 
     private val oneTapSignInClient: SignInClient = Identity.getSignInClient(context)
 
-    override fun authUser() {
+    override fun authUser(resultLauncher: ActivityResultLauncher<IntentSenderRequest>,) {
         oneTapSignInClient.beginSignIn(createAuthRequest())
-            .addOnSuccessListener { task ->
-                println(task)
+            .addOnSuccessListener { signInResult ->
+                val sender = IntentSenderRequest.Builder(signInResult.pendingIntent.intentSender).build()
+                resultLauncher.launch(sender)
             }
             .addOnFailureListener { exception ->
-                println(exception)
+
             }
     }
 
@@ -36,7 +39,7 @@ internal class AuthManagerImpl @Inject constructor(
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
                     .setSupported(true)
-                    .setServerClientId(resourceManager.getString(R.string.server_client_id))
+                    .setServerClientId(resourceManager.getString(R.string.server_client_id_debug))
                     .setFilterByAuthorizedAccounts(false)
                     .build()
             )
