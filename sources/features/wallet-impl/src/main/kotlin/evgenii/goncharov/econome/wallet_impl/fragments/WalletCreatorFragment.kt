@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import evgenii.goncharov.econome.common.ui.requireStringArguments
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.wallet_api.di.WalletCreatorApi
 import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletCreatorInternal
@@ -21,7 +22,7 @@ internal class WalletCreatorFragment : CoreFragment() {
     private val viewModel: WalletCreatorViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
-    val userUuid : String by lazy { requireArguments() }
+    val userUuid: String by requireStringArguments(USER_UUID_ARG)
 
     @Composable
     override fun InitContent() = WalletCreatorScreen(viewModel::goToMainBottomNavigation)

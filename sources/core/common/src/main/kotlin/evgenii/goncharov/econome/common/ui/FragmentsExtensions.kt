@@ -1,11 +1,20 @@
 package evgenii.goncharov.econome.common.ui
 
 import androidx.fragment.app.Fragment
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
-public fun Fragment.requireArguments(key: String): String {
-    val arg = requireArguments()
-    val result = arg.getString(key) ?: throw IllegalArgumentException(ERROR_MESSAGE_ARG)
-    return result
+internal class StringArgumentDelegate(
+    private val fragment: Fragment,
+    private val key: String
+) : ReadOnlyProperty<Fragment, String> {
+
+    override fun getValue(thisRef: Fragment, property: KProperty<*>): String {
+        return fragment.arguments?.getString(key)
+            ?: throw IllegalArgumentException("Argument $key is missing")
+    }
 }
 
-private const val ERROR_MESSAGE_ARG = "Argument is empty"
+public fun Fragment.requireStringArguments(key: String): ReadOnlyProperty<Fragment, String> {
+    return StringArgumentDelegate(this, key)
+}
