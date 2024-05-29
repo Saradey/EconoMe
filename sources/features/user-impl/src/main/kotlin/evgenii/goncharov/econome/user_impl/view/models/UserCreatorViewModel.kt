@@ -81,6 +81,14 @@ internal class UserCreatorViewModel @Inject constructor(
         }
     }
 
+    fun userCreated(userId: String) {
+        val userInputName = _uiState.value.userNameInputText
+        viewModelScope.launch {
+            saveUser(userId, userInputName)
+            walletLauncher.launchReplaceWalletCreator()
+        }
+    }
+
     private fun createErrorInputUserName(
         inputText: String,
         errorMessage: String
@@ -95,14 +103,6 @@ internal class UserCreatorViewModel @Inject constructor(
         _systemEvent.value = SystemEvent.ShowToast(
             messageToast = resourceManager.getString(R.string.error_message_reg)
         )
-    }
-
-    fun userCreated(userId: String) {
-        val userInputName = _uiState.value.userNameInputText
-        viewModelScope.launch {
-            saveUser(userId, userInputName)
-            walletLauncher.launchReplaceWalletCreator()
-        }
     }
 
     private suspend fun saveUser(
