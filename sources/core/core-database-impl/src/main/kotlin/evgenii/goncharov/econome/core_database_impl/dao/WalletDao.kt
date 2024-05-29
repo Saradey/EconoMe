@@ -8,5 +8,5 @@ import evgenii.goncharov.econome.core_database_impl.entities.WalletEntity
 internal interface WalletDao {
 
     @Insert
-    fun saveWallet(user: WalletEntity)
+    fun saveWallet(wallet: WalletEntity)
 }
