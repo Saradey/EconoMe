@@ -7,6 +7,8 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.user_impl.repositories.UserCreatorRepository
+import evgenii.goncharov.econome.user_impl.repositories.impl.UserCreatorRepositoryImpl
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
 import evgenii.goncharov.econome.user_impl.use.cases.impl.UserValidateNameUseCaseImpl
 import evgenii.goncharov.econome.user_impl.view.models.UserCreatorViewModel
@@ -17,6 +19,10 @@ internal interface UserCreatorBindModule {
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(UserCreatorViewModel::class)]
     fun bindUserCreatorViewModel(viewModel: UserCreatorViewModel): ViewModel
+
+    @Binds
+    @FeatureScope
+    fun bindUserCreatorRepository(repository: UserCreatorRepositoryImpl): UserCreatorRepository
 
     @Binds
     @FeatureScope
