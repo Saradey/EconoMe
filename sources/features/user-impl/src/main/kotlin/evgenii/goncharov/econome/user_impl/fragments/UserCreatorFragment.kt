@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.user_impl.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
@@ -51,7 +52,7 @@ internal class UserCreatorFragment : CoreFragment() {
     }
 
     private fun showErrorRegToast(message: String) {
-
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     override fun releaseDependencies() {
