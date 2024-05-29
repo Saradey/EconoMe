@@ -21,6 +21,7 @@ internal class WalletCreatorFragment : CoreFragment() {
     private val viewModel: WalletCreatorViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    val userUuid : String by lazy { requireArguments() }
 
     @Composable
     override fun InitContent() = WalletCreatorScreen(viewModel::goToMainBottomNavigation)
