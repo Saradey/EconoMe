@@ -41,7 +41,7 @@ internal class UserCreatorViewModel @Inject constructor(
     )
     val systemEvent: StateFlow<SystemEvent> = _systemEvent
 
-    fun goToWalletCreator(resultLauncher: ActivityResultLauncher<IntentSenderRequest>) {
+    fun createAccountWithGoogle(resultLauncher: ActivityResultLauncher<IntentSenderRequest>) {
         val userNameInputText = _uiState.value.userNameInputText
         val validate = userValidateNameUseCase(userNameInputText)
         when (validate) {

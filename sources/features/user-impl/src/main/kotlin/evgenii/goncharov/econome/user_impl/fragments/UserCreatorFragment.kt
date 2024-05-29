@@ -36,7 +36,7 @@ internal class UserCreatorFragment : CoreFragment() {
     @Composable
     override fun InitContent() = UserCreatorScreen(
         state = viewModel.uiState,
-        createAccountWithGoogleListener = { viewModel.goToWalletCreator(oneTapResultLauncher) },
+        createAccountWithGoogleListener = { viewModel.createAccountWithGoogle(oneTapResultLauncher) },
         createAccountWithUuid = viewModel::createAccountWithUuid,
         input = viewModel::inputUserName
     )
