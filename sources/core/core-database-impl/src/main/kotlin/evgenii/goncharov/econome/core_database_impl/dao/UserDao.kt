@@ -10,4 +10,6 @@ internal interface UserDao {
 
     @Query("SELECT * FROM $USERS_TABLE")
     fun getAllUsers(): List<UserEntity>
+
+    fun saveUser(user: UserEntity)
 }

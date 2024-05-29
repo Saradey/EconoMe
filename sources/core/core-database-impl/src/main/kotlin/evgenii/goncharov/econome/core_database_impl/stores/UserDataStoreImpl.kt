@@ -1,6 +1,5 @@
 package evgenii.goncharov.econome.core_database_impl.stores
 
-import androidx.annotation.WorkerThread
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.dto.UserDto
 import evgenii.goncharov.econome.core_database_impl.dao.UserDao
@@ -12,8 +11,13 @@ internal class UserDataStoreImpl @Inject constructor(
     private val userMappers: UserMappers
 ) : UserDataStore {
 
-    @WorkerThread
     override suspend fun getAllUsers(): List<UserDto> {
         return userMappers.mapUsersEntityToUsersDto(userDao.getAllUsers())
+    }
+
+    override suspend fun saveNewUser(user: UserDto) {
+        userDao.saveUser(
+            userMappers.mapUserDtoToUserEntity(user)
+        )
     }
 }

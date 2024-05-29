@@ -89,4 +89,9 @@ internal class UserCreatorViewModel @Inject constructor(
             messageToast = resourceManager.getString(R.string.error_message_reg)
         )
     }
+
+    fun userCreated() {
+        val userInputName = _uiState.value.userNameInputText
+
+    }
 }

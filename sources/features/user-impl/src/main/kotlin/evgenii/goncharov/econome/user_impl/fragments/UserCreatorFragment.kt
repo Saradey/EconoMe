@@ -29,7 +29,7 @@ internal class UserCreatorFragment : CoreFragment() {
     private val oneTapResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
-        println(result)
+        viewModel.userCreated()
     }
 
     @Composable
