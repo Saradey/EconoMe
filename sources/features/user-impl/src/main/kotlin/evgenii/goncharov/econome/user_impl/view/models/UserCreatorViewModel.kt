@@ -45,36 +45,16 @@ internal class UserCreatorViewModel @Inject constructor(
         val userNameInputText = _uiState.value.userNameInputText
         val validate = userValidateNameUseCase(userNameInputText)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> {
-                _uiState.value = createErrorInputUserName(
-                    userNameInputText,
-                    resourceManager.getString(R.string.error_message_symbol)
-                )
-            }
-
-            is UserStatusModel.EmptyInput -> {
-                _uiState.value = createErrorInputUserName(
-                    userNameInputText,
-                    resourceManager.getString(R.string.error_message_empty)
-                )
-            }
-
-            is UserStatusModel.Success -> {
-                authManager.authUser(resultLauncher, ::failReg)
-            }
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userNameInputText)
+            is UserStatusModel.EmptyInput -> makeErrorEmptyState(userNameInputText)
+            is UserStatusModel.Success -> authManager.authUser(resultLauncher, ::failReg)
         }
     }
 
     fun inputUserName(userName: String) {
         val validate = userValidateNameUseCase(userName)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> {
-                _uiState.value = createErrorInputUserName(
-                    userName,
-                    resourceManager.getString(R.string.error_message_symbol)
-                )
-            }
-
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userName)
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
                 _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
             }
@@ -119,5 +99,19 @@ internal class UserCreatorViewModel @Inject constructor(
         userInputName: String
     ) = withContext(Dispatchers.IO) {
         userCreatorRepository.saveNewUser(userId, userInputName)
+    }
+
+    private fun makeErrorSymbolState(userNameInputText: String) {
+        _uiState.value = createErrorInputUserName(
+            userNameInputText,
+            resourceManager.getString(R.string.error_message_symbol)
+        )
+    }
+
+    private fun makeErrorEmptyState(userNameInputText: String) {
+        _uiState.value = createErrorInputUserName(
+            userNameInputText,
+            resourceManager.getString(R.string.error_message_empty)
+        )
     }
 }
