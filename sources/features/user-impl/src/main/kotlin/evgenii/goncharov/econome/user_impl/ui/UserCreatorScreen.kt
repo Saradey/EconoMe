@@ -34,7 +34,7 @@ internal fun UserCreatorScreen(
             is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText, input)
             is UserCreatorUiState.ErrorInputUserName -> InputTextError(
                 uiState.userNameInputText,
-                uiState.errorMessage,
+                uiState.errorInputMessage,
                 input
             )
         }

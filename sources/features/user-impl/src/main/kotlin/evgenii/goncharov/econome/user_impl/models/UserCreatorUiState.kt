@@ -1,13 +1,16 @@
 package evgenii.goncharov.econome.user_impl.models
 
-internal sealed class UserCreatorUiState {
+internal sealed class UserCreatorUiState(
+    open val userNameInputText: String,
+    open val errorInputMessage: String = ""
+) {
 
     data class Content(
-        val userNameInputText: String
-    ) : UserCreatorUiState()
+        override val userNameInputText: String
+    ) : UserCreatorUiState(userNameInputText)
 
     data class ErrorInputUserName(
-        val userNameInputText: String,
-        val errorMessage: String
-    ) : UserCreatorUiState()
+        override val userNameInputText: String,
+        override val errorInputMessage: String
+    ) : UserCreatorUiState(userNameInputText)
 }

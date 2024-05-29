@@ -18,14 +18,18 @@ internal class AuthManagerImpl @Inject constructor(
 
     private val oneTapSignInClient: SignInClient = Identity.getSignInClient(context)
 
-    override fun authUser(resultLauncher: ActivityResultLauncher<IntentSenderRequest>,) {
+    override fun authUser(
+        resultLauncher: ActivityResultLauncher<IntentSenderRequest>,
+        failureListener: () -> Unit
+    ) {
         oneTapSignInClient.beginSignIn(createAuthRequest())
             .addOnSuccessListener { signInResult ->
-                val sender = IntentSenderRequest.Builder(signInResult.pendingIntent.intentSender).build()
+                val sender =
+                    IntentSenderRequest.Builder(signInResult.pendingIntent.intentSender).build()
                 resultLauncher.launch(sender)
             }
             .addOnFailureListener { exception ->
-
+                failureListener()
             }
     }
 

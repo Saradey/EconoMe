@@ -5,5 +5,8 @@ import androidx.activity.result.IntentSenderRequest
 
 public interface AuthManager {
 
-    public fun authUser(resultLauncher: ActivityResultLauncher<IntentSenderRequest>)
+    public fun authUser(
+        resultLauncher: ActivityResultLauncher<IntentSenderRequest>,
+        failureListener: () -> Unit
+    )
 }
