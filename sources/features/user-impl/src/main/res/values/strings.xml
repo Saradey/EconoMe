@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="error_message_symbol">Ошибка: разрешены символы [a-zA-z]</string>
-    <string name="error_message_empty">"Ошибка: пустая строка"</string>
+    <string name="error_message_empty">Ошибка: пустая строка</string>
+    <string name="error_message_reg">Ошибка регистрации</string>
 </resources>

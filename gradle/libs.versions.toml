@@ -31,8 +31,8 @@ detekt-version = "1.23.4"
 room-version = "2.6.1"
 annotation-jvm = "1.7.1"
 
-# firbase
-firebase-bom-version = "33.0.0"
+# playservices
+play_services-auth = "20.6.0"
 
 [libraries]
 # core
@@ -72,8 +72,8 @@ room = { module = "androidx.room:room-runtime", version.ref = "room-version" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-version" }
 androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotation-jvm" }
 
-# firebase
-firebase-auth-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom-version" }
+# playservices
+playservices-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "play_services-auth" }
 
 [plugins]
 # core
