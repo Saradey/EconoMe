@@ -8,7 +8,13 @@ internal class WalletCreatorViewModel @Inject constructor(
     private val mainNavigationLauncher: MainNavigationLauncher
 ) : ViewModel() {
 
+    private var currentUserId: String? = null
+
     fun goToMainBottomNavigation() {
         mainNavigationLauncher.launchReplaceNavigation()
+    }
+
+    fun setUserId(userId: String) {
+        this.currentUserId = userId
     }
 }
