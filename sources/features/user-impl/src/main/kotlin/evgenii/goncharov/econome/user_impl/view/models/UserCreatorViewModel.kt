@@ -67,10 +67,10 @@ internal class UserCreatorViewModel @Inject constructor(
         viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
             failReg()
         }) {
-            val userEmail = authManager.getSignInCredentialFromIntent(intent)
+            val userId = authManager.getSignInCredentialFromIntent(intent)
             val userInputName = _uiState.value.userNameInputText
-            saveUser(userEmail, userInputName)
-            walletLauncher.launchReplaceWalletCreator(userEmail)
+            saveUser(userId, userInputName)
+            walletLauncher.launchReplaceWalletCreator(userId)
         }
     }
 
