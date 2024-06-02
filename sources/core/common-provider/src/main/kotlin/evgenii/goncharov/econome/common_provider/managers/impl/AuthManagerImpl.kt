@@ -44,7 +44,7 @@ internal class AuthManagerImpl @Inject constructor(
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
                     .setSupported(true)
-                    .setServerClientId(resourceManager.getString(R.string.server_client_id_debug))
+                    .setServerClientId(resourceManager.getString(R.string.server_client_id))
                     .setFilterByAuthorizedAccounts(false)
                     .build()
             )
@@ -54,7 +54,9 @@ internal class AuthManagerImpl @Inject constructor(
     }
 
     override fun getSignInCredentialFromIntent(intent: Intent): String {
+        println("getSignInCredentialFromIntent")
         val credential = oneTapSignInClient.getSignInCredentialFromIntent(intent)
+        println("getSignInCredentialFromIntent finish")
         val idToken = credential.googleIdToken
         val email = credential.id
         val displayName = credential.displayName
