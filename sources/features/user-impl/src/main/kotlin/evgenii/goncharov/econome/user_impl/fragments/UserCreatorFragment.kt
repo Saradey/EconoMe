@@ -29,8 +29,7 @@ internal class UserCreatorFragment : CoreFragment() {
     private val oneTapResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
-        // TODO доставать какой нибудь индификатор из Intent
-        viewModel.userCreated("TODO")
+        result.data?.let(viewModel::userCreated)
     }
 
     @Composable

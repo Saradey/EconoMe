@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.common_provider.managers.impl
 
 import android.content.Context
+import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
@@ -50,5 +51,13 @@ internal class AuthManagerImpl @Inject constructor(
             .setAutoSelectEnabled(true)
             .build()
         return request
+    }
+
+    override fun getSignInCredentialFromIntent(intent: Intent): String {
+        val credential = oneTapSignInClient.getSignInCredentialFromIntent(intent)
+        val idToken = credential.googleIdToken
+        val email = credential.id
+        val displayName = credential.displayName
+        return ""
     }
 }

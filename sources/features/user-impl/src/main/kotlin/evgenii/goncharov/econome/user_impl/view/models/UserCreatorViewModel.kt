@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.user_impl.view.models
 
+import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import androidx.compose.runtime.MutableState
@@ -61,11 +62,12 @@ internal class UserCreatorViewModel @Inject constructor(
         }
     }
 
-    fun userCreated(userId: String) {
+    fun userCreated(intent: Intent) {
+        val userEmail = authManager.getSignInCredentialFromIntent(intent)
         val userInputName = _uiState.value.userNameInputText
         viewModelScope.launch {
-            saveUser(userId, userInputName)
-            walletLauncher.launchReplaceWalletCreator(userId)
+            saveUser(userEmail, userInputName)
+            walletLauncher.launchReplaceWalletCreator(userEmail)
         }
     }
 
