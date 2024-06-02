@@ -17,6 +17,7 @@ import evgenii.goncharov.econome.user_impl.models.UserStatusModel
 import evgenii.goncharov.econome.user_impl.repositories.UserCreatorRepository
 import evgenii.goncharov.econome.user_impl.use.cases.UserValidateNameUseCase
 import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -63,9 +64,11 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     fun userCreated(intent: Intent) {
-        val userEmail = authManager.getSignInCredentialFromIntent(intent)
-        val userInputName = _uiState.value.userNameInputText
-        viewModelScope.launch {
+        viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
+            failReg()
+        }) {
+            val userEmail = authManager.getSignInCredentialFromIntent(intent)
+            val userInputName = _uiState.value.userNameInputText
             saveUser(userEmail, userInputName)
             walletLauncher.launchReplaceWalletCreator(userEmail)
         }
