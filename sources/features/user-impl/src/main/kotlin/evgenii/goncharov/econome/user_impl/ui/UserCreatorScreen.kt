@@ -17,7 +17,8 @@ import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 @Composable
 internal fun UserCreatorScreen(
     state: State<UserCreatorUiState>,
-    goToWalletCreatorListener: () -> Unit,
+    createAccountWithGoogleListener: () -> Unit,
+    createAccountWithUuid: () -> Unit,
     input: (String) -> Unit
 ) {
     val uiState = state.value
@@ -34,14 +35,19 @@ internal fun UserCreatorScreen(
             is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText, input)
             is UserCreatorUiState.ErrorInputUserName -> InputTextError(
                 uiState.userNameInputText,
-                uiState.errorMessage,
+                uiState.errorInputMessage,
                 input
             )
         }
         Button(
-            onClick = goToWalletCreatorListener,
+            onClick = createAccountWithUuid,
         ) {
-            Text("Go to 4. Экран создания кошелька расходов Привязать свой аккаунт к gmail")
+            Text("Создать аккаунт")
+        }
+        Button(
+            onClick = createAccountWithGoogleListener,
+        ) {
+            Text("Создать аккаунт с google")
         }
     }
 }

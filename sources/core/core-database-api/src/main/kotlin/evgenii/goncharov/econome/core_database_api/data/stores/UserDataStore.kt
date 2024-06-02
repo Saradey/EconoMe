@@ -7,4 +7,7 @@ public interface UserDataStore {
 
     @WorkerThread
     public suspend fun getAllUsers(): List<UserDto>
+
+    @WorkerThread
+    public suspend fun saveNewUser(user: UserDto)
 }

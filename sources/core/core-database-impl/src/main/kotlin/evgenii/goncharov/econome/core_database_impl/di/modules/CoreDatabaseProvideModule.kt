@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import evgenii.goncharov.econome.core_database_impl.common.DATA_BASE_NAME
 import evgenii.goncharov.econome.core_database_impl.dao.UserDao
+import evgenii.goncharov.econome.core_database_impl.dao.WalletDao
 import evgenii.goncharov.econome.core_database_impl.data.base.AppDatabase
 import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
 
@@ -24,5 +25,11 @@ internal object CoreDatabaseProvideModule {
     @Provides
     fun provideUserDao(appDatabase: AppDatabase): UserDao {
         return appDatabase.userDao()
+    }
+
+    @CoreScope
+    @Provides
+    fun provideWalletDao(appDatabase: AppDatabase): WalletDao {
+        return appDatabase.getWalletDao()
     }
 }

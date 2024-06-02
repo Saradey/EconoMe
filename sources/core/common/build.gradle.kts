@@ -11,6 +11,7 @@ dependencies {
 
     implementation(libs.dagger)
     implementation(libs.lifecycle.viewmodel)
+    implementation(libs.fragment.ktx)
 
     kapt(libs.dagger.compiler)
 }

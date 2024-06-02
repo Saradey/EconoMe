@@ -4,13 +4,21 @@ import evgenii.goncharov.econome.core_database_api.dto.UserDto
 import evgenii.goncharov.econome.core_database_impl.entities.UserEntity
 import javax.inject.Inject
 
-internal class UserMappers @Inject constructor() {
+internal class UserMapper @Inject constructor() {
 
     fun mapUsersEntityToUsersDto(users: List<UserEntity>): List<UserDto> {
         return users.map { entity ->
             UserDto(
-                uuid = entity.uuid
+                uuid = entity.uuid,
+                userName = entity.userName
             )
         }
+    }
+
+    fun mapUserDtoToUserEntity(dto: UserDto) : UserEntity {
+        return UserEntity(
+            uuid = dto.uuid,
+            userName = dto.userName
+        )
     }
 }
