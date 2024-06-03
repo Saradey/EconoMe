@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="currency_ru_title">Российский рубль</string>
+    <string name="currency_eur_title">Евро</string>
+</resources>
