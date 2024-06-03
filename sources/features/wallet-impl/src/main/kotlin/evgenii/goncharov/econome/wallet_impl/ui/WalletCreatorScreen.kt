@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
+import evgenii.goncharov.econome.wallet_impl.models.WalletCreatorUiState
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -17,6 +18,7 @@ import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 internal fun WalletCreatorScreen(
     viewModel: WalletCreatorViewModel,
 ) {
+    val state = viewModel.uiState.value as WalletCreatorUiState.Content
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -26,18 +28,9 @@ internal fun WalletCreatorScreen(
             color = Color.White,
             fontSize = 20.sp
         )
-        OutlinedTextField(
-            value = "",
-            onValueChange = viewModel::inputWalletName,
-            label = { Text("Введите название кошелька") },
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Color.White,
-                unfocusedBorderColor = Color.White,
-                focusedTextColor = Color.White,
-                unfocusedTextColor = Color.White,
-                focusedLabelColor = Color.White,
-                unfocusedLabelColor = Color.White
-            )
+        InputWalletNameField(
+            inputWalletName = state.inputWalletName,
+            inputWalletNameListener = viewModel::inputWalletName
         )
         Text(
             text = "Выбирите валюту кошелька:",
@@ -45,4 +38,25 @@ internal fun WalletCreatorScreen(
             fontSize = 20.sp
         )
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun InputWalletNameField(
+    inputWalletName: String,
+    inputWalletNameListener: (String) -> Unit
+) {
+    OutlinedTextField(
+        value = inputWalletName,
+        onValueChange = inputWalletNameListener,
+        label = { Text("Введите название кошелька") },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.White,
+            unfocusedBorderColor = Color.White,
+            focusedTextColor = Color.White,
+            unfocusedTextColor = Color.White,
+            focusedLabelColor = Color.White,
+            unfocusedLabelColor = Color.White
+        )
+    )
 }
