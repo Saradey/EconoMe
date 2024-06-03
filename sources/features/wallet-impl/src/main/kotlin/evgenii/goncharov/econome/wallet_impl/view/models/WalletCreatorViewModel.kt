@@ -10,6 +10,7 @@ internal class WalletCreatorViewModel @Inject constructor(
 
     private var currentUserId: String? = null
 
+
     fun goToMainBottomNavigation() {
         mainNavigationLauncher.launchReplaceNavigation()
     }

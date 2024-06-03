@@ -22,10 +22,11 @@ internal fun WalletCreatorScreen(
             color = Color.White,
             fontSize = 20.sp
         )
-        Button(
-            onClick = goToBottomMenuListener,
-        ) {
-            Text("Go to 1. Экран с нижнем bottomNavigation меню")
-        }
+
+//        Button(
+//            onClick = goToBottomMenuListener,
+//        ) {
+//            Text("Go to 1. Экран с нижнем bottomNavigation меню")
+//        }
     }
 }
