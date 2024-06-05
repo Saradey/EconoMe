@@ -9,11 +9,12 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import evgenii.goncharov.econome.wallet_impl.R
 import evgenii.goncharov.econome.wallet_impl.models.WalletCreatorUiState
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun WalletCreatorScreen(
     viewModel: WalletCreatorViewModel,
@@ -33,7 +34,7 @@ internal fun WalletCreatorScreen(
             inputWalletNameListener = viewModel::inputWalletName
         )
         Text(
-            text = "Выбирите валюту кошелька:",
+            text = stringResource(id = R.string.choose_currency_title),
             color = Color.White,
             fontSize = 20.sp
         )
@@ -49,7 +50,7 @@ private fun InputWalletNameField(
     OutlinedTextField(
         value = inputWalletName,
         onValueChange = inputWalletNameListener,
-        label = { Text("Введите название кошелька") },
+        label = { Text(stringResource(id = R.string.input_name_wallet_title)) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Color.White,
             unfocusedBorderColor = Color.White,
