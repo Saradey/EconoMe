@@ -1,13 +1,11 @@
 package evgenii.goncharov.econome.wallet_impl.ui
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
@@ -19,10 +17,7 @@ internal fun WalletCreatorScreen(
     viewModel: WalletCreatorViewModel,
 ) {
     val state = viewModel.uiState.value
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
+    Column {
         Text(
             text = "4. WalletCreatorFragment Экран создания кошелька расходов",
             color = Color.White,
