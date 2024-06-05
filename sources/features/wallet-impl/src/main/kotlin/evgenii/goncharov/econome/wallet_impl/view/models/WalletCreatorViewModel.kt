@@ -4,6 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.wallet_impl.models.WalletUiState
 import evgenii.goncharov.econome.wallet_impl.repositories.WalletCreatorRepository
@@ -35,5 +36,9 @@ internal class WalletCreatorViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(
             inputWalletName = walletName.trim()
         )
+    }
+
+    fun chooseCurrency(currency: CurrencyCode) {
+
     }
 }

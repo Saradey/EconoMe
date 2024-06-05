@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.wallet_impl.R
+import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 
 @Composable
@@ -31,6 +33,10 @@ internal fun WalletCreatorScreen(
             text = stringResource(id = R.string.choose_currency_title),
             color = Color.White,
             fontSize = 20.sp
+        )
+        LanguagesList(
+            items = state.currencies,
+            chooseLanguage = viewModel::chooseCurrency
         )
     }
 }
@@ -54,4 +60,12 @@ private fun InputWalletNameField(
             unfocusedLabelColor = Color.White
         )
     )
+}
+
+@Composable
+private fun LanguagesList(
+    items: List<CurrencyModel>,
+    chooseLanguage: (CurrencyCode) -> Unit
+) {
+
 }

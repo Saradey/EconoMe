@@ -1,0 +1,13 @@
+{
+  "currencies": [
+    {
+      "code" : "RUB"
+    },
+    {
+      "code" : "EUR"
+    },
+    {
+      "code" : "USD"
+    }
+  ]
+}

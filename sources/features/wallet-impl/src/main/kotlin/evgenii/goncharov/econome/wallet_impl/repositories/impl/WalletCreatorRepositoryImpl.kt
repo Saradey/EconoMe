@@ -17,13 +17,13 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
     override fun formCurrencies(): List<CurrencyModel> {
         return listOf(
             CurrencyModel(
-                code = CurrencyCode.RUB.code,
+                code = CurrencyCode.RUB,
                 title = resourceManager.getString(R.string.currency_ru_title),
                 switch = false,
                 icon = UiKitString.ic_ru_flag
             ),
             CurrencyModel(
-                code = CurrencyCode.EUR.code,
+                code = CurrencyCode.EUR,
                 title = resourceManager.getString(R.string.currency_eur_title),
                 switch = false,
                 icon = UiKitString.ic_eur_flag
