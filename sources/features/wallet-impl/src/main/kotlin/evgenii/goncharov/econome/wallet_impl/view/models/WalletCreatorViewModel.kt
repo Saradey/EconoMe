@@ -32,6 +32,8 @@ internal class WalletCreatorViewModel @Inject constructor(
     }
 
     fun inputWalletName(walletName: String) {
-
+        _uiState.value = _uiState.value.copy(
+            inputWalletName = walletName.trim()
+        )
     }
 }
