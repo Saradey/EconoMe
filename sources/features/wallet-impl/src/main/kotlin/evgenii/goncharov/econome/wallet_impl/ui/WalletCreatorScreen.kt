@@ -12,14 +12,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import evgenii.goncharov.econome.wallet_impl.R
-import evgenii.goncharov.econome.wallet_impl.models.WalletCreatorUiState
 import evgenii.goncharov.econome.wallet_impl.view.models.WalletCreatorViewModel
 
 @Composable
 internal fun WalletCreatorScreen(
     viewModel: WalletCreatorViewModel,
 ) {
-    val state = viewModel.uiState.value as WalletCreatorUiState.Content
+    val state = viewModel.uiState.value
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

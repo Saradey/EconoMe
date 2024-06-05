@@ -5,7 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
-import evgenii.goncharov.econome.wallet_impl.models.WalletCreatorUiState
+import evgenii.goncharov.econome.wallet_impl.models.WalletUiState
 import evgenii.goncharov.econome.wallet_impl.repositories.WalletCreatorRepository
 import javax.inject.Inject
 
@@ -14,13 +14,13 @@ internal class WalletCreatorViewModel @Inject constructor(
     private val walletCreatorRepository: WalletCreatorRepository
 ) : ViewModel() {
 
-    private val _uiState: MutableState<WalletCreatorUiState> = mutableStateOf(
-        WalletCreatorUiState.Content(
+    private val _uiState: MutableState<WalletUiState> = mutableStateOf(
+        WalletUiState(
             inputWalletName = "",
             currencies = walletCreatorRepository.formCurrencies()
         )
     )
-    val uiState: State<WalletCreatorUiState> = _uiState
+    val uiState: State<WalletUiState> = _uiState
     private var currentUserId: String? = null
 
     fun goToMainBottomNavigation() {
