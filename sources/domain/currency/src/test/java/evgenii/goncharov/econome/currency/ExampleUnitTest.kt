@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.common.resources
+package evgenii.goncharov.econome.currency
 
 import org.junit.Test
 
