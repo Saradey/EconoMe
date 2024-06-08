@@ -2,6 +2,7 @@
 <resources>
     <string name="currency_ru_title">Российский рубль</string>
     <string name="currency_eur_title">Евро</string>
+    <string name="currency_dollar_title">Доллар</string>
     <string name="choose_currency_title">Выбирите валюту кошелька:</string>
     <string name="input_name_wallet_title">Введите название кошелька</string>
 </resources>

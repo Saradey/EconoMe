@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 internal class WalletCreatorRepositoryImpl @Inject constructor(
     private val walletDataStore: WalletDataStore,
-    private val resourceManager: ResourceManager,
     private val currencyDataStore: CurrencyDataStore,
     private val currencyDtoToCurrencyModelMapper: CurrencyDtoToCurrencyModelMapper
 ) : WalletCreatorRepository {
