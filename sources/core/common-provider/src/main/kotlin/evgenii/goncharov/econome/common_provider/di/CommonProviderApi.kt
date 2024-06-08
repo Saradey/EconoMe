@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.common_provider.di
 import android.content.Context
 import evgenii.goncharov.econome.common_provider.managers.AuthManager
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
+import kotlinx.serialization.json.Json
 
 public interface CommonProviderApi {
 
@@ -11,4 +12,6 @@ public interface CommonProviderApi {
     public fun provideResourceManager(): ResourceManager
 
     public fun provideAuthManager(): AuthManager
+
+    public fun provideCommonJsonDecoder() : Json
 }
