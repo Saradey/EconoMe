@@ -1,11 +1,7 @@
 package evgenii.goncharov.econome.wallet_impl.repositories.impl
 
-import evgenii.goncharov.econome.common.consts.CurrencyCode
-import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
 import evgenii.goncharov.econome.currency.data.store.CurrencyDataStore
-import evgenii.goncharov.econome.ui_kit.UiKitString
-import evgenii.goncharov.econome.wallet_impl.R
 import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
 import evgenii.goncharov.econome.wallet_impl.models.mappers.CurrencyDtoToCurrencyModelMapper
 import evgenii.goncharov.econome.wallet_impl.repositories.WalletCreatorRepository
@@ -18,23 +14,6 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
     private val currencyDataStore: CurrencyDataStore,
     private val currencyDtoToCurrencyModelMapper: CurrencyDtoToCurrencyModelMapper
 ) : WalletCreatorRepository {
-
-//    override fun formCurrencies(): List<CurrencyModel> {
-////        return listOf(
-////            CurrencyModel(
-////                code = CurrencyCode.RUB,
-////                title = resourceManager.getString(R.string.currency_ru_title),
-////                switch = false,
-////                icon = UiKitString.ic_ru_flag
-////            ),
-////            CurrencyModel(
-////                code = CurrencyCode.EUR,
-////                title = resourceManager.getString(R.string.currency_eur_title),
-////                switch = false,
-////                icon = UiKitString.ic_eur_flag
-////            )
-////        )
-//    }
 
     override suspend fun formCurrencies(): List<CurrencyModel> = withContext(Dispatchers.IO) {
         currencyDataStore.getCurrencies().map { currencyDto ->

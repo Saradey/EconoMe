@@ -1,8 +1,10 @@
 package evgenii.goncharov.econome.wallet_impl.models.mappers
 
+import androidx.annotation.DrawableRes
 import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.currency.models.CurrencyDto
+import evgenii.goncharov.econome.ui_kit.UiKitString
 import evgenii.goncharov.econome.wallet_impl.R
 import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
 import javax.inject.Inject
@@ -18,7 +20,7 @@ internal class CurrencyDtoToCurrencyModelMapper @Inject constructor(
             code = currencyCode,
             title = getTitle(currencyCode),
             switch = false,
-            icon = -1
+            icon = getIconRes(currencyCode)
         )
     }
 
@@ -27,6 +29,15 @@ internal class CurrencyDtoToCurrencyModelMapper @Inject constructor(
             CurrencyCode.RUB -> resourceManager.getString(R.string.currency_ru_title)
             CurrencyCode.EUR -> resourceManager.getString(R.string.currency_eur_title)
             CurrencyCode.USD -> resourceManager.getString(R.string.currency_dollar_title)
+        }
+    }
+
+    @DrawableRes
+    private fun getIconRes(code: CurrencyCode): Int {
+        return when (code) {
+            CurrencyCode.RUB -> UiKitString.ic_ru_flag
+            CurrencyCode.EUR -> UiKitString.ic_eur_flag
+            CurrencyCode.USD -> UiKitString.ic_us_flag
         }
     }
 
