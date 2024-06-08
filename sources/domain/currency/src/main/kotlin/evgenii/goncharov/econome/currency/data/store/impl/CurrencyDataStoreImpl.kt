@@ -4,6 +4,7 @@ import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.currency.R
 import evgenii.goncharov.econome.currency.data.store.CurrencyDataStore
 import evgenii.goncharov.econome.currency.models.CurrencyDto
+import evgenii.goncharov.econome.currency.models.CurrencyListDto
 import kotlinx.serialization.json.Json
 import java.io.BufferedReader
 import java.io.InputStream
@@ -15,12 +16,11 @@ internal class CurrencyDataStoreImpl @Inject constructor(
     private val json: Json
 ) : CurrencyDataStore {
 
-
-
     override fun getCurrencies(): List<CurrencyDto> {
         val rawCurrency = resourceManager.getRawFile(R.raw.currency_list)
         val rawJsonCurrency = readRawCurrency(rawCurrency)
-        return emptyList()
+        val currency = json.decodeFromString<CurrencyListDto>(rawJsonCurrency)
+        return currency.currencies
     }
 
     private fun readRawCurrency(stream: InputStream) : String {
