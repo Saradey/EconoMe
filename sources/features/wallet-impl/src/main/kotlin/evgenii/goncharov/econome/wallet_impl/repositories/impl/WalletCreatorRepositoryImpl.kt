@@ -14,20 +14,24 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
     private val resourceManager: ResourceManager
 ) : WalletCreatorRepository {
 
-    override fun formCurrencies(): List<CurrencyModel> {
-//        return listOf(
-//            CurrencyModel(
-//                code = CurrencyCode.RUB,
-//                title = resourceManager.getString(R.string.currency_ru_title),
-//                switch = false,
-//                icon = UiKitString.ic_ru_flag
-//            ),
-//            CurrencyModel(
-//                code = CurrencyCode.EUR,
-//                title = resourceManager.getString(R.string.currency_eur_title),
-//                switch = false,
-//                icon = UiKitString.ic_eur_flag
-//            )
-//        )
+//    override fun formCurrencies(): List<CurrencyModel> {
+////        return listOf(
+////            CurrencyModel(
+////                code = CurrencyCode.RUB,
+////                title = resourceManager.getString(R.string.currency_ru_title),
+////                switch = false,
+////                icon = UiKitString.ic_ru_flag
+////            ),
+////            CurrencyModel(
+////                code = CurrencyCode.EUR,
+////                title = resourceManager.getString(R.string.currency_eur_title),
+////                switch = false,
+////                icon = UiKitString.ic_eur_flag
+////            )
+////        )
+//    }
+
+    override suspend fun formCurrencies(): List<CurrencyModel> {
+        TODO("Not yet implemented")
     }
 }

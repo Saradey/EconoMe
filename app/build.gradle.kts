@@ -85,6 +85,9 @@ dependencies {
     implementation(project(":sources:core:core-database-impl"))
     implementation(project(":sources:core:common-provider"))
 
+    // domain modules
+    implementation(project(":sources:domain:currency"))
+
     // tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
