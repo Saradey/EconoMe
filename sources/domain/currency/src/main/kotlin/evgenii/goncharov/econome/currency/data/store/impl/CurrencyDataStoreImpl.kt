@@ -16,14 +16,20 @@ internal class CurrencyDataStoreImpl @Inject constructor(
     private val json: Json
 ) : CurrencyDataStore {
 
+    private var cacheCurrency: CurrencyListDto? = null
+
     override fun getCurrencies(): List<CurrencyDto> {
-        val rawCurrency = resourceManager.getRawFile(R.raw.currency_list)
-        val rawJsonCurrency = readRawCurrency(rawCurrency)
-        val currency = json.decodeFromString<CurrencyListDto>(rawJsonCurrency)
-        return currency.currencies
+        val currencies = cacheCurrency?.currencies ?: let {
+            val rawCurrency = resourceManager.getRawFile(R.raw.currency_list)
+            val rawJsonCurrency = readRawCurrency(rawCurrency)
+            val currency = json.decodeFromString<CurrencyListDto>(rawJsonCurrency)
+            cacheCurrency = currency
+            currency.currencies
+        }
+        return currencies
     }
 
-    private fun readRawCurrency(stream: InputStream) : String {
+    private fun readRawCurrency(stream: InputStream): String {
         val reader = BufferedReader(InputStreamReader(stream))
         return reader.use { it.readText() }
     }
