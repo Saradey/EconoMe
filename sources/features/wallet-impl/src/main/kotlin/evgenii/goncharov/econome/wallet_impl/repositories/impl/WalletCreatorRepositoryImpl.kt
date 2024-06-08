@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.wallet_impl.repositories.impl
 import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
+import evgenii.goncharov.econome.currency.data.store.CurrencyDataStore
 import evgenii.goncharov.econome.ui_kit.UiKitString
 import evgenii.goncharov.econome.wallet_impl.R
 import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 internal class WalletCreatorRepositoryImpl @Inject constructor(
     private val walletDataStore: WalletDataStore,
-    private val resourceManager: ResourceManager
+    private val resourceManager: ResourceManager,
+    private val currencyDataStore: CurrencyDataStore
 ) : WalletCreatorRepository {
 
 //    override fun formCurrencies(): List<CurrencyModel> {
