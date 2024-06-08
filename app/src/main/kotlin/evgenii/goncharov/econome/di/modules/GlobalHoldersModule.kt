@@ -8,6 +8,8 @@ import evgenii.goncharov.econome.common_provider.di.CommonProviderApi
 import evgenii.goncharov.econome.common_provider.di.CommonProviderHolder
 import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
 import evgenii.goncharov.econome.core_database_impl.di.holder.CoreDatabaseHolder
+import evgenii.goncharov.econome.currency.api.CurrencyApi
+import evgenii.goncharov.econome.currency.di.holder.CurrencyHolder
 import evgenii.goncharov.econome.di.holder.LaunchersHolder
 import evgenii.goncharov.econome.di_core.contracts.LaunchersApi
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
@@ -29,4 +31,7 @@ interface GlobalHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(CoreDatabaseApi::class)]
     fun bindCoreDatabaseHolder(holder: CoreDatabaseHolder): BaseHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(CurrencyApi::class)]
+    fun bindCurrencyHolder(holder: CurrencyHolder): BaseHolder<*>
 }

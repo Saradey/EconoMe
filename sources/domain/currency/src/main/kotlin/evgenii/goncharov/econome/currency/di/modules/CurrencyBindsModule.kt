@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.currency.di.models
+package evgenii.goncharov.econome.currency.di.modules
 
 import dagger.Binds
 import dagger.Module

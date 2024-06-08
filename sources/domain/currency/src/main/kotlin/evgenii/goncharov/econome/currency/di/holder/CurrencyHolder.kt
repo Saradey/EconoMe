@@ -1,17 +1,19 @@
 package evgenii.goncharov.econome.currency.di.holder
 
-import android.content.Context
+import evgenii.goncharov.econome.common_provider.di.CommonProviderApi
 import evgenii.goncharov.econome.currency.api.CurrencyApi
+import evgenii.goncharov.econome.currency.di.DaggerCurrencyComponent
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
 import javax.inject.Inject
 
 public class CurrencyHolder @Inject constructor(
-    featureContainer: FeatureContainerManager,
-    private val appContext: Context
+    featureContainer: FeatureContainerManager
 ) : BaseHolder<CurrencyApi>(featureContainer) {
 
     override fun buildComponent(): CurrencyApi {
-        TODO("Not yet implemented")
+        return DaggerCurrencyComponent.factory().create(
+            commonProviderApi = getGlobalComponent(CommonProviderApi::class.java)
+        )
     }
 }
