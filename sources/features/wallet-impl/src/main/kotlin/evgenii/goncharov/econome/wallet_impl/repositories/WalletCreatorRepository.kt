@@ -4,5 +4,5 @@ import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
 
 internal interface WalletCreatorRepository {
 
-    fun formCurrencies(): List<CurrencyModel>
+    suspend fun formCurrencies(): List<CurrencyModel>
 }

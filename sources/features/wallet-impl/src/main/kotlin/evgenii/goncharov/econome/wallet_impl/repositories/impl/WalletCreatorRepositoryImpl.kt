@@ -15,19 +15,19 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
 ) : WalletCreatorRepository {
 
     override fun formCurrencies(): List<CurrencyModel> {
-        return listOf(
-            CurrencyModel(
-                code = CurrencyCode.RUB,
-                title = resourceManager.getString(R.string.currency_ru_title),
-                switch = false,
-                icon = UiKitString.ic_ru_flag
-            ),
-            CurrencyModel(
-                code = CurrencyCode.EUR,
-                title = resourceManager.getString(R.string.currency_eur_title),
-                switch = false,
-                icon = UiKitString.ic_eur_flag
-            )
-        )
+//        return listOf(
+//            CurrencyModel(
+//                code = CurrencyCode.RUB,
+//                title = resourceManager.getString(R.string.currency_ru_title),
+//                switch = false,
+//                icon = UiKitString.ic_ru_flag
+//            ),
+//            CurrencyModel(
+//                code = CurrencyCode.EUR,
+//                title = resourceManager.getString(R.string.currency_eur_title),
+//                switch = false,
+//                icon = UiKitString.ic_eur_flag
+//            )
+//        )
     }
 }

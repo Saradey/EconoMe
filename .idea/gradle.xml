@@ -46,6 +46,7 @@
             <option value="$PROJECT_DIR$/sources/features/wallet-api" />
             <option value="$PROJECT_DIR$/sources/features/wallet-impl" />
             <option value="$PROJECT_DIR$/sources/resources" />
+            <option value="$PROJECT_DIR$/sources/resources/common" />
             <option value="$PROJECT_DIR$/sources/resources/ui-kit" />
             <option value="$PROJECT_DIR$/sources/resources/uikit-sandbox" />
           </set>
