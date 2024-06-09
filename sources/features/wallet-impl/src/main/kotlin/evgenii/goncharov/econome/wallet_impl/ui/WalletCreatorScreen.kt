@@ -1,6 +1,11 @@
 package evgenii.goncharov.econome.wallet_impl.ui
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -35,7 +40,7 @@ internal fun WalletCreatorScreen(
             color = Color.White,
             fontSize = 20.sp
         )
-        LanguagesList(
+        CurrenciesList(
             items = state.currencies,
             chooseLanguage = viewModel::chooseCurrency
         )
@@ -66,10 +71,38 @@ private fun InputWalletNameField(
 }
 
 @Composable
-private fun LanguagesList(
+private fun CurrenciesList(
     modifier: Modifier = Modifier,
     items: List<CurrencyModel>,
     chooseLanguage: (CurrencyCode) -> Unit
 ) {
+    Column(
+        modifier = modifier.verticalScroll(rememberScrollState())
+    ) {
+        items.forEach { model ->
+            ItemCurrency(
+                title = model.title,
+                switch = model.switch,
+                icon = model.icon,
+                chooseLanguage = {
+                    chooseLanguage(model.code)
+                }
+            )
+        }
+    }
+}
 
+@Composable
+private fun ItemCurrency(
+    modifier: Modifier = Modifier,
+    title: String,
+    switch: Boolean,
+    @DrawableRes icon: Int,
+    chooseLanguage: () -> Unit
+) {
+    Row(
+        modifier = modifier
+    ) {
+
+    }
 }
