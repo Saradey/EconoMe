@@ -6,5 +6,5 @@ internal interface UserRepository {
 
     suspend fun getAllUsers(): List<UserDto>
 
-    suspend fun getCurrentUser(): UserDto
+    suspend fun getCurrentUserId(): String
 }
