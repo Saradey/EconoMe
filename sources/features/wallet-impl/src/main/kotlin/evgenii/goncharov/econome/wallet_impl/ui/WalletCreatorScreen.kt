@@ -1,14 +1,11 @@
 package evgenii.goncharov.econome.wallet_impl.ui
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -42,6 +39,7 @@ internal fun WalletCreatorScreen(
             inputWalletNameListener = viewModel::inputWalletName
         )
         Text(
+            modifier = Modifier.padding(top = 12.dp),
             text = stringResource(id = R.string.choose_currency_title),
             color = Color.White,
             fontSize = 20.sp
@@ -112,6 +110,7 @@ private fun ItemCurrency(
         modifier = modifier.fillMaxWidth()
     ) {
         Text(
+            modifier = Modifier.weight(1f),
             text = title,
             color = Color.White,
             fontSize = 18.sp
