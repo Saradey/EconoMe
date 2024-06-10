@@ -9,6 +9,6 @@ internal class WalletsListViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun navigateWalletCreator() {
-        walletLauncher.launchWalletCreator()
+//        walletLauncher.launchWalletCreator()
     }
 }

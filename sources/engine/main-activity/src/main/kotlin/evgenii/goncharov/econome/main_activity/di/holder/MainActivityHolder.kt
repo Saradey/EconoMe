@@ -8,6 +8,7 @@ import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
+import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
 import javax.inject.Inject
 
 public class MainActivityHolder @Inject constructor(container: FeatureContainer) :
@@ -19,6 +20,7 @@ public class MainActivityHolder @Inject constructor(container: FeatureContainer)
             coreNavigationApi = getGlobalComponent(CoreNavigationApi::class.java),
             userLauncher = getFeatureLauncher(UserLauncher::class.java),
             mainNavigationLauncher = getFeatureLauncher(MainNavigationLauncher::class.java),
+            walletLauncher = getFeatureLauncher(WalletLauncher::class.java)
         )
     }
 }

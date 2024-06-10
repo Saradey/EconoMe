@@ -14,9 +14,8 @@ public class WalletLauncherImpl @Inject constructor(
         globalRouter.replaceScreen(NavigationWalletScreens.startWalletCreator(userUuid))
     }
 
-    override fun launchWalletCreator() {
-        // TODO добавить user id
-        globalRouter.navigateTo(NavigationWalletScreens.startWalletCreator("TODO"))
+    override fun launchWalletCreator(userUuid: String) {
+        globalRouter.navigateTo(NavigationWalletScreens.startWalletCreator(userUuid))
     }
 
     override fun launchAllWallet() {
