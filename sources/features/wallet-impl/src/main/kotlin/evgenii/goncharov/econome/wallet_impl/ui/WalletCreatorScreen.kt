@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.wallet_impl.ui
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -113,11 +114,10 @@ private fun ItemCurrency(
             modifier = Modifier.weight(1f),
             text = title,
             color = Color.White,
-            fontSize = 18.sp
+            fontSize = 20.sp
         )
-        Icon(
+        Image(
             painter = painterResource(id = icon),
-            tint = Color.Red,
             contentDescription = null
         )
     }
