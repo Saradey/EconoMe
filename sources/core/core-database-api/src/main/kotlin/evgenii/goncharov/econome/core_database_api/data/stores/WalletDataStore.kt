@@ -7,4 +7,7 @@ public interface WalletDataStore {
 
     @WorkerThread
     public suspend fun saveNewWallet(dto: WalletDto)
+
+    @WorkerThread
+    public suspend fun getAllWallet() : List<WalletDto>
 }

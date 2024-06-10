@@ -6,7 +6,7 @@ public interface WalletLauncher : BaseLauncher {
 
     public fun launchReplaceWalletCreator(userUuid: String)
 
-    public fun launchWalletCreator()
+    public fun launchWalletCreator(userUuid: String)
 
     public fun launchAllWallet()
 }
