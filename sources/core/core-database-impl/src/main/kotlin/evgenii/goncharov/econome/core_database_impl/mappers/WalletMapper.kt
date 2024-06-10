@@ -13,4 +13,12 @@ internal class WalletMapper @Inject constructor() {
             code = walletDto.code
         )
     }
+
+    fun walletEntityToWalletDto(entity : WalletEntity) : WalletDto {
+        return WalletDto(
+            id = entity.id,
+            walletName = entity.walletName,
+            code = entity.code
+        )
+    }
 }

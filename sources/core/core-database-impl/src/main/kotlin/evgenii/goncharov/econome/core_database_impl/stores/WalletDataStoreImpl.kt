@@ -14,4 +14,10 @@ internal class WalletDataStoreImpl @Inject constructor(
     override suspend fun saveNewWallet(dto: WalletDto) {
         walletDao.saveWallet(walletMapper.walletDtoToWalletEntity(dto))
     }
+
+    override suspend fun getAllWallet(): List<WalletDto> {
+        return walletDao.getWallets().map { entity ->
+            walletMapper.walletEntityToWalletDto(entity)
+        }
+    }
 }

@@ -23,7 +23,7 @@ internal class SettingsViewModel @Inject constructor(
     }
 
     fun navigateWalletCreator() {
-        walletLauncher.launchWalletCreator()
+//        walletLauncher.launchWalletCreator()
     }
 
     fun navigateAllWallet() {
