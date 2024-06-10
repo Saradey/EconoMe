@@ -1,8 +1,10 @@
 package evgenii.goncharov.econome.wallet_impl.ui
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -80,7 +82,11 @@ private fun CurrenciesList(
     items: List<CurrencyModel>,
     chooseLanguage: (CurrencyCode) -> Unit
 ) {
-    Column {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         items.forEach { model ->
             ItemCurrency(
                 title = model.title,
@@ -103,14 +109,16 @@ private fun ItemCurrency(
     chooseLanguage: () -> Unit
 ) {
     Row(
-        modifier = modifier
+        modifier = modifier.fillMaxWidth()
     ) {
         Text(
             text = title,
-            fontSize = 16.sp
+            color = Color.White,
+            fontSize = 18.sp
         )
         Icon(
             painter = painterResource(id = icon),
+            tint = Color.Red,
             contentDescription = null
         )
     }
