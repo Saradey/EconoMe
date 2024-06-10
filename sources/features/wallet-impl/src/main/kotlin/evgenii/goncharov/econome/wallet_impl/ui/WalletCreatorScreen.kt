@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.wallet_impl.ui
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -79,9 +80,7 @@ private fun CurrenciesList(
     items: List<CurrencyModel>,
     chooseLanguage: (CurrencyCode) -> Unit
 ) {
-    Column(
-        modifier = modifier.verticalScroll(rememberScrollState())
-    ) {
+    Column {
         items.forEach { model ->
             ItemCurrency(
                 title = model.title,
@@ -104,10 +103,9 @@ private fun ItemCurrency(
     chooseLanguage: () -> Unit
 ) {
     Row(
-        modifier = modifier.padding(16.dp),
+        modifier = modifier
     ) {
         Text(
-            modifier = Modifier.weight(1f),
             text = title,
             fontSize = 16.sp
         )
