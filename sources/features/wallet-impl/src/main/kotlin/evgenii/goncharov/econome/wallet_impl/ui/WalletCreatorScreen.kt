@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -93,10 +92,11 @@ private fun CurrenciesList(
     ) {
         items.forEach { model ->
             ItemCurrency(
+                modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
                 title = model.title,
                 switch = model.switch,
                 icon = model.icon,
-                chooseLanguage = {
+                chooseListener = {
                     chooseLanguage(model.code)
                 }
             )
@@ -110,7 +110,7 @@ private fun ItemCurrency(
     title: String,
     switch: Boolean,
     @DrawableRes icon: Int,
-    chooseLanguage: () -> Unit
+    chooseListener: () -> Unit
 ) {
     Row(
         modifier = modifier.fillMaxWidth()
@@ -121,23 +121,36 @@ private fun ItemCurrency(
             color = Color.White,
             fontSize = 20.sp
         )
-        Box(
-            modifier = Modifier.size(40.dp)
-        ) {
-            Image(
-                painter = painterResource(id = icon),
+        Currency(
+            switch = switch,
+            icon = icon,
+            chooseListener = chooseListener
+        )
+    }
+}
+
+@Composable
+private fun Currency(
+    switch: Boolean,
+    @DrawableRes icon: Int,
+    chooseListener: () -> Unit
+) {
+    Box(
+        modifier = Modifier.size(40.dp)
+    ) {
+        Image(
+            painter = painterResource(id = icon),
+            contentDescription = null
+        )
+        if (switch) {
+            Icon(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .fillMaxSize(),
+                painter = painterResource(id = UiKitDrawable.ic_check_green_24),
+                tint = Color.Green,
                 contentDescription = null
             )
-            if (switch) {
-                Icon(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .fillMaxSize(),
-                    painter = painterResource(id = UiKitDrawable.ic_check_green_24),
-                    tint = Color.Green,
-                    contentDescription = null
-                )
-            }
         }
     }
 }
