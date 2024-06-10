@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import evgenii.goncharov.econome.currency.models.CurrencyDto
-import evgenii.goncharov.econome.ui_kit.UiKitString
+import evgenii.goncharov.econome.ui_kit.UiKitDrawable
 import evgenii.goncharov.econome.wallet_impl.R
 import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
 import javax.inject.Inject
@@ -35,9 +35,9 @@ internal class CurrencyDtoToCurrencyModelMapper @Inject constructor(
     @DrawableRes
     private fun getIconRes(code: CurrencyCode): Int {
         return when (code) {
-            CurrencyCode.RUB -> UiKitString.ic_ru_flag
-            CurrencyCode.EUR -> UiKitString.ic_eur_flag
-            CurrencyCode.USD -> UiKitString.ic_us_flag
+            CurrencyCode.RUB -> UiKitDrawable.ic_ru_flag
+            CurrencyCode.EUR -> UiKitDrawable.ic_eur_flag
+            CurrencyCode.USD -> UiKitDrawable.ic_us_flag
         }
     }
 
