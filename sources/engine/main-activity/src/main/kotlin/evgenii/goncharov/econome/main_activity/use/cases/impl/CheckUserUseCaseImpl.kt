@@ -17,9 +17,10 @@ internal class CheckUserUseCaseImpl @Inject constructor(
         val users = userRepository.getAllUsers()
         val wallets = walletRepository.getAllWallets()
         when {
-            users.isEmpty() -> CheckUserModel.UserNotCreated
-            users.size > INDEX_SIZE_NOT_EMPTY -> CheckUserModel.ManyUsersCreated
-            else -> CheckUserModel.UserCreated
+            users.isEmpty() -> CheckUserModel.OpenUserCreator
+            users.size > INDEX_SIZE_NOT_EMPTY -> CheckUserModel.OpenUserChoose
+            wallets.isEmpty() -> CheckUserModel.OpenWalletCreator
+            else -> CheckUserModel.OpenMainMenu
         }
     }
 

@@ -12,4 +12,8 @@ internal class UserRepositoryImpl @Inject constructor(
     override suspend fun getAllUsers(): List<UserDto> {
         return userDataStore.getAllUsers()
     }
+
+    override suspend fun getCurrentUser(): UserDto {
+        return  userDataStore.getAllUsers().last()
+    }
 }
