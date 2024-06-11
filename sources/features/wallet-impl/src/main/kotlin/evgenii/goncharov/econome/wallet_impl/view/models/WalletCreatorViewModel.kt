@@ -32,9 +32,10 @@ internal class WalletCreatorViewModel @Inject constructor(
     }
 
     fun makeWalletAndNavigationNext() {
-
-//        mainNavigationLauncher.launchReplaceNavigation()
-
+        viewModelScope.launch {
+            walletCreatorRepository.makeWallet()
+            mainNavigationLauncher.launchReplaceNavigation()
+        }
     }
 
     fun setUserId(userId: String) {

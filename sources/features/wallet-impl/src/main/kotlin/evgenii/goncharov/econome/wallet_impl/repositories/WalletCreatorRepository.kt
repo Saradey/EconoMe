@@ -10,4 +10,6 @@ internal interface WalletCreatorRepository {
     fun updateCurrencyCodeSelected(currencyCodeSelected: CurrencyCode)
 
     fun updateWalletName(walletName: String)
+
+    suspend fun makeWallet()
 }

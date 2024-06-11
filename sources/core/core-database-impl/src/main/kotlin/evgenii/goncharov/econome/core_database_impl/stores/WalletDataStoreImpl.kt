@@ -12,6 +12,7 @@ internal class WalletDataStoreImpl @Inject constructor(
 ) : WalletDataStore {
 
     override suspend fun saveNewWallet(dto: WalletDto) {
+        // TODO при сохранении нужно передавать id пользователя
         walletDao.saveWallet(walletMapper.walletDtoToWalletEntity(dto))
     }
 
@@ -19,5 +20,9 @@ internal class WalletDataStoreImpl @Inject constructor(
         return walletDao.getWallets().map { entity ->
             walletMapper.walletEntityToWalletDto(entity)
         }
+    }
+
+    override suspend fun getLastWalletSequenceNumber(): Int {
+
     }
 }
