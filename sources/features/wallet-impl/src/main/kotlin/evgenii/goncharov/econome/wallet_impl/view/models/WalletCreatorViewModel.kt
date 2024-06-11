@@ -20,7 +20,8 @@ internal class WalletCreatorViewModel @Inject constructor(
     private val _uiState: MutableState<WalletUiState> = mutableStateOf(
         WalletUiState(
             inputWalletName = "",
-            currencies = emptyList()
+            currencies = emptyList(),
+            isButtonEnabled = false
         )
     )
     val uiState: State<WalletUiState> = _uiState
