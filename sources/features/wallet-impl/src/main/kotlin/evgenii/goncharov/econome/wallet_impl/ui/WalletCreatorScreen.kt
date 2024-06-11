@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.wallet_impl.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -57,7 +58,7 @@ internal fun WalletCreatorScreen(
         )
         OutlinedButton(
             modifier = Modifier.fillMaxWidth(),
-            onClick = {  },
+            onClick = { },
             enabled = state.isButtonEnabled,
         ) {
             Text(
@@ -126,7 +127,11 @@ private fun ItemCurrency(
     chooseListener: () -> Unit
 ) {
     Row(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable {
+                chooseListener()
+            }
     ) {
         Text(
             modifier = Modifier.weight(1f),
@@ -137,7 +142,6 @@ private fun ItemCurrency(
         Currency(
             switch = switch,
             icon = icon,
-            chooseListener = chooseListener
         )
     }
 }
@@ -146,7 +150,6 @@ private fun ItemCurrency(
 private fun Currency(
     switch: Boolean,
     @DrawableRes icon: Int,
-    chooseListener: () -> Unit
 ) {
     Box(
         modifier = Modifier.size(40.dp)
