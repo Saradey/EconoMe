@@ -41,7 +41,8 @@ internal class WalletCreatorViewModel @Inject constructor(
 
     fun inputWalletName(walletName: String) {
         _uiState.value = _uiState.value.copy(
-            inputWalletName = walletName.trim()
+            inputWalletName = walletName.trim(),
+            isButtonEnabled = _uiState.value.currencies.any { it.switch }
         )
         walletCreatorRepository.updateWalletName(walletName)
     }
@@ -50,7 +51,8 @@ internal class WalletCreatorViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(
             currencies = _uiState.value.currencies.map { model ->
                 model.copy(switch = model.code == currency)
-            }
+            },
+            isButtonEnabled = _uiState.value.inputWalletName.isNotEmpty()
         )
         walletCreatorRepository.updateCurrencyCodeSelected(currency)
     }
