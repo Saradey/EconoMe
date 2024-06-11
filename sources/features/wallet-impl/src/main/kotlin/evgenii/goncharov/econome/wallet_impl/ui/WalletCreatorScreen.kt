@@ -58,7 +58,7 @@ internal fun WalletCreatorScreen(
         )
         OutlinedButton(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { },
+            onClick = viewModel::makeWalletAndNavigationNext,
             enabled = state.isButtonEnabled,
         ) {
             Text(

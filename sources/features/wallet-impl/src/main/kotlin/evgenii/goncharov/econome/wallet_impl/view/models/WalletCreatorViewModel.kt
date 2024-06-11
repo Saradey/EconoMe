@@ -31,8 +31,10 @@ internal class WalletCreatorViewModel @Inject constructor(
         fetchCurrencies()
     }
 
-    fun goToMainBottomNavigation() {
-        mainNavigationLauncher.launchReplaceNavigation()
+    fun makeWalletAndNavigationNext() {
+
+//        mainNavigationLauncher.launchReplaceNavigation()
+
     }
 
     fun setUserId(userId: String) {
