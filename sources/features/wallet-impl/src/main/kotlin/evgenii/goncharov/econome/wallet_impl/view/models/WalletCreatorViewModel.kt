@@ -46,7 +46,11 @@ internal class WalletCreatorViewModel @Inject constructor(
     }
 
     fun chooseCurrency(currency: CurrencyCode) {
-
+        _uiState.value = _uiState.value.copy(
+            currencies = _uiState.value.currencies.map { model ->
+                model.copy(switch = model.code == currency)
+            }
+        )
     }
 
     private fun fetchCurrencies() {
