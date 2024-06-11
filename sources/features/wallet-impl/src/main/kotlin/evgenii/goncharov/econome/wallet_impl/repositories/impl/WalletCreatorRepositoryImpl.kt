@@ -51,7 +51,7 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
 
     private companion object {
 
-        const val WALLET_MUST_NOT_NULL = ""
-        const val CURRENCY_CODE_MUST_NOT_NULL = ""
+        const val WALLET_MUST_NOT_NULL = "wallet must not null"
+        const val CURRENCY_CODE_MUST_NOT_NULL = "currency code must not null"
     }
 }
