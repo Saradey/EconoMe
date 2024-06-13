@@ -5,13 +5,15 @@ import androidx.room.RoomDatabase
 import evgenii.goncharov.econome.core_database_impl.common.DATABASE_VERSION
 import evgenii.goncharov.econome.core_database_impl.dao.UserDao
 import evgenii.goncharov.econome.core_database_impl.dao.WalletDao
+import evgenii.goncharov.econome.core_database_impl.entities.CurrentWalletEntity
 import evgenii.goncharov.econome.core_database_impl.entities.UserEntity
 import evgenii.goncharov.econome.core_database_impl.entities.WalletEntity
 
 @Database(
     entities = [
         UserEntity::class,
-        WalletEntity::class
+        WalletEntity::class,
+        CurrentWalletEntity::class
     ],
     version = DATABASE_VERSION
 )
