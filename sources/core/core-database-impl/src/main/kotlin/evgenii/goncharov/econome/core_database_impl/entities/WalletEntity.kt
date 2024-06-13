@@ -11,7 +11,7 @@ import evgenii.goncharov.econome.core_database_impl.common.WALLET_TABLE
     foreignKeys = [ForeignKey(
         entity = UserEntity::class,
         parentColumns = ["uuid"],
-        childColumns = ["id"],
+        childColumns = ["user_id"],
         onDelete = ForeignKey.CASCADE
     )]
 )
