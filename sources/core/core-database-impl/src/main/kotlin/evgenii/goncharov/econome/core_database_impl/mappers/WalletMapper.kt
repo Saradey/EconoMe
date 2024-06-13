@@ -10,7 +10,8 @@ internal class WalletMapper @Inject constructor() {
         return WalletEntity(
             id = walletDto.id,
             walletName = walletDto.walletName,
-            code = walletDto.code
+            code = walletDto.code,
+            sequenceNumber = walletDto.sequenceNumber
         )
     }
 
@@ -18,7 +19,8 @@ internal class WalletMapper @Inject constructor() {
         return WalletDto(
             id = entity.id,
             walletName = entity.walletName,
-            code = entity.code
+            code = entity.code,
+            sequenceNumber = entity.sequenceNumber
         )
     }
 }

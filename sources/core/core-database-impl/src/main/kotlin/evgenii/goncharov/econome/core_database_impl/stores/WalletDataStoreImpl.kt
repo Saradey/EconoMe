@@ -23,6 +23,7 @@ internal class WalletDataStoreImpl @Inject constructor(
     }
 
     override suspend fun getLastWalletSequenceNumber(): Int {
-
+        val wallet = walletDao.getWalletWithMaxSequenceNumber()
+        return wallet?.sequenceNumber ?: 0
     }
 }
