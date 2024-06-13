@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.wallet_impl.repositories.impl
 
 import evgenii.goncharov.econome.common.consts.CurrencyCode
+import evgenii.goncharov.econome.core_database_api.data.stores.CurrentWalletDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
 import evgenii.goncharov.econome.core_database_api.dto.WalletDto
 import evgenii.goncharov.econome.currency.data.store.CurrencyDataStore
@@ -15,7 +16,8 @@ import javax.inject.Inject
 internal class WalletCreatorRepositoryImpl @Inject constructor(
     private val walletDataStore: WalletDataStore,
     private val currencyDataStore: CurrencyDataStore,
-    private val currencyDtoToCurrencyModelMapper: CurrencyDtoToCurrencyModelMapper
+    private val currencyDtoToCurrencyModelMapper: CurrencyDtoToCurrencyModelMapper,
+    private val currentWalletDataStore: CurrentWalletDataStore
 ) : WalletCreatorRepository {
 
     private var currencyCodeSelected: CurrencyCode? = null
@@ -36,10 +38,18 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
     }
 
     override suspend fun makeWallet(currentUserId: String) = withContext(Dispatchers.IO) {
+        val walletId = IdGenerator.generateId()
+        saveNewWallet(currentUserId, walletId)
+    }
+
+    private suspend fun saveNewWallet(
+        currentUserId: String,
+        walletId: Long
+    ) {
         val lastSequenceNumber = walletDataStore.getLastWalletSequenceNumber()
         walletDataStore.saveNewWallet(
             WalletDto(
-                walletId = IdGenerator.generateId(),
+                walletId = walletId,
                 walletName = walletName ?: throw IllegalArgumentException(WALLET_MUST_NOT_NULL),
                 code = currencyCodeSelected?.code ?: throw IllegalArgumentException(
                     CURRENCY_CODE_MUST_NOT_NULL
