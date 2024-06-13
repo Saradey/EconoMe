@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.common_provider.di
+package evgenii.goncharov.econome.common_provider.di.api
 
 import android.content.Context
 import evgenii.goncharov.econome.common_provider.managers.AuthManager

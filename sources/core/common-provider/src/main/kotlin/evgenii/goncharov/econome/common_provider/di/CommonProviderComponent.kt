@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.common_provider.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.common_provider.di.modules.CommonProviderBindModule
 import evgenii.goncharov.econome.common_provider.di.modules.CommonProviderModule
 import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
