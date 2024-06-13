@@ -10,7 +10,7 @@ internal class CurrentWalletDataStoreImpl @Inject constructor(
     private val currentWalletDao: CurrentWalletDao
 ) : CurrentWalletDataStore {
 
-    override fun saveCurrentWallet(dto: CurrentWalletDto) {
+    override suspend fun saveCurrentWallet(dto: CurrentWalletDto) {
         currentWalletDao.saveWallet(
             CurrentWalletEntity(
                 currentWalletId = dto.currentWalletId

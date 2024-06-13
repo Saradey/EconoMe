@@ -6,5 +6,5 @@ import evgenii.goncharov.econome.core_database_api.dto.CurrentWalletDto
 public interface CurrentWalletDataStore {
 
     @WorkerThread
-    public fun saveCurrentWallet(dto: CurrentWalletDto)
+    public suspend fun saveCurrentWallet(dto: CurrentWalletDto)
 }

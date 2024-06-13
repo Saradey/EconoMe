@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.wallet_impl.repositories.impl
 import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.core_database_api.data.stores.CurrentWalletDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
+import evgenii.goncharov.econome.core_database_api.dto.CurrentWalletDto
 import evgenii.goncharov.econome.core_database_api.dto.WalletDto
 import evgenii.goncharov.econome.currency.data.store.CurrencyDataStore
 import evgenii.goncharov.econome.wallet_impl.models.CurrencyModel
@@ -40,6 +41,7 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
     override suspend fun makeWallet(currentUserId: String) = withContext(Dispatchers.IO) {
         val walletId = IdGenerator.generateId()
         saveNewWallet(currentUserId, walletId)
+        currentWalletDataStore.saveCurrentWallet(CurrentWalletDto(currentWalletId = walletId))
     }
 
     private suspend fun saveNewWallet(
