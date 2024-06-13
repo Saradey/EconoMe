@@ -39,7 +39,7 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
         val lastSequenceNumber = walletDataStore.getLastWalletSequenceNumber()
         walletDataStore.saveNewWallet(
             WalletDto(
-                id = IdGenerator.generateId(),
+                walletId = IdGenerator.generateId(),
                 walletName = walletName ?: throw IllegalArgumentException(WALLET_MUST_NOT_NULL),
                 code = currencyCodeSelected?.code ?: throw IllegalArgumentException(
                     CURRENCY_CODE_MUST_NOT_NULL
