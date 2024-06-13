@@ -35,7 +35,7 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
         this.walletName = walletName
     }
 
-    override suspend fun makeWallet() = withContext(Dispatchers.IO) {
+    override suspend fun makeWallet(currentUserId: String) = withContext(Dispatchers.IO) {
         val lastSequenceNumber = walletDataStore.getLastWalletSequenceNumber()
         walletDataStore.saveNewWallet(
             WalletDto(
@@ -44,7 +44,8 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
                 code = currencyCodeSelected?.code ?: throw IllegalArgumentException(
                     CURRENCY_CODE_MUST_NOT_NULL
                 ),
-                sequenceNumber = lastSequenceNumber + 1
+                sequenceNumber = lastSequenceNumber + 1,
+                userId = currentUserId
             )
         )
     }

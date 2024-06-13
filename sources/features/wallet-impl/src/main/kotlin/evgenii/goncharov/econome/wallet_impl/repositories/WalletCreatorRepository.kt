@@ -11,5 +11,5 @@ internal interface WalletCreatorRepository {
 
     fun updateWalletName(walletName: String)
 
-    suspend fun makeWallet()
+    suspend fun makeWallet(currentUserId: String)
 }

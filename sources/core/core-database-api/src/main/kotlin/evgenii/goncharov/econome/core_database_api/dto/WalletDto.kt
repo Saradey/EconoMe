@@ -4,5 +4,6 @@ public data class WalletDto(
     val id: Long,
     val walletName: String,
     val code: String,
-    val sequenceNumber: Int
+    val sequenceNumber: Int,
+    val userId: String
 )

@@ -16,8 +16,8 @@ import evgenii.goncharov.econome.core_database_impl.common.WALLET_TABLE
     )]
 )
 internal data class WalletEntity(
-    @ColumnInfo("id") @PrimaryKey(autoGenerate = true) val id: Long,
-    @ColumnInfo("user_id") @PrimaryKey(autoGenerate = true) val userId: String,
+    @ColumnInfo("id") @PrimaryKey val id: Long,
+    @ColumnInfo("user_id") val userId: String,
     @ColumnInfo("wallet_name") val walletName: String,
     @ColumnInfo("wallet_code") val code: String,
     @ColumnInfo("sequence_number") val sequenceNumber: Int

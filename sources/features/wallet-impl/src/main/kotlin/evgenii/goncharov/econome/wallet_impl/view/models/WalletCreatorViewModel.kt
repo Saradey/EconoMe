@@ -33,7 +33,9 @@ internal class WalletCreatorViewModel @Inject constructor(
 
     fun makeWalletAndNavigationNext() {
         viewModelScope.launch {
-            walletCreatorRepository.makeWallet()
+            walletCreatorRepository.makeWallet(
+                currentUserId ?: throw IllegalArgumentException(ERROR_USER_ID_MESSAGE)
+            )
             mainNavigationLauncher.launchReplaceNavigation()
         }
     }
@@ -65,5 +67,10 @@ internal class WalletCreatorViewModel @Inject constructor(
             val currencies = walletCreatorRepository.formCurrencies()
             _uiState.value = _uiState.value.copy(currencies = currencies)
         }
+    }
+
+    private companion object {
+
+        const val ERROR_USER_ID_MESSAGE = "User id must be not null"
     }
 }
