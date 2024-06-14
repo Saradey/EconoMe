@@ -1,4 +1,7 @@
 [versions]
+#kotlin
+serialization = "1.5.1"
+
 # core
 agp = "8.3.2"
 kotlin = "1.9.23"
@@ -35,6 +38,9 @@ annotation-jvm = "1.7.1"
 play_services-auth = "20.6.0"
 
 [libraries]
+#kotlin
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+
 # core
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
@@ -80,6 +86,7 @@ playservices-auth = { module = "com.google.android.gms:play-services-auth", vers
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-
+# kotlin
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 # quality
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt-version" }

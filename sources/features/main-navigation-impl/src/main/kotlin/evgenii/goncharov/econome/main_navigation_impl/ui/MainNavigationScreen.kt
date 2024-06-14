@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import evgenii.goncharov.econome.main_navigation_impl.models.MainNavigationUiState
 import evgenii.goncharov.econome.main_navigation_impl.utils.NavigationTabs
-import evgenii.goncharov.econome.ui_kit.UiKitString
+import evgenii.goncharov.econome.ui_kit.UiKitDrawable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,7 +37,7 @@ internal fun MainNavigationScreen(
             actions = {
                 IconButton(onClick = selectedSettingsListener) {
                     Icon(
-                        painter = painterResource(id = UiKitString.icon_stub),
+                        painter = painterResource(id = UiKitDrawable.icon_stub),
                         contentDescription = null
                     )
                 }

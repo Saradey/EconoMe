@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.wallet_impl.fragments
 
 import android.os.Bundle
+import android.view.View
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -22,10 +23,15 @@ internal class WalletCreatorFragment : CoreFragment() {
     private val viewModel: WalletCreatorViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
-    val userUuid: String by requireStringArguments(USER_UUID_ARG)
+    private val userId: String by requireStringArguments(USER_ID_ARG)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.setUserId(userId)
+    }
 
     @Composable
-    override fun InitContent() = WalletCreatorScreen(viewModel::goToMainBottomNavigation)
+    override fun InitContent() = WalletCreatorScreen(viewModel)
 
     override fun releaseDependencies() {
         releaseFeatureApi(WalletCreatorApi::class.java)
@@ -33,11 +39,11 @@ internal class WalletCreatorFragment : CoreFragment() {
 
     companion object {
 
-        private const val USER_UUID_ARG = "USER_UUID_ARG"
+        private const val USER_ID_ARG = "USER_UUID_ARG"
 
         fun newInstance(userUuid: String): Fragment {
             val args = Bundle()
-            args.putString(USER_UUID_ARG, userUuid)
+            args.putString(USER_ID_ARG, userUuid)
             return WalletCreatorFragment().apply {
                 arguments = args
             }

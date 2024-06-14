@@ -2,14 +2,24 @@ package evgenii.goncharov.econome.wallet_impl.di.components
 
 import dagger.BindsInstance
 import dagger.Component
+import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
+import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.currency.api.CurrencyApi
+import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletCreatorInternal
-import evgenii.goncharov.econome.wallet_impl.di.modules.WalletBindModule
+import evgenii.goncharov.econome.wallet_impl.di.modules.WalletCreatorModule
 
 @FeatureScope
 @Component(
-    modules = [WalletBindModule::class]
+    modules = [WalletCreatorModule::class],
+    dependencies = [
+        CoreDatabaseApi::class,
+        CommonProviderApi::class,
+        CurrencyApi::class,
+        CurrentApi::class
+    ]
 )
 internal interface WalletCreatorComponent : WalletCreatorInternal {
 
@@ -17,6 +27,10 @@ internal interface WalletCreatorComponent : WalletCreatorInternal {
     interface Factory {
 
         fun create(
+            commonProviderApi: CommonProviderApi,
+            coreDatabaseApi: CoreDatabaseApi,
+            currencyApi: CurrencyApi,
+            currentApi: CurrentApi,
             @BindsInstance mainNavigationLauncher: MainNavigationLauncher
         ): WalletCreatorComponent
     }

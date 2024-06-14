@@ -84,6 +84,10 @@ dependencies {
     implementation(project(":sources:core:common"))
     implementation(project(":sources:core:core-database-impl"))
     implementation(project(":sources:core:common-provider"))
+    implementation(project(":sources:core:current-user"))
+
+    // domain modules
+    implementation(project(":sources:domain:currency"))
 
     // tests
     testImplementation(libs.junit)

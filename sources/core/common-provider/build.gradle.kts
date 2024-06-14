@@ -1,5 +1,6 @@
 plugins {
     id("kotlin-kapt")
+    id("kotlinx-serialization")
 }
 
 android {
@@ -12,5 +13,6 @@ dependencies {
     implementation(libs.dagger)
     implementation(libs.androidx.annotation.jvm)
     implementation(libs.playservices.auth)
+    implementation(libs.kotlinx.serialization.json)
     kapt(libs.dagger.compiler)
 }
