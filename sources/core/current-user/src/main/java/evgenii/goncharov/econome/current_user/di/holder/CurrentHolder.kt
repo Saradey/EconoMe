@@ -6,7 +6,7 @@ import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager
 import evgenii.goncharov.econome.di_core.holders.BaseHolder
 import javax.inject.Inject
 
-public class CurrentUserHolder @Inject constructor(
+public class CurrentHolder @Inject constructor(
     featureContainer: FeatureContainerManager,
 ) : BaseHolder<CurrentApi>(featureContainer) {
 
