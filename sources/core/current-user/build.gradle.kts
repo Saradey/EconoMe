@@ -8,6 +8,7 @@ android {
 
 dependencies {
     implementation(project(":sources:engine:di-core"))
+    implementation(project(":sources:core:core-database-api"))
 
     implementation(libs.dagger)
     implementation(libs.androidx.annotation.jvm)
