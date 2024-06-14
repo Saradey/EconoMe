@@ -38,10 +38,11 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
         this.walletName = walletName
     }
 
-    override suspend fun makeWallet(currentUserId: String) = withContext(Dispatchers.IO) {
+    override suspend fun makeWallet(currentUserId: String) : Long = withContext(Dispatchers.IO) {
         val walletId = IdWalletGenerator.generateId()
         saveNewWallet(currentUserId, walletId)
         currentWalletDataStore.saveCurrentWallet(CurrentWalletDto(currentWalletId = walletId))
+        walletId
     }
 
     private suspend fun saveNewWallet(

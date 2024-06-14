@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.common.consts.CurrencyCode
+import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.wallet_impl.models.WalletUiState
 import evgenii.goncharov.econome.wallet_impl.repositories.WalletCreatorRepository
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 internal class WalletCreatorViewModel @Inject constructor(
     private val mainNavigationLauncher: MainNavigationLauncher,
-    private val walletCreatorRepository: WalletCreatorRepository
+    private val walletCreatorRepository: WalletCreatorRepository,
+    private val currentWalletRepository: CurrentWalletRepository
 ) : ViewModel() {
 
     private val _uiState: MutableState<WalletUiState> = mutableStateOf(
@@ -33,9 +35,10 @@ internal class WalletCreatorViewModel @Inject constructor(
 
     fun makeWalletAndNavigationNext() {
         viewModelScope.launch {
-            walletCreatorRepository.makeWallet(
+            val walletId = walletCreatorRepository.makeWallet(
                 currentUserId ?: throw IllegalArgumentException(ERROR_USER_ID_MESSAGE)
             )
+            currentWalletRepository.setCurrentWalletId(walletId)
             mainNavigationLauncher.launchReplaceNavigation()
         }
     }

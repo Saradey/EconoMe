@@ -4,4 +4,8 @@ import evgenii.goncharov.econome.current_user.repositories.CurrentWalletReposito
 import javax.inject.Inject
 
 internal class CurrentWalletRepositoryImpl @Inject constructor() : CurrentWalletRepository {
+
+    override fun setCurrentWalletId(walletId: Long) {
+
+    }
 }
