@@ -5,4 +5,7 @@ import javax.inject.Inject
 
 internal class CurrentUserRepositoryImpl @Inject constructor() : CurrentUserRepository {
 
+    override fun setCurrentUserId(userId: String) {
+
+    }
 }

@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.common.ui.SystemEvent
 import evgenii.goncharov.econome.common_provider.managers.AuthManager
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
+import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import evgenii.goncharov.econome.user_impl.R
 import evgenii.goncharov.econome.user_impl.models.UserCreatorUiState
 import evgenii.goncharov.econome.user_impl.models.UserStatusModel
@@ -31,7 +32,8 @@ internal class UserCreatorViewModel @Inject constructor(
     private val userValidateNameUseCase: UserValidateNameUseCase,
     private val resourceManager: ResourceManager,
     private val authManager: AuthManager,
-    private val userCreatorRepository: UserCreatorRepository
+    private val userCreatorRepository: UserCreatorRepository,
+    private val currentUserRepository: CurrentUserRepository
 ) : ViewModel() {
 
     private val _uiState: MutableState<UserCreatorUiState> = mutableStateOf(
@@ -70,6 +72,7 @@ internal class UserCreatorViewModel @Inject constructor(
             val userId = authManager.getSignInCredentialFromIntent(intent)
             val userInputName = _uiState.value.userNameInputText
             saveUser(userId, userInputName)
+            currentUserRepository.setCurrentUserId(userId)
             walletLauncher.launchReplaceWalletCreator(userId)
         }
     }
