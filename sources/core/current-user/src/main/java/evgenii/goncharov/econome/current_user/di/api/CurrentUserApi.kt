@@ -1,8 +1,8 @@
 package evgenii.goncharov.econome.current_user.di.api
 
-import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
+import evgenii.goncharov.econome.current_user.repositories.CurrentRepository
 
 public interface CurrentUserApi {
 
-    public fun provideCurrentUserRepository(): CurrentUserRepository
+    public fun provideCurrentUserRepository(): CurrentRepository
 }
