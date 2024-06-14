@@ -22,4 +22,5 @@ dependencies {
 
     implementation(project(":sources:features:user-api"))
     implementation(project(":sources:features:main-navigation-api"))
+    implementation(project(":sources:features:wallet-api"))
 }

@@ -10,8 +10,10 @@ import evgenii.goncharov.econome.main_activity.view.model.MainActivityViewModel
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_activity.navigation.MainOnBackPressed
-import evgenii.goncharov.econome.main_activity.repositories.MainActivityRepository
-import evgenii.goncharov.econome.main_activity.repositories.impl.MainActivityRepositoryImpl
+import evgenii.goncharov.econome.main_activity.repositories.UserRepository
+import evgenii.goncharov.econome.main_activity.repositories.WalletRepository
+import evgenii.goncharov.econome.main_activity.repositories.impl.UserRepositoryImpl
+import evgenii.goncharov.econome.main_activity.repositories.impl.WalletRepositoryImpl
 import evgenii.goncharov.econome.main_activity.use.cases.CheckUserUseCase
 import evgenii.goncharov.econome.main_activity.use.cases.impl.CheckUserUseCaseImpl
 
@@ -32,5 +34,9 @@ internal interface MainActivityBindsModule {
 
     @Binds
     @FeatureScope
-    fun bindMainActivityRepository(repository: MainActivityRepositoryImpl): MainActivityRepository
+    fun bindUserRepository(repository: UserRepositoryImpl): UserRepository
+
+    @Binds
+    @FeatureScope
+    fun bindWalletRepository(repository: WalletRepositoryImpl): WalletRepository
 }

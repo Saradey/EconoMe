@@ -1,6 +1,6 @@
 package evgenii.goncharov.econome.core_database_impl.di.holder
 
-import evgenii.goncharov.econome.common_provider.di.CommonProviderApi
+import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
 import evgenii.goncharov.econome.core_database_impl.di.DaggerCoreDatabaseComponent
 import evgenii.goncharov.econome.di_core.containers.FeatureContainerManager

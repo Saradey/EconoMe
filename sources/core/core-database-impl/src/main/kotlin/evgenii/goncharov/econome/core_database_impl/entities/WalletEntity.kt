@@ -11,12 +11,14 @@ import evgenii.goncharov.econome.core_database_impl.common.WALLET_TABLE
     foreignKeys = [ForeignKey(
         entity = UserEntity::class,
         parentColumns = ["uuid"],
-        childColumns = ["id"],
+        childColumns = ["user_id"],
         onDelete = ForeignKey.CASCADE
     )]
 )
 internal data class WalletEntity(
-    @ColumnInfo("id") @PrimaryKey(autoGenerate = true) val id: Long,
+    @ColumnInfo("wallet_id") @PrimaryKey val walletId: Long,
+    @ColumnInfo("user_id") val userId: String,
     @ColumnInfo("wallet_name") val walletName: String,
-    @ColumnInfo("wallet_code") val walletCodeIso2: String
+    @ColumnInfo("wallet_code") val code: String,
+    @ColumnInfo("sequence_number") val sequenceNumber: Int
 )

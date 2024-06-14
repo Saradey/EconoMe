@@ -54,12 +54,8 @@ internal class AuthManagerImpl @Inject constructor(
     }
 
     override fun getSignInCredentialFromIntent(intent: Intent): String {
-        println("getSignInCredentialFromIntent")
         val credential = oneTapSignInClient.getSignInCredentialFromIntent(intent)
-        println("getSignInCredentialFromIntent finish")
-        val idToken = credential.googleIdToken
         val email = credential.id
-        val displayName = credential.displayName
-        return ""
+        return email
     }
 }

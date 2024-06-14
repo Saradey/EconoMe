@@ -8,9 +8,21 @@ internal class WalletMapper @Inject constructor() {
 
     fun walletDtoToWalletEntity(walletDto: WalletDto) : WalletEntity {
         return WalletEntity(
-            id = walletDto.id,
+            walletId = walletDto.walletId,
             walletName = walletDto.walletName,
-            walletCodeIso2 = walletDto.walletCodeIso2
+            code = walletDto.code,
+            sequenceNumber = walletDto.sequenceNumber,
+            userId = walletDto.userId
+        )
+    }
+
+    fun walletEntityToWalletDto(entity : WalletEntity) : WalletDto {
+        return WalletDto(
+            walletId = entity.walletId,
+            walletName = entity.walletName,
+            code = entity.code,
+            sequenceNumber = entity.sequenceNumber,
+            userId = entity.userId
         )
     }
 }

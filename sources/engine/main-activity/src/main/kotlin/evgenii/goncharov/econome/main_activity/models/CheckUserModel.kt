@@ -2,9 +2,11 @@ package evgenii.goncharov.econome.main_activity.models
 
 internal sealed class CheckUserModel {
 
-    data object UserNotCreated : CheckUserModel()
+    data object OpenUserCreator : CheckUserModel()
 
-    data object UserCreated : CheckUserModel()
+    data object OpenWalletCreator : CheckUserModel()
 
-    data object ManyUsersCreated : CheckUserModel()
+    data object OpenMainMenu : CheckUserModel()
+
+    data object OpenUserChoose : CheckUserModel()
 }

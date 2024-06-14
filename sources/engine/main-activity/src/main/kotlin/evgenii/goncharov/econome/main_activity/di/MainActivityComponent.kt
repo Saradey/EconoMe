@@ -9,6 +9,7 @@ import evgenii.goncharov.econome.main_activity.di.modules.MainActivityBindsModul
 import evgenii.goncharov.econome.main_navigation.navigation.MainNavigationLauncher
 import evgenii.goncharov.econome.navigation.api.CoreNavigationApi
 import evgenii.goncharov.econome.user_api.navigation.UserLauncher
+import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
 
 @FeatureScope
 @Component(
@@ -27,7 +28,8 @@ internal interface MainActivityComponent : MainActivityInternal {
             coreDatabaseApi: CoreDatabaseApi,
             coreNavigationApi: CoreNavigationApi,
             @BindsInstance userLauncher: UserLauncher,
-            @BindsInstance mainNavigationLauncher: MainNavigationLauncher
+            @BindsInstance mainNavigationLauncher: MainNavigationLauncher,
+            @BindsInstance walletLauncher: WalletLauncher
         ): MainActivityComponent
     }
 }

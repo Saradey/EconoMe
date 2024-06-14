@@ -1,5 +1,6 @@
 plugins {
     id("kotlin-kapt")
+    id("kotlinx-serialization")
 }
 
 android {
@@ -16,4 +17,5 @@ dependencies {
     kapt(libs.room.compiler)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+    implementation(libs.kotlinx.serialization.json)
 }
