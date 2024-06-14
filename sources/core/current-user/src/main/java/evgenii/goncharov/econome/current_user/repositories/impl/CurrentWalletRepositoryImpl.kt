@@ -8,7 +8,9 @@ internal class CurrentWalletRepositoryImpl @Inject constructor(
     private val walletDataStore: WalletDataStore
 ) : CurrentWalletRepository {
 
-    override fun setCurrentWalletId(walletId: Long) {
+    private var currentWalletId: Long? = null
 
+    override fun setCurrentWalletId(walletId: Long) {
+        this.currentWalletId = walletId
     }
 }

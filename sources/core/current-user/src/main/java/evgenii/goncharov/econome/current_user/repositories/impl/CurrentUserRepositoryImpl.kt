@@ -8,7 +8,9 @@ internal class CurrentUserRepositoryImpl @Inject constructor(
     private val userDataStore: UserDataStore
 ) : CurrentUserRepository {
 
-    override fun setCurrentUserId(userId: String) {
+    private var userId: String? = null
 
+    override fun setCurrentUserId(userId: String) {
+        this.userId = userId
     }
 }
