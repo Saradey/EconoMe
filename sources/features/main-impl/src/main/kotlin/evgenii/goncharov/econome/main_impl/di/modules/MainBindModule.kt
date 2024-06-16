@@ -9,6 +9,8 @@ import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.interactors.impl.MainInteractorImpl
+import evgenii.goncharov.econome.main_impl.repositories.MainRepository
+import evgenii.goncharov.econome.main_impl.repositories.impl.MainRepositoryImpl
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 
 @Module(includes = [MultiViewModelModule::class])
@@ -21,4 +23,8 @@ internal interface MainBindModule {
     @Binds
     @FeatureScope
     fun bindMainInteractor(interactor: MainInteractorImpl): MainInteractor
+
+    @Binds
+    @FeatureScope
+    fun bindMainRepository(repository: MainRepositoryImpl): MainRepository
 }

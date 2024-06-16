@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.main_impl.interactors.impl
 import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
+import evgenii.goncharov.econome.main_impl.models.CurrentUserModel
 import javax.inject.Inject
 
 internal class MainInteractorImpl @Inject constructor(
@@ -16,6 +17,13 @@ internal class MainInteractorImpl @Inject constructor(
         )
         currentWalletRepository.getCurrentWalletId() ?: throw IllegalArgumentException(
             WALLET_ERROR_MESSAGE
+        )
+    }
+
+    override fun formCurrentUser(): CurrentUserModel {
+        return CurrentUserModel(
+            userName = "",
+            walletName = ""
         )
     }
 
