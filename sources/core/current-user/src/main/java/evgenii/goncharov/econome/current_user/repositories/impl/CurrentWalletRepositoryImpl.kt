@@ -13,4 +13,8 @@ internal class CurrentWalletRepositoryImpl @Inject constructor(
     override fun setCurrentWalletId(walletId: Long) {
         this.currentWalletId = walletId
     }
+
+    override fun getCurrentWalletId(): Long? {
+        return currentWalletId
+    }
 }

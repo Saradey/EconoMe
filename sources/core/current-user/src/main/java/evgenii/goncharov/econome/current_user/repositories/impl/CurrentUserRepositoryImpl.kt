@@ -13,4 +13,8 @@ internal class CurrentUserRepositoryImpl @Inject constructor(
     override fun setCurrentUserId(userId: String) {
         this.userId = userId
     }
+
+    override fun getCurrentUserId(): String? {
+        return userId
+    }
 }
