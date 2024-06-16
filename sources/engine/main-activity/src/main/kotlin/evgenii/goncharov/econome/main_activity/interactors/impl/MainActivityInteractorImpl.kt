@@ -5,6 +5,8 @@ import evgenii.goncharov.econome.current_user.repositories.CurrentWalletReposito
 import evgenii.goncharov.econome.main_activity.interactors.MainActivityInteractor
 import evgenii.goncharov.econome.main_activity.repositories.UserRepository
 import evgenii.goncharov.econome.main_activity.repositories.WalletRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 internal class MainActivityInteractorImpl @Inject constructor(
@@ -14,7 +16,7 @@ internal class MainActivityInteractorImpl @Inject constructor(
     private val walletRepository: WalletRepository
 ) : MainActivityInteractor {
 
-    override suspend fun setCurrentUserAndCurrentWallet() {
+    override suspend fun setCurrentUserAndCurrentWallet() = withContext(Dispatchers.IO) {
         val currentUserId = userRepository.getCurrentUserId()
         currentUserRepository.setCurrentUserId(currentUserId)
         val currentWalletId = walletRepository.getCurrentWalletId()
