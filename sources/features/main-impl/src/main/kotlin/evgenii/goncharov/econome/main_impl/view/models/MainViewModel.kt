@@ -8,7 +8,6 @@ import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCos
 import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 internal class MainViewModel @Inject constructor(
@@ -18,11 +17,12 @@ internal class MainViewModel @Inject constructor(
     private val mainInteractor: MainInteractor
 ) : ViewModel() {
 
-    private val _uiState: StateFlow<MainUiState> = MutableStateFlow(MainUiState.InitialState)
+    private val _uiState: MutableStateFlow<MainUiState> = MutableStateFlow(MainUiState.InitialState)
     val uiState: Flow<MainUiState> = _uiState
 
     init {
         mainInteractor.checkParameters()
+        initialContent()
     }
 
     fun goToDialogAddSpending() {
@@ -43,5 +43,12 @@ internal class MainViewModel @Inject constructor(
 
     fun goToAddCostGoods() {
         productCostAnalysisLauncher.launchDeepAddCostGoods()
+    }
+
+    private fun initialContent() {
+        val currentUser = mainInteractor.formCurrentUser()
+        _uiState.value = MainUiState.Content(
+            currentUser = currentUser
+        )
     }
 }
