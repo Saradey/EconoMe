@@ -35,7 +35,9 @@ internal class MainActivityViewModel @Inject constructor(
     }
 
     private fun openMainMenu() {
-        mainActivityInteractor.setCurrentUserAndCurrentWallet()
-        mainNavigationLauncher.launchMainNavigation()
+        viewModelScope.launch {
+            mainActivityInteractor.setCurrentUserAndCurrentWallet()
+            mainNavigationLauncher.launchMainNavigation()
+        }
     }
 }

@@ -14,7 +14,10 @@ internal class MainActivityInteractorImpl @Inject constructor(
     private val walletRepository: WalletRepository
 ) : MainActivityInteractor {
 
-    override fun setCurrentUserAndCurrentWallet() {
-
+    override suspend fun setCurrentUserAndCurrentWallet() {
+        val currentUserId = userRepository.getCurrentUserId()
+        currentUserRepository.setCurrentUserId(currentUserId)
+        val currentWalletId = walletRepository.getCurrentWalletId()
+        currentWalletRepository.setCurrentWalletId(currentWalletId)
     }
 }
