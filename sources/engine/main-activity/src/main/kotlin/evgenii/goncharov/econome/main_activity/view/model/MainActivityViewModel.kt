@@ -27,7 +27,9 @@ internal class MainActivityViewModel @Inject constructor(
                 CheckUserModel.OpenMainMenu -> openMainMenu()
                 CheckUserModel.OpenUserChoose -> userLauncher.launchUserChoosing()
                 CheckUserModel.OpenUserCreator -> userLauncher.launchUserCreator()
-                CheckUserModel.OpenWalletCreator -> openWalletCreator()
+                CheckUserModel.OpenWalletCreator -> walletLauncher.launchWalletCreator(
+                    userRepository.getCurrentUserId()
+                )
             }
         }
     }
@@ -35,12 +37,5 @@ internal class MainActivityViewModel @Inject constructor(
     private fun openMainMenu() {
         mainActivityInteractor.setCurrentUserAndCurrentWallet()
         mainNavigationLauncher.launchMainNavigation()
-    }
-
-    private suspend fun openWalletCreator() {
-        mainActivityInteractor.setCurrentUser()
-        walletLauncher.launchWalletCreator(
-            userRepository.getCurrentUserId()
-        )
     }
 }
