@@ -7,6 +7,8 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
+import evgenii.goncharov.econome.main_impl.interactors.impl.MainInteractorImpl
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 
 @Module(includes = [MultiViewModelModule::class])
@@ -15,4 +17,8 @@ internal interface MainBindModule {
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(MainViewModel::class)]
     fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+
+    @Binds
+    @FeatureScope
+    fun bindMainInteractor(interactor: MainInteractorImpl): MainInteractor
 }
