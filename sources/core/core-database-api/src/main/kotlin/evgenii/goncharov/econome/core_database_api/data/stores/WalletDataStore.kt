@@ -13,4 +13,7 @@ public interface WalletDataStore {
 
     @WorkerThread
     public suspend fun getLastWalletSequenceNumber(): Int
+
+    @WorkerThread
+    public suspend fun getCurrentWalletId(): Long
 }

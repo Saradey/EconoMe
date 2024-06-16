@@ -12,4 +12,8 @@ internal class WalletRepositoryImpl @Inject constructor(
     override suspend fun getAllWallets(): List<WalletDto> {
         return walletDataStore.getAllWallet()
     }
+
+    override suspend fun getCurrentWalletId(): Long {
+        return walletDataStore.getCurrentWalletId()
+    }
 }
