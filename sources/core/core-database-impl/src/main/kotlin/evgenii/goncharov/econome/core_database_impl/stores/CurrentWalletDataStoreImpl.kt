@@ -19,6 +19,6 @@ internal class CurrentWalletDataStoreImpl @Inject constructor(
     }
 
     override suspend fun getCurrentWalletId(): Long {
-        return currentWalletDao.getCurrentWallet()?.currentWalletId ?: -1
+        return currentWalletDao.getCurrentWallet().currentWalletId
     }
 }

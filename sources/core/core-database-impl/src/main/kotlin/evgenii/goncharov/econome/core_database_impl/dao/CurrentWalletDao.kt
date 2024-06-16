@@ -14,5 +14,5 @@ internal interface CurrentWalletDao {
     fun saveWallet(entity: CurrentWalletEntity)
 
     @Query("SELECT * FROM $CURRENT_WALLET_TABLE WHERE id = 1")
-    fun getCurrentWallet(): CurrentWalletEntity?
+    fun getCurrentWallet(): CurrentWalletEntity
 }
