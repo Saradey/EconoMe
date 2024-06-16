@@ -59,7 +59,7 @@ internal class UserCreatorViewModel @Inject constructor(
         val trimUserName = userName.trim()
         val validate = userValidateNameUseCase(trimUserName)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> makeErrorSymbolState()
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(trimUserName)
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
                 _uiState.value = _uiState.value.copy(
                     userNameInputText = trimUserName,
@@ -104,6 +104,13 @@ internal class UserCreatorViewModel @Inject constructor(
         userInputName: String
     ) = withContext(Dispatchers.IO) {
         userCreatorRepository.saveNewUser(userId, userInputName)
+    }
+
+    private fun makeErrorSymbolState(userNameInputText: String) {
+        _uiState.value = _uiState.value.copy(
+            userNameInputText = userNameInputText,
+            errorInputMessage = resourceManager.getString(R.string.error_message_symbol)
+        )
     }
 
     private fun makeErrorSymbolState() {

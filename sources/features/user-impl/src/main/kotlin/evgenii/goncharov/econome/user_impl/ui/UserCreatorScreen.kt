@@ -31,7 +31,7 @@ internal fun UserCreatorScreen(
             color = Color.White,
             fontSize = 20.sp
         )
-        InputTextContent(
+        InputText(
             userNameInputText = uiState.userNameInputText,
             errorMessage = uiState.errorInputMessage,
             inputUserNameListener = input
@@ -51,7 +51,7 @@ internal fun UserCreatorScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun InputTextContent(
+private fun InputText(
     userNameInputText: String,
     errorMessage: String?,
     inputUserNameListener: (String) -> Unit
