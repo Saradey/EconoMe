@@ -6,8 +6,8 @@ import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.MainUiState
 import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
 import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 internal class MainViewModel @Inject constructor(
@@ -18,7 +18,7 @@ internal class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<MainUiState> = MutableStateFlow(MainUiState.InitialState)
-    val uiState: Flow<MainUiState> = _uiState
+    val uiState: StateFlow<MainUiState> = _uiState
 
     init {
         mainInteractor.checkParameters()
