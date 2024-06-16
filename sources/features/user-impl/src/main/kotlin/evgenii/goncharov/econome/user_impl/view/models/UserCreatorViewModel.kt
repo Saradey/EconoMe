@@ -56,11 +56,12 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     fun inputUserName(userName: String) {
-        val validate = userValidateNameUseCase(userName)
+        val trimUserName = userName.trim()
+        val validate = userValidateNameUseCase(trimUserName)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userName)
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(trimUserName)
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
-                _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
+                _uiState.value = UserCreatorUiState.Content(userNameInputText = trimUserName)
             }
         }
     }
