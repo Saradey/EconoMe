@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.main_activity.di
 import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityInternal
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_activity.di.modules.MainActivityBindsModule
@@ -15,7 +16,8 @@ import evgenii.goncharov.econome.wallet_api.navigation.WalletLauncher
 @Component(
     dependencies = [
         CoreNavigationApi::class,
-        CoreDatabaseApi::class
+        CoreDatabaseApi::class,
+        CurrentApi::class
     ],
     modules = [MainActivityBindsModule::class]
 )
@@ -27,6 +29,7 @@ internal interface MainActivityComponent : MainActivityInternal {
         fun create(
             coreDatabaseApi: CoreDatabaseApi,
             coreNavigationApi: CoreNavigationApi,
+            currentApi: CurrentApi,
             @BindsInstance userLauncher: UserLauncher,
             @BindsInstance mainNavigationLauncher: MainNavigationLauncher,
             @BindsInstance walletLauncher: WalletLauncher
