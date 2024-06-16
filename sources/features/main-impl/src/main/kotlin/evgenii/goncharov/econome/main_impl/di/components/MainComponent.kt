@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.main_impl.di.components
 
 import dagger.BindsInstance
 import dagger.Component
+import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.di.contracts.MainInternal
@@ -11,6 +12,7 @@ import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
 
 @FeatureScope
 @Component(
+    dependencies = [CurrentApi::class],
     modules = [MainBindModule::class]
 )
 internal interface MainComponent : MainInternal {
@@ -19,6 +21,7 @@ internal interface MainComponent : MainInternal {
     interface Factory {
 
         fun create(
+            currentApi: CurrentApi,
             @BindsInstance spendingLauncher: SpendingLauncher,
             @BindsInstance mainLauncher: MainLauncher,
             @BindsInstance productCostAnalysisLauncher: ProductCostAnalysisLauncher
