@@ -31,14 +31,11 @@ internal fun UserCreatorScreen(
             color = Color.White,
             fontSize = 20.sp
         )
-        when (uiState) {
-            is UserCreatorUiState.Content -> InputTextContent(uiState.userNameInputText, input)
-            is UserCreatorUiState.ErrorInputUserName -> InputTextError(
-                uiState.userNameInputText,
-                uiState.errorInputMessage,
-                input
-            )
-        }
+        InputTextContent(
+            userNameInputText = uiState.userNameInputText,
+            errorMessage = uiState.errorInputMessage,
+            inputUserNameListener = input
+        )
         Button(
             onClick = createAccountWithUuid,
         ) {
@@ -56,42 +53,21 @@ internal fun UserCreatorScreen(
 @Composable
 private fun InputTextContent(
     userNameInputText: String,
+    errorMessage: String?,
     inputUserNameListener: (String) -> Unit
 ) {
     OutlinedTextField(
         value = userNameInputText,
         onValueChange = inputUserNameListener,
-        label = { Text("Введите имя пользователя") },
+        label = { Text(errorMessage ?: "Введите имя пользователя") },
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = Color.White,
-            unfocusedBorderColor = Color.White,
+            focusedBorderColor = if (errorMessage != null) Color.Red else Color.White,
+            unfocusedBorderColor = if (errorMessage != null) Color.Red else Color.White,
             focusedTextColor = Color.White,
             unfocusedTextColor = Color.White,
-            focusedLabelColor = Color.White,
-            unfocusedLabelColor = Color.White
-        )
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun InputTextError(
-    userNameInputText: String,
-    errorMessage: String,
-    inputUserNameListener: (String) -> Unit
-) {
-    OutlinedTextField(
-        value = userNameInputText,
-        onValueChange = inputUserNameListener,
-        label = { Text(errorMessage) },
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = Color.Red,
-            unfocusedBorderColor = Color.Red,
-            errorBorderColor = Color.Red,
-            focusedTextColor = Color.White,
-            unfocusedTextColor = Color.White,
-            focusedLabelColor = Color.Red,
-            unfocusedLabelColor = Color.Red
+            focusedLabelColor = if (errorMessage != null) Color.Red else Color.White,
+            unfocusedLabelColor = if (errorMessage != null) Color.Red else Color.White,
+            errorBorderColor = if (errorMessage != null) Color.Red else Color.White,
         )
     )
 }

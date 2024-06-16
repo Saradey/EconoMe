@@ -61,7 +61,10 @@ internal class UserCreatorViewModel @Inject constructor(
         when (validate) {
             is UserStatusModel.IncorrectInput -> makeErrorSymbolState()
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
-                _uiState.value = _uiState.value.copy(userNameInputText = trimUserName)
+                _uiState.value = _uiState.value.copy(
+                    userNameInputText = trimUserName,
+                    errorInputMessage = null
+                )
             }
         }
     }
