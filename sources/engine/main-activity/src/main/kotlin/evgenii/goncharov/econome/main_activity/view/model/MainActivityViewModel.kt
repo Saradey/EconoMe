@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.main_activity.view.model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import evgenii.goncharov.econome.main_activity.interactors.MainActivityInteractor
 import evgenii.goncharov.econome.main_activity.models.CheckUserModel
 import evgenii.goncharov.econome.main_activity.repositories.UserRepository
 import evgenii.goncharov.econome.main_activity.use.cases.CheckUserUseCase
@@ -16,19 +17,30 @@ internal class MainActivityViewModel @Inject constructor(
     private val mainNavigationLauncher: MainNavigationLauncher,
     private val checkUserUseCase: CheckUserUseCase,
     private val walletLauncher: WalletLauncher,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val mainActivityInteractor: MainActivityInteractor
 ) : ViewModel() {
 
     fun appStart() {
         viewModelScope.launch {
             when (checkUserUseCase()) {
-                CheckUserModel.OpenMainMenu -> mainNavigationLauncher.launchMainNavigation()
+                CheckUserModel.OpenMainMenu -> openMainMenu()
                 CheckUserModel.OpenUserChoose -> userLauncher.launchUserChoosing()
                 CheckUserModel.OpenUserCreator -> userLauncher.launchUserCreator()
-                CheckUserModel.OpenWalletCreator -> walletLauncher.launchWalletCreator(
-                    userRepository.getCurrentUserId()
-                )
+                CheckUserModel.OpenWalletCreator -> openWalletCreator()
             }
         }
+    }
+
+    private fun openMainMenu() {
+        mainActivityInteractor.setCurrentUserAndCurrentWallet()
+        mainNavigationLauncher.launchMainNavigation()
+    }
+
+    private suspend fun openWalletCreator() {
+        mainActivityInteractor.setCurrentUser()
+        walletLauncher.launchWalletCreator(
+            userRepository.getCurrentUserId()
+        )
     }
 }

@@ -9,6 +9,8 @@ import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.main_activity.view.model.MainActivityViewModel
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.main_activity.interactors.MainActivityInteractor
+import evgenii.goncharov.econome.main_activity.interactors.impl.MainActivityInteractorImpl
 import evgenii.goncharov.econome.main_activity.navigation.MainOnBackPressed
 import evgenii.goncharov.econome.main_activity.repositories.UserRepository
 import evgenii.goncharov.econome.main_activity.repositories.WalletRepository
@@ -39,4 +41,8 @@ internal interface MainActivityBindsModule {
     @Binds
     @FeatureScope
     fun bindWalletRepository(repository: WalletRepositoryImpl): WalletRepository
+
+    @Binds
+    @FeatureScope
+    fun bindMainActivityInteractor(interactor: MainActivityInteractorImpl): MainActivityInteractor
 }
