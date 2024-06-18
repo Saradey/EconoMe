@@ -2,11 +2,13 @@ package evgenii.goncharov.econome.main_impl.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -19,7 +21,6 @@ internal fun MainScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     when (state) {
-        MainUiState.InitialState -> Unit
         is MainUiState.Content -> MainScreenContent(
             state = state as MainUiState.Content,
             goToDialogAddSpending = viewModel::goToDialogAddSpending,
@@ -28,11 +29,14 @@ internal fun MainScreen(
             goToListShops = viewModel::goToListShops,
             goToAddCostGoods = viewModel::goToAddCostGoods
         )
+
+        MainUiState.InitialState -> Unit
     }
 }
 
 @Composable
 private fun MainScreenContent(
+    modifier: Modifier = Modifier,
     state: MainUiState.Content,
     goToDialogAddSpending: () -> Unit,
     goToSpendingInfo: () -> Unit,
@@ -41,38 +45,42 @@ private fun MainScreenContent(
     goToAddCostGoods: () -> Unit,
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier.fillMaxSize()
     ) {
-        Text(
-            text = "2. MainFragment главный экран",
-            color = Color.White,
-            fontSize = 20.sp
-        )
-        Button(
-            onClick = goToDialogAddSpending,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
         ) {
-            Text("Go to 3. Диалоговое окно добавления расхода")
-        }
-        Button(
-            onClick = goToSpendingInfo,
-        ) {
-            Text("Go to 5. Экран информации по расходу")
-        }
-        Button(
-            onClick = goToAddSpendingLimit,
-        ) {
-            Text("Go to 10. Диалоговое окно по установки дневного лимита на расходы")
-        }
-        Button(
-            onClick = goToListShops,
-        ) {
-            Text("Go to 18. Список магазинов для анализа затрат")
-        }
-        Button(
-            onClick = goToAddCostGoods,
-        ) {
-            Text("Go to 19. Экран добавления стоимости товара")
+            Text(
+                text = "2. MainFragment главный экран",
+                color = Color.White,
+                fontSize = 20.sp
+            )
+            Button(
+                onClick = goToDialogAddSpending,
+            ) {
+                Text("Go to 3. Диалоговое окно добавления расхода")
+            }
+            Button(
+                onClick = goToSpendingInfo,
+            ) {
+                Text("Go to 5. Экран информации по расходу")
+            }
+            Button(
+                onClick = goToAddSpendingLimit,
+            ) {
+                Text("Go to 10. Диалоговое окно по установки дневного лимита на расходы")
+            }
+            Button(
+                onClick = goToListShops,
+            ) {
+                Text("Go to 18. Список магазинов для анализа затрат")
+            }
+            Button(
+                onClick = goToAddCostGoods,
+            ) {
+                Text("Go to 19. Экран добавления стоимости товара")
+            }
         }
     }
 }
