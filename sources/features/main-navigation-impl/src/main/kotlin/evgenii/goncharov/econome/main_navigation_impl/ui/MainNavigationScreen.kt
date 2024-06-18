@@ -1,6 +1,5 @@
 package evgenii.goncharov.econome.main_navigation_impl.ui
 
-import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,7 +28,7 @@ internal fun MainNavigationScreen(
     state: State<MainNavigationUiState>,
     tabBottomMenuListener: (NavigationTabs) -> Unit,
     selectedSettingsListener: () -> Unit,
-    layoutId: Int
+    container: FragmentContainerView
 ) {
     val uiState by state
     Column(
@@ -38,7 +37,9 @@ internal fun MainNavigationScreen(
         Toolbar(
             selectedSettingsListener = selectedSettingsListener
         )
-        FragmentContainer(layoutId = layoutId)
+        FragmentContainer(
+            container = container
+        )
         MainNavigationBar(
             mainMenuItems = uiState.mainMenuItems,
             tabBottomMenuListener = tabBottomMenuListener
@@ -77,18 +78,12 @@ private fun MainNavigationBar(
 @Composable
 private fun FragmentContainer(
     modifier: Modifier = Modifier,
-    layoutId: Int
+    container: FragmentContainerView
 ) {
     AndroidView(
         modifier = modifier,
-        factory = { context ->
-            FragmentContainerView(context).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                id = layoutId
-            }
+        factory = { _ ->
+            container
         }
     )
 }

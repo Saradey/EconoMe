@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_navigation_impl.navigation
 
+import androidx.annotation.IdRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
@@ -19,9 +20,9 @@ internal class BottomMenuNavigator(
     fragmentContainer: Fragment,
     private val globalRouter: Router,
     private val selectedTabListener: SelectedTabListener,
-    override val containerId: Int
 ) : BaseNavigator() {
 
+    override var containerId: Int = INIT_VALUE_CONTAINER_ID
     override val fm: FragmentManager = fragmentContainer.childFragmentManager
     override val ff: FragmentFactory = fragmentContainer.childFragmentManager.fragmentFactory
     private var localBackStack: Stack<BackStackInfo> = Stack()
@@ -32,6 +33,10 @@ internal class BottomMenuNavigator(
             is Forward -> forward(command)
             is Back -> back()
         }
+    }
+
+    fun setNewContainerId(@IdRes containerId: Int) {
+        this.containerId = containerId
     }
 
     private fun forward(command: Forward) {
@@ -129,5 +134,6 @@ internal class BottomMenuNavigator(
     private companion object {
 
         const val FIRST_INDEX_FRAGMENT_TO_BACKSTACK = 1
+        const val INIT_VALUE_CONTAINER_ID = -1
     }
 }
