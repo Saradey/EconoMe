@@ -14,7 +14,7 @@ import evgenii.goncharov.econome.di_core.utils.makeUiContainer
 public abstract class CoreFragment : Fragment() {
 
     @LayoutRes
-    protected open var layoutId: Int = -1
+    protected open val layoutId: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater,

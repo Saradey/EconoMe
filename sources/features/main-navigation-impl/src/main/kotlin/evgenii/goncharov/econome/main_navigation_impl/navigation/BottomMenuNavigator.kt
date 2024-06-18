@@ -10,7 +10,6 @@ import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Forward
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.models.BackStackInfo
 import evgenii.goncharov.econome.navigation.base.BaseNavigator
 import evgenii.goncharov.econome.navigation.navigation.BACKSTACK_NAME_EVERYWHERE
@@ -19,12 +18,12 @@ import java.util.Stack
 internal class BottomMenuNavigator(
     fragmentContainer: Fragment,
     private val globalRouter: Router,
-    private val selectedTabListener: SelectedTabListener
+    private val selectedTabListener: SelectedTabListener,
+    override val containerId: Int
 ) : BaseNavigator() {
 
     override val fm: FragmentManager = fragmentContainer.childFragmentManager
     override val ff: FragmentFactory = fragmentContainer.childFragmentManager.fragmentFactory
-    override val containerId: Int = R.id.fcv_deep_stack
     private var localBackStack: Stack<BackStackInfo> = Stack()
     private var selectedBackStack: BackStackInfo = BackStackInfo("", Stack())
 

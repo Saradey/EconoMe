@@ -3,11 +3,9 @@ package evgenii.goncharov.econome.main_navigation_impl.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
-import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
 import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator
 import evgenii.goncharov.econome.main_navigation_impl.navigation.SelectedTabListener
@@ -27,12 +25,17 @@ internal class MainNavigationFragment : CoreFragment(),
     private val viewModel: MainNavigationViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    override val layoutId: Int = View.generateViewId()
     private val bottomMenuNavigator by lazy {
-        BottomMenuNavigator(this, dependency.provideGlobalRouter(), this)
+        BottomMenuNavigator(
+            fragmentContainer = this,
+            globalRouter = dependency.provideGlobalRouter(),
+            selectedTabListener = this,
+            containerId = layoutId
+        )
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
-    override var layoutId: Int = R.layout.fragment_main_navigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +44,14 @@ internal class MainNavigationFragment : CoreFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
-        val container = view.findViewById<ComposeView>(R.id.cv_container)
-        container.setContent {
-            InitContent()
-        }
     }
 
     @Composable
     override fun InitContent() = MainNavigationScreen(
         state = viewModel.uiState,
         tabBottomMenuListener = viewModel::selectedTab,
-        selectedSettingsListener = viewModel::goToSettings
+        selectedSettingsListener = viewModel::goToSettings,
+        layoutId = layoutId
     )
 
     override fun onPause() {
