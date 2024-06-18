@@ -38,9 +38,11 @@ internal fun MainNavigationScreen(
             selectedSettingsListener = selectedSettingsListener
         )
         FragmentContainer(
+            modifier = Modifier.weight(1f),
             container = container
         )
         MainNavigationBar(
+            modifier = Modifier.fillMaxWidth(),
             mainMenuItems = uiState.mainMenuItems,
             tabBottomMenuListener = tabBottomMenuListener
         )
@@ -54,7 +56,7 @@ private fun MainNavigationBar(
     tabBottomMenuListener: (NavigationTabs) -> Unit
 ) {
     NavigationBar(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         mainMenuItems.forEach { item ->
             NavigationBarItem(
