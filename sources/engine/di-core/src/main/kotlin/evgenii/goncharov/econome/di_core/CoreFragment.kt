@@ -11,20 +11,24 @@ import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
 import evgenii.goncharov.econome.di_core.utils.makeUiContainer
 
-public abstract class CoreFragment : Fragment {
+public abstract class CoreFragment : Fragment() {
 
-    public constructor(@LayoutRes layoutId: Int) : super(layoutId)
-    public constructor() : super()
+    @LayoutRes
+    protected open var layoutId: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return makeUiContainer(
-            context = requireContext(),
-            content = { InitContent() }
-        )
+        return if (layoutId == -1) {
+            makeUiContainer(
+                context = requireContext(),
+                content = { InitContent() }
+            )
+        } else {
+            inflater.inflate(layoutId, container, false)
+        }
     }
 
     override fun onDestroy() {

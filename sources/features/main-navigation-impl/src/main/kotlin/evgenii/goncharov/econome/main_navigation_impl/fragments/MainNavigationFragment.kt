@@ -18,7 +18,7 @@ import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigation
 /**
  * 1. Screen
  */
-internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navigation),
+internal class MainNavigationFragment : CoreFragment(),
     SelectedTabListener {
 
     private val dependency: MainNavigationInternal by lazy {
@@ -32,6 +32,7 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
+    override var layoutId: Int = R.layout.fragment_main_navigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
