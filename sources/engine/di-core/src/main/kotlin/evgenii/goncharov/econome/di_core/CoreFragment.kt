@@ -11,8 +11,10 @@ import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
 import evgenii.goncharov.econome.di_core.utils.makeUiContainer
 
-public abstract class CoreFragment public constructor(@LayoutRes layoutId: Int) :
-    Fragment(layoutId) {
+public abstract class CoreFragment : Fragment {
+
+    public constructor(@LayoutRes layoutId: Int) : super(layoutId)
+    public constructor() : super()
 
     override fun onCreateView(
         inflater: LayoutInflater,
