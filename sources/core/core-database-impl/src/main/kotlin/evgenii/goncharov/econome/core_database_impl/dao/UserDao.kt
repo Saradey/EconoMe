@@ -21,4 +21,7 @@ internal interface UserDao {
     @Transaction
     @Query("SELECT * FROM $USERS_TABLE WHERE uuid = :uuid")
     fun getUserWithWallets(uuid: String): UserWithWallets
+
+    @Query("SELECT * FROM $USERS_TABLE WHERE uuid = :uuid")
+    fun getUserById(uuid: String): UserEntity
 }
