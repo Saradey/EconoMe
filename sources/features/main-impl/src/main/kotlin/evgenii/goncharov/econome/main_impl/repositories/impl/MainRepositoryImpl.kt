@@ -2,8 +2,6 @@ package evgenii.goncharov.econome.main_impl.repositories.impl
 
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
-import evgenii.goncharov.econome.core_database_api.dto.UserDto
-import evgenii.goncharov.econome.core_database_api.dto.WalletDto
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -14,12 +12,15 @@ internal class MainRepositoryImpl @Inject constructor(
     private val walletDataStore: WalletDataStore
 ) : MainRepository {
 
-    override suspend fun getUserById(currentUserId: String): UserDto = withContext(Dispatchers.IO) {
-
-    }
-
-    override suspend fun getWalletById(currentWalletId: Long): WalletDto =
+    override suspend fun getUserNameById(currentUserId: String): String =
         withContext(Dispatchers.IO) {
+            val userDto = userDataStore.getUserById(currentUserId)
+            userDto.userName
+        }
 
+    override suspend fun getWalletNameById(currentWalletId: Long): String =
+        withContext(Dispatchers.IO) {
+            val walletDto = walletDataStore.getWalletById(currentWalletId)
+            walletDto.walletName
         }
 }

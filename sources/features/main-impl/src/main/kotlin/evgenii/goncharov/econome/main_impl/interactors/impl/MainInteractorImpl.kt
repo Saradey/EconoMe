@@ -25,11 +25,11 @@ internal class MainInteractorImpl @Inject constructor(
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {
-        val userDto = mainRepository.getUserById(currentUserId)
-        val walletDto = mainRepository.getWalletById(currentWalletId)
+        val userName = mainRepository.getUserNameById(currentUserId)
+        val walletName = mainRepository.getWalletNameById(currentWalletId)
         return CurrentUserModel(
-            userName = "",
-            walletName = ""
+            userName = userName,
+            walletName = walletName
         )
     }
 
