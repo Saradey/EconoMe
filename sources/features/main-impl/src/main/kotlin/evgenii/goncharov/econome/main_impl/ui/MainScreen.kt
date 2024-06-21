@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.main_impl.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -10,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.main_impl.models.MainUiState
@@ -22,6 +25,7 @@ internal fun MainScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     when (state) {
         is MainUiState.Content -> MainScreenContent(
+            modifier = Modifier.fillMaxSize(),
             state = state as MainUiState.Content,
             goToDialogAddSpending = viewModel::goToDialogAddSpending,
             goToSpendingInfo = viewModel::goToSpendingInfo,
@@ -45,8 +49,12 @@ private fun MainScreenContent(
     goToAddCostGoods: () -> Unit,
 ) {
     Column(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
     ) {
+        HeaderInfo(
+            userName = state.currentUser.userName,
+            walletName = state.currentUser.walletName
+        )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -82,5 +90,27 @@ private fun MainScreenContent(
                 Text("Go to 19. Экран добавления стоимости товара")
             }
         }
+    }
+}
+
+@Composable
+private fun HeaderInfo(
+    modifier: Modifier = Modifier,
+    userName: String,
+    walletName: String
+) {
+    Column(
+        modifier = modifier.fillMaxWidth().padding(16.dp)
+    ) {
+        Text(
+            text = userName,
+            color = Color.White,
+            fontSize = 18.sp
+        )
+        Text(
+            text = walletName,
+            color = Color.White,
+            fontSize = 18.sp
+        )
     }
 }
