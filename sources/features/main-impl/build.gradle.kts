@@ -19,6 +19,7 @@ dependencies {
     implementation(project(":sources:core:common"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:current-user"))
+    implementation(project(":sources:core:core-database-api"))
 
     implementation(project(":sources:features:spending-api"))
     implementation(project(":sources:features:product-cost-analysis-api"))
