@@ -11,16 +11,19 @@ internal class MainInteractorImpl @Inject constructor(
     private val currentWalletRepository: CurrentWalletRepository
 ) : MainInteractor {
 
+    private var currentUserId = ""
+    private var currentWalletId = -1L
+
     override fun checkParameters() {
-        currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
+        currentUserId = currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
             USER_ERROR_MESSAGE
         )
-        currentWalletRepository.getCurrentWalletId() ?: throw IllegalArgumentException(
-            WALLET_ERROR_MESSAGE
-        )
+        currentWalletId = currentWalletRepository.getCurrentWalletId()
+            ?: throw IllegalArgumentException(WALLET_ERROR_MESSAGE)
     }
 
-    override fun formCurrentUser(): CurrentUserModel {
+    override suspend fun formCurrentUser(): CurrentUserModel {
+
         return CurrentUserModel(
             userName = "",
             walletName = ""

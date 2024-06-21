@@ -6,5 +6,5 @@ internal interface MainInteractor {
 
     fun checkParameters()
 
-    fun formCurrentUser(): CurrentUserModel
+    suspend fun formCurrentUser(): CurrentUserModel
 }
