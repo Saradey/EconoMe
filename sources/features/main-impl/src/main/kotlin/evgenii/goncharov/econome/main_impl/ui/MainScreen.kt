@@ -55,6 +55,12 @@ private fun MainScreenContent(
             userName = state.currentUser.userName,
             walletName = state.currentUser.walletName
         )
+        Button(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            onClick = goToDialogAddSpending,
+        ) {
+            Text("Добавить расход")
+        }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -64,11 +70,6 @@ private fun MainScreenContent(
                 color = Color.White,
                 fontSize = 20.sp
             )
-            Button(
-                onClick = goToDialogAddSpending,
-            ) {
-                Text("Go to 3. Диалоговое окно добавления расхода")
-            }
             Button(
                 onClick = goToSpendingInfo,
             ) {
