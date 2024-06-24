@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 internal fun AddSpendingScreen() {
     Text(
         text = "3. AddSpendingDialogFragment Диалоговое окно добавления расхода",
-        color = Color.White,
+        color = Color.Black,
         fontSize = 20.sp
     )
 }
