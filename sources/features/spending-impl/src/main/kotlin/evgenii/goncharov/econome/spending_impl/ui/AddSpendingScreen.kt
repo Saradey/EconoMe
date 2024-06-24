@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.spending_impl.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
@@ -44,9 +46,12 @@ private fun AddSpendingContent(
             fontSize = 24.sp
         )
         OutlinedTextField(
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp),
             value = "",
             onValueChange = inputSpendingListener,
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color.Green,
                 unfocusedBorderColor = Color.Green,
