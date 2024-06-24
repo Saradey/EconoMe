@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,12 @@ private fun AddSpendingContent(
             text = "3. AddSpendingDialogFragment Диалоговое окно добавления расхода",
             color = Color.Black,
             fontSize = 20.sp
+        )
+        Text(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            text = "Введите сумму расхода:",
+            color = Color.Black,
+            fontSize = 24.sp
         )
     }
 }
