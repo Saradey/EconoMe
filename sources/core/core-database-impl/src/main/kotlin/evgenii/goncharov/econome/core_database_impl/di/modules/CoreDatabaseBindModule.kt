@@ -3,9 +3,11 @@ package evgenii.goncharov.econome.core_database_impl.di.modules
 import dagger.Binds
 import dagger.Module
 import evgenii.goncharov.econome.core_database_api.data.stores.CurrentWalletDataStore
+import evgenii.goncharov.econome.core_database_api.data.stores.SpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
 import evgenii.goncharov.econome.core_database_impl.stores.CurrentWalletDataStoreImpl
+import evgenii.goncharov.econome.core_database_impl.stores.SpendingDataStoreImpl
 import evgenii.goncharov.econome.core_database_impl.stores.UserDataStoreImpl
 import evgenii.goncharov.econome.core_database_impl.stores.WalletDataStoreImpl
 import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
@@ -24,4 +26,8 @@ internal interface CoreDatabaseBindModule {
     @CoreScope
     @Binds
     fun bindCurrentWalletDataStoreImpl(store: CurrentWalletDataStoreImpl): CurrentWalletDataStore
+
+    @CoreScope
+    @Binds
+    fun bindSpendingDataStore(store: SpendingDataStoreImpl): SpendingDataStore
 }

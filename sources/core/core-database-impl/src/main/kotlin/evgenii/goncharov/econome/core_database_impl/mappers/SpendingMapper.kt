@@ -1,4 +1,6 @@
 package evgenii.goncharov.econome.core_database_impl.mappers
 
-internal class SpendingMapper {
+import javax.inject.Inject
+
+internal class SpendingMapper @Inject constructor() {
 }
