@@ -100,15 +100,17 @@ private fun HeaderInfo(
     walletName: String
 ) {
     Column(
-        modifier = modifier.fillMaxWidth().padding(16.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
     ) {
         Text(
-            text = userName,
+            text = "Текущий пользователь: $userName",
             color = Color.White,
             fontSize = 18.sp
         )
         Text(
-            text = walletName,
+            text = "Текущий кошелек: $walletName",
             color = Color.White,
             fontSize = 18.sp
         )
