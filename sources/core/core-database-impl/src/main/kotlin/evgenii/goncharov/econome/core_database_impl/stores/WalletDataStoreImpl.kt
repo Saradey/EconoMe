@@ -25,4 +25,11 @@ internal class WalletDataStoreImpl @Inject constructor(
         val wallet = walletDao.getWalletWithMaxSequenceNumber()
         return wallet?.sequenceNumber ?: 0
     }
+
+    override suspend fun getWalletById(walletId: Long): WalletDto {
+        val walletDto = walletMapper.walletEntityToWalletDto(
+            walletDao.getWalletById(walletId)
+        )
+        return walletDto
+    }
 }
