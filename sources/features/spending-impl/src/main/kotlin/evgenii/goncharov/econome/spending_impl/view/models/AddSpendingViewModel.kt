@@ -4,4 +4,8 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 internal class AddSpendingViewModel @Inject constructor(): ViewModel() {
+
+    fun inputSpending(spending: String) {
+
+    }
 }
