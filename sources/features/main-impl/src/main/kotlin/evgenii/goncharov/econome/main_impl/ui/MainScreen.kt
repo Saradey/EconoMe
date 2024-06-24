@@ -114,5 +114,10 @@ private fun HeaderInfo(
             color = Color.White,
             fontSize = 18.sp
         )
+        Text(
+            text = "Расходы за сегодня:",
+            color = Color.White,
+            fontSize = 18.sp
+        )
     }
 }
