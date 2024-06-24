@@ -21,7 +21,7 @@ internal class AddSpendingDialogFragment : CoreBottomSheetFragment() {
     }
 
     @Composable
-    override fun InitContent() = AddSpendingScreen()
+    override fun InitContent() = AddSpendingScreen(viewModel)
 
     override fun releaseDependencies() {
         releaseFeatureApi(AddSpendingApi::class.java)
