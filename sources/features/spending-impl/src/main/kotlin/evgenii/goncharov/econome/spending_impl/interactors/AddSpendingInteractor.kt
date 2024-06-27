@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.spending_impl.interactors
 
 import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
+import evgenii.goncharov.econome.spending_impl.models.SpendingModel
 
 internal interface AddSpendingInteractor {
 
@@ -14,4 +15,6 @@ internal interface AddSpendingInteractor {
     )
 
     fun calculateCategoriesState(spendingCategories: List<SpendingCategory>): List<SpendingCategory>
+
+    fun createSpending(spendingModel: SpendingModel)
 }
