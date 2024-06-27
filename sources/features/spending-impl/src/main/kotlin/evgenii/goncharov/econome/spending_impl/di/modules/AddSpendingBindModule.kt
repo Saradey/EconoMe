@@ -9,6 +9,8 @@ import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.spending_impl.repositories.AddSpendingRepository
 import evgenii.goncharov.econome.spending_impl.repositories.impl.AddSpendingRepositoryImpl
+import evgenii.goncharov.econome.spending_impl.use.cases.InputSpendingValidatorUseCase
+import evgenii.goncharov.econome.spending_impl.use.cases.impl.InputSpendingValidatorUseCaseImpl
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 
 @Module(includes = [MultiViewModelModule::class])
@@ -17,6 +19,12 @@ internal interface AddSpendingBindModule {
     @[Binds FeatureScope]
     @[IntoMap ViewModelKey(AddSpendingViewModel::class)]
     fun bindAddSpendingViewModel(viewModel: AddSpendingViewModel): ViewModel
+
+    @Binds
+    @FeatureScope
+    fun bindInputSpendingValidatorUseCase(
+        useCase: InputSpendingValidatorUseCaseImpl
+    ): InputSpendingValidatorUseCase
 
     @Binds
     @FeatureScope
