@@ -9,7 +9,7 @@ internal class InputSpendingValidatorUseCaseImpl @Inject constructor() :
     private val regex = Regex(NUMBER_PATTERN)
 
     override fun invoke(spending: String): Boolean {
-        return regex.matches(spending)
+        return regex.matches(spending) || spending.isEmpty()
     }
 
     private companion object {

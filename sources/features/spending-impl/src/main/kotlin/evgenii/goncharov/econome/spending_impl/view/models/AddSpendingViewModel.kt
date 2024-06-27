@@ -27,7 +27,7 @@ internal class AddSpendingViewModel @Inject constructor(
 
     fun inputSpending(spending: String) {
         val trimSpending = spending.trim()
-        if (inputSpendingValidatorUseCase.invoke(trimSpending) || trimSpending.isEmpty()) {
+        if (inputSpendingValidatorUseCase.invoke(trimSpending)) {
             _uiState.value = _uiState.value.copy(
                 inputSpending = trimSpending
             )
