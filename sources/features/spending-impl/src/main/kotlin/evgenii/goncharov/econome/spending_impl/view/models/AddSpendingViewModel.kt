@@ -63,6 +63,12 @@ internal class AddSpendingViewModel @Inject constructor(
     }
 
     fun createSpending() {
-
+        val lastCheck = addSpendingInteractor.validateMainButtonEnabled(
+            _uiState.value.inputSpending,
+            _uiState.value.spendingCategories
+        )
+        if (lastCheck) {
+            addSpendingInteractor
+        }
     }
 }
