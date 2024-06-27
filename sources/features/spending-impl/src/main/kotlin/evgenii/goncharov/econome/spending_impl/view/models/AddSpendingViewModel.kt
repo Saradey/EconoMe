@@ -26,9 +26,12 @@ internal class AddSpendingViewModel @Inject constructor(
     val uiState: StateFlow<AddSpendingUiState> = _uiState
 
     fun inputSpending(spending: String) {
-        _uiState.value = _uiState.value.copy(
-            inputSpending = spending
-        )
+        val trimSpending = spending.trim()
+        if (inputSpendingValidatorUseCase.invoke(trimSpending)) {
+            _uiState.value = _uiState.value.copy(
+                inputSpending = spending
+            )
+        }
     }
 
     fun inputComment(comment: String) {

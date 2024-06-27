@@ -1,4 +1,6 @@
 package evgenii.goncharov.econome.spending_impl.use.cases
 
-internal interface InputSpendingValidatorUseCase {
+internal fun interface InputSpendingValidatorUseCase {
+
+    fun invoke(spending: String): Boolean
 }
