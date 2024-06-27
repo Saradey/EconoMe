@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.spending_impl.di.holders
 
+import evgenii.goncharov.econome.category.api.DefaultCategoryApi
 import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
@@ -12,7 +13,8 @@ public class AddSpendingHolder @Inject constructor(container: FeatureContainer) 
 
     override fun buildComponent(): AddSpendingApi {
         return DaggerAddSpendingComponent.factory().create(
-            coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java)
+            coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
+            defaultCategoryApi = getGlobalComponent(DefaultCategoryApi::class.java)
         )
     }
 }

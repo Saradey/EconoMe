@@ -19,6 +19,7 @@ dependencies {
     implementation((project(":sources:engine:navigation")))
     implementation(project(":sources:core:common"))
     implementation(project(":sources:core:core-database-api"))
+    implementation(project(":sources:domain:category"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
