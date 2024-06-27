@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/sources/core/core-database-impl" />
             <option value="$PROJECT_DIR$/sources/core/current-user" />
             <option value="$PROJECT_DIR$/sources/domain" />
+            <option value="$PROJECT_DIR$/sources/domain/category" />
             <option value="$PROJECT_DIR$/sources/domain/currency" />
             <option value="$PROJECT_DIR$/sources/engine" />
             <option value="$PROJECT_DIR$/sources/engine/di-core" />
