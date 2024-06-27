@@ -6,5 +6,5 @@ internal interface AddSpendingRepository {
 
     val selectedCategories: MutableList<Long>
 
-    fun createSpending(spendingModel: SpendingModel)
+    suspend fun createSpending(spendingModel: SpendingModel)
 }

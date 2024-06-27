@@ -11,7 +11,7 @@ internal class AddSpendingRepositoryImpl @Inject constructor(
 
     override val selectedCategories: MutableList<Long> = mutableListOf()
 
-    override fun createSpending(spendingModel: SpendingModel) {
+    override suspend fun createSpending(spendingModel: SpendingModel) {
 
     }
 }

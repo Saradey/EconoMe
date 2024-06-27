@@ -16,5 +16,5 @@ internal interface AddSpendingInteractor {
 
     fun calculateCategoriesState(spendingCategories: List<SpendingCategory>): List<SpendingCategory>
 
-    fun createSpending(spendingModel: SpendingModel)
+    suspend fun createSpending(spendingModel: SpendingModel)
 }

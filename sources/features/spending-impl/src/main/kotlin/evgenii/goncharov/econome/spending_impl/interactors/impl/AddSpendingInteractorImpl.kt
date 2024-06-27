@@ -42,7 +42,7 @@ internal class AddSpendingInteractorImpl @Inject constructor(
         }
     }
 
-    override fun createSpending(spendingModel: SpendingModel) {
+    override suspend fun createSpending(spendingModel: SpendingModel) {
         addSpendingRepository.createSpending(spendingModel)
     }
 }

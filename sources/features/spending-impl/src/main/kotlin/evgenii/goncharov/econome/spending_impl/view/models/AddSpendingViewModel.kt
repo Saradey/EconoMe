@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.spending_impl.view.models
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.category.interactors.DefaultCategoryInteractor
 import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
@@ -9,6 +10,7 @@ import evgenii.goncharov.econome.spending_impl.models.mappers.MapperCategoryMode
 import evgenii.goncharov.econome.spending_impl.use.cases.InputSpendingValidatorUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -65,19 +67,21 @@ internal class AddSpendingViewModel @Inject constructor(
     }
 
     fun createSpending() {
-        val lastCheck = addSpendingInteractor.validateMainButtonEnabled(
-            _uiState.value.inputSpending,
-            _uiState.value.spendingCategories
-        )
-        if (lastCheck) {
-            addSpendingInteractor.createSpending(
-                SpendingModel(
-                    id = Random.nextLong(),
-                    amount = _uiState.value.inputSpending.toFloat(),
-                    comment = _uiState.value.inputComment,
-                    categoriesId = _uiState.value.spendingCategories.map { it.id }
-                )
+        viewModelScope.launch {
+            val lastCheck = addSpendingInteractor.validateMainButtonEnabled(
+                _uiState.value.inputSpending,
+                _uiState.value.spendingCategories
             )
+            if (lastCheck) {
+                addSpendingInteractor.createSpending(
+                    SpendingModel(
+                        id = Random.nextLong(),
+                        amount = _uiState.value.inputSpending.toFloat(),
+                        comment = _uiState.value.inputComment,
+                        categoriesId = _uiState.value.spendingCategories.map { it.id }
+                    )
+                )
+            }
         }
     }
 }
