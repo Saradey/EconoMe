@@ -31,7 +31,11 @@ internal class AddSpendingViewModel @Inject constructor(
         val trimSpending = spending.trim()
         if (inputSpendingValidatorUseCase.invoke(trimSpending)) {
             _uiState.value = _uiState.value.copy(
-                inputSpending = trimSpending
+                inputSpending = trimSpending,
+                mainButtonEnabled = addSpendingInteractor.validateMainButtonEnabled(
+                    _uiState.value.inputSpending,
+                    _uiState.value.spendingCategories
+                )
             )
         }
     }
