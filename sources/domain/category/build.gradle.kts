@@ -11,6 +11,7 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:core:common-provider"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:core:core-database-api"))
 
     implementation(libs.dagger)
     implementation(libs.kotlinx.serialization.json)
