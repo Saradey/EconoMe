@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
+import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 
 @Composable
@@ -29,7 +30,8 @@ internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
         modifier = Modifier.height(500.dp),
         uiState = uiState,
         inputSpendingListener = viewMode::inputSpending,
-        inputCommentListener = viewMode::inputComment
+        inputCommentListener = viewMode::inputComment,
+        chipsClickListener = viewMode::chooseSpendingCategory
     )
 }
 
@@ -38,6 +40,7 @@ private fun AddSpendingContent(
     modifier: Modifier = Modifier,
     inputSpendingListener: (String) -> Unit,
     inputCommentListener: (String) -> Unit,
+    chipsClickListener: (Long) -> Unit,
     uiState: AddSpendingUiState
 ) {
     Column(
@@ -58,6 +61,10 @@ private fun AddSpendingContent(
             inputListener = inputCommentListener,
             textTitle = "Введите комментарий:",
             value = uiState.inputComment
+        )
+        ChipsMenu(
+            categories = uiState.spendingCategories,
+            chipsClickListener = chipsClickListener
         )
     }
 }
@@ -95,4 +102,13 @@ private fun InputTextFieldWithTitle(
             )
         )
     }
+}
+
+@Composable
+internal fun ChipsMenu(
+    modifier: Modifier = Modifier,
+    categories: List<SpendingCategory>,
+    chipsClickListener: (Long) -> Unit
+) {
+
 }

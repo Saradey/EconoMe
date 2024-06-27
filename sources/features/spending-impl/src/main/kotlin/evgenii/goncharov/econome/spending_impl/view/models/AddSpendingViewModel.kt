@@ -23,4 +23,8 @@ internal class AddSpendingViewModel @Inject constructor() : ViewModel() {
             inputComment = comment
         )
     }
+
+    fun chooseSpendingCategory(spendingCategoryId: Long) {
+
+    }
 }
