@@ -1,4 +1,6 @@
 package evgenii.goncharov.econome.category.di
 
-internal interface CategoryComponent {
+import evgenii.goncharov.econome.category.api.CategoryApi
+
+internal interface CategoryComponent : CategoryApi {
 }
