@@ -2,10 +2,12 @@ package evgenii.goncharov.econome.core_database_impl.di.modules
 
 import dagger.Binds
 import dagger.Module
+import evgenii.goncharov.econome.core_database_api.data.stores.CategorySpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.CurrentWalletDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.SpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
+import evgenii.goncharov.econome.core_database_impl.stores.CategorySpendingDataStoreImpl
 import evgenii.goncharov.econome.core_database_impl.stores.CurrentWalletDataStoreImpl
 import evgenii.goncharov.econome.core_database_impl.stores.SpendingDataStoreImpl
 import evgenii.goncharov.econome.core_database_impl.stores.UserDataStoreImpl
@@ -30,4 +32,8 @@ internal interface CoreDatabaseBindModule {
     @CoreScope
     @Binds
     fun bindSpendingDataStore(store: SpendingDataStoreImpl): SpendingDataStore
+
+    @CoreScope
+    @Binds
+    fun bindCategorySpendingDataStore(store: CategorySpendingDataStoreImpl): CategorySpendingDataStore
 }
