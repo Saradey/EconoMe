@@ -21,10 +21,14 @@ internal class AddSpendingInteractorImpl @Inject constructor(
     override fun chooseSpendingCategory(
         spendingCategoryId: Long,
     ) {
-        if (addSpendingRepository.selectedCategories.size > 2) {
-            addSpendingRepository.selectedCategories.removeFirst()
+        if (addSpendingRepository.selectedCategories.contains(spendingCategoryId)) {
+            addSpendingRepository.selectedCategories.remove(spendingCategoryId)
+        } else {
+            if (addSpendingRepository.selectedCategories.size > 2) {
+                addSpendingRepository.selectedCategories.removeFirst()
+            }
+            addSpendingRepository.selectedCategories.add(spendingCategoryId)
         }
-        addSpendingRepository.selectedCategories.add(spendingCategoryId)
     }
 
     override fun calculateCategoriesState(
@@ -32,9 +36,7 @@ internal class AddSpendingInteractorImpl @Inject constructor(
     ): List<SpendingCategory> {
         return spendingCategories.map { category ->
             category.copy(
-                isSelected = addSpendingRepository.selectedCategories.any { id ->
-                    id == category.id
-                }
+                isSelected = addSpendingRepository.selectedCategories.contains(category.id)
             )
         }
     }
