@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.spending_impl.view.models
 
 import androidx.lifecycle.ViewModel
 import evgenii.goncharov.econome.category.interactors.DefaultCategoryInteractor
+import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
 import evgenii.goncharov.econome.spending_impl.models.mappers.MapperCategoryModelToSpendingCategory
 import evgenii.goncharov.econome.spending_impl.use.cases.InputSpendingValidatorUseCase
@@ -12,7 +13,8 @@ import javax.inject.Inject
 internal class AddSpendingViewModel @Inject constructor(
     defaultCategoryInteractor: DefaultCategoryInteractor,
     mapper: MapperCategoryModelToSpendingCategory,
-    private val inputSpendingValidatorUseCase: InputSpendingValidatorUseCase
+    private val inputSpendingValidatorUseCase: InputSpendingValidatorUseCase,
+    private val addSpendingInteractor: AddSpendingInteractor
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<AddSpendingUiState> =

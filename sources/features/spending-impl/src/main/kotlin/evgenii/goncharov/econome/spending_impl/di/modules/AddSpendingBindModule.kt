@@ -7,6 +7,8 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
+import evgenii.goncharov.econome.spending_impl.interactors.impl.AddSpendingInteractorImpl
 import evgenii.goncharov.econome.spending_impl.repositories.AddSpendingRepository
 import evgenii.goncharov.econome.spending_impl.repositories.impl.AddSpendingRepositoryImpl
 import evgenii.goncharov.econome.spending_impl.use.cases.InputSpendingValidatorUseCase
@@ -25,6 +27,10 @@ internal interface AddSpendingBindModule {
     fun bindInputSpendingValidatorUseCase(
         useCase: InputSpendingValidatorUseCaseImpl
     ): InputSpendingValidatorUseCase
+
+    @Binds
+    @FeatureScope
+    fun bindAddSpendingInteractor(interactor: AddSpendingInteractorImpl): AddSpendingInteractor
 
     @Binds
     @FeatureScope
