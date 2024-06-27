@@ -10,18 +10,24 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 
 @Composable
 internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
+    val uiState: AddSpendingUiState by viewMode.uiState.collectAsStateWithLifecycle()
+
     AddSpendingContent(
         modifier = Modifier.height(500.dp),
+        uiState = uiState,
         inputSpendingListener = viewMode::inputSpending,
         inputCommentListener = viewMode::inputComment
     )
@@ -32,6 +38,7 @@ private fun AddSpendingContent(
     modifier: Modifier = Modifier,
     inputSpendingListener: (String) -> Unit,
     inputCommentListener: (String) -> Unit,
+    uiState: AddSpendingUiState
 ) {
     Column(
         modifier = modifier
@@ -45,12 +52,12 @@ private fun AddSpendingContent(
             inputListener = inputSpendingListener,
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             textTitle = "Введите сумму расхода:",
-            value = ""
+            value = uiState.inputSpending
         )
         InputTextFieldWithTitle(
             inputListener = inputCommentListener,
             textTitle = "Введите комментарий:",
-            value = ""
+            value = uiState.inputComment
         )
     }
 }

@@ -29,4 +29,5 @@ dependencies {
     kapt(libs.dagger.compiler)
     implementation(libs.fragment.ktx)
     implementation(libs.material)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
