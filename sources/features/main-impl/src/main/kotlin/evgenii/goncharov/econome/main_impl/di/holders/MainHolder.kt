@@ -1,6 +1,6 @@
 package evgenii.goncharov.econome.main_impl.di.holders
 
-import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder

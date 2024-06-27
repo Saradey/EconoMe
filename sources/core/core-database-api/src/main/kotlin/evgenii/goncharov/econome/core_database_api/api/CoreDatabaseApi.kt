@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.core_database_api.di
+package evgenii.goncharov.econome.core_database_api.api
 
 import evgenii.goncharov.econome.core_database_api.data.stores.CategorySpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.CurrentWalletDataStore

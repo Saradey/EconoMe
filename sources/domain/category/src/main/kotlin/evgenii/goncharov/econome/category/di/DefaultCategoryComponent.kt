@@ -9,7 +9,8 @@ import evgenii.goncharov.econome.di_core.di.scopes.CoreScope
 @CoreScope
 @Component(
     dependencies = [
-        CommonProviderApi::class
+        CommonProviderApi::class,
+
     ],
     modules = [DefaultCategoryBindsModule::class]
 )

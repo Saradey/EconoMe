@@ -2,7 +2,7 @@ package evgenii.goncharov.econome.main_impl.di.components
 
 import dagger.BindsInstance
 import dagger.Component
-import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
