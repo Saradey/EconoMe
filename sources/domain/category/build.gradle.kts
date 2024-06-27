@@ -10,6 +10,7 @@ android {
 dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:core:common-provider"))
+    implementation(project(":sources:core:common"))
 
     implementation(libs.dagger)
     implementation(libs.kotlinx.serialization.json)

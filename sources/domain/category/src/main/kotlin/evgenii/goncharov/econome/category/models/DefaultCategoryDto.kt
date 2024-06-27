@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-public data class DefaultCategoryDto(
+internal data class DefaultCategoryDto(
     @SerialName("title_ru") val titleRu: String,
     @SerialName("title_en") val titleEn: String,
 )
