@@ -37,6 +37,8 @@ internal class AddSpendingViewModel @Inject constructor(
                     _uiState.value.spendingCategories
                 )
             )
+        } else {
+            _uiState.value = _uiState.value.copy(mainButtonEnabled = false)
         }
     }
 
@@ -47,7 +49,7 @@ internal class AddSpendingViewModel @Inject constructor(
     }
 
     fun chooseSpendingCategory(spendingCategoryId: Long) {
-
+        addSpendingInteractor.chooseSpendingCategory(spendingCategoryId)
     }
 
     fun createSpending() {

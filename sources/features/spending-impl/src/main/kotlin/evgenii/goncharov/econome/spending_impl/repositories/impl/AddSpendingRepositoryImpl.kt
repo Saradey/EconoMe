@@ -8,4 +8,5 @@ internal class AddSpendingRepositoryImpl @Inject constructor(
     private val spendingDataStore: SpendingDataStore
 ) : AddSpendingRepository {
 
+    override val selectedCategories: MutableList<Long> = mutableListOf()
 }

@@ -8,4 +8,6 @@ internal interface AddSpendingInteractor {
         inputSpending: String,
         spendingCategories: List<SpendingCategory>
     ): Boolean
+
+    fun chooseSpendingCategory(spendingCategoryId: Long)
 }
