@@ -26,5 +26,4 @@ internal class DefaultCategoryRepositoryImpl @Inject constructor(
         }
         return categories
     }
-
 }
