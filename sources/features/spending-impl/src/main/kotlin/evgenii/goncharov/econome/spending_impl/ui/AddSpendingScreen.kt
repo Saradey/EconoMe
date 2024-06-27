@@ -70,6 +70,7 @@ private fun AddSpendingContent(
         )
         ChipsMenu(
             categories = uiState.spendingCategories,
+            titleChipsMenu = "Выберите тип расхода:",
             chipsClickListener = chipsClickListener
         )
     }
@@ -114,19 +115,30 @@ private fun InputTextFieldWithTitle(
 internal fun ChipsMenu(
     modifier: Modifier = Modifier,
     categories: List<SpendingCategory>,
+    titleChipsMenu: String,
     chipsClickListener: (Long) -> Unit
 ) {
-    LazyRow(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+    Column(
+        modifier = modifier.fillMaxWidth()
     ) {
-        items(categories) { item ->
-            ChipItem(
-                title = item.title,
-                isSelected = item.isSelected
-            ) {
-                chipsClickListener(item.id)
+        Text(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            text = titleChipsMenu,
+            color = Color.Black,
+            fontSize = 24.sp
+        )
+        LazyRow(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp)
+        ) {
+            items(categories) { item ->
+                ChipItem(
+                    title = item.title,
+                    isSelected = item.isSelected
+                ) {
+                    chipsClickListener(item.id)
+                }
             }
         }
     }
