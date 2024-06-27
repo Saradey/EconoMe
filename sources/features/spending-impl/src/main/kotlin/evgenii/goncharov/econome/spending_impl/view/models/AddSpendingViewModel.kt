@@ -33,7 +33,7 @@ internal class AddSpendingViewModel @Inject constructor(
             _uiState.value = _uiState.value.copy(
                 inputSpending = trimSpending,
                 mainButtonEnabled = addSpendingInteractor.validateMainButtonEnabled(
-                    _uiState.value.inputSpending,
+                    trimSpending,
                     _uiState.value.spendingCategories
                 )
             )
