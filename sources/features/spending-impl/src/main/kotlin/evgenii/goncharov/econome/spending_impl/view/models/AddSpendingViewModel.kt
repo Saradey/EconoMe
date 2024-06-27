@@ -9,7 +9,7 @@ import javax.inject.Inject
 internal class AddSpendingViewModel @Inject constructor() : ViewModel() {
 
     private val _uiState: MutableStateFlow<AddSpendingUiState> =
-        MutableStateFlow(AddSpendingUiState())
+        MutableStateFlow(AddSpendingUiState.addSpendingUiState())
     val uiState: StateFlow<AddSpendingUiState> = _uiState
 
     fun inputSpending(spending: String) {
