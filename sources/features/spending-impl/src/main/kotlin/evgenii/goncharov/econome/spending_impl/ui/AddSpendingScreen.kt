@@ -1,11 +1,16 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -21,6 +26,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
 import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
+import androidx.compose.foundation.lazy.items
 
 @Composable
 internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
@@ -110,5 +116,38 @@ internal fun ChipsMenu(
     categories: List<SpendingCategory>,
     chipsClickListener: (Long) -> Unit
 ) {
+    LazyRow(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
+    ) {
+        items(categories) { item ->
+            ChipItem(
+                title = item.title,
+                isSelected = item.isSelected
+            ) {
+                chipsClickListener(item.id)
+            }
+        }
+    }
+}
 
+@Composable
+internal fun ChipItem(
+    title: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    FilterChip(
+        selected = isSelected,
+        onClick = onClick,
+        label = { Text(text = title) },
+        colors = FilterChipDefaults.filterChipColors(
+            selectedContainerColor = Color.Blue,
+            selectedLabelColor = Color.White,
+            containerColor = Color.LightGray,
+            labelColor = Color.Black
+        ),
+        modifier = Modifier.padding(vertical = 8.dp)
+    )
 }
