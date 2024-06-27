@@ -17,4 +17,10 @@ internal class AddSpendingViewModel @Inject constructor() : ViewModel() {
             inputSpending = spending
         )
     }
+
+    fun inputComment(comment: String) {
+        _uiState.value = _uiState.value.copy(
+            inputComment = comment
+        )
+    }
 }

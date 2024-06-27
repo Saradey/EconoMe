@@ -20,8 +20,9 @@ import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 @Composable
 internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
     AddSpendingContent(
-        modifier = Modifier.height(400.dp),
-        inputSpendingListener = viewMode::inputSpending
+        modifier = Modifier.height(500.dp),
+        inputSpendingListener = viewMode::inputSpending,
+        inputCommentListener = viewMode::inputComment
     )
 }
 
@@ -29,7 +30,8 @@ internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
 @Composable
 private fun AddSpendingContent(
     modifier: Modifier = Modifier,
-    inputSpendingListener: (String) -> Unit
+    inputSpendingListener: (String) -> Unit,
+    inputCommentListener: (String) -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -52,6 +54,25 @@ private fun AddSpendingContent(
             value = "",
             onValueChange = inputSpendingListener,
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color.Green,
+                unfocusedBorderColor = Color.Green,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black,
+            )
+        )
+        Text(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            text = "Введите Комментарий:",
+            color = Color.Black,
+            fontSize = 24.sp
+        )
+        OutlinedTextField(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp),
+            value = "",
+            onValueChange = inputCommentListener,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color.Green,
                 unfocusedBorderColor = Color.Green,
