@@ -50,6 +50,16 @@ internal class AddSpendingViewModel @Inject constructor(
 
     fun chooseSpendingCategory(spendingCategoryId: Long) {
         addSpendingInteractor.chooseSpendingCategory(spendingCategoryId)
+        val newCategories = addSpendingInteractor.calculateCategoriesState(
+            _uiState.value.spendingCategories
+        )
+        _uiState.value = _uiState.value.copy(
+            spendingCategories = newCategories,
+            mainButtonEnabled = addSpendingInteractor.validateMainButtonEnabled(
+                _uiState.value.inputSpending,
+                newCategories
+            )
+        )
     }
 
     fun createSpending() {

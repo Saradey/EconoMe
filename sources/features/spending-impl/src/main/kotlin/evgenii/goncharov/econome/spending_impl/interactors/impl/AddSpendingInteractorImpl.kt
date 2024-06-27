@@ -18,7 +18,24 @@ internal class AddSpendingInteractorImpl @Inject constructor(
         }
     }
 
-    override fun chooseSpendingCategory(spendingCategoryId: Long) {
+    override fun chooseSpendingCategory(
+        spendingCategoryId: Long,
+    ) {
+        if (addSpendingRepository.selectedCategories.size > 2) {
+            addSpendingRepository.selectedCategories.removeFirst()
+        }
         addSpendingRepository.selectedCategories.add(spendingCategoryId)
+    }
+
+    override fun calculateCategoriesState(
+        spendingCategories: List<SpendingCategory>
+    ): List<SpendingCategory> {
+        return spendingCategories.map { category ->
+            category.copy(
+                isSelected = addSpendingRepository.selectedCategories.any { id ->
+                    id == category.id
+                }
+            )
+        }
     }
 }

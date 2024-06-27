@@ -9,5 +9,9 @@ internal interface AddSpendingInteractor {
         spendingCategories: List<SpendingCategory>
     ): Boolean
 
-    fun chooseSpendingCategory(spendingCategoryId: Long)
+    fun chooseSpendingCategory(
+        spendingCategoryId: Long,
+    )
+
+    fun calculateCategoriesState(spendingCategories: List<SpendingCategory>): List<SpendingCategory>
 }
