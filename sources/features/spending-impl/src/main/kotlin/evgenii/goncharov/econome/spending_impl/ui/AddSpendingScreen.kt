@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -26,7 +27,6 @@ internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AddSpendingContent(
     modifier: Modifier = Modifier,
@@ -41,29 +41,35 @@ private fun AddSpendingContent(
             color = Color.Black,
             fontSize = 20.sp
         )
-        Text(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Введите сумму расхода:",
-            color = Color.Black,
-            fontSize = 24.sp
-        )
-        OutlinedTextField(
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(16.dp),
-            value = "",
-            onValueChange = inputSpendingListener,
+        InputTextFieldWithTitle(
+            inputListener = inputSpendingListener,
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Color.Green,
-                unfocusedBorderColor = Color.Green,
-                focusedTextColor = Color.Black,
-                unfocusedTextColor = Color.Black,
-            )
+            textTitle = "Введите сумму расхода:",
+            value = ""
         )
+        InputTextFieldWithTitle(
+            inputListener = inputCommentListener,
+            textTitle = "Введите комментарий:",
+            value = ""
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun InputTextFieldWithTitle(
+    modifier: Modifier = Modifier,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    inputListener: (String) -> Unit,
+    textTitle: String,
+    value: String,
+) {
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
         Text(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Введите Комментарий:",
+            text = textTitle,
             color = Color.Black,
             fontSize = 24.sp
         )
@@ -71,8 +77,9 @@ private fun AddSpendingContent(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(16.dp),
-            value = "",
-            onValueChange = inputCommentListener,
+            value = value,
+            onValueChange = inputListener,
+            keyboardOptions = keyboardOptions,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color.Green,
                 unfocusedBorderColor = Color.Green,
