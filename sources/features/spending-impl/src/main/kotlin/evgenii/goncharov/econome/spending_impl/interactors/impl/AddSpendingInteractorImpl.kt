@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.spending_impl.interactors.impl
 
 import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
+import evgenii.goncharov.econome.spending_impl.models.SpendingModel
 import evgenii.goncharov.econome.spending_impl.repositories.AddSpendingRepository
 import javax.inject.Inject
 
@@ -39,5 +40,9 @@ internal class AddSpendingInteractorImpl @Inject constructor(
                 isSelected = addSpendingRepository.selectedCategories.contains(category.id)
             )
         }
+    }
+
+    override fun createSpending(spendingModel: SpendingModel) {
+        addSpendingRepository.createSpending(spendingModel)
     }
 }
