@@ -7,4 +7,5 @@ import javax.inject.Inject
 internal class AddSpendingRepositoryImpl @Inject constructor(
     private val spendingDataStore: SpendingDataStore
 ) : AddSpendingRepository {
+
 }

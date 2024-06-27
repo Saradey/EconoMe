@@ -45,4 +45,8 @@ internal class AddSpendingViewModel @Inject constructor(
     fun chooseSpendingCategory(spendingCategoryId: Long) {
 
     }
+
+    fun createSpending() {
+
+    }
 }

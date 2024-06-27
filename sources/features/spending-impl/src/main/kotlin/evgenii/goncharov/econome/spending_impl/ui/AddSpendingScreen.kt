@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,17 +28,20 @@ import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
 import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
 import evgenii.goncharov.econome.spending_impl.view.models.AddSpendingViewModel
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 
 @Composable
 internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
     val uiState: AddSpendingUiState by viewMode.uiState.collectAsStateWithLifecycle()
-
     AddSpendingContent(
         modifier = Modifier.height(500.dp),
         uiState = uiState,
         inputSpendingListener = viewMode::inputSpending,
         inputCommentListener = viewMode::inputComment,
-        chipsClickListener = viewMode::chooseSpendingCategory
+        chipsClickListener = viewMode::chooseSpendingCategory,
+        createSpendingClickListener = viewMode::createSpending
     )
 }
 
@@ -47,6 +51,7 @@ private fun AddSpendingContent(
     inputSpendingListener: (String) -> Unit,
     inputCommentListener: (String) -> Unit,
     chipsClickListener: (Long) -> Unit,
+    createSpendingClickListener: () -> Unit,
     uiState: AddSpendingUiState
 ) {
     Column(
@@ -72,6 +77,10 @@ private fun AddSpendingContent(
             categories = uiState.spendingCategories,
             titleChipsMenu = "Выберите тип расхода:",
             chipsClickListener = chipsClickListener
+        )
+        MainButton(
+            isEnabled = uiState.mainButtonEnabled,
+            createSpendingClickListener = createSpendingClickListener
         )
     }
 }
@@ -112,7 +121,7 @@ private fun InputTextFieldWithTitle(
 }
 
 @Composable
-internal fun ChipsMenu(
+private fun ChipsMenu(
     modifier: Modifier = Modifier,
     categories: List<SpendingCategory>,
     titleChipsMenu: String,
@@ -145,7 +154,7 @@ internal fun ChipsMenu(
 }
 
 @Composable
-internal fun ChipItem(
+private fun ChipItem(
     title: String,
     isSelected: Boolean,
     onClick: () -> Unit
@@ -162,4 +171,38 @@ internal fun ChipItem(
         ),
         modifier = Modifier.padding(vertical = 8.dp)
     )
+}
+
+@Composable
+private fun MainButton(
+    modifier: Modifier = Modifier,
+    isEnabled: Boolean,
+    createSpendingClickListener: () -> Unit,
+) {
+    Column(
+        modifier = modifier.fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp, top = 32.dp)
+    ) {
+        Button(
+            onClick = { createSpendingClickListener() },
+            enabled = isEnabled,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = if (isEnabled) Color.Blue else Color.Gray,
+                disabledContainerColor = Color.Gray,
+                contentColor = if (isEnabled) Color.White else Color.Black,
+                disabledContentColor = Color.DarkGray
+            ),
+            shape = RoundedCornerShape(8.dp),
+            modifier = modifier
+                .fillMaxWidth(fraction = 0.8f)
+                .align(Alignment.CenterHorizontally)
+                .background(if (isEnabled) Color.Blue else Color.Gray)
+                .padding(16.dp)
+        ) {
+            Text(
+                text = "Внести расход",
+                fontSize = 24.sp
+            )
+        }
+    }
 }
