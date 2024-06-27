@@ -7,4 +7,6 @@ import javax.inject.Inject
 internal class DefaultCategoryInteractorImpl @Inject constructor(
     private val defaultCategoryRepository: DefaultCategoryRepository
 ): DefaultCategoryInteractor {
+
+
 }
