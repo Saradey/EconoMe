@@ -11,7 +11,8 @@ internal class SpendingMapper @Inject constructor() {
             spendingId = dto.id,
             walletId = dto.walletId,
             amount = dto.amount,
-            comment = dto.comment
+            comment = dto.comment,
+            createAt = dto.createAt
         )
     }
 }

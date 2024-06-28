@@ -2,7 +2,9 @@ package evgenii.goncharov.econome.core_database_impl.data.base
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import evgenii.goncharov.econome.core_database_impl.common.DATABASE_VERSION
+import evgenii.goncharov.econome.core_database_impl.converters.DateConverter
 import evgenii.goncharov.econome.core_database_impl.dao.CurrentWalletDao
 import evgenii.goncharov.econome.core_database_impl.dao.SpendingDao
 import evgenii.goncharov.econome.core_database_impl.dao.UserDao
@@ -21,6 +23,11 @@ import evgenii.goncharov.econome.core_database_impl.entities.WalletEntity
     ],
     version = DATABASE_VERSION
 )
+@TypeConverters(
+    value = [
+        DateConverter::class
+    ]
+)
 internal abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -29,5 +36,5 @@ internal abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getCurrentWalletDao(): CurrentWalletDao
 
-    abstract fun getSpendingDao() : SpendingDao
+    abstract fun getSpendingDao(): SpendingDao
 }
