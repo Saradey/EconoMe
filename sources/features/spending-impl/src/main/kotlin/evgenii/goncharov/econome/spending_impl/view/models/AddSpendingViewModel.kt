@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.spending_impl.view.models
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.category.interactors.DefaultCategoryInteractor
+import evgenii.goncharov.econome.common.ui.SystemEvent
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
@@ -33,6 +34,10 @@ internal class AddSpendingViewModel @Inject constructor(
             )
         )
     val uiState: StateFlow<AddSpendingUiState> = _uiState
+    private val _systemEvent: MutableStateFlow<SystemEvent> = MutableStateFlow(
+        SystemEvent.InitialState
+    )
+    val systemEvent: StateFlow<SystemEvent> = _systemEvent
 
     fun inputSpending(spending: String) {
         val trimSpending = spending.trim()
@@ -86,6 +91,7 @@ internal class AddSpendingViewModel @Inject constructor(
                         createAt = Calendar.getInstance().time
                     )
                 )
+                _systemEvent.value = SystemEvent.DismissDialog
             }
         }
     }
