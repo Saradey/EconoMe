@@ -13,4 +13,13 @@ internal class CurrentWalletRepositoryImpl @Inject constructor(
     override fun setCurrentWalletId(walletId: Long) {
         this.currentWalletId = walletId
     }
+
+    override fun getCurrentWalletId(): Long {
+        return currentWalletId ?: throw IllegalArgumentException(ERROR_MESSAGE_WALLET_ID)
+    }
+
+    private companion object {
+
+        const val ERROR_MESSAGE_WALLET_ID = "currentWalletId must be not null"
+    }
 }

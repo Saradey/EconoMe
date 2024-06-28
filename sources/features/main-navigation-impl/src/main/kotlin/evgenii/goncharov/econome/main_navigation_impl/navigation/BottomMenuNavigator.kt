@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_navigation_impl.navigation
 
+import androidx.annotation.IdRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
@@ -10,7 +11,6 @@ import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Forward
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.models.BackStackInfo
 import evgenii.goncharov.econome.navigation.base.BaseNavigator
 import evgenii.goncharov.econome.navigation.navigation.BACKSTACK_NAME_EVERYWHERE
@@ -19,12 +19,12 @@ import java.util.Stack
 internal class BottomMenuNavigator(
     fragmentContainer: Fragment,
     private val globalRouter: Router,
-    private val selectedTabListener: SelectedTabListener
+    private val selectedTabListener: SelectedTabListener,
 ) : BaseNavigator() {
 
+    override var containerId: Int = INIT_VALUE_CONTAINER_ID
     override val fm: FragmentManager = fragmentContainer.childFragmentManager
     override val ff: FragmentFactory = fragmentContainer.childFragmentManager.fragmentFactory
-    override val containerId: Int = R.id.fcv_deep_stack
     private var localBackStack: Stack<BackStackInfo> = Stack()
     private var selectedBackStack: BackStackInfo = BackStackInfo("", Stack())
 
@@ -33,6 +33,10 @@ internal class BottomMenuNavigator(
             is Forward -> forward(command)
             is Back -> back()
         }
+    }
+
+    fun setNewContainerId(@IdRes containerId: Int) {
+        this.containerId = containerId
     }
 
     private fun forward(command: Forward) {
@@ -130,5 +134,6 @@ internal class BottomMenuNavigator(
     private companion object {
 
         const val FIRST_INDEX_FRAGMENT_TO_BACKSTACK = 1
+        const val INIT_VALUE_CONTAINER_ID = -1
     }
 }

@@ -1,8 +1,9 @@
 package evgenii.goncharov.econome.core_database_impl.common
 
-internal const val USERS_TABLE = "table_users"
-internal const val WALLET_TABLE = "table_wallet"
-internal const val CURRENT_WALLET_TABLE = "table_current_wallet"
+internal const val USERS_TABLE = "users_table"
+internal const val WALLET_TABLE = "wallet_table"
+internal const val CURRENT_WALLET_TABLE = "current_wallet_table"
+internal const val SPENDING_TABLE = "spending_table"
 
 internal const val DATABASE_VERSION = 1
 

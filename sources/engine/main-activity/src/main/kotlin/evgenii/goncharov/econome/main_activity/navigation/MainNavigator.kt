@@ -18,7 +18,7 @@ internal class MainNavigator(
 
     override val fm: FragmentManager = activity.supportFragmentManager
     override val ff: FragmentFactory = fm.fragmentFactory
-    override val containerId: Int = R.id.container
+    override var containerId: Int = R.id.container
 
     override fun applyCommand(command: Command) {
         when (command) {

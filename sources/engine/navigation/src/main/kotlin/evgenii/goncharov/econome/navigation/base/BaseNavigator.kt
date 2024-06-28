@@ -12,7 +12,7 @@ public abstract class BaseNavigator : Navigator {
 
     protected abstract val fm: FragmentManager
     protected abstract val ff: FragmentFactory
-    protected abstract val containerId: Int
+    protected abstract var containerId: Int
 
     public abstract fun applyCommand(command: Command)
 

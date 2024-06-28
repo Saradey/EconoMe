@@ -1,20 +1,26 @@
 package evgenii.goncharov.econome.di_core
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.ComposeView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
+import evgenii.goncharov.econome.di_core.utils.makeUiContainer
 
-public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment(R.layout.fragment_core) {
+public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment() {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val container = view.findViewById<ComposeView>(R.id.cv_container)
-        container.setContent {
-            InitContent()
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return makeUiContainer(
+            context = requireContext(),
+            content = { InitContent() }
+        )
     }
 
     override fun onDestroy() {

@@ -22,11 +22,7 @@ internal class MainFragment : CoreFragment() {
 
     @Composable
     override fun InitContent() = MainScreen(
-        goToDialogAddSpendingListener = viewModel::goToDialogAddSpending,
-        goToSpendingInfoListener = viewModel::goToSpendingInfo,
-        goToAddSpendingLimitListener = viewModel::goToAddSpendingLimit,
-        goToListShopsListener = viewModel::goToListShops,
-        goToAddCostGoodsListener = viewModel::goToAddCostGoods
+        viewModel = viewModel
     )
 
     override fun releaseDependencies() {

@@ -17,4 +17,7 @@ internal interface WalletDao {
 
     @Query("SELECT * FROM $WALLET_TABLE ORDER BY sequence_number DESC LIMIT 1")
     fun getWalletWithMaxSequenceNumber(): WalletEntity?
+
+    @Query("SELECT * FROM $WALLET_TABLE WHERE wallet_id = :walletId")
+    fun getWalletById(walletId: Long): WalletEntity
 }

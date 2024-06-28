@@ -1,13 +1,14 @@
 package evgenii.goncharov.econome.main_navigation_impl.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.ComposeView
+import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
-import evgenii.goncharov.econome.main_navigation_impl.R
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
 import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator
 import evgenii.goncharov.econome.main_navigation_impl.navigation.SelectedTabListener
@@ -18,7 +19,7 @@ import evgenii.goncharov.econome.main_navigation_impl.view.models.MainNavigation
 /**
  * 1. Screen
  */
-internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navigation),
+internal class MainNavigationFragment : CoreFragment(),
     SelectedTabListener {
 
     private val dependency: MainNavigationInternal by lazy {
@@ -27,11 +28,28 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     private val viewModel: MainNavigationViewModel by viewModels {
         dependency.provideViewModelFactory()
     }
+    private var fragmentContainerView: FragmentContainerView? = null
     private val bottomMenuNavigator by lazy {
-        BottomMenuNavigator(this, dependency.provideGlobalRouter(), this)
+        BottomMenuNavigator(
+            fragmentContainer = this,
+            globalRouter = dependency.provideGlobalRouter(),
+            selectedTabListener = this,
+        )
     }
     private val deepNavigatorHolder = dependency.provideDeepNavigatorHolder()
     private val onBackPressed = dependency.provideMainNavigation()
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        fragmentContainerView = FragmentContainerView(context).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+            id = View.generateViewId()
+            bottomMenuNavigator.setNewContainerId(id)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,17 +58,16 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
-        val container = view.findViewById<ComposeView>(R.id.cv_container)
-        container.setContent {
-            InitContent()
-        }
     }
 
     @Composable
     override fun InitContent() = MainNavigationScreen(
         state = viewModel.uiState,
         tabBottomMenuListener = viewModel::selectedTab,
-        selectedSettingsListener = viewModel::goToSettings
+        selectedSettingsListener = viewModel::goToSettings,
+        container = fragmentContainerView ?: throw IllegalArgumentException(
+            MESSAGE_ERROR_CONTAINER_MUST_NOT_NULL
+        )
     )
 
     override fun onPause() {
@@ -72,6 +89,8 @@ internal class MainNavigationFragment : CoreFragment(R.layout.fragment_main_navi
     }
 
     companion object {
+
+        private const val MESSAGE_ERROR_CONTAINER_MUST_NOT_NULL = "Container must not null"
 
         fun newInstance() = MainNavigationFragment()
     }

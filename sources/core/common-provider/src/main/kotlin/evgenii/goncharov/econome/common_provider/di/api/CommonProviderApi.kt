@@ -4,6 +4,7 @@ import android.content.Context
 import evgenii.goncharov.econome.common_provider.managers.AuthManager
 import evgenii.goncharov.econome.common_provider.managers.ResourceManager
 import kotlinx.serialization.json.Json
+import java.util.Locale
 
 public interface CommonProviderApi {
 
@@ -14,4 +15,6 @@ public interface CommonProviderApi {
     public fun provideAuthManager(): AuthManager
 
     public fun provideCommonJsonDecoder() : Json
+
+    public fun provideLocale() : Locale
 }

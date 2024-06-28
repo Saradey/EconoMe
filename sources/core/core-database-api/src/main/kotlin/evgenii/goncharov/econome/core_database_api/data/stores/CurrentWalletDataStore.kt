@@ -7,4 +7,7 @@ public interface CurrentWalletDataStore {
 
     @WorkerThread
     public suspend fun saveCurrentWallet(dto: CurrentWalletDto)
+
+    @WorkerThread
+    public suspend fun getCurrentWalletId() : Long
 }
