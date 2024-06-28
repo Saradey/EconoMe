@@ -11,6 +11,7 @@ import evgenii.goncharov.econome.spending_impl.use.cases.InputSpendingValidatorU
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import java.util.Calendar
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -78,7 +79,8 @@ internal class AddSpendingViewModel @Inject constructor(
                         id = Random.nextLong(),
                         amount = _uiState.value.inputSpending.toFloat(),
                         comment = _uiState.value.inputComment,
-                        categoriesId = _uiState.value.spendingCategories.map { it.id }
+                        categoriesId = _uiState.value.spendingCategories.map { it.id },
+                        createAt = Calendar.getInstance().time
                     )
                 )
             }
