@@ -9,6 +9,7 @@ internal class MapperSpendingModelToSpendingDto @Inject constructor() {
     fun mapSpendingModelToSpendingDto(model : SpendingModel) : SpendingDto {
         return SpendingDto(
             id = model.id,
+            walletId = model.walletId,
             amount = model.amount,
             comment = model.comment,
             createAt = model.createAt,
