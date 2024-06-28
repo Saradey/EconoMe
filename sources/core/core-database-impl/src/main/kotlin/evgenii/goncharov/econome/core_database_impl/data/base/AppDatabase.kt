@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import evgenii.goncharov.econome.core_database_impl.common.DATABASE_VERSION
 import evgenii.goncharov.econome.core_database_impl.converters.DateConverter
+import evgenii.goncharov.econome.core_database_impl.converters.LongsListConverter
 import evgenii.goncharov.econome.core_database_impl.dao.CurrentWalletDao
 import evgenii.goncharov.econome.core_database_impl.dao.SpendingDao
 import evgenii.goncharov.econome.core_database_impl.dao.UserDao
@@ -25,7 +26,8 @@ import evgenii.goncharov.econome.core_database_impl.entities.WalletEntity
 )
 @TypeConverters(
     value = [
-        DateConverter::class
+        DateConverter::class,
+        LongsListConverter::class
     ]
 )
 internal abstract class AppDatabase : RoomDatabase() {
