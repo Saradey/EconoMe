@@ -4,6 +4,8 @@ import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.SpendingCategory
 import evgenii.goncharov.econome.spending_impl.models.SpendingModel
 import evgenii.goncharov.econome.spending_impl.repositories.AddSpendingRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 internal class AddSpendingInteractorImpl @Inject constructor(
@@ -42,7 +44,8 @@ internal class AddSpendingInteractorImpl @Inject constructor(
         }
     }
 
-    override suspend fun createSpending(spendingModel: SpendingModel) {
-        addSpendingRepository.createSpending(spendingModel)
-    }
+    override suspend fun createSpending(spendingModel: SpendingModel) =
+        withContext(Dispatchers.IO) {
+            addSpendingRepository.createSpending(spendingModel)
+        }
 }
