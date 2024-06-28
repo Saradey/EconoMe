@@ -15,10 +15,17 @@ internal class UserMapper @Inject constructor() {
         }
     }
 
-    fun mapUserDtoToUserEntity(dto: UserDto) : UserEntity {
+    fun mapUserDtoToUserEntity(dto: UserDto): UserEntity {
         return UserEntity(
             uuid = dto.uuid,
             userName = dto.userName
+        )
+    }
+
+    fun mapUserEntityToUserDto(entity: UserEntity): UserDto {
+        return UserDto(
+            uuid = entity.uuid,
+            userName = entity.userName
         )
     }
 }

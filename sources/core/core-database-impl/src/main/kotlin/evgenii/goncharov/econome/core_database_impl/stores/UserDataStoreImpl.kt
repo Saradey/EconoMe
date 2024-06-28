@@ -20,4 +20,10 @@ internal class UserDataStoreImpl @Inject constructor(
             userMapper.mapUserDtoToUserEntity(user)
         )
     }
+
+    override suspend fun getUserById(userId: String): UserDto {
+        return userMapper.mapUserEntityToUserDto(
+            userDao.getUserById(userId)
+        )
+    }
 }

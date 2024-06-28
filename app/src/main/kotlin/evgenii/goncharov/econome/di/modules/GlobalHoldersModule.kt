@@ -4,9 +4,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
+import evgenii.goncharov.econome.category.api.DefaultCategoryApi
+import evgenii.goncharov.econome.category.di.holder.DefaultCategoryHolder
 import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.common_provider.di.holder.CommonProviderHolder
-import evgenii.goncharov.econome.core_database_api.di.CoreDatabaseApi
+import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.core_database_impl.di.holder.CoreDatabaseHolder
 import evgenii.goncharov.econome.currency.api.CurrencyApi
 import evgenii.goncharov.econome.currency.di.holder.CurrencyHolder
@@ -39,4 +41,7 @@ interface GlobalHoldersModule {
 
     @[Binds Singleton IntoMap ClassKey(CurrentApi::class)]
     fun bindCurrentHolder(holder: CurrentHolder): BaseHolder<*>
+
+    @[Binds Singleton IntoMap ClassKey(DefaultCategoryApi::class)]
+    fun bindDefaultCategoryHolder(holder: DefaultCategoryHolder): BaseHolder<*>
 }

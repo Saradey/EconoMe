@@ -7,4 +7,6 @@ public sealed class SystemEvent {
     public data class ShowToast(
         val messageToast: String
     ) : SystemEvent()
+
+    public data object DismissDialog : SystemEvent()
 }

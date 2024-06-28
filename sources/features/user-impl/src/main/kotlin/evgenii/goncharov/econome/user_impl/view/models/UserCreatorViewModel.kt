@@ -37,7 +37,7 @@ internal class UserCreatorViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState: MutableState<UserCreatorUiState> = mutableStateOf(
-        UserCreatorUiState.Content(userNameInputText = "")
+        UserCreatorUiState()
     )
     val uiState: State<UserCreatorUiState> = _uiState
     private val _systemEvent: MutableStateFlow<SystemEvent> = MutableStateFlow(
@@ -49,18 +49,22 @@ internal class UserCreatorViewModel @Inject constructor(
         val userNameInputText = _uiState.value.userNameInputText
         val validate = userValidateNameUseCase(userNameInputText)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userNameInputText)
-            is UserStatusModel.EmptyInput -> makeErrorEmptyState(userNameInputText)
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState()
+            is UserStatusModel.EmptyInput -> makeErrorEmptyState()
             is UserStatusModel.Success -> authManager.authUser(resultLauncher, ::failReg)
         }
     }
 
     fun inputUserName(userName: String) {
-        val validate = userValidateNameUseCase(userName)
+        val trimUserName = userName.trim()
+        val validate = userValidateNameUseCase(trimUserName)
         when (validate) {
-            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userName)
+            is UserStatusModel.IncorrectInput -> makeErrorSymbolState(trimUserName)
             is UserStatusModel.Success, is UserStatusModel.EmptyInput -> {
-                _uiState.value = UserCreatorUiState.Content(userNameInputText = userName)
+                _uiState.value = _uiState.value.copy(
+                    userNameInputText = trimUserName,
+                    errorInputMessage = null
+                )
             }
         }
     }
@@ -82,21 +86,11 @@ internal class UserCreatorViewModel @Inject constructor(
             val userInputName = _uiState.value.userNameInputText
             val validate = userValidateNameUseCase(userInputName)
             when (validate) {
-                is UserStatusModel.IncorrectInput -> makeErrorSymbolState(userInputName)
-                is UserStatusModel.EmptyInput -> makeErrorEmptyState(userInputName)
+                is UserStatusModel.IncorrectInput -> makeErrorSymbolState()
+                is UserStatusModel.EmptyInput -> makeErrorEmptyState()
                 is UserStatusModel.Success -> generateUuid(userInputName)
             }
         }
-    }
-
-    private fun createErrorInputUserName(
-        inputText: String,
-        errorMessage: String
-    ): UserCreatorUiState.ErrorInputUserName {
-        return UserCreatorUiState.ErrorInputUserName(
-            userNameInputText = inputText,
-            errorInputMessage = errorMessage
-        )
     }
 
     private fun failReg() {
@@ -113,16 +107,21 @@ internal class UserCreatorViewModel @Inject constructor(
     }
 
     private fun makeErrorSymbolState(userNameInputText: String) {
-        _uiState.value = createErrorInputUserName(
-            userNameInputText,
-            resourceManager.getString(R.string.error_message_symbol)
+        _uiState.value = _uiState.value.copy(
+            userNameInputText = userNameInputText,
+            errorInputMessage = resourceManager.getString(R.string.error_message_symbol)
         )
     }
 
-    private fun makeErrorEmptyState(userNameInputText: String) {
-        _uiState.value = createErrorInputUserName(
-            userNameInputText,
-            resourceManager.getString(R.string.error_message_empty)
+    private fun makeErrorSymbolState() {
+        _uiState.value = _uiState.value.copy(
+            errorInputMessage = resourceManager.getString(R.string.error_message_symbol)
+        )
+    }
+
+    private fun makeErrorEmptyState() {
+        _uiState.value = _uiState.value.copy(
+            errorInputMessage = resourceManager.getString(R.string.error_message_empty)
         )
     }
 

@@ -88,6 +88,7 @@ dependencies {
 
     // domain modules
     implementation(project(":sources:domain:currency"))
+    implementation(project(":sources:domain:category"))
 
     // tests
     testImplementation(libs.junit)

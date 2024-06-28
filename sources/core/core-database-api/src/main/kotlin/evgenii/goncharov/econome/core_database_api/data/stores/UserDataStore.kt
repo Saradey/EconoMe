@@ -10,4 +10,7 @@ public interface UserDataStore {
 
     @WorkerThread
     public suspend fun saveNewUser(user: UserDto)
+
+    @WorkerThread
+    public suspend fun getUserById(userId: String) : UserDto
 }

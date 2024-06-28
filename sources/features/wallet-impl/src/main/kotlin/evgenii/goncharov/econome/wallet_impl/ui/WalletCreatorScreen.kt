@@ -62,7 +62,7 @@ internal fun WalletCreatorScreen(
             enabled = state.isButtonEnabled,
         ) {
             Text(
-                "Button",
+                "Создать кошелек",
                 color = Color.White,
                 fontSize = 20.sp
             )
