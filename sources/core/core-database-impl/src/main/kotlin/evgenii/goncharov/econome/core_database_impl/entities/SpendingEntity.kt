@@ -22,4 +22,5 @@ internal data class SpendingEntity(
     @ColumnInfo("amount") val amount: Float,
     @ColumnInfo("comment") val comment: String,
     @ColumnInfo("create_at") val createAt: Date,
+    @ColumnInfo("categories_id") val categoriesId: List<Long>,
 )
