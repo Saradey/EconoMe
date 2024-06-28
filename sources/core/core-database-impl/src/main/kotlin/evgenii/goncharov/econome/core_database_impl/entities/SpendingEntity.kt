@@ -18,4 +18,6 @@ import evgenii.goncharov.econome.core_database_impl.common.SPENDING_TABLE
 internal data class SpendingEntity(
     @ColumnInfo("spending_id") @PrimaryKey val spendingId: Long,
     @ColumnInfo("wallet_id_foreign") val walletId: Long,
+    @ColumnInfo("amount") val amount: Float,
+    @ColumnInfo("comment") val comment: String,
 )
