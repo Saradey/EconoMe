@@ -12,6 +12,8 @@ internal class SpendingDataStoreImpl @Inject constructor(
 ) : SpendingDataStore {
 
     override suspend fun saveSpending(dto: SpendingDto) {
-        
+        spendingDao.saveSpending(
+            spendingMapper.mapSpendingDtoToSpendingEntity(dto)
+        )
     }
 }
