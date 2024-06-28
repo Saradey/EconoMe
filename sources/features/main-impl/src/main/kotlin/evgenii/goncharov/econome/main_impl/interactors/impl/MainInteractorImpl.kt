@@ -21,7 +21,6 @@ internal class MainInteractorImpl @Inject constructor(
             USER_ERROR_MESSAGE
         )
         currentWalletId = currentWalletRepository.getCurrentWalletId()
-            ?: throw IllegalArgumentException(WALLET_ERROR_MESSAGE)
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {

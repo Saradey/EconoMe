@@ -15,9 +15,10 @@ android {
 dependencies {
     api(project(":sources:features:spending-api"))
 
-    implementation((project(":sources:engine:di-core")))
-    implementation((project(":sources:engine:navigation")))
+    implementation(project(":sources:engine:di-core"))
+    implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:core:current-user"))
     implementation(project(":sources:core:core-database-api"))
     implementation(project(":sources:domain:category"))
 

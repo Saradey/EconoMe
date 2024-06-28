@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.spending_impl.view.models
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.category.interactors.DefaultCategoryInteractor
+import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.spending_impl.interactors.AddSpendingInteractor
 import evgenii.goncharov.econome.spending_impl.models.AddSpendingUiState
 import evgenii.goncharov.econome.spending_impl.models.SpendingModel
@@ -19,7 +20,8 @@ internal class AddSpendingViewModel @Inject constructor(
     defaultCategoryInteractor: DefaultCategoryInteractor,
     mapper: MapperCategoryModelToSpendingCategory,
     private val inputSpendingValidatorUseCase: InputSpendingValidatorUseCase,
-    private val addSpendingInteractor: AddSpendingInteractor
+    private val addSpendingInteractor: AddSpendingInteractor,
+    private val currentWalletRepository: CurrentWalletRepository
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<AddSpendingUiState> =
@@ -77,6 +79,7 @@ internal class AddSpendingViewModel @Inject constructor(
                 addSpendingInteractor.createSpending(
                     SpendingModel(
                         id = Random.nextLong(),
+                        walletId = currentWalletRepository.getCurrentWalletId(),
                         amount = _uiState.value.inputSpending.toFloat(),
                         comment = _uiState.value.inputComment,
                         categoriesId = _uiState.value.spendingCategories.map { it.id },

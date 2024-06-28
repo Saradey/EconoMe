@@ -4,5 +4,5 @@ public interface CurrentWalletRepository {
 
     public fun setCurrentWalletId(walletId: Long)
 
-    public fun getCurrentWalletId(): Long?
+    public fun getCurrentWalletId(): Long
 }

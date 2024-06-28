@@ -4,6 +4,7 @@ import java.util.Date
 
 public data class SpendingDto(
     val id: Long,
+    val walletId: Long,
     val amount: Float,
     val comment: String,
     val createAt: Date,
