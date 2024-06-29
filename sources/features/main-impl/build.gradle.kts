@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:current-user"))
     implementation(project(":sources:core:core-database-api"))
+    implementation(project(":sources:core:common-provider"))
 
     implementation(project(":sources:features:spending-api"))
     implementation(project(":sources:features:product-cost-analysis-api"))
@@ -33,5 +34,5 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.fragment.ktx)
-
+    implementation(libs.kotlinx.serialization.json)
 }

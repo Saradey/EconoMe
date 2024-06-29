@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.di.holders
 
+import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
@@ -16,6 +17,7 @@ public class MainHolder @Inject constructor(container: FeatureContainer) :
 
     override fun buildComponent(): MainApi {
         return DaggerMainComponent.factory().create(
+            commonProviderApi = getGlobalComponent(CommonProviderApi::class.java),
             coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
             currentApi = getGlobalComponent(CurrentApi::class.java),
             spendingLauncher = getFeatureLauncher(SpendingLauncher::class.java),
