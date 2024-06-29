@@ -39,7 +39,12 @@ internal class MainInteractorImpl @Inject constructor(
             today,
             currentWalletId
         )
-        return spendingModelsToday.sumOf { model -> model.amount }.toString()
+        val amountSpendingToday = spendingModelsToday.sumOf { model -> model.amount }
+        return if (amountSpendingToday == 0.0) {
+            "0.00"
+        } else {
+            amountSpendingToday.toString()
+        }
     }
 
     private companion object {
