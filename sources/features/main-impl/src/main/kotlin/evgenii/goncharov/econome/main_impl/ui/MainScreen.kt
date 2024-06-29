@@ -118,7 +118,7 @@ private fun HeaderInfo(
             fontSize = 18.sp
         )
         Text(
-            text = "Сумма расходов за сегодня:$sumSpending",
+            text = "Сумма расходов за сегодня: $sumSpending",
             color = Color.White,
             fontSize = 18.sp
         )

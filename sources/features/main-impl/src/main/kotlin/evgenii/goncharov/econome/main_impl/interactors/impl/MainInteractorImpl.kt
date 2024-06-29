@@ -43,7 +43,7 @@ internal class MainInteractorImpl @Inject constructor(
         return if (amountSpendingToday == 0.0) {
             AMOUNT_ZERO
         } else {
-            amountSpendingToday.toString()
+            String.format(AMOUNT_FORMAT_PATTERN, amountSpendingToday)
         }
     }
 
@@ -51,5 +51,6 @@ internal class MainInteractorImpl @Inject constructor(
 
         const val USER_ERROR_MESSAGE = "Current user cannot be null"
         const val AMOUNT_ZERO = "0.00"
+        const val AMOUNT_FORMAT_PATTERN = "%.2f"
     }
 }
