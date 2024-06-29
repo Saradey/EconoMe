@@ -50,6 +50,6 @@ internal class MainInteractorImpl @Inject constructor(
     private companion object {
 
         const val USER_ERROR_MESSAGE = "Current user cannot be null"
-        const val AMOUNT_ZERO = "\"0.00\""
+        const val AMOUNT_ZERO = "0.00"
     }
 }
