@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.main_impl.repositories
 
 import evgenii.goncharov.econome.main_impl.models.SpendingModel
+import java.util.Date
 
 internal interface MainRepository {
 
@@ -8,5 +9,5 @@ internal interface MainRepository {
 
     suspend fun getWalletNameById(currentWalletId: Long): String
 
-    suspend fun getAllSpendingToday(): List<SpendingModel>
+    suspend fun getAllSpendingToday(today: Date): List<SpendingModel>
 }

@@ -16,4 +16,10 @@ internal class SpendingDataStoreImpl @Inject constructor(
             spendingMapper.mapSpendingDtoToSpendingEntity(dto)
         )
     }
+
+    override suspend fun spendingToDate(date: Long): List<SpendingDto> {
+        return spendingMapper.mapSpendingEntityToSpendingDto(
+            spendingDao.getSpendingsByDate(date)
+        )
+    }
 }

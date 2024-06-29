@@ -5,6 +5,7 @@ import evgenii.goncharov.econome.current_user.repositories.CurrentWalletReposito
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.CurrentUserModel
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
+import java.util.Calendar
 import javax.inject.Inject
 
 internal class MainInteractorImpl @Inject constructor(
@@ -15,6 +16,7 @@ internal class MainInteractorImpl @Inject constructor(
 
     private var currentUserId = ""
     private var currentWalletId = -1L
+    private val today = Calendar.getInstance().time
 
     override fun checkParameters() {
         currentUserId = currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
@@ -33,7 +35,7 @@ internal class MainInteractorImpl @Inject constructor(
     }
 
     override suspend fun formSpendingToday(): String {
-        val spendingModelsToday = mainRepository.getAllSpendingToday()
+        val spendingModelsToday = mainRepository.getAllSpendingToday(today)
         return spendingModelsToday.sumOf { model ->
             model.amount
         }.toString()

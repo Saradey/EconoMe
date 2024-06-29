@@ -33,4 +33,5 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     implementation(libs.fragment.ktx)
+
 }

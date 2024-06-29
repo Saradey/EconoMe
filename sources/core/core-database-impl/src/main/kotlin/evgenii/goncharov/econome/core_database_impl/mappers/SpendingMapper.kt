@@ -16,4 +16,17 @@ internal class SpendingMapper @Inject constructor() {
             categoriesId = dto.categoriesId
         )
     }
+
+    fun mapSpendingEntityToSpendingDto(entities: List<SpendingEntity>): List<SpendingDto> {
+        return entities.map { entity ->
+            SpendingDto(
+                id = entity.spendingId,
+                walletId = entity.walletId,
+                amount = entity.amount,
+                comment = entity.comment,
+                createAt = entity.createAt,
+                categoriesId = entity.categoriesId
+            )
+        }
+    }
 }
