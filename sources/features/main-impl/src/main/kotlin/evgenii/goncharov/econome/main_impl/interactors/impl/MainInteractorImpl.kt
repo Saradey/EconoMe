@@ -6,12 +6,14 @@ import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.CurrentUserModel
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
 import java.util.Calendar
+import java.util.Locale
 import javax.inject.Inject
 
 internal class MainInteractorImpl @Inject constructor(
     private val currentUserRepository: CurrentUserRepository,
     private val currentWalletRepository: CurrentWalletRepository,
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    private val appLocale: Locale
 ) : MainInteractor {
 
     private var currentUserId = ""
@@ -43,7 +45,7 @@ internal class MainInteractorImpl @Inject constructor(
         return if (amountSpendingToday == 0.0) {
             AMOUNT_ZERO
         } else {
-            String.format(AMOUNT_FORMAT_PATTERN, amountSpendingToday)
+            String.format(appLocale, AMOUNT_FORMAT_PATTERN, amountSpendingToday)
         }
     }
 
