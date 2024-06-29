@@ -4,6 +4,7 @@ import evgenii.goncharov.econome.core_database_api.data.stores.SpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
 import evgenii.goncharov.econome.main_impl.models.SpendingModel
+import evgenii.goncharov.econome.main_impl.models.mappers.MapperSpendingDtoToSpendingModel
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -13,7 +14,8 @@ import javax.inject.Inject
 internal class MainRepositoryImpl @Inject constructor(
     private val userDataStore: UserDataStore,
     private val walletDataStore: WalletDataStore,
-    private val spendingDataStore: SpendingDataStore
+    private val spendingDataStore: SpendingDataStore,
+    private val mapper: MapperSpendingDtoToSpendingModel
 ) : MainRepository {
 
     override suspend fun getUserNameById(currentUserId: String): String =
@@ -36,6 +38,6 @@ internal class MainRepositoryImpl @Inject constructor(
             today.time,
             currentWalletId
         )
-        emptyList()
+        mapper.map(spendingToday)
     }
 }

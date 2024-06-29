@@ -41,7 +41,7 @@ internal class MainInteractorImpl @Inject constructor(
         )
         val amountSpendingToday = spendingModelsToday.sumOf { model -> model.amount }
         return if (amountSpendingToday == 0.0) {
-            "0.00"
+            AMOUNT_ZERO
         } else {
             amountSpendingToday.toString()
         }
@@ -50,5 +50,6 @@ internal class MainInteractorImpl @Inject constructor(
     private companion object {
 
         const val USER_ERROR_MESSAGE = "Current user cannot be null"
+        const val AMOUNT_ZERO = "\"0.00\""
     }
 }
