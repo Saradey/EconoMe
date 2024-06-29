@@ -28,9 +28,14 @@ internal class MainRepositoryImpl @Inject constructor(
             walletDto.walletName
         }
 
-    override suspend fun getAllSpendingToday(today: Date): List<SpendingModel> =
-        withContext(Dispatchers.IO) {
-            val spendingToday = spendingDataStore.spendingToDate(today.time)
-            emptyList()
-        }
+    override suspend fun getAllSpendingToday(
+        today: Date,
+        currentWalletId: Long
+    ): List<SpendingModel> = withContext(Dispatchers.IO) {
+        val spendingToday = spendingDataStore.spendingToDate(
+            today.time,
+            currentWalletId
+        )
+        emptyList()
+    }
 }

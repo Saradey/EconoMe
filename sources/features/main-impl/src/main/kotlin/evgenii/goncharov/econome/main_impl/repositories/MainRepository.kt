@@ -9,5 +9,8 @@ internal interface MainRepository {
 
     suspend fun getWalletNameById(currentWalletId: Long): String
 
-    suspend fun getAllSpendingToday(today: Date): List<SpendingModel>
+    suspend fun getAllSpendingToday(
+        today: Date,
+        currentWalletId: Long
+    ): List<SpendingModel>
 }

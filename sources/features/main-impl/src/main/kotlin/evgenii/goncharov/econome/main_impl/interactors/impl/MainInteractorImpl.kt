@@ -35,10 +35,11 @@ internal class MainInteractorImpl @Inject constructor(
     }
 
     override suspend fun formSpendingToday(): String {
-        val spendingModelsToday = mainRepository.getAllSpendingToday(today)
-        return spendingModelsToday.sumOf { model ->
-            model.amount
-        }.toString()
+        val spendingModelsToday = mainRepository.getAllSpendingToday(
+            today,
+            currentWalletId
+        )
+        return spendingModelsToday.sumOf { model -> model.amount }.toString()
     }
 
     private companion object {

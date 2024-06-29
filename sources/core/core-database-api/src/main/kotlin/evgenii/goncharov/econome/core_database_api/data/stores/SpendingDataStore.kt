@@ -10,5 +10,8 @@ public interface SpendingDataStore {
     public suspend fun saveSpending(dto: SpendingDto)
 
     @WorkerThread
-    public suspend fun spendingToDate(date: Long): List<SpendingDto>
+    public suspend fun spendingToDate(
+        date: Long,
+        currentWalletId: Long
+    ): List<SpendingDto>
 }

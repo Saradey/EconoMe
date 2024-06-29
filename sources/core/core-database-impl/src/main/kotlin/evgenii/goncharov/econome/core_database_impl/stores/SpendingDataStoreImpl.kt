@@ -17,9 +17,9 @@ internal class SpendingDataStoreImpl @Inject constructor(
         )
     }
 
-    override suspend fun spendingToDate(date: Long): List<SpendingDto> {
+    override suspend fun spendingToDate(date: Long, currentWalletId: Long): List<SpendingDto> {
         return spendingMapper.mapSpendingEntityToSpendingDto(
-            spendingDao.getSpendingsByDate(date)
+            spendingDao.getSpendingsByDate(date, currentWalletId)
         )
     }
 }
