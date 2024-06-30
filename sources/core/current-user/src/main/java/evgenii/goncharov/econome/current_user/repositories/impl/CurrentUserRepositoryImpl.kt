@@ -1,20 +1,23 @@
 package evgenii.goncharov.econome.current_user.repositories.impl
 
-import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import javax.inject.Inject
 
-internal class CurrentUserRepositoryImpl @Inject constructor(
-    private val userDataStore: UserDataStore
-) : CurrentUserRepository {
+internal class CurrentUserRepositoryImpl @Inject constructor() : CurrentUserRepository {
 
-    private var userId: String? = null
+    private var _currentUserIde: String? = null
 
-    override fun setCurrentUserId(userId: String) {
-        this.userId = userId
+    override val currentUserIde: String
+        get() {
+            return _currentUserIde ?: throw IllegalArgumentException(USER_ERROR_MESSAGE)
+        }
+
+    override fun setUserId(userId: String) {
+        this._currentUserIde = userId
     }
 
-    override fun getCurrentUserId(): String? {
-        return userId
+    private companion object {
+
+        const val USER_ERROR_MESSAGE = "Current user cannot be null"
     }
 }

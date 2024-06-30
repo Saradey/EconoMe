@@ -19,14 +19,12 @@ internal class MainInteractorImpl @Inject constructor(
     private val today = Calendar.getInstance().time
 
     override fun checkParameters() {
-        currentUserId = currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
-            USER_ERROR_MESSAGE
-        )
+        currentUserRepository.currentUserIde
         currentWalletRepository.currentWalletId
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {
-        val userName = mainRepository.getUserNameById(currentUserId)
+        val userName = mainRepository.getUserNameById(currentUserRepository.currentUserIde)
         val walletName = mainRepository.getWalletNameById(currentWalletRepository.currentWalletId)
         return CurrentUserModel(
             userName = userName,
@@ -48,12 +46,11 @@ internal class MainInteractorImpl @Inject constructor(
     }
 
     override suspend fun getCurrentCurrency(): String {
-
+        return ""
     }
 
     private companion object {
 
-        const val USER_ERROR_MESSAGE = "Current user cannot be null"
         const val AMOUNT_ZERO = "0.00"
         const val AMOUNT_FORMAT_PATTERN = "%.2f"
     }
