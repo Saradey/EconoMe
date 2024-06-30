@@ -1,25 +1,23 @@
 package evgenii.goncharov.econome.current_user.repositories.impl
 
-import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import javax.inject.Inject
 
-internal class CurrentWalletRepositoryImpl @Inject constructor(
-    private val walletDataStore: WalletDataStore
-) : CurrentWalletRepository {
+internal class CurrentWalletRepositoryImpl @Inject constructor() : CurrentWalletRepository {
 
-    private var currentWalletId: Long? = null
+    private var _currentWalletId: Long? = null
+
+    override val currentWalletId: Long
+        get() {
+            return _currentWalletId ?: throw IllegalArgumentException(ERROR_MESSAGE_WALLET_ID)
+        }
 
     override fun setCurrentWalletId(walletId: Long) {
-        this.currentWalletId = walletId
-    }
-
-    override fun getCurrentWalletId(): Long {
-        return currentWalletId ?: throw IllegalArgumentException(ERROR_MESSAGE_WALLET_ID)
+        this._currentWalletId = walletId
     }
 
     private companion object {
 
-        const val ERROR_MESSAGE_WALLET_ID = "currentWalletId must be not null"
+        const val ERROR_MESSAGE_WALLET_ID = "current wallet id must be not null"
     }
 }

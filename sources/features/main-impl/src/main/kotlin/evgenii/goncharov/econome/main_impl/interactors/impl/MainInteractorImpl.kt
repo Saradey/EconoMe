@@ -16,20 +16,18 @@ internal class MainInteractorImpl @Inject constructor(
     private val appLocale: Locale
 ) : MainInteractor {
 
-    private var currentUserId = ""
-    private var currentWalletId = -1L
     private val today = Calendar.getInstance().time
 
     override fun checkParameters() {
         currentUserId = currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
             USER_ERROR_MESSAGE
         )
-        currentWalletId = currentWalletRepository.getCurrentWalletId()
+        currentWalletRepository.currentWalletId
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {
         val userName = mainRepository.getUserNameById(currentUserId)
-        val walletName = mainRepository.getWalletNameById(currentWalletId)
+        val walletName = mainRepository.getWalletNameById(currentWalletRepository.currentWalletId)
         return CurrentUserModel(
             userName = userName,
             walletName = walletName
@@ -39,7 +37,7 @@ internal class MainInteractorImpl @Inject constructor(
     override suspend fun formSpendingToday(): String {
         val spendingModelsToday = mainRepository.getAllSpendingToday(
             today,
-            currentWalletId
+            currentWalletRepository.currentWalletId
         )
         val amountSpendingToday = spendingModelsToday.sumOf { model -> model.amount }
         return if (amountSpendingToday == 0.0) {
