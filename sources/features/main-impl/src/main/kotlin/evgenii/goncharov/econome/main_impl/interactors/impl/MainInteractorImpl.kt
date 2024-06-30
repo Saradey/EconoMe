@@ -49,6 +49,10 @@ internal class MainInteractorImpl @Inject constructor(
         }
     }
 
+    override suspend fun getCurrentCurrency(): String {
+
+    }
+
     private companion object {
 
         const val USER_ERROR_MESSAGE = "Current user cannot be null"

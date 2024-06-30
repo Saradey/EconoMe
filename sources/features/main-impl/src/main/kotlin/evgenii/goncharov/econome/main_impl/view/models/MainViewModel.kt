@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.MainUiState
+import evgenii.goncharov.econome.main_impl.models.SpendingTodayModel
 import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
 import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -51,9 +52,13 @@ internal class MainViewModel @Inject constructor(
         viewModelScope.launch {
             val currentUser = mainInteractor.formCurrentUser()
             val spendingToday = mainInteractor.formSpendingToday()
+            val currency = mainInteractor.getCurrentCurrency()
             _uiState.value = MainUiState.Content(
                 currentUser = currentUser,
-                spendingToday = spendingToday
+                spendingToday = SpendingTodayModel(
+                    spendingToday = spendingToday,
+                    currencyCharacter = currency
+                )
             )
         }
     }

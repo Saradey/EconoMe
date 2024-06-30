@@ -9,4 +9,6 @@ internal interface MainInteractor {
     suspend fun formCurrentUser(): CurrentUserModel
 
     suspend fun formSpendingToday(): String
+
+    suspend fun getCurrentCurrency(): String
 }
