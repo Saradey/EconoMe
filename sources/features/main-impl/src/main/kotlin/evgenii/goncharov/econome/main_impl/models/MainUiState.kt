@@ -6,6 +6,6 @@ internal sealed class MainUiState {
 
     data class Content(
         val currentUser: CurrentUserModel,
-        val spendingToday: String
+        val spendingToday: SpendingTodayModel
     ) : MainUiState()
 }

@@ -54,7 +54,8 @@ private fun MainScreenContent(
         HeaderInfo(
             userName = state.currentUser.userName,
             walletName = state.currentUser.walletName,
-            sumSpending = state.spendingToday
+            sumSpending = state.spendingToday.spendingToday,
+            currency = state.spendingToday.currencyCharacter
         )
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -100,7 +101,8 @@ private fun HeaderInfo(
     modifier: Modifier = Modifier,
     userName: String,
     walletName: String,
-    sumSpending: String
+    sumSpending: String,
+    currency: String
 ) {
     Column(
         modifier = modifier
@@ -118,7 +120,7 @@ private fun HeaderInfo(
             fontSize = 18.sp
         )
         Text(
-            text = "Сумма расходов за сегодня: $sumSpending",
+            text = "Сумма расходов за сегодня: $sumSpending $currency",
             color = Color.White,
             fontSize = 18.sp
         )
