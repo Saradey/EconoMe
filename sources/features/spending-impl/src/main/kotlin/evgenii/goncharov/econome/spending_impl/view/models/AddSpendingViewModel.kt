@@ -84,7 +84,7 @@ internal class AddSpendingViewModel @Inject constructor(
                 addSpendingInteractor.createSpending(
                     SpendingModel(
                         id = Random.nextLong(),
-                        walletId = currentWalletRepository.getCurrentWalletId(),
+                        walletId = currentWalletRepository.currentWalletId,
                         amount = _uiState.value.inputSpending.toFloat(),
                         comment = _uiState.value.inputComment,
                         categoriesId = _uiState.value.spendingCategories.map { it.id },
