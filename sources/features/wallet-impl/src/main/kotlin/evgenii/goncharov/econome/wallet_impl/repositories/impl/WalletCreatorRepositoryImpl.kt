@@ -54,7 +54,7 @@ internal class WalletCreatorRepositoryImpl @Inject constructor(
             WalletDto(
                 walletId = walletId,
                 walletName = walletName ?: throw IllegalArgumentException(WALLET_MUST_NOT_NULL),
-                code = currencyCodeSelected?.code ?: throw IllegalArgumentException(
+                currencyCode = currencyCodeSelected?.code ?: throw IllegalArgumentException(
                     CURRENCY_CODE_MUST_NOT_NULL
                 ),
                 sequenceNumber = lastSequenceNumber + 1,

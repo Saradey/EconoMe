@@ -44,6 +44,6 @@ internal class MainRepositoryImpl @Inject constructor(
     override suspend fun getCurrentCurrency(currentWalletId: Long): String =
         withContext(Dispatchers.IO) {
             val walletDto = walletDataStore.getWalletById(currentWalletId)
-            walletDto.code
+            walletDto.currencyCode
         }
 }
