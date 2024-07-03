@@ -63,6 +63,8 @@ private fun MainScreenContent(
         ) {
             Text("Добавить расход")
         }
+        ListSpendingToday()
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -121,6 +123,21 @@ private fun HeaderInfo(
         )
         Text(
             text = "Сумма расходов за сегодня: $sumSpending $currency",
+            color = Color.White,
+            fontSize = 18.sp
+        )
+    }
+}
+
+@Composable
+private fun ListSpendingToday(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+    ) {
+        Text(
+            modifier = Modifier.padding(16.dp),
+            text = "Список расходов за сегодня:",
             color = Color.White,
             fontSize = 18.sp
         )
