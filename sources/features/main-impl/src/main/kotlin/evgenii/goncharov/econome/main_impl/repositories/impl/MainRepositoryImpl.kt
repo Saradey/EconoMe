@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.repositories.impl
 
+import evgenii.goncharov.econome.common.consts.CurrencyCode
 import evgenii.goncharov.econome.core_database_api.data.stores.SpendingDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.UserDataStore
 import evgenii.goncharov.econome.core_database_api.data.stores.WalletDataStore
@@ -44,6 +45,12 @@ internal class MainRepositoryImpl @Inject constructor(
     override suspend fun getCurrentCurrency(currentWalletId: Long): String =
         withContext(Dispatchers.IO) {
             val walletDto = walletDataStore.getWalletById(currentWalletId)
-            walletDto.currencyCode
+            CurrencyCode.fromString(walletDto.currencyCode)?.symbol
+                ?: throw IllegalArgumentException(CURRENCY_ERROR_MESSAGE)
         }
+
+    private companion object {
+
+        const val CURRENCY_ERROR_MESSAGE = "The currency must not be null"
+    }
 }
