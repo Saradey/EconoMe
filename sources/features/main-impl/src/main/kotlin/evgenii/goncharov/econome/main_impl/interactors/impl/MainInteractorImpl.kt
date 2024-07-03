@@ -46,7 +46,7 @@ internal class MainInteractorImpl @Inject constructor(
     }
 
     override suspend fun getCurrentCurrency(): String {
-        return ""
+        return mainRepository.getCurrentCurrency(currentWalletRepository.currentWalletId)
     }
 
     private companion object {

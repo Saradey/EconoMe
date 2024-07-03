@@ -40,4 +40,10 @@ internal class MainRepositoryImpl @Inject constructor(
         )
         mapper.map(spendingToday)
     }
+
+    override suspend fun getCurrentCurrency(currentWalletId: Long): String =
+        withContext(Dispatchers.IO) {
+            val walletDto = walletDataStore.getWalletById(currentWalletId)
+            walletDto.code
+        }
 }

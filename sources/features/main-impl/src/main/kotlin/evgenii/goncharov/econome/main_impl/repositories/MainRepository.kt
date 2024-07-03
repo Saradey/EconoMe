@@ -13,4 +13,6 @@ internal interface MainRepository {
         today: Date,
         currentWalletId: Long
     ): List<SpendingModel>
+
+    suspend fun getCurrentCurrency(currentWalletId: Long): String
 }
