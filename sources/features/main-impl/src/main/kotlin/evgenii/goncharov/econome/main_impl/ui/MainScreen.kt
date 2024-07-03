@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.main_impl.models.MainUiState
+import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 
 @Composable
@@ -63,7 +64,9 @@ private fun MainScreenContent(
         ) {
             Text("Добавить расход")
         }
-        ListSpendingToday()
+        ListSpendingToday(
+            spendingListToday = state.spendingListToday
+        )
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -130,7 +133,10 @@ private fun HeaderInfo(
 }
 
 @Composable
-private fun ListSpendingToday(modifier: Modifier = Modifier) {
+private fun ListSpendingToday(
+    modifier: Modifier = Modifier,
+    spendingListToday: List<SpendingItemModel>
+) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -141,5 +147,6 @@ private fun ListSpendingToday(modifier: Modifier = Modifier) {
             color = Color.White,
             fontSize = 18.sp
         )
+
     }
 }
