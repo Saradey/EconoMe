@@ -7,7 +7,7 @@ internal class CurrentUserRepositoryImpl @Inject constructor() : CurrentUserRepo
 
     private var _currentUserIde: String? = null
 
-    override val currentUserIde: String
+    override val currentUserId: String
         get() {
             return _currentUserIde ?: throw IllegalArgumentException(USER_ERROR_MESSAGE)
         }

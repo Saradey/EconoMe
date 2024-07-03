@@ -4,5 +4,5 @@ public interface CurrentUserRepository {
 
     public fun setUserId(userId: String)
 
-    public val currentUserIde: String
+    public val currentUserId: String
 }

@@ -19,12 +19,12 @@ internal class MainInteractorImpl @Inject constructor(
     private val today = Calendar.getInstance().time
 
     override fun checkParameters() {
-        currentUserRepository.currentUserIde
+        currentUserRepository.currentUserId
         currentWalletRepository.currentWalletId
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {
-        val userName = mainRepository.getUserNameById(currentUserRepository.currentUserIde)
+        val userName = mainRepository.getUserNameById(currentUserRepository.currentUserId)
         val walletName = mainRepository.getWalletNameById(currentWalletRepository.currentWalletId)
         return CurrentUserModel(
             userName = userName,
