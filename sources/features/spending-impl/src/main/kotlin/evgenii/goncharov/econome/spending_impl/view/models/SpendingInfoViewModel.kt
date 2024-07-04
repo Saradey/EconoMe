@@ -41,6 +41,9 @@ internal class SpendingInfoViewModel @AssistedInject constructor(
         }
     }
 
+    fun clickClose() {
+        _systemEvent.value = SystemEvent.DismissDialog
+    }
 
     @AssistedFactory
     interface Factory {

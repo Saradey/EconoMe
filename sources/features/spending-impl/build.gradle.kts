@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":sources:core:common-provider"))
     implementation(project(":sources:core:current-user"))
     implementation(project(":sources:core:core-database-api"))
+    implementation(project(":sources:resources:ui-kit"))
     implementation(project(":sources:domain:category"))
 
     implementation(project(":sources:features:main-api"))
