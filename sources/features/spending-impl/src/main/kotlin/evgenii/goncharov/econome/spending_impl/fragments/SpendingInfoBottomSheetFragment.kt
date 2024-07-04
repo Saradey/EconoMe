@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
-import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApiWithParameters
 import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.SpendingInfoInternal
+import evgenii.goncharov.econome.spending_impl.di.holders.SpendingInfoHolder.Companion.SPENDING_ID_DI_KEY
 import evgenii.goncharov.econome.spending_impl.ui.SpendingInfoScreen
 import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 
@@ -17,7 +18,10 @@ import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 internal class SpendingInfoBottomSheetFragment : CoreBottomSheetFragment() {
 
     private val dependency: SpendingInfoInternal by lazy {
-        getFeatureApi(SpendingInfoApi::class.java) as SpendingInfoInternal
+        getFeatureApiWithParameters(
+            SpendingInfoApi::class.java,
+            mapOf(SPENDING_ID_DI_KEY to arguments?.getLong(SPENDING_ID_KEY))
+        ) as SpendingInfoInternal
     }
     private val viewModel: SpendingInfoViewModel by viewModels {
         dependency.provideViewModelFactory()

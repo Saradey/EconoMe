@@ -17,7 +17,13 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
         return componentApi
     }
 
-    protected abstract fun buildComponent(): C
+    protected open fun buildComponent(): C {
+        throw ExceptionInInitializerError(ERROR_MESSAGE_INIT_WITH_ARGS)
+    }
+
+    protected open fun buildComponentWithParameters(arguments: Map<String, Any>): C {
+        throw ExceptionInInitializerError(ERROR_MESSAGE_INIT_WITH_ARGS)
+    }
 
     protected fun <CG> getGlobalComponent(key: Class<CG>): CG {
         return container.getGlobalComponent(key)
@@ -26,5 +32,10 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
     @Suppress("UNCHECKED_CAST")
     protected fun <FC : ReleasableApi> getFeatureComponent(key: Class<out ReleasableApi>): FC? {
         return container.getNullableFeatureComponent(key) as FC?
+    }
+
+    private companion object {
+
+        const val ERROR_MESSAGE_INIT_WITH_ARGS = "Need override this method"
     }
 }
