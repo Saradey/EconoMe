@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.fragment.app.Fragment
 import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
 import evgenii.goncharov.econome.di_core.engine.DI
-import evgenii.goncharov.econome.di_core.utils.makeUiContainer
+import evgenii.goncharov.econome.di_core.extensions.makeUiContainer
 
 public abstract class CoreFragment : Fragment() {
 

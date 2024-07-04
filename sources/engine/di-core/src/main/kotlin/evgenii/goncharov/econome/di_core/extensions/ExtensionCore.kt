@@ -1,4 +1,4 @@
-package evgenii.goncharov.econome.di_core.utils
+package evgenii.goncharov.econome.di_core.extensions
 
 import android.content.Context
 import android.view.View
