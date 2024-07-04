@@ -23,7 +23,7 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
             SpendingItemModel(
                 number = (index + 1).toString(),
                 amount = spendingDto.amount.toString(),
-                comment = spendingDto.comment,
+                comment = spendingDto.comment.ifEmpty { EMPTY_COMMENT },
                 spendingCategoryTitle = mapCategoriesToTitles(categories),
                 spendingTime = timeHourAndMinuteDateFormatter.format(spendingDto.createAt)
             )
@@ -39,5 +39,6 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
     private companion object {
 
         const val TIME_FORMAT = "HH-mm"
+        const val EMPTY_COMMENT = "-"
     }
 }

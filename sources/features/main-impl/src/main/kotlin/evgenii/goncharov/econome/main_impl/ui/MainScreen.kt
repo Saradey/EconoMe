@@ -209,5 +209,11 @@ private fun ItemSpendingToday(
                 fontSize = 16.sp
             )
         }
+        Text(
+            text = "Комментарий: $comment",
+            maxLines = 1,
+            color = Color.White,
+            fontSize = 16.sp
+        )
     }
 }
