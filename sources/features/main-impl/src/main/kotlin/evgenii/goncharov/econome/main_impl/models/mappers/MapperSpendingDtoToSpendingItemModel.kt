@@ -21,7 +21,7 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
                 spendingDto.categoriesId
             )
             SpendingItemModel(
-                number = index.toString(),
+                number = (index + 1).toString(),
                 amount = spendingDto.amount.toString(),
                 comment = spendingDto.comment,
                 spendingCategoryTitle = mapCategoriesToTitles(categories),

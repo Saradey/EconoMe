@@ -54,9 +54,9 @@ internal class MainViewModel @Inject constructor(
                 currentUser = mainInteractor.formCurrentUser(),
                 spendingToday = SpendingTodayModel(
                     spendingToday = mainInteractor.formSpendingToday(),
-                    currencyCharacter = mainInteractor.getCurrentCurrency(),
                 ),
-                spendingListToday = mainInteractor.getSpendingToday()
+                spendingListToday = mainInteractor.getSpendingToday(),
+                currencyCharacter = mainInteractor.getCurrentCurrency(),
             )
         }
     }

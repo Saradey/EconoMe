@@ -2,9 +2,12 @@ package evgenii.goncharov.econome.main_impl.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,6 +21,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.main_impl.models.MainUiState
 import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
+import androidx.compose.foundation.lazy.items
 
 @Composable
 internal fun MainScreen(
@@ -56,7 +60,7 @@ private fun MainScreenContent(
             userName = state.currentUser.userName,
             walletName = state.currentUser.walletName,
             sumSpending = state.spendingToday.spendingToday,
-            currency = state.spendingToday.currencyCharacter
+            currency = state.currencyCharacter
         )
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -65,7 +69,8 @@ private fun MainScreenContent(
             Text("Добавить расход")
         }
         ListSpendingToday(
-            spendingListToday = state.spendingListToday
+            spendingListToday = state.spendingListToday,
+            currentCurrencySymbol = state.currencyCharacter
         )
 
         Column(
@@ -135,7 +140,8 @@ private fun HeaderInfo(
 @Composable
 private fun ListSpendingToday(
     modifier: Modifier = Modifier,
-    spendingListToday: List<SpendingItemModel>
+    spendingListToday: List<SpendingItemModel>,
+    currentCurrencySymbol: String
 ) {
     Column(
         modifier = modifier
@@ -147,6 +153,33 @@ private fun ListSpendingToday(
             color = Color.White,
             fontSize = 18.sp
         )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(140.dp)
+        ) {
+            items(spendingListToday) { item ->
+                ItemSpendingToday(
+                    title = "${item.number} ${item.amount} $currentCurrencySymbol",
+                    categoriesTitle = item.spendingCategoryTitle,
+                    spendingTime = item.spendingTime,
+                    comment = item.comment
+                )
+            }
+        }
+    }
+}
 
+@Composable
+private fun ItemSpendingToday(
+    title: String,
+    categoriesTitle: List<String>,
+    spendingTime: String,
+    comment: String
+) {
+    Column {
+        Row {
+
+        }
     }
 }
