@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
-import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.SpendingInfoInternal
 import evgenii.goncharov.econome.spending_impl.ui.SpendingInfoScreen
@@ -13,7 +12,7 @@ import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 /**
  * 5. Screen
  */
-internal class SpendingInfoFragment : CoreBottomSheetFragment() {
+internal class SpendingInfoBottomSheetFragment : CoreBottomSheetFragment() {
 
     private val dependency: SpendingInfoInternal by lazy {
         getFeatureApi(SpendingInfoApi::class.java) as SpendingInfoInternal
@@ -33,7 +32,7 @@ internal class SpendingInfoFragment : CoreBottomSheetFragment() {
 
         private const val SPENDING_ID_KEY = "SPENDING_ID_KEY"
 
-        fun newInstance(spendingId: Long) = SpendingInfoFragment().apply {
+        fun newInstance(spendingId: Long) = SpendingInfoBottomSheetFragment().apply {
             val args = Bundle()
             args.putLong(SPENDING_ID_KEY, spendingId)
             arguments = args

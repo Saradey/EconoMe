@@ -2,7 +2,7 @@ package evgenii.goncharov.econome.spending_impl.navigation
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import evgenii.goncharov.econome.spending_impl.fragments.AddSpendingDialogFragment
-import evgenii.goncharov.econome.spending_impl.fragments.SpendingInfoFragment
+import evgenii.goncharov.econome.spending_impl.fragments.SpendingInfoBottomSheetFragment
 
 internal object SpendingNavigationScreens {
 
@@ -11,6 +11,6 @@ internal object SpendingNavigationScreens {
     }
 
     fun startDeepSpendingInfo(spendingId: Long) = FragmentScreen {
-        SpendingInfoFragment.newInstance(spendingId)
+        SpendingInfoBottomSheetFragment.newInstance(spendingId)
     }
 }
