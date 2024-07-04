@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import evgenii.goncharov.econome.common.ui.SystemEvent
+import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.spending_impl.models.SpendingInfoUiState
 import evgenii.goncharov.econome.spending_impl.repositories.SpendingInfoRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,8 @@ import kotlinx.coroutines.launch
 
 internal class SpendingInfoViewModel @AssistedInject constructor(
     @Assisted private val spendingId: Long,
-    private val spendingInfoRepository: SpendingInfoRepository
+    private val spendingInfoRepository: SpendingInfoRepository,
+    private val currentWalletRepository: CurrentWalletRepository
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<SpendingInfoUiState> = MutableStateFlow(
@@ -29,8 +31,12 @@ internal class SpendingInfoViewModel @AssistedInject constructor(
     fun loadSpending() {
         viewModelScope.launch {
             val spendingInfoModel = spendingInfoRepository.getSpendingInfoById(spendingId)
+            val currentCurrencySymbol = spendingInfoRepository.getCurrentCurrency(
+                currentWalletRepository.currentWalletId
+            )
             _uiState.value = SpendingInfoUiState(
-                spendingInfoModel
+                spendingInfoModel = spendingInfoModel,
+                currentCurrencySymbol = currentCurrencySymbol
             )
         }
     }
