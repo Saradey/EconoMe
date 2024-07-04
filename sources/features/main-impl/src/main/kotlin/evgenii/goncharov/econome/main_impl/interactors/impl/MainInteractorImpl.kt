@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.interactors.impl
 
+import evgenii.goncharov.econome.common.consts.AMOUNT_FORMAT_PATTERN
 import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
@@ -60,6 +61,5 @@ internal class MainInteractorImpl @Inject constructor(
     private companion object {
 
         const val AMOUNT_ZERO = "0.00"
-        const val AMOUNT_FORMAT_PATTERN = "%.2f"
     }
 }

@@ -16,7 +16,9 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
     private val timeHourAndMinuteDateFormatter = SimpleDateFormat(TIME_FORMAT, appLocale)
 
     fun map(dto: List<SpendingDto>): List<SpendingItemModel> {
-        return dto.mapIndexed { index, spendingDto ->
+        return dto.sortedBy { spendingDto ->
+            spendingDto.createAt.time
+        } .mapIndexed { index, spendingDto ->
             val categories = defaultCategoryInteractor.provideCategoriesByIds(
                 spendingDto.categoriesId
             )
