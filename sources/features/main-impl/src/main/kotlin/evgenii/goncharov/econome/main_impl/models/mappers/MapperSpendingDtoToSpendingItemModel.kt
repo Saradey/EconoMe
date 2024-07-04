@@ -24,6 +24,7 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
                 spendingDto.categoriesId
             )
             SpendingItemModel(
+                idSpending = spendingDto.id,
                 number = (index + 1).toString(),
                 amount = String.format(appLocale, AMOUNT_FORMAT_PATTERN, spendingDto.amount),
                 comment = spendingDto.comment.ifEmpty { EMPTY_COMMENT },
