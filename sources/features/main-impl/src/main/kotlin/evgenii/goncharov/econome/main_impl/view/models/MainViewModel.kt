@@ -50,15 +50,13 @@ internal class MainViewModel @Inject constructor(
 
     private fun initialContent() {
         viewModelScope.launch {
-            val currentUser = mainInteractor.formCurrentUser()
-            val spendingToday = mainInteractor.formSpendingToday()
-            val currency = mainInteractor.getCurrentCurrency()
             _uiState.value = MainUiState.Content(
-                currentUser = currentUser,
+                currentUser = mainInteractor.formCurrentUser(),
                 spendingToday = SpendingTodayModel(
-                    spendingToday = spendingToday,
-                    currencyCharacter = currency
-                )
+                    spendingToday = mainInteractor.formSpendingToday(),
+                    currencyCharacter = mainInteractor.getCurrentCurrency(),
+                ),
+                spendingListToday = mainInteractor.getSpendingToday()
             )
         }
     }

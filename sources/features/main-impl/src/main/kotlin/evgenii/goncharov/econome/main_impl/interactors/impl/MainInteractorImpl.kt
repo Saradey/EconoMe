@@ -4,6 +4,7 @@ import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.CurrentUserModel
+import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
 import java.util.Calendar
 import java.util.Locale
@@ -47,6 +48,13 @@ internal class MainInteractorImpl @Inject constructor(
 
     override suspend fun getCurrentCurrency(): String {
         return mainRepository.getCurrentCurrency(currentWalletRepository.currentWalletId)
+    }
+
+    override suspend fun getSpendingToday(): List<SpendingItemModel> {
+        return mainRepository.getSpendingItemsToday(
+            today,
+            currentWalletRepository.currentWalletId
+        )
     }
 
     private companion object {
