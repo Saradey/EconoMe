@@ -45,6 +45,8 @@ internal class SpendingInfoViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
 
-        fun create(spendingId: Long): SpendingInfoViewModel
+        fun create(
+            spendingId: Long,
+        ): SpendingInfoViewModel
     }
 }
