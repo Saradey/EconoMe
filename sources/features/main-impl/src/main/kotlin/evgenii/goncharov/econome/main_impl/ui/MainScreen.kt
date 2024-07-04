@@ -22,6 +22,8 @@ import evgenii.goncharov.econome.main_impl.models.MainUiState
 import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.text.style.TextOverflow
 
 @Composable
@@ -161,12 +163,14 @@ private fun ListSpendingToday(
                 .height(140.dp)
         ) {
             items(spendingListToday) { item ->
+                HorizontalDivider(color = Color.White, thickness = 1.dp)
                 ItemSpendingToday(
                     title = "${item.number}. ${item.amount} $currentCurrencySymbol",
                     categoriesTitle = item.spendingCategoryTitle,
                     spendingTime = item.spendingTime,
                     comment = item.comment
                 )
+                HorizontalDivider(color = Color.White, thickness = 1.dp)
             }
         }
     }
@@ -183,7 +187,6 @@ private fun ItemSpendingToday(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 8.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -196,7 +199,9 @@ private fun ItemSpendingToday(
                 fontSize = 16.sp
             )
             Text(
-                modifier = Modifier.padding(end = 8.dp).weight(1f),
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .weight(1f),
                 text = "Категории: ${categoriesTitle.joinToString("/")}",
                 color = Color.White,
                 maxLines = 1,
@@ -213,6 +218,7 @@ private fun ItemSpendingToday(
             text = "Комментарий: $comment",
             maxLines = 1,
             color = Color.White,
+            overflow = TextOverflow.Ellipsis,
             fontSize = 16.sp
         )
     }
