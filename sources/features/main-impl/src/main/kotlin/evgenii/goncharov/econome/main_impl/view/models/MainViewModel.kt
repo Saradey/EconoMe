@@ -60,4 +60,8 @@ internal class MainViewModel @Inject constructor(
             )
         }
     }
+
+    fun refreshData() {
+
+    }
 }
