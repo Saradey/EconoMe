@@ -9,6 +9,11 @@ public interface FeatureContainer {
 
     public fun getFeatureComponent(key: Class<out ReleasableApi>): ReleasableApi
 
+    public fun getFeatureComponent(
+        key: Class<out ReleasableApi>,
+        arguments: Map<String, Any?>
+    ): ReleasableApi
+
     public fun releaseFeatureComponent(key: Class<out ReleasableApi>)
 
     public fun <D> getGlobalComponent(key: Class<D>): D

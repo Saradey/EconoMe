@@ -28,6 +28,13 @@ public object DI {
         return featureContainer.getFeatureComponent(key)
     }
 
+    internal fun getFeatureApi(
+        key: Class<out ReleasableApi>,
+        arguments: Map<String, Any?>
+    ): ReleasableApi {
+        return featureContainer.getFeatureComponent(key, arguments)
+    }
+
     internal fun releaseFeatureApi(key: Class<out ReleasableApi>) {
         featureContainer.releaseFeatureComponent(key)
     }

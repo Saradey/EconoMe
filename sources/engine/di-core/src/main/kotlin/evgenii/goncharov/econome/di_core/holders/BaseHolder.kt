@@ -13,6 +13,12 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
         }
     }
 
+    public fun getComponent(arguments: Map<String, Any?>): C {
+        return componentApi ?: buildComponentWithParameters(arguments).apply {
+            componentApi = this@apply
+        }
+    }
+
     public fun getComponentWithoutBuild(): C? {
         return componentApi
     }

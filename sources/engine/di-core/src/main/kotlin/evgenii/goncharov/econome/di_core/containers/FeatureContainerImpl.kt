@@ -20,6 +20,13 @@ internal class FeatureContainerImpl(
         return getFeatureHolder(key).getComponent()
     }
 
+    override fun getFeatureComponent(
+        key: Class<out ReleasableApi>,
+        arguments: Map<String, Any?>
+    ): ReleasableApi {
+        return getFeatureHolder(key).getComponent(arguments)
+    }
+
     override fun getNullableFeatureComponent(key: Class<out ReleasableApi>): ReleasableApi? {
         return getFeatureHolder(key).getComponentWithoutBuild()
     }

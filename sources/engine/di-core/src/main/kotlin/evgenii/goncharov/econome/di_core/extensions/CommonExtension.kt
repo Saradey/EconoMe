@@ -30,7 +30,7 @@ public fun getFeatureApiWithParameters(
     key: Class<out ReleasableApi>,
     parameters: Map<String, Any?>
 ): ReleasableApi =
-    DI.getFeatureApi(key)
+    DI.getFeatureApi(key, parameters)
 
 public fun releaseFeatureApi(key: Class<out ReleasableApi>) {
     DI.releaseFeatureApi(key)
