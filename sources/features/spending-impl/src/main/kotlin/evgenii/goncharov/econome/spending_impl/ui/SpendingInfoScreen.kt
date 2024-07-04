@@ -61,5 +61,13 @@ private fun SpendingInfoContent(
             fontSize = 20.sp,
             textAlign = TextAlign.Center
         )
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Дата расхода: ${spendingInfoModel.spendingTime}",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
     }
 }
