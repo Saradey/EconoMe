@@ -22,6 +22,8 @@ dependencies {
     implementation(project(":sources:core:core-database-api"))
     implementation(project(":sources:domain:category"))
 
+    implementation(project(":sources:features:main-api"))
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)

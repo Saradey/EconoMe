@@ -20,6 +20,10 @@ internal class FeatureContainerImpl(
         return getFeatureHolder(key).getComponent()
     }
 
+    override fun getNullableFeatureComponent(key: Class<out ReleasableApi>): ReleasableApi? {
+        return getFeatureHolder(key).getComponentWithoutBuild()
+    }
+
     @Suppress("UNCHECKED_CAST")
     override fun <GC> getGlobalComponent(key: Class<GC>): GC {
         return globalHolder[key]?.getComponent() as GC

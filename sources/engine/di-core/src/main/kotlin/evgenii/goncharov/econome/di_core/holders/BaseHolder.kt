@@ -13,6 +13,10 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
         }
     }
 
+    public fun getComponentWithoutBuild(): C? {
+        return componentApi
+    }
+
     protected abstract fun buildComponent(): C
 
     protected fun <CG> getGlobalComponent(key: Class<CG>): CG {
@@ -20,7 +24,7 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
     }
 
     @Suppress("UNCHECKED_CAST")
-    protected fun <FC : ReleasableApi> getFeatureComponent(key: Class<out ReleasableApi>): FC {
-        return container.getFeatureComponent(key) as FC
+    protected fun <FC : ReleasableApi> getFeatureComponent(key: Class<out ReleasableApi>): FC? {
+        return container.getNullableFeatureComponent(key) as FC?
     }
 }
