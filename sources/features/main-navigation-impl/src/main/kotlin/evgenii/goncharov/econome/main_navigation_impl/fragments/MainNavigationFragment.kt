@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.main_navigation.di.MainNavigationApi
 import evgenii.goncharov.econome.main_navigation_impl.di.contracts.MainNavigationInternal
 import evgenii.goncharov.econome.main_navigation_impl.navigation.BottomMenuNavigator

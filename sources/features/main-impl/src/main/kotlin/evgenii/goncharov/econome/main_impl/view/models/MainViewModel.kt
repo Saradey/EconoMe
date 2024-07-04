@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import evgenii.goncharov.econome.main_api.navigation.MainLauncher
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.MainUiState
+import evgenii.goncharov.econome.main_impl.models.SpendingTodayModel
 import evgenii.goncharov.econome.product_cost_analysis_api.navigation.ProductCostAnalysisLauncher
 import evgenii.goncharov.econome.spending_api.navigation.SpendingLauncher
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,8 +32,8 @@ internal class MainViewModel @Inject constructor(
         spendingLauncher.launchAddSpending()
     }
 
-    fun goToSpendingInfo() {
-        spendingLauncher.launchDeepSpendingInfo()
+    fun goToSpendingInfo(spendingId: Long) {
+        spendingLauncher.launchSpendingInfo(spendingId)
     }
 
     fun goToAddSpendingLimit() {
@@ -49,9 +50,24 @@ internal class MainViewModel @Inject constructor(
 
     private fun initialContent() {
         viewModelScope.launch {
-            val currentUser = mainInteractor.formCurrentUser()
             _uiState.value = MainUiState.Content(
-                currentUser = currentUser
+                currentUser = mainInteractor.formCurrentUser(),
+                spendingToday = SpendingTodayModel(
+                    spendingToday = mainInteractor.formSpendingToday(),
+                ),
+                spendingListToday = mainInteractor.getSpendingToday(),
+                currencyCharacter = mainInteractor.getCurrentCurrency(),
+            )
+        }
+    }
+
+    fun refreshData() {
+        viewModelScope.launch {
+            _uiState.value = (_uiState.value as MainUiState.Content).copy(
+                spendingListToday = mainInteractor.getSpendingToday(),
+                spendingToday = SpendingTodayModel(
+                    spendingToday = mainInteractor.formSpendingToday(),
+                )
             )
         }
     }

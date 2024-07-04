@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.finance_analysis_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.finance_analysis_api.di.FinanceAnalyticsApi
 import evgenii.goncharov.econome.finance_analysis_impl.di.contracts.FinanceAnalyticsInternal
 import evgenii.goncharov.econome.finance_analysis_impl.ui.FinanceAnalyticsScreen

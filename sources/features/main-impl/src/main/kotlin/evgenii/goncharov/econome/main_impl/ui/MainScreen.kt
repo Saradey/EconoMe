@@ -1,10 +1,15 @@
 package evgenii.goncharov.econome.main_impl.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +21,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import evgenii.goncharov.econome.main_impl.models.MainUiState
+import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.ui.text.style.TextOverflow
 
 @Composable
 internal fun MainScreen(
@@ -43,7 +52,7 @@ private fun MainScreenContent(
     modifier: Modifier = Modifier,
     state: MainUiState.Content,
     goToDialogAddSpending: () -> Unit,
-    goToSpendingInfo: () -> Unit,
+    goToSpendingInfo: (Long) -> Unit,
     goToAddSpendingLimit: () -> Unit,
     goToListShops: () -> Unit,
     goToAddCostGoods: () -> Unit,
@@ -53,7 +62,9 @@ private fun MainScreenContent(
     ) {
         HeaderInfo(
             userName = state.currentUser.userName,
-            walletName = state.currentUser.walletName
+            walletName = state.currentUser.walletName,
+            sumSpending = state.spendingToday.spendingToday,
+            currency = state.currencyCharacter
         )
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -61,6 +72,12 @@ private fun MainScreenContent(
         ) {
             Text("Добавить расход")
         }
+        ListSpendingToday(
+            spendingListToday = state.spendingListToday,
+            currentCurrencySymbol = state.currencyCharacter,
+            spendingInfoClickListener = goToSpendingInfo
+        )
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -70,11 +87,6 @@ private fun MainScreenContent(
                 color = Color.White,
                 fontSize = 20.sp
             )
-            Button(
-                onClick = goToSpendingInfo,
-            ) {
-                Text("Go to 5. Экран информации по расходу")
-            }
             Button(
                 onClick = goToAddSpendingLimit,
             ) {
@@ -98,7 +110,9 @@ private fun MainScreenContent(
 private fun HeaderInfo(
     modifier: Modifier = Modifier,
     userName: String,
-    walletName: String
+    walletName: String,
+    sumSpending: String,
+    currency: String
 ) {
     Column(
         modifier = modifier
@@ -116,9 +130,132 @@ private fun HeaderInfo(
             fontSize = 18.sp
         )
         Text(
-            text = "Расходы за сегодня:",
+            text = "Сумма расходов за сегодня: $sumSpending $currency",
             color = Color.White,
             fontSize = 18.sp
+        )
+    }
+}
+
+@Composable
+private fun ListSpendingToday(
+    modifier: Modifier = Modifier,
+    spendingListToday: List<SpendingItemModel>,
+    currentCurrencySymbol: String,
+    spendingInfoClickListener: (Long) -> Unit
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(250.dp)
+    ) {
+        Text(
+            modifier = Modifier.padding(16.dp),
+            text = "Список расходов за сегодня:",
+            color = Color.White,
+            fontSize = 18.sp
+        )
+        if (spendingListToday.isNotEmpty()) {
+            ListSpendings(
+                spendingListToday = spendingListToday,
+                currentCurrencySymbol = currentCurrencySymbol,
+                spendingInfoClickListener = spendingInfoClickListener
+            )
+        } else {
+            EmptyListSpending()
+        }
+    }
+}
+
+@Composable
+private fun EmptyListSpending(
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier.fillMaxSize()
+    ) {
+        Text(
+            modifier = Modifier.align(Alignment.Center),
+            text = "Расходы за сегодня отсутствуют",
+            color = Color.White,
+            fontSize = 18.sp
+        )
+    }
+}
+
+@Composable
+private fun ListSpendings(
+    modifier: Modifier = Modifier,
+    spendingListToday: List<SpendingItemModel>,
+    currentCurrencySymbol: String,
+    spendingInfoClickListener: (Long) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(start = 16.dp, end = 16.dp)
+    ) {
+        items(spendingListToday) { item ->
+            HorizontalDivider(color = Color.White, thickness = 1.dp)
+            ItemSpendingToday(
+                title = "${item.number}. ${item.amount} $currentCurrencySymbol",
+                categoriesTitle = item.spendingCategoryTitle,
+                spendingTime = item.spendingTime,
+                comment = item.comment
+            ) {
+                spendingInfoClickListener(item.idSpending)
+            }
+            HorizontalDivider(color = Color.White, thickness = 1.dp)
+        }
+    }
+}
+
+@Composable
+private fun ItemSpendingToday(
+    modifier: Modifier = Modifier,
+    title: String,
+    categoriesTitle: List<String>,
+    spendingTime: String,
+    comment: String,
+    clickListener: () -> Unit
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable { clickListener() }
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                modifier = Modifier.padding(end = 8.dp),
+                text = title,
+                maxLines = 1,
+                color = Color.White,
+                fontSize = 16.sp
+            )
+            Text(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .weight(1f),
+                text = "Категории: ${categoriesTitle.joinToString("/")}",
+                color = Color.White,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontSize = 16.sp
+            )
+            Text(
+                text = spendingTime,
+                color = Color.White,
+                fontSize = 16.sp
+            )
+        }
+        Text(
+            text = "Комментарий: $comment",
+            maxLines = 1,
+            color = Color.White,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 16.sp
         )
     }
 }

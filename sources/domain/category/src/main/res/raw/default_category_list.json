@@ -1,22 +1,27 @@
 {
   "default_categories": [
     {
+      "id" : 0,
       "title_ru" : "Продукты",
       "title_en": ""
     },
     {
+      "id" : 1,
       "title_ru" : "Рестораны",
       "title_en": ""
     },
     {
+      "id" : 2,
       "title_ru" : "Кафе",
       "title_en": ""
     },
     {
+      "id" : 3,
       "title_ru" : "Бытовые товары",
       "title_en": ""
     },
     {
+      "id" : 4,
       "title_ru" : "Не обязательные расходы",
       "title_en": ""
     }

@@ -7,6 +7,8 @@ import evgenii.goncharov.econome.bank_accounts_impl.di.contracts.BankAccountsInt
 import evgenii.goncharov.econome.bank_accounts_impl.ui.BankAccountsScreen
 import evgenii.goncharov.econome.bank_accounts_impl.view.models.BankAccountsViewModel
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 
 /**
  * 7. Screen

@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.main_activity
 import android.os.Bundle
 import androidx.activity.viewModels
 import evgenii.goncharov.econome.di_core.CoreActivity
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityApi
 import evgenii.goncharov.econome.main_activity.di.contracts.MainActivityInternal
 import evgenii.goncharov.econome.main_activity.navigation.MainNavigator

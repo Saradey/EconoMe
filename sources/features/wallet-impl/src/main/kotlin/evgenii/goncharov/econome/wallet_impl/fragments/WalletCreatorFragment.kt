@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.common.ui.requireStringArguments
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.wallet_api.di.WalletCreatorApi
 import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletCreatorInternal
 import evgenii.goncharov.econome.wallet_impl.ui.WalletCreatorScreen

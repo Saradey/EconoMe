@@ -7,6 +7,9 @@ internal object NotInitializedFeatureContainer: FeatureContainer {
     override fun getFeatureComponent(key: Class<out ReleasableApi>) =
         throw IllegalStateException(ERROR_MASSAGE)
 
+    override fun getNullableFeatureComponent(key: Class<out ReleasableApi>): ReleasableApi? =
+        throw IllegalStateException(ERROR_MASSAGE)
+
     override fun releaseFeatureComponent(key: Class<out ReleasableApi>) =
         throw IllegalStateException(ERROR_MASSAGE)
 
@@ -14,6 +17,11 @@ internal object NotInitializedFeatureContainer: FeatureContainer {
 
     override fun <L : BaseLauncher> getFeatureLauncher(key: Class<L>) =
         throw IllegalStateException(ERROR_MASSAGE)
+
+    override fun getFeatureComponent(
+        key: Class<out ReleasableApi>,
+        arguments: Map<String, Any?>
+    ): ReleasableApi = throw IllegalStateException(ERROR_MASSAGE)
 
     private const val ERROR_MASSAGE = "Need initialize FeatureContainer"
 }

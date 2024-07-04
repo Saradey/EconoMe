@@ -18,9 +18,13 @@ dependencies {
     implementation(project(":sources:engine:di-core"))
     implementation(project(":sources:engine:navigation"))
     implementation(project(":sources:core:common"))
+    implementation(project(":sources:core:common-provider"))
     implementation(project(":sources:core:current-user"))
     implementation(project(":sources:core:core-database-api"))
+    implementation(project(":sources:resources:ui-kit"))
     implementation(project(":sources:domain:category"))
+
+    implementation(project(":sources:features:main-api"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -32,4 +36,5 @@ dependencies {
     implementation(libs.fragment.ktx)
     implementation(libs.material)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.kotlinx.serialization.json)
 }

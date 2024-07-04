@@ -41,7 +41,7 @@ internal class WalletCreatorViewModel @Inject constructor(
                 currentUserId ?: throw IllegalArgumentException(ERROR_USER_ID_MESSAGE)
             )
             currentWalletRepository.setCurrentWalletId(walletId)
-            currentUserId?.let(currentUserRepository::setCurrentUserId)
+            currentUserId?.let(currentUserRepository::setUserId)
             mainNavigationLauncher.launchReplaceNavigation()
         }
     }

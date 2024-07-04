@@ -3,6 +3,9 @@ package evgenii.goncharov.econome.main_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
+import evgenii.goncharov.econome.main_api.dependencies.MainDataRefresher
 import evgenii.goncharov.econome.main_api.di.MainApi
 import evgenii.goncharov.econome.main_impl.di.contracts.MainInternal
 import evgenii.goncharov.econome.main_impl.ui.MainScreen
@@ -18,6 +21,17 @@ internal class MainFragment : CoreFragment() {
     }
     private val viewModel: MainViewModel by viewModels {
         dependency.provideViewModelFactory()
+    }
+    private val refresher: MainDataRefresher = (dependency as MainApi).provideMainDataRefresher()
+
+    override fun onResume() {
+        super.onResume()
+        refresher.refreshListener = viewModel::refreshData
+    }
+
+    override fun onPause() {
+        super.onPause()
+        refresher.refreshListener = null
     }
 
     @Composable
