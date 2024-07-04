@@ -74,7 +74,7 @@ private fun TopContent(
         modifier = modifier.fillMaxWidth()
     ) {
         Row(
-            modifier = modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
             Text(
                 modifier = Modifier.weight(1f),

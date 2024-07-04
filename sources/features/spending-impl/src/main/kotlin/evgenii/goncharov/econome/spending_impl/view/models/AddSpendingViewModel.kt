@@ -99,4 +99,8 @@ internal class AddSpendingViewModel @Inject constructor(
             }
         }
     }
+
+    fun clickClose() {
+        _systemEvent.value = SystemEvent.DismissDialog
+    }
 }
