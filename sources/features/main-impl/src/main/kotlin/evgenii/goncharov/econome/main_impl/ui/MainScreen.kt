@@ -2,6 +2,7 @@ package evgenii.goncharov.econome.main_impl.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -154,22 +155,43 @@ private fun ListSpendingToday(
             color = Color.White,
             fontSize = 18.sp
         )
-        ListSpendings(
-            spendingListToday = spendingListToday,
-            currentCurrencySymbol = currentCurrencySymbol,
-            spendingInfoClickListener = spendingInfoClickListener
+        if (spendingListToday.isNotEmpty()) {
+            ListSpendings(
+                spendingListToday = spendingListToday,
+                currentCurrencySymbol = currentCurrencySymbol,
+                spendingInfoClickListener = spendingInfoClickListener
+            )
+        } else {
+            EmptyListSpending()
+        }
+    }
+}
+
+@Composable
+private fun EmptyListSpending(
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier.fillMaxSize()
+    ) {
+        Text(
+            modifier = Modifier.align(Alignment.Center),
+            text = "Расходы за сегодня отсутствуют",
+            color = Color.White,
+            fontSize = 18.sp
         )
     }
 }
 
 @Composable
 private fun ListSpendings(
+    modifier: Modifier = Modifier,
     spendingListToday: List<SpendingItemModel>,
     currentCurrencySymbol: String,
     spendingInfoClickListener: (Long) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(start = 16.dp, end = 16.dp)
     ) {
