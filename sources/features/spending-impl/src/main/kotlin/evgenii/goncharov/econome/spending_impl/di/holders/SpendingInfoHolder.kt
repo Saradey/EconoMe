@@ -1,5 +1,7 @@
 package evgenii.goncharov.econome.spending_impl.di.holders
 
+import evgenii.goncharov.econome.category.api.DefaultCategoryApi
+import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
@@ -12,6 +14,8 @@ public class SpendingInfoHolder @Inject constructor(container: FeatureContainer)
 
     override fun buildComponentWithParameters(arguments: Map<String, Any?>): SpendingInfoApi {
         return DaggerSpendingInfoComponent.factory().create(
+            defaultCategoryApi = getGlobalComponent(DefaultCategoryApi::class.java),
+            commonProviderApi = getGlobalComponent(CommonProviderApi::class.java),
             coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
             spendingId = arguments[SPENDING_ID_DI_KEY] as? Long ?: throw IllegalArgumentException(
                 SPENDING_KEY_ERROR_MESSAGE
