@@ -1,9 +1,12 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -95,6 +98,7 @@ private fun TopContent(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CategoriesContent(
     modifier: Modifier = Modifier,
@@ -111,5 +115,17 @@ private fun CategoriesContent(
             fontSize = 20.sp,
             textAlign = TextAlign.Center
         )
+        FlowRow(
+            modifier = Modifier.padding(8.dp),
+        ) {
+            categories.forEach { title ->
+                FilterChip(
+                    selected = true,
+                    onClick = {},
+                    label = { Text(title) },
+                    modifier = Modifier.padding(4.dp)
+                )
+            }
+        }
     }
 }
