@@ -196,11 +196,16 @@ private fun ItemSpendingToday(
                 fontSize = 16.sp
             )
             Text(
-                modifier = Modifier.padding(end = 8.dp),
+                modifier = Modifier.padding(end = 8.dp).weight(1f),
                 text = "Категории: ${categoriesTitle.joinToString("/")}",
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
+                fontSize = 16.sp
+            )
+            Text(
+                text = spendingTime,
+                color = Color.White,
                 fontSize = 16.sp
             )
         }
