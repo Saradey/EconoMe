@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.spending_impl.di.holders
 import evgenii.goncharov.econome.category.api.DefaultCategoryApi
 import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
+import evgenii.goncharov.econome.current_user.di.api.CurrentApi
 import evgenii.goncharov.econome.di_core.containers.FeatureContainer
 import evgenii.goncharov.econome.di_core.holders.FeatureHolder
 import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
@@ -14,6 +15,7 @@ public class SpendingInfoHolder @Inject constructor(container: FeatureContainer)
 
     override fun buildComponentWithParameters(arguments: Map<String, Any?>): SpendingInfoApi {
         return DaggerSpendingInfoComponent.factory().create(
+            currentApi = getGlobalComponent(CurrentApi::class.java),
             defaultCategoryApi = getGlobalComponent(DefaultCategoryApi::class.java),
             commonProviderApi = getGlobalComponent(CommonProviderApi::class.java),
             coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
