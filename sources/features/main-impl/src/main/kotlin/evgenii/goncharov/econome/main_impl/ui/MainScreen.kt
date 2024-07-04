@@ -181,20 +181,23 @@ private fun ItemSpendingToday(
     comment: String
 ) {
     Column(
-        modifier = modifier.fillMaxWidth()
-            .padding(top = 8.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
+                modifier = Modifier.padding(end = 8.dp),
                 text = title,
                 maxLines = 1,
                 color = Color.White,
                 fontSize = 16.sp
             )
             Text(
-                text = categoriesTitle.joinToString("/"),
+                modifier = Modifier.padding(end = 8.dp),
+                text = "Категории: ${categoriesTitle.joinToString("/")}",
                 color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
