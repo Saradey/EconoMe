@@ -160,7 +160,7 @@ private fun ListSpendingToday(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp)
-                .height(140.dp)
+                .height(200.dp)
         ) {
             items(spendingListToday) { item ->
                 HorizontalDivider(color = Color.White, thickness = 1.dp)
