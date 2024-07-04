@@ -21,5 +21,13 @@ public enum class CurrencyCode(
         public fun fromString(code: String): CurrencyCode? {
             return entries.find { it.code == code }
         }
+
+        public fun toSymbolString(code: String): String {
+            return entries.find { it.code == code }?.symbol ?: throw IllegalArgumentException(
+                MESSAGE_ERROR_CURRENCY_SYMBOL
+            )
+        }
+
+        private const val MESSAGE_ERROR_CURRENCY_SYMBOL = "Currency code not exist"
     }
 }
