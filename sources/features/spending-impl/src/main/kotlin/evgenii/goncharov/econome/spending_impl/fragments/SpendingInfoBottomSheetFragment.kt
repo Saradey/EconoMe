@@ -28,7 +28,7 @@ internal class SpendingInfoBottomSheetFragment : CoreBottomSheetFragment() {
     }
 
     @Composable
-    override fun InitContent() = SpendingInfoScreen()
+    override fun InitContent() = SpendingInfoScreen(viewModel)
 
     override fun releaseDependencies() {
         releaseFeatureApi(SpendingInfoApi::class.java)
