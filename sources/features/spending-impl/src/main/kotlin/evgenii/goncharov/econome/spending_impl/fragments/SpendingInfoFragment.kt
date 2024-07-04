@@ -3,6 +3,7 @@ package evgenii.goncharov.econome.spending_impl.fragments
 import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
+import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
 import evgenii.goncharov.econome.di_core.CoreFragment
 import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.SpendingInfoInternal
@@ -12,7 +13,7 @@ import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 /**
  * 5. Screen
  */
-internal class SpendingInfoFragment : CoreFragment() {
+internal class SpendingInfoFragment : CoreBottomSheetFragment() {
 
     private val dependency: SpendingInfoInternal by lazy {
         getFeatureApi(SpendingInfoApi::class.java) as SpendingInfoInternal

@@ -10,6 +10,6 @@ internal class AllSpendingViewModel @Inject constructor(
 
     fun goToSpendingInfo() {
         // TODO добавить id для перехода
-        spendingLauncher.launchDeepSpendingInfo(-1)
+        spendingLauncher.launchSpendingInfo(-1)
     }
 }
