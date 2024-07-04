@@ -1,40 +1,65 @@
 package evgenii.goncharov.econome.main_impl.interactors.impl
 
+import evgenii.goncharov.econome.common.consts.AMOUNT_FORMAT_PATTERN
 import evgenii.goncharov.econome.current_user.repositories.CurrentUserRepository
 import evgenii.goncharov.econome.current_user.repositories.CurrentWalletRepository
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.models.CurrentUserModel
+import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
+import java.util.Calendar
+import java.util.Locale
 import javax.inject.Inject
 
 internal class MainInteractorImpl @Inject constructor(
     private val currentUserRepository: CurrentUserRepository,
     private val currentWalletRepository: CurrentWalletRepository,
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    private val appLocale: Locale
 ) : MainInteractor {
 
-    private var currentUserId = ""
-    private var currentWalletId = -1L
+    private val today = Calendar.getInstance().time
 
     override fun checkParameters() {
-        currentUserId = currentUserRepository.getCurrentUserId() ?: throw IllegalArgumentException(
-            USER_ERROR_MESSAGE
-        )
-        currentWalletId = currentWalletRepository.getCurrentWalletId()
+        currentUserRepository.currentUserId
+        currentWalletRepository.currentWalletId
     }
 
     override suspend fun formCurrentUser(): CurrentUserModel {
-        val userName = mainRepository.getUserNameById(currentUserId)
-        val walletName = mainRepository.getWalletNameById(currentWalletId)
+        val userName = mainRepository.getUserNameById(currentUserRepository.currentUserId)
+        val walletName = mainRepository.getWalletNameById(currentWalletRepository.currentWalletId)
         return CurrentUserModel(
             userName = userName,
             walletName = walletName
         )
     }
 
+    override suspend fun formSpendingToday(): String {
+        val spendingModelsToday = mainRepository.getAllSpendingToday(
+            today,
+            currentWalletRepository.currentWalletId
+        )
+        val amountSpendingToday = spendingModelsToday.sumOf { model -> model.amount }
+        return if (amountSpendingToday == 0.0) {
+            AMOUNT_ZERO
+        } else {
+            String.format(appLocale, AMOUNT_FORMAT_PATTERN, amountSpendingToday)
+        }
+    }
+
+    override suspend fun getCurrentCurrency(): String {
+        return mainRepository.getCurrentCurrency(currentWalletRepository.currentWalletId)
+    }
+
+    override suspend fun getSpendingToday(): List<SpendingItemModel> {
+        return mainRepository.getSpendingItemsToday(
+            today,
+            currentWalletRepository.currentWalletId
+        )
+    }
+
     private companion object {
 
-        const val USER_ERROR_MESSAGE = "Current user cannot be null"
-        const val WALLET_ERROR_MESSAGE = "Current wallet cannot be null"
+        const val AMOUNT_ZERO = "0.00"
     }
 }

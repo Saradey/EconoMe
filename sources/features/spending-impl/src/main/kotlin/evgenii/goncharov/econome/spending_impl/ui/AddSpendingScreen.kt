@@ -1,9 +1,11 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,17 +33,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.ui.res.painterResource
+import evgenii.goncharov.econome.ui_kit.UiKitDrawable
 
 @Composable
-internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
-    val uiState: AddSpendingUiState by viewMode.uiState.collectAsStateWithLifecycle()
+internal fun AddSpendingScreen(viewModel: AddSpendingViewModel) {
+    val uiState: AddSpendingUiState by viewModel.uiState.collectAsStateWithLifecycle()
     AddSpendingContent(
         modifier = Modifier.height(500.dp),
         uiState = uiState,
-        inputSpendingListener = viewMode::inputSpending,
-        inputCommentListener = viewMode::inputComment,
-        chipsClickListener = viewMode::chooseSpendingCategory,
-        createSpendingClickListener = viewMode::createSpending
+        inputSpendingListener = viewModel::inputSpending,
+        inputCommentListener = viewModel::inputComment,
+        chipsClickListener = viewModel::chooseSpendingCategory,
+        createSpendingClickListener = viewModel::createSpending,
+        closeClickListener = viewModel::clickClose
     )
 }
 
@@ -52,16 +58,27 @@ private fun AddSpendingContent(
     inputCommentListener: (String) -> Unit,
     chipsClickListener: (Long) -> Unit,
     createSpendingClickListener: () -> Unit,
+    closeClickListener: () -> Unit,
     uiState: AddSpendingUiState
 ) {
     Column(
         modifier = modifier
     ) {
-        Text(
-            text = "3. AddSpendingDialogFragment Диалоговое окно добавления расхода",
-            color = Color.Black,
-            fontSize = 20.sp
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = "3. AddSpendingDialogFragment Диалоговое окно добавления расхода",
+                color = Color.Black,
+                fontSize = 20.sp
+            )
+            Icon(
+                modifier = Modifier.clickable { closeClickListener() },
+                painter = painterResource(UiKitDrawable.ic_close_square),
+                contentDescription = null
+            )
+        }
         InputTextFieldWithTitle(
             inputListener = inputSpendingListener,
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),

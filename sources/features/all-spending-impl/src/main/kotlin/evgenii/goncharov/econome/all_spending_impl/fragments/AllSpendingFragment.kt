@@ -7,6 +7,8 @@ import evgenii.goncharov.econome.all_spending_impl.di.contracts.AllSpendingInter
 import evgenii.goncharov.econome.all_spending_impl.ui.AllSpendingScreen
 import evgenii.goncharov.econome.all_spending_impl.view.models.AllSpendingViewModel
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 
 /**
  * 6. Screen

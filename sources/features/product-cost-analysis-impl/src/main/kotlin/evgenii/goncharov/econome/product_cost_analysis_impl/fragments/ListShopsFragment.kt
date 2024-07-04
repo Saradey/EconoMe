@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.product_cost_analysis_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.product_cost_analysis_api.di.ListShopsApi
 import evgenii.goncharov.econome.product_cost_analysis_impl.di.contracts.ListShopsInternal
 import evgenii.goncharov.econome.product_cost_analysis_impl.ui.ListShopsScreen

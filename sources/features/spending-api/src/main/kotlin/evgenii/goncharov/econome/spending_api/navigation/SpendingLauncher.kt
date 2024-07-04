@@ -6,5 +6,5 @@ public interface SpendingLauncher : BaseLauncher {
 
     public fun launchAddSpending()
 
-    public fun launchDeepSpendingInfo()
+    public fun launchSpendingInfo(spendingId: Long)
 }

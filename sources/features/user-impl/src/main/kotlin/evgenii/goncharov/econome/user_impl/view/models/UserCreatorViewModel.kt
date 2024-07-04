@@ -76,7 +76,7 @@ internal class UserCreatorViewModel @Inject constructor(
             val userId = authManager.getSignInCredentialFromIntent(intent)
             val userInputName = _uiState.value.userNameInputText
             saveUser(userId, userInputName)
-            currentUserRepository.setCurrentUserId(userId)
+            currentUserRepository.setUserId(userId)
             walletLauncher.launchReplaceWalletCreator(userId)
         }
     }

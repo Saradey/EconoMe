@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.user_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.user_api.di.UserChoosingApi
 import evgenii.goncharov.econome.user_impl.di.contracts.UserChoosingInternal
 import evgenii.goncharov.econome.user_impl.ui.UserChoosingScreen

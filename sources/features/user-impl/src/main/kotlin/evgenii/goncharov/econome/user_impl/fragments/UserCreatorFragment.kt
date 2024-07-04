@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import evgenii.goncharov.econome.common.ui.SystemEvent
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.user_api.di.UserCreatorApi
 import evgenii.goncharov.econome.user_impl.di.contracts.UserCreatorInternal
 import evgenii.goncharov.econome.user_impl.ui.UserCreatorScreen

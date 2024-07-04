@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.main_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreDialogFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.main_api.di.SpendingLimitApi
 import evgenii.goncharov.econome.main_impl.di.contracts.SpendingLimitInternal
 import evgenii.goncharov.econome.main_impl.ui.SpendingLimitScreen

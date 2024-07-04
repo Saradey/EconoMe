@@ -7,6 +7,8 @@ import dagger.multibindings.IntoMap
 import evgenii.goncharov.econome.common.di.MultiViewModelModule
 import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.main_api.dependencies.MainDataRefresher
+import evgenii.goncharov.econome.main_impl.dependencies.MainDataRefresherImpl
 import evgenii.goncharov.econome.main_impl.interactors.MainInteractor
 import evgenii.goncharov.econome.main_impl.interactors.impl.MainInteractorImpl
 import evgenii.goncharov.econome.main_impl.repositories.MainRepository
@@ -27,4 +29,8 @@ internal interface MainBindModule {
     @Binds
     @FeatureScope
     fun bindMainRepository(repository: MainRepositoryImpl): MainRepository
+
+    @Binds
+    @FeatureScope
+    fun bindMainDataRefresher(mainDataRefresher: MainDataRefresherImpl): MainDataRefresher
 }

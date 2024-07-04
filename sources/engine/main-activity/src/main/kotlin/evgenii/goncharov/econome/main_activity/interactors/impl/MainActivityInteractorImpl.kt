@@ -18,7 +18,7 @@ internal class MainActivityInteractorImpl @Inject constructor(
 
     override suspend fun setCurrentUserAndCurrentWallet() = withContext(Dispatchers.IO) {
         val currentUserId = userRepository.getCurrentUserId()
-        currentUserRepository.setCurrentUserId(currentUserId)
+        currentUserRepository.setUserId(currentUserId)
         val currentWalletId = walletRepository.getCurrentWalletId()
         currentWalletRepository.setCurrentWalletId(currentWalletId)
     }
