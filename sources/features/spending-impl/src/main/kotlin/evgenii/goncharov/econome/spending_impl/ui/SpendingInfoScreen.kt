@@ -1,26 +1,34 @@
 package evgenii.goncharov.econome.spending_impl.ui
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import evgenii.goncharov.econome.spending_impl.models.SpendingInfoUiState
 import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 
 @Composable
 internal fun SpendingInfoScreen(
     viewModel: SpendingInfoViewModel
 ) {
+    val uiState: SpendingInfoUiState by viewModel.uiState.collectAsStateWithLifecycle()
+    SpendingInfoContent(
+        modifier = Modifier.height(500.dp),
+        uiState = uiState
+    )
+}
+
+@Composable
+private fun SpendingInfoContent(
+    modifier: Modifier = Modifier,
+    uiState: SpendingInfoUiState
+) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier
     ) {
-        Text(
-            text = "5. SpendingInfoFragment Экран информации по расходу",
-            color = Color.White,
-            fontSize = 20.sp
-        )
+
     }
 }

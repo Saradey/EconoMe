@@ -33,15 +33,15 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 
 @Composable
-internal fun AddSpendingScreen(viewMode: AddSpendingViewModel) {
-    val uiState: AddSpendingUiState by viewMode.uiState.collectAsStateWithLifecycle()
+internal fun AddSpendingScreen(viewModel: AddSpendingViewModel) {
+    val uiState: AddSpendingUiState by viewModel.uiState.collectAsStateWithLifecycle()
     AddSpendingContent(
         modifier = Modifier.height(500.dp),
         uiState = uiState,
-        inputSpendingListener = viewMode::inputSpending,
-        inputCommentListener = viewMode::inputComment,
-        chipsClickListener = viewMode::chooseSpendingCategory,
-        createSpendingClickListener = viewMode::createSpending
+        inputSpendingListener = viewModel::inputSpending,
+        inputCommentListener = viewModel::inputComment,
+        chipsClickListener = viewModel::chooseSpendingCategory,
+        createSpendingClickListener = viewModel::createSpending
     )
 }
 
