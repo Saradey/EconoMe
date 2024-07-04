@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.di.holders
 
+import evgenii.goncharov.econome.category.api.DefaultCategoryApi
 import evgenii.goncharov.econome.common_provider.di.api.CommonProviderApi
 import evgenii.goncharov.econome.core_database_api.api.CoreDatabaseApi
 import evgenii.goncharov.econome.current_user.di.api.CurrentApi
@@ -20,6 +21,7 @@ public class MainHolder @Inject constructor(container: FeatureContainer) :
             commonProviderApi = getGlobalComponent(CommonProviderApi::class.java),
             coreDatabaseApi = getGlobalComponent(CoreDatabaseApi::class.java),
             currentApi = getGlobalComponent(CurrentApi::class.java),
+            defaultCategoryApi = getGlobalComponent(DefaultCategoryApi::class.java),
             spendingLauncher = getFeatureLauncher(SpendingLauncher::class.java),
             mainLauncher = getFeatureLauncher(MainLauncher::class.java),
             productCostAnalysisLauncher = getFeatureLauncher(ProductCostAnalysisLauncher::class.java),
