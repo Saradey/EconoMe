@@ -24,6 +24,10 @@ internal class SpendingInfoViewModel @AssistedInject constructor(
     )
     val systemEvent: StateFlow<SystemEvent> = _systemEvent
 
+    fun loadSpending() {
+
+    }
+
 
     @AssistedFactory
     interface Factory {
