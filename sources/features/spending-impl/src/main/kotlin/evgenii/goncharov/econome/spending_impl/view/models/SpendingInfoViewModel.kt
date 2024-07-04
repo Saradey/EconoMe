@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.spending_impl.view.models
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -9,6 +10,7 @@ import evgenii.goncharov.econome.spending_impl.models.SpendingInfoUiState
 import evgenii.goncharov.econome.spending_impl.repositories.SpendingInfoRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 internal class SpendingInfoViewModel @AssistedInject constructor(
     @Assisted private val spendingId: Long,
@@ -25,7 +27,12 @@ internal class SpendingInfoViewModel @AssistedInject constructor(
     val systemEvent: StateFlow<SystemEvent> = _systemEvent
 
     fun loadSpending() {
-
+        viewModelScope.launch {
+            val spendingInfoModel = spendingInfoRepository.getSpendingInfoById(spendingId)
+            _uiState.value = SpendingInfoUiState(
+                spendingInfoModel
+            )
+        }
     }
 
 
