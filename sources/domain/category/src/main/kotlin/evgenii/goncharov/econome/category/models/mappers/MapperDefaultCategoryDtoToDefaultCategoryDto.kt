@@ -4,7 +4,6 @@ import evgenii.goncharov.econome.category.models.CategoryModel
 import evgenii.goncharov.econome.category.models.DefaultCategoryDto
 import java.util.Locale
 import javax.inject.Inject
-import kotlin.random.Random
 
 internal class MapperDefaultCategoryDtoToDefaultCategoryDto @Inject constructor(
     private val locale: Locale
@@ -14,7 +13,7 @@ internal class MapperDefaultCategoryDtoToDefaultCategoryDto @Inject constructor(
         dto: DefaultCategoryDto
     ): CategoryModel {
         return CategoryModel(
-            id = Random.nextLong(),
+            id = dto.id,
             title = mapTitle(dto)
         )
     }
