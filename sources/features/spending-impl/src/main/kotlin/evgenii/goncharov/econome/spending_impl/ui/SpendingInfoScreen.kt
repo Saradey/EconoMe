@@ -44,7 +44,9 @@ private fun SpendingInfoContent(
             currentCurrencySymbol = currentCurrencySymbol,
             spendingTime = spendingInfoModel.spendingTime
         )
-        CategoriesContent()
+        CategoriesContent(
+            categories = spendingInfoModel.categories
+        )
     }
 }
 
@@ -56,40 +58,58 @@ private fun TopContent(
     currentCurrencySymbol: String,
     spendingTime: String
 ) {
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = "5. SpendingInfoBottomSheetFragment Диалоговое информации по расходу",
-        color = Color.Black,
-        fontSize = 20.sp,
-        textAlign = TextAlign.Center
-    )
-    Text(
-        modifier = Modifier
-            .padding(16.dp),
-        text = "Комментарий расхода: $comment",
-        color = Color.Black,
-        fontSize = 20.sp,
-        textAlign = TextAlign.Center
-    )
-    Text(
-        modifier = Modifier
-            .padding(16.dp),
-        text = "Сумма расхода: $amount $currentCurrencySymbol",
-        color = Color.Black,
-        fontSize = 20.sp,
-        textAlign = TextAlign.Center
-    )
-    Text(
-        modifier = Modifier
-            .padding(16.dp),
-        text = "Дата расхода: $spendingTime",
-        color = Color.Black,
-        fontSize = 20.sp,
-        textAlign = TextAlign.Center
-    )
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = "5. SpendingInfoBottomSheetFragment Диалоговое информации по расходу",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Комментарий расхода: $comment",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Сумма расхода: $amount $currentCurrencySymbol",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Дата расхода: $spendingTime",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
+    }
 }
 
 @Composable
-private fun CategoriesContent() {
-
+private fun CategoriesContent(
+    modifier: Modifier = Modifier,
+    categories: List<String>
+) {
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Список категорий:",
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center
+        )
+    }
 }
