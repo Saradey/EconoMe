@@ -146,6 +146,7 @@ private fun ListSpendingToday(
     Column(
         modifier = modifier
             .fillMaxWidth()
+            .height(200.dp)
     ) {
         Text(
             modifier = Modifier.padding(16.dp),
@@ -153,24 +154,36 @@ private fun ListSpendingToday(
             color = Color.White,
             fontSize = 18.sp
         )
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp)
-                .height(200.dp)
-        ) {
-            items(spendingListToday) { item ->
-                HorizontalDivider(color = Color.White, thickness = 1.dp)
-                ItemSpendingToday(
-                    title = "${item.number}. ${item.amount} $currentCurrencySymbol",
-                    categoriesTitle = item.spendingCategoryTitle,
-                    spendingTime = item.spendingTime,
-                    comment = item.comment
-                ) {
-                    spendingInfoClickListener(item.idSpending)
-                }
-                HorizontalDivider(color = Color.White, thickness = 1.dp)
+        ListSpendings(
+            spendingListToday = spendingListToday,
+            currentCurrencySymbol = currentCurrencySymbol,
+            spendingInfoClickListener = spendingInfoClickListener
+        )
+    }
+}
+
+@Composable
+private fun ListSpendings(
+    spendingListToday: List<SpendingItemModel>,
+    currentCurrencySymbol: String,
+    spendingInfoClickListener: (Long) -> Unit
+) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 16.dp, end = 16.dp)
+    ) {
+        items(spendingListToday) { item ->
+            HorizontalDivider(color = Color.White, thickness = 1.dp)
+            ItemSpendingToday(
+                title = "${item.number}. ${item.amount} $currentCurrencySymbol",
+                categoriesTitle = item.spendingCategoryTitle,
+                spendingTime = item.spendingTime,
+                comment = item.comment
+            ) {
+                spendingInfoClickListener(item.idSpending)
             }
+            HorizontalDivider(color = Color.White, thickness = 1.dp)
         }
     }
 }
