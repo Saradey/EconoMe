@@ -10,6 +10,6 @@ public class SpendingInfoHolder @Inject constructor(container: FeatureContainer)
     FeatureHolder<SpendingInfoApi>(container) {
 
     override fun buildComponent(): SpendingInfoApi {
-        return DaggerSpendingInfoComponent.factory().create()
+        return DaggerSpendingInfoComponent.factory().create(-1)
     }
 }

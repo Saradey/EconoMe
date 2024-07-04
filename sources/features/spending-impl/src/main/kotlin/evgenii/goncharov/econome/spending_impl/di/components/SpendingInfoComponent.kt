@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.spending_impl.di.components
 
+import dagger.BindsInstance
 import dagger.Component
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
 import evgenii.goncharov.econome.spending_impl.di.contracts.SpendingInfoInternal
@@ -13,6 +14,8 @@ internal interface SpendingInfoComponent : SpendingInfoInternal {
 
     @Component.Factory
     interface Factory {
-        fun create(): SpendingInfoComponent
+        fun create(
+            @BindsInstance spendingId: Long
+        ): SpendingInfoComponent
     }
 }

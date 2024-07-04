@@ -1,18 +1,21 @@
 package evgenii.goncharov.econome.spending_impl.di.modules
 
-import androidx.lifecycle.ViewModel
-import dagger.Binds
+import androidx.lifecycle.ViewModelProvider
 import dagger.Module
-import dagger.multibindings.IntoMap
-import evgenii.goncharov.econome.common.di.MultiViewModelModule
-import evgenii.goncharov.econome.di_core.di.keys.ViewModelKey
+import dagger.Provides
 import evgenii.goncharov.econome.di_core.di.scopes.FeatureScope
+import evgenii.goncharov.econome.spending_impl.di.assisted.SpendingInfoViewModelProviderFactory
 import evgenii.goncharov.econome.spending_impl.view.models.SpendingInfoViewModel
 
-@Module(includes = [MultiViewModelModule::class])
-internal interface SpendingInfoBindModule {
+@Module
+internal object SpendingInfoBindModule {
 
-    @[Binds FeatureScope]
-    @[IntoMap ViewModelKey(SpendingInfoViewModel::class)]
-    fun bindSpendingInfoViewModel(viewModel: SpendingInfoViewModel): ViewModel
+    @FeatureScope
+    @Provides
+    fun provideSpendingInfoViewModelProviderFactory(
+        factory: SpendingInfoViewModel.Factory,
+        spendingId: Long
+    ): ViewModelProvider.Factory {
+        return SpendingInfoViewModelProviderFactory(factory, spendingId)
+    }
 }
