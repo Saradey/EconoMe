@@ -62,6 +62,13 @@ internal class MainViewModel @Inject constructor(
     }
 
     fun refreshData() {
-
+        viewModelScope.launch {
+            _uiState.value = (_uiState.value as MainUiState.Content).copy(
+                spendingListToday = mainInteractor.getSpendingToday(),
+                spendingToday = SpendingTodayModel(
+                    spendingToday = mainInteractor.formSpendingToday(),
+                )
+            )
+        }
     }
 }
