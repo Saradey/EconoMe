@@ -21,7 +21,7 @@ public abstract class BaseHolder<C>(protected val container: FeatureContainer) {
         throw ExceptionInInitializerError(ERROR_MESSAGE_INIT_WITH_ARGS)
     }
 
-    protected open fun buildComponentWithParameters(arguments: Map<String, Any>): C {
+    protected open fun buildComponentWithParameters(arguments: Map<String, Any?>): C {
         throw ExceptionInInitializerError(ERROR_MESSAGE_INIT_WITH_ARGS)
     }
 

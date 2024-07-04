@@ -9,7 +9,7 @@ import javax.inject.Inject
 public class SpendingInfoHolder @Inject constructor(container: FeatureContainer) :
     FeatureHolder<SpendingInfoApi>(container) {
 
-    override fun buildComponentWithParameters(arguments: Map<String, Any>): SpendingInfoApi {
+    override fun buildComponentWithParameters(arguments: Map<String, Any?>): SpendingInfoApi {
         return DaggerSpendingInfoComponent.factory().create(
             spendingId = arguments[SPENDING_ID_DI_KEY] as? Long ?: throw IllegalArgumentException(
                 SPENDING_KEY_ERROR_MESSAGE
