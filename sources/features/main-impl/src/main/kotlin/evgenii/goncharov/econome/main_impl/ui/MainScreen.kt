@@ -157,6 +157,7 @@ private fun ListSpendingToday(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp)
                 .height(140.dp)
         ) {
             items(spendingListToday) { item ->
@@ -181,6 +182,7 @@ private fun ItemSpendingToday(
 ) {
     Column(
         modifier = modifier.fillMaxWidth()
+            .padding(top = 8.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
