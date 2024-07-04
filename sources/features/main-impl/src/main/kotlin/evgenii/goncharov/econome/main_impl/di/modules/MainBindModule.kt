@@ -32,5 +32,5 @@ internal interface MainBindModule {
 
     @Binds
     @FeatureScope
-    fun bindMainDataRefresher(mainDataRefresher: MainDataRefresherImpl) : MainDataRefresher
+    fun bindMainDataRefresher(mainDataRefresher: MainDataRefresherImpl): MainDataRefresher
 }
