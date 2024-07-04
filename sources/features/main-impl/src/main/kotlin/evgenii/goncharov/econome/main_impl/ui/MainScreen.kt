@@ -147,7 +147,7 @@ private fun ListSpendingToday(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(250.dp)
     ) {
         Text(
             modifier = Modifier.padding(16.dp),
