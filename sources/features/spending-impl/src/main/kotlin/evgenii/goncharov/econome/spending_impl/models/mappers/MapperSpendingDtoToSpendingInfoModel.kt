@@ -20,7 +20,7 @@ internal class MapperSpendingDtoToSpendingInfoModel @Inject constructor(
         val categories = defaultCategoryInteractor.provideCategoriesByIds(dto.categoriesId)
         return SpendingInfoModel(
             amount = String.format(appLocale, AMOUNT_FORMAT_PATTERN, dto.amount),
-            comment = dto.comment,
+            comment = dto.comment.ifEmpty { EMPTY_COMMENT },
             categories = mapCategoriesToTitles(categories),
             spendingTime = formatter.format(dto.createAt)
         )
@@ -35,5 +35,6 @@ internal class MapperSpendingDtoToSpendingInfoModel @Inject constructor(
     private companion object {
 
         const val TIME_FORMAT = "yyyy 'г.' dd MMM HH-mm"
+        const val EMPTY_COMMENT = "-"
     }
 }
