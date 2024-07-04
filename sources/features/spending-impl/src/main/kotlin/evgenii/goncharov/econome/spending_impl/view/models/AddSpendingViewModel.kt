@@ -89,7 +89,8 @@ internal class AddSpendingViewModel @Inject constructor(
                         walletId = currentWalletRepository.currentWalletId,
                         amount = _uiState.value.inputSpending.toFloat(),
                         comment = _uiState.value.inputComment,
-                        categoriesId = _uiState.value.spendingCategories.map { it.id },
+                        categoriesId = _uiState.value.spendingCategories.filter { it.isSelected }
+                            .map { it.id },
                         createAt = Calendar.getInstance().time
                     )
                 )
