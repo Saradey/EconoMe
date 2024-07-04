@@ -1,6 +1,7 @@
 package evgenii.goncharov.econome.main_impl.models.mappers
 
 import evgenii.goncharov.econome.category.interactors.DefaultCategoryInteractor
+import evgenii.goncharov.econome.category.models.CategoryModel
 import evgenii.goncharov.econome.core_database_api.dto.SpendingDto
 import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import java.text.SimpleDateFormat
@@ -16,13 +17,22 @@ internal class MapperSpendingDtoToSpendingItemModel @Inject constructor(
 
     fun map(dto: List<SpendingDto>): List<SpendingItemModel> {
         return dto.mapIndexed { index, spendingDto ->
+            val categories = defaultCategoryInteractor.provideCategoriesByIds(
+                spendingDto.categoriesId
+            )
             SpendingItemModel(
                 number = index.toString(),
                 amount = spendingDto.amount.toString(),
                 comment = spendingDto.comment,
-                spendingCategoryTitle = ,
+                spendingCategoryTitle = mapCategoriesToTitles(categories),
                 spendingTime = timeHourAndMinuteDateFormatter.format(spendingDto.createAt)
             )
+        }
+    }
+
+    private fun mapCategoriesToTitles(categories: List<CategoryModel>): List<String> {
+        return categories.map { model ->
+            model.title
         }
     }
 
