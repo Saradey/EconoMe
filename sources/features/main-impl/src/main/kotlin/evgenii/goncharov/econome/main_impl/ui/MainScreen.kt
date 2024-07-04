@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.main_impl.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -51,7 +52,7 @@ private fun MainScreenContent(
     modifier: Modifier = Modifier,
     state: MainUiState.Content,
     goToDialogAddSpending: () -> Unit,
-    goToSpendingInfo: () -> Unit,
+    goToSpendingInfo: (Long) -> Unit,
     goToAddSpendingLimit: () -> Unit,
     goToListShops: () -> Unit,
     goToAddCostGoods: () -> Unit,
@@ -73,7 +74,8 @@ private fun MainScreenContent(
         }
         ListSpendingToday(
             spendingListToday = state.spendingListToday,
-            currentCurrencySymbol = state.currencyCharacter
+            currentCurrencySymbol = state.currencyCharacter,
+            spendingInfoClickListener = goToSpendingInfo
         )
 
         Column(
@@ -85,11 +87,6 @@ private fun MainScreenContent(
                 color = Color.White,
                 fontSize = 20.sp
             )
-            Button(
-                onClick = goToSpendingInfo,
-            ) {
-                Text("Go to 5. Экран информации по расходу")
-            }
             Button(
                 onClick = goToAddSpendingLimit,
             ) {
@@ -144,7 +141,8 @@ private fun HeaderInfo(
 private fun ListSpendingToday(
     modifier: Modifier = Modifier,
     spendingListToday: List<SpendingItemModel>,
-    currentCurrencySymbol: String
+    currentCurrencySymbol: String,
+    spendingInfoClickListener: (Long) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -169,7 +167,9 @@ private fun ListSpendingToday(
                     categoriesTitle = item.spendingCategoryTitle,
                     spendingTime = item.spendingTime,
                     comment = item.comment
-                )
+                ) {
+                    spendingInfoClickListener(item.idSpending)
+                }
                 HorizontalDivider(color = Color.White, thickness = 1.dp)
             }
         }
@@ -182,11 +182,13 @@ private fun ItemSpendingToday(
     title: String,
     categoriesTitle: List<String>,
     spendingTime: String,
-    comment: String
+    comment: String,
+    clickListener: () -> Unit
 ) {
     Column(
         modifier = modifier
             .fillMaxWidth()
+            .clickable { clickListener() }
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
