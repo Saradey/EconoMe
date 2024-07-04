@@ -7,6 +7,8 @@ import evgenii.goncharov.econome.common_categories_impl.di.contracts.AllCategori
 import evgenii.goncharov.econome.common_categories_impl.ui.AllCategoriesScreen
 import evgenii.goncharov.econome.common_categories_impl.view.models.AllCategoriesViewModel
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 
 /**
  * 11. Screen

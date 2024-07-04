@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.wallet_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.wallet_api.di.WalletsListApi
 import evgenii.goncharov.econome.wallet_impl.di.contracts.WalletsListInternal
 import evgenii.goncharov.econome.wallet_impl.ui.WalletsListScreen

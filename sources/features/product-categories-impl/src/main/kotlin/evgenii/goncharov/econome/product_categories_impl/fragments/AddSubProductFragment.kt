@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.product_categories_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.product_categories_api.di.AddSubProductApi
 import evgenii.goncharov.econome.product_categories_impl.di.contracts.AddSubProductInternal
 import evgenii.goncharov.econome.product_categories_impl.ui.AddSubProductScreen

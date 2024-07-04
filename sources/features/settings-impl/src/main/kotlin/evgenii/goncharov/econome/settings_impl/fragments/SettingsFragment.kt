@@ -3,6 +3,8 @@ package evgenii.goncharov.econome.settings_impl.fragments
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.settings_api.di.SettingsApi
 import evgenii.goncharov.econome.settings_impl.di.contracts.SettingsInternal
 import evgenii.goncharov.econome.settings_impl.ui.SettingsScreen

@@ -24,19 +24,19 @@ public object DI {
         this.featureContainer = featureContainer
     }
 
-    public fun getFeatureApi(key: Class<out ReleasableApi>): ReleasableApi {
+    internal fun getFeatureApi(key: Class<out ReleasableApi>): ReleasableApi {
         return featureContainer.getFeatureComponent(key)
     }
 
-    public fun releaseFeatureApi(key: Class<out ReleasableApi>) {
+    internal fun releaseFeatureApi(key: Class<out ReleasableApi>) {
         featureContainer.releaseFeatureComponent(key)
     }
 
-    public fun <D> getGlobalApi(key: Class<D>): D {
+    internal fun <D> getGlobalApi(key: Class<D>): D {
         return featureContainer.getGlobalComponent(key)
     }
 
-    public fun <L : BaseLauncher> getFeatureLauncher(key: Class<L>): BaseLauncher {
+    internal fun <L : BaseLauncher> getFeatureLauncher(key: Class<L>): BaseLauncher {
         return featureContainer.getFeatureLauncher(key)
     }
 }
