@@ -7,6 +7,7 @@ import evgenii.goncharov.econome.bank_accounts_impl.di.contracts.AddPatternAccou
 import evgenii.goncharov.econome.bank_accounts_impl.ui.AddPatternAccountScreen
 import evgenii.goncharov.econome.bank_accounts_impl.view.models.AddPatternAccountViewModel
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
+import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
 
 /**
  * 14. Screen

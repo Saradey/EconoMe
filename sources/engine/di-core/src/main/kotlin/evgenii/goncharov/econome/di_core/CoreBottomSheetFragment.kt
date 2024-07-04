@@ -31,9 +31,6 @@ public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment() {
     @Composable
     public abstract fun InitContent()
 
-    protected fun getFeatureApi(key: Class<out ReleasableApi>): ReleasableApi =
-        DI.getFeatureApi(key)
-
     protected abstract fun releaseDependencies()
 
     protected fun releaseFeatureApi(key: Class<out ReleasableApi>) {
