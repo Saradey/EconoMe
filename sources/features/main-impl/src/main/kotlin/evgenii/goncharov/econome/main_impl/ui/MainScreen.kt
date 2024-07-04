@@ -22,6 +22,7 @@ import evgenii.goncharov.econome.main_impl.models.MainUiState
 import evgenii.goncharov.econome.main_impl.models.SpendingItemModel
 import evgenii.goncharov.econome.main_impl.view.models.MainViewModel
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.text.style.TextOverflow
 
 @Composable
 internal fun MainScreen(
@@ -160,7 +161,7 @@ private fun ListSpendingToday(
         ) {
             items(spendingListToday) { item ->
                 ItemSpendingToday(
-                    title = "${item.number} ${item.amount} $currentCurrencySymbol",
+                    title = "${item.number}. ${item.amount} $currentCurrencySymbol",
                     categoriesTitle = item.spendingCategoryTitle,
                     spendingTime = item.spendingTime,
                     comment = item.comment
@@ -172,14 +173,31 @@ private fun ListSpendingToday(
 
 @Composable
 private fun ItemSpendingToday(
+    modifier: Modifier = Modifier,
     title: String,
     categoriesTitle: List<String>,
     spendingTime: String,
     comment: String
 ) {
-    Column {
-        Row {
-
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = title,
+                maxLines = 1,
+                color = Color.White,
+                fontSize = 16.sp
+            )
+            Text(
+                text = categoriesTitle.joinToString("/"),
+                color = Color.White,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontSize = 16.sp
+            )
         }
     }
 }
