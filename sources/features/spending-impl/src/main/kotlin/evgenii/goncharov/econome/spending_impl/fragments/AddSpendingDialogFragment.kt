@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import evgenii.goncharov.econome.common.ui.SystemEvent
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
 import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.spending_api.di.AddSpendingApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.AddSpendingInternal
 import evgenii.goncharov.econome.spending_impl.ui.AddSpendingScreen

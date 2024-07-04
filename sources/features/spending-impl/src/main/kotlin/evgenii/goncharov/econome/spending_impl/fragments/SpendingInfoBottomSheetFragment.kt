@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
 import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 import evgenii.goncharov.econome.spending_api.di.SpendingInfoApi
 import evgenii.goncharov.econome.spending_impl.di.contracts.SpendingInfoInternal
 import evgenii.goncharov.econome.spending_impl.ui.SpendingInfoScreen

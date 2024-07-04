@@ -8,6 +8,7 @@ import evgenii.goncharov.econome.bank_accounts_impl.ui.AddPatternAccountScreen
 import evgenii.goncharov.econome.bank_accounts_impl.view.models.AddPatternAccountViewModel
 import evgenii.goncharov.econome.di_core.CoreBottomSheetFragment
 import evgenii.goncharov.econome.di_core.extensions.getFeatureApi
+import evgenii.goncharov.econome.di_core.extensions.releaseFeatureApi
 
 /**
  * 14. Screen

@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import evgenii.goncharov.econome.di_core.contracts.ReleasableApi
-import evgenii.goncharov.econome.di_core.engine.DI
 import evgenii.goncharov.econome.di_core.extensions.makeUiContainer
 
 public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment() {
@@ -32,8 +30,4 @@ public abstract class CoreBottomSheetFragment : BottomSheetDialogFragment() {
     public abstract fun InitContent()
 
     protected abstract fun releaseDependencies()
-
-    protected fun releaseFeatureApi(key: Class<out ReleasableApi>) {
-        DI.releaseFeatureApi(key)
-    }
 }
