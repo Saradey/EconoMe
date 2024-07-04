@@ -35,4 +35,5 @@ dependencies {
     implementation(libs.fragment.ktx)
     implementation(libs.material)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.kotlinx.serialization.json)
 }

@@ -22,4 +22,8 @@ internal class SpendingDataStoreImpl @Inject constructor(
             spendingDao.getSpendingsByDate(date, currentWalletId)
         )
     }
+
+    override suspend fun getSpending(spendingId: Long): SpendingDto {
+        TODO("Not yet implemented")
+    }
 }
