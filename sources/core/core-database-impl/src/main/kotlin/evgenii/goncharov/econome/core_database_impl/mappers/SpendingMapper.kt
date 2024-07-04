@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 internal class SpendingMapper @Inject constructor() {
 
-    fun mapSpendingDtoToSpendingEntity(dto: SpendingDto) : SpendingEntity {
+    fun mapSpendingDtoToSpendingEntity(dto: SpendingDto): SpendingEntity {
         return SpendingEntity(
             spendingId = dto.id,
             walletId = dto.walletId,
@@ -28,5 +28,16 @@ internal class SpendingMapper @Inject constructor() {
                 categoriesId = entity.categoriesId
             )
         }
+    }
+
+    fun mapSpendingEntityToSpendingDto(entity: SpendingEntity): SpendingDto {
+        return SpendingDto(
+            id = entity.spendingId,
+            walletId = entity.walletId,
+            amount = entity.amount,
+            comment = entity.comment,
+            createAt = entity.createAt,
+            categoriesId = entity.categoriesId
+        )
     }
 }

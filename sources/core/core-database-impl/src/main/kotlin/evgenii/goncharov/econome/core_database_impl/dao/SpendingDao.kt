@@ -17,4 +17,7 @@ internal interface SpendingDao {
         "SELECT * FROM $SPENDING_TABLE WHERE date(create_at / 1000, 'unixepoch') = date(:date / 1000, 'unixepoch') AND wallet_id_foreign = :walletId"
     )
     fun getSpendingsByDate(date: Long, walletId: Long): List<SpendingEntity>
+
+    @Query("SELECT * FROM $SPENDING_TABLE WHERE spending_id = :spendingId")
+    fun getSpendingById(spendingId: Long): SpendingEntity
 }

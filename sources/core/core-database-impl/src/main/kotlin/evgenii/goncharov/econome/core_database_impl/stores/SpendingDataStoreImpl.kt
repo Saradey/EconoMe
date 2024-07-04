@@ -24,6 +24,8 @@ internal class SpendingDataStoreImpl @Inject constructor(
     }
 
     override suspend fun getSpending(spendingId: Long): SpendingDto {
-        TODO("Not yet implemented")
+        return spendingMapper.mapSpendingEntityToSpendingDto(
+            spendingDao.getSpendingById(spendingId)
+        )
     }
 }
