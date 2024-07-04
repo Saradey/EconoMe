@@ -33,7 +33,7 @@ internal class MainViewModel @Inject constructor(
     }
 
     fun goToSpendingInfo(spendingId: Long) {
-        spendingLauncher.launchDeepSpendingInfo()
+        spendingLauncher.launchDeepSpendingInfo(spendingId)
     }
 
     fun goToAddSpendingLimit() {

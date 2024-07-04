@@ -1,5 +1,6 @@
 package evgenii.goncharov.econome.spending_impl.fragments
 
+import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
 import evgenii.goncharov.econome.di_core.CoreFragment
@@ -29,6 +30,12 @@ internal class SpendingInfoFragment : CoreFragment() {
 
     companion object {
 
-        fun newInstance() = SpendingInfoFragment()
+        private const val SPENDING_ID_KEY = "SPENDING_ID_KEY"
+
+        fun newInstance(spendingId: Long) = SpendingInfoFragment().apply {
+            val args = Bundle()
+            args.putLong(SPENDING_ID_KEY, spendingId)
+            arguments = args
+        }
     }
 }

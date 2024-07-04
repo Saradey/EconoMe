@@ -13,10 +13,10 @@ internal object SpendingNavigationScreens {
         AddSpendingDialogFragment.newInstance()
     }
 
-    fun startDeepSpendingInfo() = object : FragmentScreen {
+    fun startDeepSpendingInfo(spendingId: Long) = object : FragmentScreen {
         override val screenKey: String = BACKSTACK_NAME_EVERYWHERE
         override fun createFragment(factory: FragmentFactory): Fragment {
-            return SpendingInfoFragment.newInstance()
+            return SpendingInfoFragment.newInstance(spendingId)
         }
     }
 }
